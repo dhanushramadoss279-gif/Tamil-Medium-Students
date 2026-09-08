@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BE VERB - Past Tense Explanation | Tamil Medium Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e3a8a;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+            
+            --pos-color: #15803d;
+            --pos-bg: #f0fdf4;
+            --neg-color: #b91c1c;
+            --neg-bg: #fef2f2;
+            --que-color: #b45309;
+            --que-bg: #fffbeb;
+            --negque-color: #6b21a8;
+            --negque-bg: #faf5ff;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 1.25rem;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            background-color: #eff6ff;
+            border-radius: 8px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+
+        /* HERO HEADER */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.3rem;
+            color: #93c5fd;
+        }
+
+        .subject-rules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+        }
+
+        .subject-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* SECTION CARDS */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-header {
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-explanation {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .rule-alert {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            color: #92400e;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .formula-box {
+            display: inline-block;
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* TABLES */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: #ffffff;
+            font-size: 0.98rem;
+        }
+
+        th, td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .subject-cell {
+            font-weight: 700;
+            color: var(--primary-blue);
+            width: 15%;
+        }
+
+        .verb-cell {
+            font-weight: 700;
+            color: #0f172a;
+            width: 20%;
+        }
+
+        .example-cell {
+            font-weight: 600;
+            color: #0369a1;
+            width: 32%;
+        }
+
+        .tamil-cell {
+            color: #334155;
+            width: 33%;
+        }
+
+        /* SECTION SPECIFIC COLORS */
+        .pos-card { border-top: 6px solid var(--pos-color); }
+        .pos-card .card-title { color: var(--pos-color); }
+        .pos-card .card-explanation { border-left-color: var(--pos-color); background-color: var(--pos-bg); }
+
+        .neg-card { border-top: 6px solid var(--neg-color); }
+        .neg-card .card-title { color: var(--neg-color); }
+        .neg-card .card-explanation { border-left-color: var(--neg-color); background-color: var(--neg-bg); }
+
+        .que-card { border-top: 6px solid var(--que-color); }
+        .que-card .card-title { color: var(--que-color); }
+        .que-card .card-explanation { border-left-color: var(--que-color); background-color: var(--que-bg); }
+
+        .negque-card { border-top: 6px solid var(--negque-color); }
+        .negque-card .card-title { color: var(--negque-color); }
+        .negque-card .card-explanation { border-left-color: var(--negque-color); background-color: var(--negque-bg); }
+
+        /* SHORT FORMS BOX */
+        .short-forms-box {
+            background-color: #f1f5f9;
+            border: 1px dashed var(--border-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* FINAL SUMMARY & MEMORY BOX */
+        .summary-card {
+            background-color: #ffffff;
+            border: 2px solid var(--primary-blue);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-top: 2.5rem;
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            border: 2px dashed #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .memory-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #b45309;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .memory-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .memory-list li {
+            font-weight: 700;
+            color: #78350f;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .page-title { font-size: 1.75rem; }
+            .card { padding: 1.2rem; }
+            th, td { padding: 0.6rem 0.6rem; font-size: 0.88rem; }
+            .formula-box { font-size: 0.9rem; width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="back-link">← Back to Verbs</a>
+            <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-muted);">Tamil Medium Student</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- PAGE HERO -->
+        <section class="page-header">
+            <h1 class="page-title">BE VERB – PAST</h1>
+            <div class="page-subtitle">BE VERB (PAST) என்றால் என்ன?</div>
+            <p style="margin-top: 0.8rem; font-size: 1rem; line-height: 1.5;">
+                கடந்த காலத்தில் (Past Tense) ஒருவரின் நிலை, தன்மை அல்லது இருப்பைப் பற்றிப் பேச <strong>WAS / WERE</strong> பயன்படுகின்றன.
+            </p>
+            <div class="subject-rules">
+                <span class="subject-badge">I / He / She / It ➔ WAS</span>
+                <span class="subject-badge">You / We / They ➔ WERE</span>
+            </div>
+        </section>
+
+
+        <!-- 1. POSITIVE (+) -->
+        <section class="card pos-card">
+            <div class="card-header">
+                <h2 class="card-title">1. POSITIVE (+)</h2>
+            </div>
+            
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Past Positive sentence என்பது கடந்த காலத்தில் ஒருவர் அல்லது ஒரு பொருளின் நிலை, தன்மை அல்லது இருப்பை சொல்ல பயன்படும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: Subject + WAS / WERE + ...
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>BE Verb</th>
+                            <th>Example</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="subject-cell">I</td>
+                            <td class="verb-cell">WAS</td>
+                            <td class="example-cell">I was a student.</td>
+                            <td class="tamil-cell">நான் ஒரு மாணவனாக / மாணவியாக இருந்தேன்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">He</td>
+                            <td class="verb-cell">WAS</td>
+                            <td class="example-cell">He was happy.</td>
+                            <td class="tamil-cell">அவன் மகிழ்ச்சியாக இருந்தான்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">She</td>
+                            <td class="verb-cell">WAS</td>
+                            <td class="example-cell">She was a teacher.</td>
+                            <td class="tamil-cell">அவள் ஒரு ஆசிரியராக இருந்தாள்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">It</td>
+                            <td class="verb-cell">WAS</td>
+                            <td class="example-cell">It was big.</td>
+                            <td class="tamil-cell">அது பெரியதாக இருந்தது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">You</td>
+                            <td class="verb-cell">WERE</td>
+                            <td class="example-cell">You were ready.</td>
+                            <td class="tamil-cell">நீங்கள் தயாராக இருந்தீர்கள்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">We</td>
+                            <td class="verb-cell">WERE</td>
+                            <td class="example-cell">We were friends.</td>
+                            <td class="tamil-cell">நாங்கள் நண்பர்களாக இருந்தோம்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">They</td>
+                            <td class="verb-cell">WERE</td>
+                            <td class="example-cell">They were students.</td>
+                            <td class="tamil-cell">அவர்கள் மாணவர்களாக இருந்தார்கள்.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- 2. NEGATIVE (-) -->
+        <section class="card neg-card">
+            <div class="card-header">
+                <h2 class="card-title">2. NEGATIVE (-)</h2>
+            </div>
+
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Past Negative sentence என்பதுகடந்த காலத்தில் ஒருவர் அல்லது ஒரு பொருள் அப்படி இல்லை என்பதை சொல்ல பயன்படும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: Subject + WAS / WERE + NOT + ...
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>BE Verb</th>
+                            <th>Example</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="subject-cell">I</td>
+                            <td class="verb-cell">WAS NOT</td>
+                            <td class="example-cell">I was not a student.</td>
+                            <td class="tamil-cell">நான் ஒரு மாணவனாக / மாணவியாக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">He</td>
+                            <td class="verb-cell">WAS NOT</td>
+                            <td class="example-cell">He was not happy.</td>
+                            <td class="tamil-cell">அவன் மகிழ்ச்சியாக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">She</td>
+                            <td class="verb-cell">WAS NOT</td>
+                            <td class="example-cell">She was not a teacher.</td>
+                            <td class="tamil-cell">அவள் ஒரு ஆசிரியராக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">It</td>
+                            <td class="verb-cell">WAS NOT</td>
+                            <td class="example-cell">It was not big.</td>
+                            <td class="tamil-cell">அது பெரியதாக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">You</td>
+                            <td class="verb-cell">WERE NOT</td>
+                            <td class="example-cell">You were not ready.</td>
+                            <td class="tamil-cell">நீங்கள் தயாராக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">We</td>
+                            <td class="verb-cell">WERE NOT</td>
+                            <td class="example-cell">We were not friends.</td>
+                            <td class="tamil-cell">நாங்கள் நண்பர்களாக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">They</td>
+                            <td class="verb-cell">WERE NOT</td>
+                            <td class="example-cell">They were not students.</td>
+                            <td class="tamil-cell">அவர்கள் மாணவர்களாக இல்லை.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="short-forms-box">
+                ✂️ Short Forms (சுருக்க வடிவம்):<br>
+                • <strong>was not</strong> = <strong>wasn't</strong><br>
+                • <strong>were not</strong> = <strong>weren't</strong>
+            </div>
+        </section>
+
+
+        <!-- 3. POSITIVE QUESTION (+?) -->
+        <section class="card que-card">
+            <div class="card-header">
+                <h2 class="card-title">3. POSITIVE QUESTION (+?)</h2>
+            </div>
+
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Past Positive Question என்பது கடந்த காலத்தில் ஒருவர் அல்லது ஒரு பொருளின் நிலையைப் பற்றி கேள்வி கேட்க பயன்படும்.
+            </div>
+
+            <div class="rule-alert">
+                📌 Important rule: WAS / WERE sentence-ன் ஆரம்பத்தில் வரும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: WAS / WERE + Subject + ... ?
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>BE Verb</th>
+                            <th>Subject</th>
+                            <th>Question</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">I</td>
+                            <td class="example-cell">Was I a student?</td>
+                            <td class="tamil-cell">நான் ஒரு மாணவனா / மாணவியா இருந்தேனா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">He</td>
+                            <td class="example-cell">Was he happy?</td>
+                            <td class="tamil-cell">அவன் மகிழ்ச்சியாக இருந்தானா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">She</td>
+                            <td class="example-cell">Was she a teacher?</td>
+                            <td class="tamil-cell">அவள் ஆசிரியராக இருந்தாளா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">It</td>
+                            <td class="example-cell">Was it big?</td>
+                            <td class="tamil-cell">அது பெரியதாக இருந்ததா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WERE</td>
+                            <td class="subject-cell">You</td>
+                            <td class="example-cell">Were you ready?</td>
+                            <td class="tamil-cell">நீங்கள் தயாராக இருந்தீர்களா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WERE</td>
+                            <td class="subject-cell">We</td>
+                            <td class="example-cell">Were we friends?</td>
+                            <td class="tamil-cell">நாம் நண்பர்களாக இருந்தோமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WERE</td>
+                            <td class="subject-cell">They</td>
+                            <td class="example-cell">Were they students?</td>
+                            <td class="tamil-cell">அவர்கள் மாணவர்களாக இருந்தார்களா?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- 4. NEGATIVE QUESTION (-?) -->
+        <section class="card negque-card">
+            <div class="card-header">
+                <h2 class="card-title">4. NEGATIVE QUESTION (-?)</h2>
+            </div>
+
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Past Negative Question என்பது கடந்த காலத்தில் ஒருவர் அல்லது ஒரு பொருள் அப்படி இல்லையா என்று கேட்க பயன்படும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: WAS / WERE + Subject + NOT + ... ?
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>BE Verb</th>
+                            <th>Subject</th>
+                            <th>Question</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">I</td>
+                            <td class="example-cell">Was I not a student?</td>
+                            <td class="tamil-cell">நான் ஒரு மாணவனாக / மாணவியாக இல்லையா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">He</td>
+                            <td class="example-cell">Was he not happy?</td>
+                            <td class="tamil-cell">அவன் மகிழ்ச்சியாக இல்லையா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">She</td>
+                            <td class="example-cell">Was she not a teacher?</td>
+                            <td class="tamil-cell">அவள் ஆசிரியராக இல்லையா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WAS</td>
+                            <td class="subject-cell">It</td>
+                            <td class="example-cell">Was it not big?</td>
+                            <td class="tamil-cell">அது பெரியதாக இல்லையா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WERE</td>
+                            <td class="subject-cell">You</td>
+                            <td class="example-cell">Were you not ready?</td>
+                            <td class="tamil-cell">நீங்கள் தயாராக இல்லையா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WERE</td>
+                            <td class="subject-cell">We</td>
+                            <td class="example-cell">Were we not friends?</td>
+                            <td class="tamil-cell">நாம் நண்பர்களாக இல்லையா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WERE</td>
+                            <td class="subject-cell">They</td>
+                            <td class="example-cell">Were they not students?</td>
+                            <td class="tamil-cell">அவர்கள் மாணவர்களாக இல்லையா?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="short-forms-box">
+                ⚡ Common Short Forms:<br>
+                • <strong>Wasn't he...?</strong><br>
+                • <strong>Wasn't she...?</strong><br>
+                • <strong>Weren't you...?</strong><br>
+                • <strong>Weren't they...?</strong>
+            </div>
+        </section>
+
+
+        <!-- FINAL SUMMARY -->
+        <section class="summary-card">
+            <h2 style="font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+                📋 FINAL SUMMARY
+            </h2>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Formula</th>
+                            <th>Example</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--pos-color);">Positive (+)</td>
+                            <td>Subject + WAS/WERE</td>
+                            <td style="font-weight: 600;">I was happy.</td>
+                            <td>நான் மகிழ்ச்சியாக இருந்தேன்.</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--neg-color);">Negative (-)</td>
+                            <td>Subject + WAS/WERE + NOT</td>
+                            <td style="font-weight: 600;">I was not happy.</td>
+                            <td>நான் மகிழ்ச்சியாக இல்லை.</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--que-color);">Positive Question (+?)</td>
+                            <td>WAS/WERE + Subject?</td>
+                            <td style="font-weight: 600;">Was I happy?</td>
+                            <td>நான் மகிழ்ச்சியாக இருந்தேனா?</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--negque-color);">Negative Question (-?)</td>
+                            <td>WAS/WERE + Subject + NOT?</td>
+                            <td style="font-weight: 600;">Was I not happy?</td>
+                            <td>நான் மகிழ்ச்சியாக இல்லையா?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="memory-box">
+                <div class="memory-title">
+                    <span>🧠</span> நினைவில் வைத்துக்கொள்ளுங்கள்:
+                </div>
+                <ul class="memory-list">
+                    <li>• <strong>I / He / She / It</strong> ➔ WAS</li>
+                    <li>• <strong>You / We / They</strong> ➔ WERE</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

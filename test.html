@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Medium Student - Learn English Easily</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+            flex-shrink: 0;
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        .site-tagline {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            padding: 0.2rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+            padding: 3.5rem 1.25rem 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-heading {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 0.85rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        /* LEARNING CARDS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1.25rem 1rem;
+        }
+
+        .section-header {
+            margin-bottom: 1.75rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 1.6rem;
+            background-color: var(--primary-blue);
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .learn-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .learn-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 12px 20px -5px rgba(37, 99, 235, 0.12);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .icon-verb { background-color: #dbeafe; }
+        .icon-pronoun { background-color: #fce7f3; }
+        .icon-tense { background-color: #d1fae5; }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            padding: 0.5rem 1.25rem;
+            border-radius: 10px;
+            border: 1.5px solid var(--primary-blue);
+            transition: all 0.2s ease;
+        }
+
+        .card-btn:hover {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 2rem 1.25rem;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+                gap: 0.25rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 1rem;
+            }
+
+            .hero {
+                padding: 2.5rem 1rem 2rem;
+            }
+
+            .hero-heading {
+                font-size: 1.65rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            }
+        }
+
+        @media (max-width: 400px) {
+            .site-name {
+                font-size: 1.05rem;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+
+            .hero-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo-box">
+                <div class="logo-icon">📚</div>
+                <div class="logo-text-group">
+                    <span class="site-name">Tamil Medium Student</span>
+                    <span class="site-tagline">Learn English Easily</span>
+                </div>
+            </a>
+
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#learn" class="nav-link">Learn</a></li>
+                <li><a href="#practice" class="nav-link">Practice</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1 class="hero-heading">English-ஐ Simple-ஆ கத்துக்கலாம்!</h1>
+            <p class="hero-subtitle">Learn English grammar easily with Tamil explanations.</p>
+            <a href="#learn" class="hero-btn">Start Learning</a>
+        </div>
+    </section>
+
+    <!-- LEARNING CARDS -->
+    <main class="container" id="learn">
+        <div class="section-header">
+            <h2 class="section-title">Grammar Basics</h2>
+        </div>
+
+        <div class="cards-grid">
+            <div class="learn-card">
+                <div class="card-icon icon-verb">✍️</div>
+                <div class="card-title">VERB</div>
+                <div class="card-desc">செயலைக் குறிக்கும் சொல்</div>
+                <a href="#" class="card-btn">Learn More</a>
+            </div>
+
+            <div class="learn-card">
+                <div class="card-icon icon-pronoun">👤</div>
+                <div class="card-title">PRONOUN</div>
+                <div class="card-desc">பெயர்ச்சொல்லுக்கு பதிலாக வரும் சொல்</div>
+                <a href="#" class="card-btn">Learn More</a>
+            </div>
+
+            <div class="learn-card">
+                <div class="card-icon icon-tense">⏰</div>
+                <div class="card-title">TENSE</div>
+                <div class="card-desc">காலத்தை குறிக்கும் grammar</div>
+                <a href="#" class="card-btn">Learn More</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; Tamil Medium Student - Learn English Easily Through Tamil</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function (event) {
+            const navMenu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

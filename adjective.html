@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ADJECTIVE — Tamil Medium Student</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border-color: #e2e8f0;
+      
+      --basic-theme: #059669;
+      --basic-bg: #ecfdf5;
+      --basic-border: #a7f3d0;
+
+      --mastery-theme: #d97706;
+      --mastery-bg: #fffbeb;
+      --mastery-border: #fde68a;
+
+      --correct-color: #16a34a;
+      --correct-bg: #f0fdf4;
+      --wrong-color: #dc2626;
+      --wrong-bg: #fef2f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 16px 12px;
+      padding-bottom: calc(16px + env(safe-area-inset-bottom));
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Views control */
+    .view-section {
+      display: none;
+    }
+    .view-section.active {
+      display: block;
+    }
+
+    /* Common Header & Brand */
+    .brand-banner {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .brand-name {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 4px;
+    }
+    .main-title {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+    .main-subtitle {
+      font-size: clamp(0.9rem, 3vw, 1.05rem);
+      color: var(--text-muted);
+      margin-top: 6px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Back Button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      min-height: 44px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .back-btn:hover, .back-btn:active {
+      color: var(--primary);
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    /* MAIN MENU CARDS */
+    .main-cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    .menu-card:hover, .menu-card:active {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px -5px rgba(37, 99, 235, 0.15);
+    }
+
+    .menu-card-icon {
+      width: 56px;
+      height: 56px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+
+    .menu-card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .menu-card-subtitle {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ADJECTIVE WORDS SECTION */
+    .section-block {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-head {
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .head-basic {
+      background-color: var(--basic-bg);
+      color: var(--basic-theme);
+      border: 1px solid var(--basic-border);
+    }
+
+    .head-mastery {
+      background-color: var(--mastery-bg);
+      color: var(--mastery-theme);
+      border: 1px solid var(--mastery-border);
+    }
+
+    .words-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .words-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+      }
+      .section-block {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .words-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* WORD CARD STYLES */
+    .word-card {
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 12px;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100px;
+      transition: border-color 0.2s ease;
+    }
+
+    .word-card:active {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .card-num {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 1px 5px;
+    }
+
+    .card-english {
+      font-size: clamp(1.05rem, 3.5vw, 1.2rem);
+      font-weight: 800;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 10px;
+      margin-bottom: 2px;
+      word-break: break-word;
+    }
+
+    .card-meaning {
+      font-size: clamp(0.95rem, 3vw, 1.05rem);
+      font-weight: 700;
+      color: var(--primary);
+      word-break: break-word;
+    }
+
+    /* QUIZ SECTION STYLES */
+    .quiz-mode-select {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .mode-card {
+      background: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      padding: 20px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      user-select: none;
+    }
+
+    .mode-card:hover, .mode-card:active {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .mode-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--text-main);
+    }
+
+    .mode-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .quiz-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 18px 14px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    @media (min-width: 600px) {
+      .quiz-box {
+        padding: 28px;
+        border-radius: 20px;
+      }
+    }
+
+    .quiz-top-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background-color: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .question-card {
+      margin-bottom: 20px;
+    }
+
+    .question-text {
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .question-subtext {
+      font-size: clamp(0.9rem, 3.2vw, 1.05rem);
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      background-color: var(--bg-main);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border-left: 4px solid var(--primary);
+      line-height: 1.4;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 600px) {
+      .options-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .option-btn {
+      padding: 14px 16px;
+      min-height: 52px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      font-family: inherit;
+      text-align: left;
+      background-color: var(--card-bg);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      cursor: pointer;
+      color: var(--text-main);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      word-break: break-word;
+    }
+
+    .option-btn:active:not([disabled]) {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .option-btn.correct {
+      border-color: var(--correct-color) !important;
+      background-color: var(--correct-bg) !important;
+      color: var(--correct-color) !important;
+      font-weight: 700;
+    }
+
+    .option-btn.wrong {
+      border-color: var(--wrong-color) !important;
+      background-color: var(--wrong-bg) !important;
+      color: var(--wrong-color) !important;
+      font-weight: 700;
+    }
+
+    .feedback-box {
+      font-size: 0.98rem;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .feedback-box.correct {
+      display: block;
+      background-color: var(--correct-bg);
+      color: var(--correct-color);
+      border: 1px solid var(--correct-color);
+    }
+
+    .feedback-box.wrong {
+      display: block;
+      background-color: var(--wrong-bg);
+      color: var(--wrong-color);
+      border: 1px solid var(--wrong-color);
+    }
+
+    .next-btn, .action-btn {
+      width: 100%;
+      padding: 14px 20px;
+      min-height: 48px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: inline-block;
+      text-align: center;
+      user-select: none;
+    }
+
+    @media (min-width: 600px) {
+      .next-btn, .action-btn {
+        width: auto;
+      }
+    }
+
+    .next-btn:hover, .next-btn:active, .action-btn:hover, .action-btn:active {
+      background-color: var(--primary-hover);
+    }
+
+    /* RESULT SCREEN */
+    .result-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 28px 16px;
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .result-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .score-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto 20px auto;
+    }
+
+    .score-card {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    .score-card-val {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .score-card-lbl {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .score-card.highlight {
+      grid-column: span 2;
+      background-color: var(--primary-light);
+      border-color: var(--primary);
+    }
+
+    .score-card.highlight .score-card-val {
+      color: var(--primary);
+      font-size: 1.8rem;
+    }
+
+    .result-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    @media (min-width: 480px) {
+      .result-actions {
+        flex-direction: row;
+      }
+    }
+
+    .secondary-btn {
+      width: 100%;
+      padding: 14px 20px;
+      min-height: 48px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: inherit;
+      background-color: var(--card-bg);
+      color: var(--text-main);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    @media (min-width: 480px) {
+      .secondary-btn {
+        width: auto;
+      }
+    }
+
+    .secondary-btn:hover, .secondary-btn:active {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- BRAND BANNER -->
+    <div class="brand-banner">
+      <div class="brand-name">Tamil Medium Student</div>
+    </div>
+
+    <!-- MAIN MENU VIEW -->
+    <div id="mainView" class="view-section active">
+      <div style="text-align: center;">
+        <h1 class="main-title">ADJECTIVE</h1>
+        <p class="main-subtitle">Learn Adjective Words with Tamil Meaning and Practice with Quiz</p>
+      </div>
+
+      <div class="main-cards-container">
+        <!-- CARD 1 -->
+        <div class="menu-card" onclick="showView('wordsView')">
+          <div class="menu-card-icon">📖</div>
+          <div class="menu-card-title">ADJECTIVE WORDS</div>
+          <div class="menu-card-subtitle">Tamil Meaning</div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="menu-card" onclick="showView('quizSelectView')">
+          <div class="menu-card-icon">✏️</div>
+          <div class="menu-card-title">QUIZ</div>
+          <div class="menu-card-subtitle">Practice What You Learned</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: ADJECTIVE WORDS -->
+    <div id="wordsView" class="view-section">
+      <button class="back-btn" onclick="showView('mainView')">← Back</button>
+      
+      <div style="margin-bottom: 16px;">
+        <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Adjective Words — பெயரடைச் சொற்கள்</h2>
+        <p style="color: var(--text-muted); font-weight: 600; font-size: 0.9rem;">English words with Tamil translations</p>
+      </div>
+
+      <!-- BASIC ADJECTIVES -->
+      <div class="section-block">
+        <div class="section-head head-basic">🌱 Basic Adjectives — அடிப்படை பெயரடைகள்</div>
+        <div id="basicWordsGrid" class="words-grid"></div>
+      </div>
+
+      <!-- MASTERY ADJECTIVES -->
+      <div class="section-block">
+        <div class="section-head head-mastery">🔥 Mastery Adjectives — மேம்பட்ட பெயரடைகள்</div>
+        <div id="masteryWordsGrid" class="words-grid"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: QUIZ MODE SELECT -->
+    <div id="quizSelectView" class="view-section">
+      <button class="back-btn" onclick="showView('mainView')">← Back</button>
+
+      <div style="text-align: center; margin-bottom: 20px;">
+        <h2 style="font-size: 1.4rem; font-weight: 800; color: var(--text-main);">Select Quiz Mode</h2>
+        <p style="color: var(--text-muted); font-weight: 600; font-size: 0.9rem;">Choose a quiz to test your vocabulary knowledge</p>
+      </div>
+
+      <div class="quiz-mode-select">
+        <div class="mode-card" onclick="startQuiz('basic')">
+          <div style="font-size: 1.8rem; margin-bottom: 6px;">🌱</div>
+          <div class="mode-title">BASIC QUIZ</div>
+          <div class="mode-desc">20 Questions (Basic Adjectives)</div>
+        </div>
+
+        <div class="mode-card" onclick="startQuiz('mastery')">
+          <div style="font-size: 1.8rem; margin-bottom: 6px;">🔥</div>
+          <div class="mode-title">MASTERY QUIZ</div>
+          <div class="mode-desc">20 Questions (Mastery Adjectives)</div>
+        </div>
+
+        <div class="mode-card" onclick="startQuiz('final')">
+          <div style="font-size: 1.8rem; margin-bottom: 6px;">🏆</div>
+          <div class="mode-title">FINAL QUIZ</div>
+          <div class="mode-desc">40 Questions (All Adjectives)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTIVE QUIZ VIEW -->
+    <div id="activeQuizView" class="view-section">
+      <button class="back-btn" onclick="showView('quizSelectView')">← Back</button>
+
+      <div class="quiz-box">
+        <div class="quiz-top-info">
+          <span id="quizCounter">Question 1 / 20</span>
+          <span id="quizModeBadge" style="text-transform: uppercase; font-size: 0.75rem; background: var(--primary-light); color: var(--primary); padding: 4px 8px; border-radius: 6px;">BASIC</span>
+        </div>
+
+        <div class="progress-bar-bg">
+          <div id="quizProgressBar" class="progress-bar-fill"></div>
+        </div>
+
+        <div class="question-card">
+          <div id="questionText" class="question-text"></div>
+          <div id="questionSubtext" class="question-subtext" style="display: none;"></div>
+        </div>
+
+        <div id="optionsContainer" class="options-grid"></div>
+
+        <div id="feedbackBox" class="feedback-box"></div>
+
+        <div style="text-align: right; display: none;" id="nextBtnWrapper">
+          <button class="next-btn" onclick="nextQuestion()">Next Question →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ RESULT VIEW -->
+    <div id="quizResultView" class="view-section">
+      <div class="result-box">
+        <div style="font-size: 2.5rem; margin-bottom: 8px;">🎉</div>
+        <h2 class="result-title">Quiz Completed!</h2>
+
+        <div class="score-grid">
+          <div class="score-card">
+            <div id="resCorrect" class="score-card-val" style="color: var(--correct-color);">0</div>
+            <div class="score-card-lbl">Correct</div>
+          </div>
+          <div class="score-card">
+            <div id="resWrong" class="score-card-val" style="color: var(--wrong-color);">0</div>
+            <div class="score-card-lbl">Wrong</div>
+          </div>
+          <div class="score-card">
+            <div id="resTotal" class="score-card-val">20</div>
+            <div class="score-card-lbl">Total</div>
+          </div>
+          <div class="score-card highlight">
+            <div id="resPercentage" class="score-card-val">0%</div>
+            <div class="score-card-lbl">Percentage</div>
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="action-btn" onclick="restartCurrentQuiz()">Try Again</button>
+          <button class="secondary-btn" onclick="showView('quizSelectView')">Select Quiz Mode</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    /* DATA STORAGE */
+    const basicAdjectives = [
+      { word: "good", meaning: "நல்ல", sentence: "He is a ___ boy.", tamSentence: "அவன் ஒரு நல்ல பையன்." },
+      { word: "bad", meaning: "மோசமான", sentence: "This is a ___ habit.", tamSentence: "இது ஒரு மோசமான பழக்கம்." },
+      { word: "big", meaning: "பெரிய", sentence: "They live in a ___ house.", tamSentence: "அவர்கள் ஒரு பெரிய வீட்டில் வாழ்கிறார்கள்." },
+      { word: "small", meaning: "சிறிய", sentence: "She has a ___ cat.", tamSentence: "அவளிடம் ஒரு சிறிய பூனை இருக்கிறது." },
+      { word: "new", meaning: "புதிய", sentence: "I bought a ___ car.", tamSentence: "நான் ஒரு புதிய கார் வாங்கினேன்." },
+      { word: "old", meaning: "பழைய", sentence: "This is an ___ book.", tamSentence: "இது ஒரு பழைய புத்தகம்." },
+      { word: "happy", meaning: "மகிழ்ச்சியான", sentence: "She looks very ___ today.", tamSentence: "அவள் இன்று மிகவும் மகிழ்ச்சியாகத் தெரிகிறாள்." },
+      { word: "sad", meaning: "சோகமான", sentence: "Why are you so ___?", tamSentence: "நீ ஏன் இவ்வளவு சோகமாக இருக்கிறாய்?" },
+      { word: "easy", meaning: "எளிதான", sentence: "This exam is very ___.", tamSentence: "இந்த தேர்வு மிகவும் எளிதாக உள்ளது." },
+      { word: "difficult", meaning: "கடினமான", sentence: "Maths can be ___.", tamSentence: "கணிதம் கடினமாக இருக்கலாம்." },
+      { word: "fast", meaning: "வேகமான", sentence: "The cheetah is a ___ runner.", tamSentence: "சிறுத்தை ஒரு வேகமான ஓட்டப்பந்தய வீரர்." },
+      { word: "slow", meaning: "மெதுவான", sentence: "The tortoise is ___.", tamSentence: "ஆமை மெதுவாக நகர்கிறது." },
+      { word: "hot", meaning: "சூடான", sentence: "Be careful, tea is ___.", tamSentence: "கவனமாக இரு, தேநீர் சூடாக உள்ளது." },
+      { word: "cold", meaning: "குளிரான", sentence: "Ice cream is ___.", tamSentence: "ஐஸ்கிரீம் குளிராக இருக்கிறது." },
+      { word: "beautiful", meaning: "அழகான", sentence: "What a ___ flower!", tamSentence: "என்ன ஒரு அழகான பூ!" },
+      { word: "important", meaning: "முக்கியமான", sentence: "Water is ___ for life.", tamSentence: "வாழ்க்கைக்கு நீர் முக்கியமானது." },
+      { word: "strong", meaning: "வலுவான", sentence: "He is a ___ man.", tamSentence: "அவன் ஒரு வலுவான மனிதன்." },
+      { word: "weak", meaning: "பலவீனமான", sentence: "The old wall is ___.", tamSentence: "அந்த பழைய சுவர் பலவீனமாக உள்ளது." },
+      { word: "high", meaning: "உயரமான / அதிகமான", sentence: "That is a ___ mountain.", tamSentence: "அது ஒரு உயரமான மலை." },
+      { word: "low", meaning: "குறைவான / தாழ்ந்த", sentence: "The price is very ___.", tamSentence: "விலை மிகவும் குறைவாக உள்ளது." }
+    ];
+
+    const masteryAdjectives = [
+      { word: "excellent", meaning: "சிறந்த", sentence: "She gave an ___ performance.", tamSentence: "அவள் ஒரு சிறந்த செயல்திறனை வழங்கினாள்." },
+      { word: "amazing", meaning: "அற்புதமான", sentence: "It was an ___ experience.", tamSentence: "அது ஒரு அற்புதமான அனுபவமாக இருந்தது." },
+      { word: "useful", meaning: "பயனுள்ள", sentence: "This app is very ___.", tamSentence: "இந்த செயலி மிகவும் பயனுள்ளதாக உள்ளது." },
+      { word: "helpful", meaning: "உதவியான", sentence: "My friend is very ___.", tamSentence: "என் நண்பன் மிகவும் உதவியாக இருக்கிறான்." },
+      { word: "effective", meaning: "பயன்தரும்", sentence: "Exercise is an ___ way to stay healthy.", tamSentence: "உடற்பயிற்சி ஆரோக்கியமாக இருக்க ஒரு பயனுள்ள வழி." },
+      { word: "creative", meaning: "படைப்பாற்றலான", sentence: "She has a ___ mind.", tamSentence: "அவளுக்கு ஒரு படைப்பாற்றல் மிக்க மனம் உள்ளது." },
+      { word: "innovative", meaning: "புதுமையான", sentence: "They introduced an ___ idea.", tamSentence: "அவர்கள் ஒரு புதுமையான யோசனையை அறிமுகப்படுத்தினர்." },
+      { word: "professional", meaning: "தொழில்முறை", sentence: "He is a ___ lawyer.", tamSentence: "அவர் ஒரு தொழில்முறை வழக்கறிஞர்." },
+      { word: "confident", meaning: "நம்பிக்கையுள்ள", sentence: "Be ___ in your abilities.", tamSentence: "உங்கள் திறன்களில் நம்பிக்கையுடன் இருங்கள்." },
+      { word: "accurate", meaning: "துல்லியமான", sentence: "Give an ___ answer.", tamSentence: "ஒரு துல்லியமான பதிலை அளிக்கவும்." },
+      { word: "reliable", meaning: "நம்பகமான", sentence: "He is a ___ worker.", tamSentence: "அவர் ஒரு நம்பகமான தொழிலாளி." },
+      { word: "flexible", meaning: "நெகிழ்வான", sentence: "My schedule is ___.", tamSentence: "எனது நேர அட்டவணை நெகிழ்வாக உள்ளது." },
+      { word: "complex", meaning: "சிக்கலான", sentence: "This problem is ___.", tamSentence: "இந்த பிரச்சினை சிக்கலாக உள்ளது." },
+      { word: "simple", meaning: "எளிமையான", sentence: "Keep your answer ___.", tamSentence: "உங்கள் பதிலை எளிமையாக வைத்திருங்கள்." },
+      { word: "efficient", meaning: "திறமையான", sentence: "She is an ___ manager.", tamSentence: "அவள் ஒரு திறமையான மேலாளர்." },
+      { word: "practical", meaning: "நடைமுறையான", sentence: "Give a ___ solution.", tamSentence: "ஒரு நடைமுறையான தீர்வை வழங்கவும்." },
+      { word: "advanced", meaning: "மேம்பட்ட", sentence: "They teach ___ science here.", tamSentence: "அவர்கள் இங்கே மேம்பட்ட அறிவியலைக் கற்பிக்கிறார்கள்." },
+      { word: "smart", meaning: "புத்திசாலியான / நுண்ணறிவு", sentence: "She is a very ___ student.", tamSentence: "அவள் மிகவும் புத்திசாலியான மாணவி." },
+      { word: "modern", meaning: "நவீன", sentence: "We live in a ___ world.", tamSentence: "நாம் ஒரு நவீன உலகில் வாழ்கிறோம்." },
+      { word: "powerful", meaning: "சக்திவாய்ந்த", sentence: "The lion is a ___ animal.", tamSentence: "சிங்கம் ஒரு சக்திவாய்ந்த விலங்கு." }
+    ];
+
+    /* VIEW MANAGEMENT */
+    function showView(viewId) {
+      document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(viewId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    /* RENDER WORDS DIRECTLY */
+    function renderWordCards() {
+      const basicGrid = document.getElementById('basicWordsGrid');
+      const masteryGrid = document.getElementById('masteryWordsGrid');
+
+      basicGrid.innerHTML = '';
+      masteryGrid.innerHTML = '';
+
+      basicAdjectives.forEach((item, index) => {
+        const numStr = (index + 1) < 10 ? '0' + (index + 1) : (index + 1);
+        basicGrid.appendChild(createCardElement(item, numStr));
+      });
+
+      masteryAdjectives.forEach((item, index) => {
+        const numStr = (index + 1) < 10 ? '0' + (index + 1) : (index + 1);
+        masteryGrid.appendChild(createCardElement(item, numStr));
+      });
+    }
+
+    function createCardElement(item, numStr) {
+      const card = document.createElement('div');
+      card.className = 'word-card';
+
+      card.innerHTML = `
+        <div class="card-num">${numStr}</div>
+        <div class="card-english">${item.word}</div>
+        <div class="card-meaning">${item.meaning}</div>
+      `;
+
+      return card;
+    }
+
+    /* QUIZ STATE & LOGIC */
+    let currentQuizMode = 'basic';
+    let quizQuestions = [];
+    let currentQuestionIndex = 0;
+    let scoreCorrect = 0;
+    let scoreWrong = 0;
+    let isAnswered = false;
+
+    function shuffleArray(arr) {
+      const newArr = [...arr];
+      for (let i = newArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+      }
+      return newArr;
+    }
+
+    function generateQuestions(mode) {
+      let pool = [];
+      if (mode === 'basic') pool = [...basicAdjectives];
+      else if (mode === 'mastery') pool = [...masteryAdjectives];
+      else if (mode === 'final') pool = [...basicAdjectives, ...masteryAdjectives];
+
+      const questions = [];
+
+      pool.forEach((item, index) => {
+        const type = index % 3;
+        
+        let qText = '';
+        let qSubtext = '';
+        let correctAnswer = '';
+        let options = [];
+
+        if (type === 0) {
+          qText = `“${item.meaning}” என்பதன் English word என்ன?`;
+          correctAnswer = item.word;
+          options = getDistractors(item.word, pool.map(x => x.word));
+        } else if (type === 1) {
+          qText = `“${item.word}” என்பதன் தமிழ் meaning என்ன?`;
+          correctAnswer = item.meaning;
+          options = getDistractors(item.meaning, pool.map(x => x.meaning));
+        } else {
+          qText = item.sentence;
+          // கோடிட்ட இடம் இல்லாமல் முழுமையான தமிழ் வாக்கியத்தைக் காட்டுதல்
+          const fullTamSentence = item.tamSentence.includes('___') 
+            ? item.tamSentence.replace('___', item.meaning) 
+            : item.tamSentence;
+          qSubtext = `Tamil meaning: ${fullTamSentence}`;
+          correctAnswer = item.word;
+          options = getDistractors(item.word, pool.map(x => x.word));
+        }
+
+        questions.push({
+          qText,
+          qSubtext,
+          correctAnswer,
+          options,
+          type
+        });
+      });
+
+      return shuffleArray(questions);
+    }
+
+    function getDistractors(correct, allItems) {
+      const uniquePool = Array.from(new Set(allItems)).filter(x => x !== correct);
+      const shuffled = shuffleArray(uniquePool);
+      const selected = shuffled.slice(0, 3);
+      selected.push(correct);
+      return shuffleArray(selected);
+    }
+
+    function startQuiz(mode) {
+      currentQuizMode = mode;
+      quizQuestions = generateQuestions(mode);
+      currentQuestionIndex = 0;
+      scoreCorrect = 0;
+      scoreWrong = 0;
+      
+      document.getElementById('quizModeBadge').textContent = mode;
+      showView('activeQuizView');
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      isAnswered = false;
+      const q = quizQuestions[currentQuestionIndex];
+      const total = quizQuestions.length;
+
+      document.getElementById('quizCounter').textContent = `Question ${currentQuestionIndex + 1} / ${total}`;
+      const progressPercent = ((currentQuestionIndex) / total) * 100;
+      document.getElementById('quizProgressBar').style.width = `${progressPercent}%`;
+
+      document.getElementById('questionText').textContent = q.qText;
+      const subEl = document.getElementById('questionSubtext');
+      if (q.qSubtext) {
+        subEl.textContent = q.qSubtext;
+        subEl.style.display = 'block';
+      } else {
+        subEl.style.display = 'none';
+      }
+
+      const optionsContainer = document.getElementById('optionsContainer');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => selectAnswer(btn, opt, q.correctAnswer);
+        optionsContainer.appendChild(btn);
+      });
+
+      const feedbackBox = document.getElementById('feedbackBox');
+      feedbackBox.className = 'feedback-box';
+      feedbackBox.style.display = 'none';
+
+      document.getElementById('nextBtnWrapper').style.display = 'none';
+    }
+
+    function selectAnswer(selectedBtn, selectedOpt, correctOpt) {
+      if (isAnswered) return;
+      isAnswered = true;
+
+      const allOptionBtns = document.querySelectorAll('.option-btn');
+      allOptionBtns.forEach(btn => btn.setAttribute('disabled', 'true'));
+
+      const feedbackBox = document.getElementById('feedbackBox');
+
+      if (selectedOpt === correctOpt) {
+        selectedBtn.classList.add('correct');
+        feedbackBox.textContent = 'Correct!';
+        feedbackBox.className = 'feedback-box correct';
+        scoreCorrect++;
+      } else {
+        selectedBtn.classList.add('wrong');
+        allOptionBtns.forEach(btn => {
+          if (btn.textContent === correctOpt) {
+            btn.classList.add('correct');
+          }
+        });
+        feedbackBox.textContent = `Wrong! Correct Answer: ${correctOpt}`;
+        feedbackBox.className = 'feedback-box wrong';
+        scoreWrong++;
+      }
+
+      document.getElementById('nextBtnWrapper').style.display = 'block';
+    }
+
+    function nextQuestion() {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizQuestions.length) {
+        loadQuestion();
+      } else {
+        showQuizResults();
+      }
+    }
+
+    function showQuizResults() {
+      const total = quizQuestions.length;
+      const percentage = Math.round((scoreCorrect / total) * 100);
+
+      document.getElementById('resCorrect').textContent = scoreCorrect;
+      document.getElementById('resWrong').textContent = scoreWrong;
+      document.getElementById('resTotal').textContent = total;
+      document.getElementById('resPercentage').textContent = `${percentage}%`;
+
+      showView('quizResultView');
+    }
+
+    function restartCurrentQuiz() {
+      startQuiz(currentQuizMode);
+    }
+
+    // INITIALIZATION
+    window.addEventListener('DOMContentLoaded', () => {
+      renderWordCards();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbs Navigation Tree - Tamil Medium Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e3a8a;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --accent-purple: #8b5cf6;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 1.25rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+
+        .section-block {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        .verb-type-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tense-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .tense-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .tense-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* BUTTON / LINK GROUP STYLES */
+        .sub-link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .nav-link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link-btn:hover {
+            border-color: var(--primary-blue);
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+            transform: translateX(3px);
+        }
+
+        .tag-exp { border-left: 4px solid var(--primary-blue); }
+        .tag-ex { border-left: 4px solid var(--accent-orange); }
+        .tag-quiz { border-left: 4px solid var(--accent-green); }
+        .tag-modal { border-left: 4px solid var(--accent-purple); }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Verbs Course Structure</h1>
+        <p>தமிழ் வழியில் ஆங்கில வினைச்சொற்களைக் கற்க கீழே உள்ள பாடத்தைத் தேர்ந்தெடுக்கவும்</p>
+    </header>
+
+    <main class="container">
+
+        <!-- 1. BE VERB -->
+        <section class="section-block">
+            <h2 class="verb-type-header">⚡ 1. BE VERB</h2>
+            <div class="tense-grid">
+                
+                <!-- Present -->
+                <div class="tense-card">
+                    <div class="tense-title">Present Tense (நிகழ்காலம்)</div>
+                    <div class="sub-link-group">
+                        <a href="Be_Present_explanation.html" class="nav-link-btn tag-exp">
+                            <span>📖 Explanation</span> <span>→</span>
+                        </a>
+                        <a href="be-present-examples.html" class="nav-link-btn tag-ex">
+                            <span>📝 Examples</span> <span>→</span>
+                        </a>
+                        <a href="be-present-quiz.html" class="nav-link-btn tag-quiz">
+                            <span>🎯 Quiz</span> <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Past -->
+                <div class="tense-card">
+                    <div class="tense-title">Past Tense (இறந்தகாலம்)</div>
+                    <div class="sub-link-group">
+                        <a href="be-past-explanation.html" class="nav-link-btn tag-exp">
+                            <span>📖 Explanation</span> <span>→</span>
+                        </a>
+                        <a href="be-past-examples.html" class="nav-link-btn tag-ex">
+                            <span>📝 Examples</span> <span>→</span>
+                        </a>
+                        <a href="be-past-quiz.html" class="nav-link-btn tag-quiz">
+                            <span>🎯 Quiz</span> <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Future -->
+                <div class="tense-card">
+                    <div class="tense-title">Future Tense (எதிர்காலம்)</div>
+                    <div class="sub-link-group">
+                        <a href="be-future-explanation.html" class="nav-link-btn tag-exp">
+                            <span>📖 Explanation</span> <span>→</span>
+                        </a>
+                        <a href="be-future-examples.html" class="nav-link-btn tag-ex">
+                            <span>📝 Examples</span> <span>→</span>
+                        </a>
+                        <a href="be-future-quiz.html" class="nav-link-btn tag-quiz">
+                            <span>🎯 Quiz</span> <span>→</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. HAVE VERB -->
+        <section class="section-block">
+            <h2 class="verb-type-header">💼 2. HAVE VERB</h2>
+            <div class="tense-grid">
+                
+                <div class="tense-card">
+                    <div class="tense-title">Present Tense</div>
+                    <div class="sub-link-group">
+                        <a href="have-present-explanation.html" class="nav-link-btn tag-exp"><span>📖 Explanation</span> <span>→</span></a>
+                        <a href="have-present-examples.html" class="nav-link-btn tag-ex"><span>📝 Examples</span> <span>→</span></a>
+                        <a href="have-present-quiz.html" class="nav-link-btn tag-quiz"><span>🎯 Quiz</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <div class="tense-title">Past Tense</div>
+                    <div class="sub-link-group">
+                        <a href="have-past-explanation.html" class="nav-link-btn tag-exp"><span>📖 Explanation</span> <span>→</span></a>
+                        <a href="have-past-examples.html" class="nav-link-btn tag-ex"><span>📝 Examples</span> <span>→</span></a>
+                        <a href="have-past-quiz.html" class="nav-link-btn tag-quiz"><span>🎯 Quiz</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <div class="tense-title">Future Tense</div>
+                    <div class="sub-link-group">
+                        <a href="have-future-explanation.html" class="nav-link-btn tag-exp"><span>📖 Explanation</span> <span>→</span></a>
+                        <a href="have-future-examples.html" class="nav-link-btn tag-ex"><span>📝 Examples</span> <span>→</span></a>
+                        <a href="have-future-quiz.html" class="nav-link-btn tag-quiz"><span>🎯 Quiz</span> <span>→</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. DO VERB -->
+        <section class="section-block">
+            <h2 class="verb-type-header">🎯 3. DO VERB</h2>
+            <div class="tense-grid">
+                
+                <div class="tense-card">
+                    <div class="tense-title">Present Tense</div>
+                    <div class="sub-link-group">
+                        <a href="do-present-explanation.html" class="nav-link-btn tag-exp"><span>📖 Explanation</span> <span>→</span></a>
+                        <a href="do-present-examples.html" class="nav-link-btn tag-ex"><span>📝 Examples</span> <span>→</span></a>
+                        <a href="do-present-quiz.html" class="nav-link-btn tag-quiz"><span>🎯 Quiz</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <div class="tense-title">Past Tense</div>
+                    <div class="sub-link-group">
+                        <a href="do-past-explanation.html" class="nav-link-btn tag-exp"><span>📖 Explanation</span> <span>→</span></a>
+                        <a href="do-past-examples.html" class="nav-link-btn tag-ex"><span>📝 Examples</span> <span>→</span></a>
+                        <a href="do-past-quiz.html" class="nav-link-btn tag-quiz"><span>🎯 Quiz</span> <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="tense-card">
+                    <div class="tense-title">Future Tense</div>
+                    <div class="sub-link-group">
+                        <a href="do-future-explanation.html" class="nav-link-btn tag-exp"><span>📖 Explanation</span> <span>→</span></a>
+                        <a href="do-future-examples.html" class="nav-link-btn tag-ex"><span>📝 Examples</span> <span>→</span></a>
+                        <a href="do-future-quiz.html" class="nav-link-btn tag-quiz"><span>🎯 Quiz</span> <span>→</span></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. MODAL VERBS -->
+        <section class="section-block">
+            <h2 class="verb-type-header">🚀 4. MODAL VERBS</h2>
+            <div class="modal-grid">
+                <a href="modal-explanation.html" class="nav-link-btn tag-modal">
+                    <span>📖 Explanation</span> <span>→</span>
+                </a>
+                <a href="modal-examples.html" class="nav-link-btn tag-modal">
+                    <span>📝 Examples</span> <span>→</span>
+                </a>
+                <a href="modal-quiz.html" class="nav-link-btn tag-modal">
+                    <span>🎯 Quiz</span> <span>→</span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

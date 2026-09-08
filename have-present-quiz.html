@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tamil Medium Student — HAVE VERB (PRESENT TENSE) QUIZ</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --primary-light: #e0f2fe;
+      --border-color: #e2e8f0;
+      
+      --pos-color: #15803d;
+      --pos-bg: #dcfce7;
+      --pos-border: #86efac;
+
+      --neg-color: #be123c;
+      --neg-bg: #ffe4e6;
+      --neg-border: #fca5a5;
+
+      --posq-color: #0369a1;
+      --posq-bg: #e0f2fe;
+      --posq-border: #7dd3fc;
+
+      --negq-color: #6b21a8;
+      --negq-bg: #f3e8ff;
+      --negq-border: #d8b4fe;
+
+      --correct-bg: #f0fdf4;
+      --correct-border: #22c55e;
+      --correct-text: #166534;
+
+      --wrong-bg: #fef2f2;
+      --wrong-border: #ef4444;
+      --wrong-text: #991b1b;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+
+    .main-container { max-width: 800px; margin: 0 auto; }
+
+    .header {
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 24px 20px;
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border-color);
+    }
+
+    .brand-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .sub-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background-color: #f1f5f9;
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+
+    .tabs-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      border: none;
+      padding: 12px 8px;
+      border-radius: 12px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      background-color: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .tab-btn small { font-size: 0.75rem; opacity: 0.8; }
+
+    .tab-btn[data-section="positive"].active { background-color: var(--pos-bg); color: var(--pos-color); border-color: var(--pos-border); }
+    .tab-btn[data-section="negative"].active { background-color: var(--neg-bg); color: var(--neg-color); border-color: var(--neg-border); }
+    .tab-btn[data-section="posQuestion"].active { background-color: var(--posq-bg); color: var(--posq-color); border-color: var(--posq-border); }
+    .tab-btn[data-section="negQuestion"].active { background-color: var(--negq-bg); color: var(--negq-color); border-color: var(--negq-border); }
+
+    .quiz-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .q-counter {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+      background-color: var(--primary-light);
+      padding: 4px 12px;
+      border-radius: 12px;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .badge-positive { background-color: var(--pos-bg); color: var(--pos-color); }
+    .badge-negative { background-color: var(--neg-bg); color: var(--neg-color); }
+    .badge-posQuestion { background-color: var(--posq-bg); color: var(--posq-color); }
+    .badge-negQuestion { background-color: var(--negq-bg); color: var(--negq-color); }
+
+    .question-box { margin-bottom: 24px; }
+    .question-title-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .q-number { font-size: 1.35rem; font-weight: 800; color: var(--primary); flex-shrink: 0; }
+    .question-text { font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
+    
+    .question-tamil-meaning {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      background-color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border-left: 4px solid var(--primary);
+      margin-top: 10px;
+    }
+
+    .options-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .option-btn {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 14px 18px;
+      background-color: #f8fafc;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      text-align: left;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background-color: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .option-btn.correct {
+      background-color: var(--correct-bg) !important;
+      border-color: var(--correct-border) !important;
+      color: var(--correct-text) !important;
+    }
+
+    .option-btn.wrong {
+      background-color: var(--wrong-bg) !important;
+      border-color: var(--wrong-border) !important;
+      color: var(--wrong-text) !important;
+    }
+
+    .option-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #cbd5e1;
+      margin-right: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .feedback-box {
+      display: none;
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-align: center;
+    }
+
+    .feedback-box.show { display: block; }
+    .feedback-box.correct { background-color: var(--correct-bg); border: 1px solid var(--correct-border); color: var(--correct-text); }
+    .feedback-box.wrong { background-color: var(--wrong-bg); border: 1px solid var(--wrong-border); color: var(--wrong-text); }
+
+    .action-btn {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: none;
+      text-align: center;
+      transition: background-color 0.2s ease;
+    }
+
+    .action-btn:hover { background-color: var(--primary-hover); }
+    .action-btn.show { display: block; }
+
+    .result-card {
+      display: none;
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 32px 24px;
+      border: 1px solid var(--border-color);
+      text-align: center;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .result-card.show { display: block; }
+    
+    .result-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .score-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background-color: var(--primary-light);
+      border: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .score-num { font-size: 2rem; font-weight: 800; color: var(--primary-hover); }
+    .score-total { font-size: 0.9rem; color: var(--text-muted); font-weight: 600; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stat-item {
+      background-color: #f8fafc;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .stat-val { font-size: 1.35rem; font-weight: 800; }
+    .stat-val.green { color: #16a34a; }
+    .stat-val.red { color: #dc2626; }
+    .stat-val.blue { color: var(--primary); }
+    .stat-lbl { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-top: 2px; }
+
+    .table-wrapper { overflow-x: auto; margin: 20px 0 28px; }
+
+    .final-summary-table { width: 100%; border-collapse: collapse; text-align: left; }
+    .final-summary-table th, .final-summary-table td { padding: 12px 14px; border-bottom: 1px solid var(--border-color); font-size: 0.95rem; }
+    .final-summary-table th { background-color: #f8fafc; font-weight: 700; color: #475569; }
+    .final-summary-table tr.total-row { background-color: #f1f5f9; font-weight: 800; }
+
+    .btn-group { display: flex; flex-direction: column; gap: 10px; }
+
+    @media (max-width: 640px) {
+      body { padding: 16px 10px; }
+      .page-title { font-size: 1.4rem; }
+      .tabs-container { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+      .q-number, .question-text { font-size: 1.15rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .quiz-card { padding: 20px 16px; }
+      .final-summary-table th, .final-summary-table td { padding: 10px 8px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="main-container">
+    <header class="header">
+      <div class="brand-name">Tamil Medium Student</div>
+      <h1 class="page-title">HAVE VERB — PRESENT TENSE QUIZ</h1>
+      <span class="sub-title">120 Questions (have / has / don't have / doesn't have)</span>
+    </header>
+
+    <nav class="tabs-container">
+      <button class="tab-btn active" data-section="positive">
+        <span>Positive (+)</span>
+        <small>30 Questions</small>
+      </button>
+      <button class="tab-btn" data-section="negative">
+        <span>Negative (-)</span>
+        <small>30 Questions</small>
+      </button>
+      <button class="tab-btn" data-section="posQuestion">
+        <span>Positive Question (?)</span>
+        <small>30 Questions</small>
+      </button>
+      <button class="tab-btn" data-section="negQuestion">
+        <span>Negative Question (?-)</span>
+        <small>30 Questions</small>
+      </button>
+    </nav>
+
+    <section class="quiz-card" id="quizCard">
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+
+      <div class="card-header">
+        <span class="q-counter" id="questionCounter">Question 1 / 30</span>
+        <span class="badge badge-positive" id="sectionBadge">Positive (+)</span>
+      </div>
+
+      <div class="question-box">
+        <div class="question-title-row">
+          <span class="q-number" id="qNumber">Q1.</span>
+          <div class="question-text" id="questionText">I ___ a new car.</div>
+        </div>
+        <div class="question-tamil-meaning" id="questionTamilMeaning">என்னிடம் ஒரு புதிய கார் இருக்கிறது.</div>
+      </div>
+
+      <div class="options-grid" id="optionsGrid"></div>
+
+      <div class="feedback-box" id="feedbackBox"></div>
+
+      <button class="action-btn" id="nextBtn">Next Question ➔</button>
+    </section>
+
+    <section class="result-card" id="sectionResultCard">
+      <h2 class="result-title" id="sectionResultTitle">Section Completed!</h2>
+      <div class="score-circle">
+        <span class="score-num" id="sectionScoreNum">0</span>
+        <span class="score-total">/ 30</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-val green" id="sectionCorrect">0</div><div class="stat-lbl">Correct</div></div>
+        <div class="stat-item"><div class="stat-val red" id="sectionWrong">0</div><div class="stat-lbl">Wrong</div></div>
+        <div class="stat-item"><div class="stat-val blue" id="sectionPercent">0%</div><div class="stat-lbl">Percentage</div></div>
+      </div>
+      <div class="btn-group">
+        <button class="action-btn show" id="nextSectionBtn" style="background-color: #0284c7;">Next Section ➔</button>
+        <button class="action-btn show" id="tryAgainBtn" style="background-color: #059669;">Try Again This Section</button>
+      </div>
+    </section>
+
+    <section class="result-card" id="overallResultCard">
+      <h2 class="result-title">🎉 Quiz Completed!</h2>
+      <p style="color: var(--text-muted); margin-bottom: 16px; font-weight: 600;">Full 120 Questions Performance Summary</p>
+      
+      <div class="table-wrapper">
+        <table class="final-summary-table">
+          <thead>
+            <tr>
+              <th>Section</th>
+              <th>Correct</th>
+              <th>Wrong</th>
+              <th>Total</th>
+              <th>Percentage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Positive (+)</td><td id="rowPosCorrect">0</td><td id="rowPosWrong">0</td><td>30</td><td id="rowPosPercent">0%</td></tr>
+            <tr><td>Negative (-)</td><td id="rowNegCorrect">0</td><td id="rowNegWrong">0</td><td>30</td><td id="rowNegPercent">0%</td></tr>
+            <tr><td>Positive Question (?)</td><td id="rowPosQCorrect">0</td><td id="rowPosQWrong">0</td><td>30</td><td id="rowPosQPercent">0%</td></tr>
+            <tr><td>Negative Question (?-)</td><td id="rowNegQCorrect">0</td><td id="rowNegQWrong">0</td><td>30</td><td id="rowNegQPercent">0%</td></tr>
+            <tr class="total-row">
+              <td><strong>TOTAL</strong></td>
+              <td id="rowTotalCorrect"><strong>0</strong></td>
+              <td id="rowTotalWrong"><strong>0</strong></td>
+              <td><strong>120</strong></td>
+              <td id="rowTotalPercent" style="color: var(--primary);"><strong>0%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; color: var(--text-main);">
+        Grand Total: <span id="grandTotalText" style="color: var(--primary);">0 / 120</span>
+      </div>
+
+      <div class="btn-group">
+        <button class="action-btn show" id="restartAllBtn" style="background-color: #0284c7;">Restart Full Quiz</button>
+        <button class="action-btn show" id="overallTryAgainBtn" style="background-color: #059669;">Try Again (Selected Section)</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const positiveQuestions = [
+      { q: "I ___ a new car.", tm: "என்னிடம் ஒரு புதிய கார் இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "She ___ long hair.", tm: "அவளுக்கு நீளமான முடி இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "They ___ a big house.", tm: "அவர்களிடம் ஒரு பெரிய வீடு இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "He ___ an exam today.", tm: "அவனுக்கு இன்று ஒரு தேர்வு இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "We ___ a meeting now.", tm: "நமக்கு இப்போது ஒரு கூட்டம் இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "It ___ sharp teeth.", tm: "அதற்கு கூர்மையான பற்கள் இருக்கின்றன.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "You ___ a new smartphone.", tm: "உன்னிடம் ஒரு புதிய ஸ்மார்ட்போன் இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "The children ___ many toys.", tm: "குழந்தைகளிடம் பல பொம்மைகள் இருக்கின்றன.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "My brother ___ a tea shop.", tm: "என் சகோதரனிடம் ஒரு தேநீர் கடை இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "The company ___ 100 employees.", tm: "அந்த நிறுவனத்தில் 100 ஊழியர்கள் உள்ளனர்.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "They ___ many friends in college.", tm: "அவர்களுக்கு கல்லூரியில் பல நண்பர்கள் இருக்கிறார்கள்.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "She ___ a good job in Chennai.", tm: "அவளுக்கு சென்னையில் ஒரு நல்ல வேலை இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "I ___ a mild headache now.", tm: "எனக்கு இப்போது லேசான தலைவலி இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "We ___ a beautiful garden.", tm: "எங்களிடம் ஒரு அழகான தோட்டம் இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "The dog ___ a big bone.", tm: "அந்த நாயிடம் ஒரு பெரிய எலும்பு இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "You ___ a sweet voice.", tm: "உனக்கு ஒரு இனிமையான குரல் இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "My sister ___ two pet cats.", tm: "என் சகோதரியிடம் இரண்டு செல்லப் பூனைகள் இருக்கின்றன.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "They ___ a serious problem.", tm: "அவர்களுக்கு ஒரு தீவிரமான பிரச்சனை இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "He ___ a new bicycle.", tm: "அவனிடம் ஒரு புதிய மிதிவண்டி இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "The tree ___ green leaves.", tm: "அந்த மரத்தில் பச்சை இலைகள் இருக்கின்றன.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "I ___ two elder sisters.", tm: "எனக்கு இரண்டு மூத்த சகோதரிகள் இருக்கிறார்கள்.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "She ___ high fever today.", tm: "அவளுக்கு இன்று அதிக காய்ச்சல் இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "We ___ lunch at 1 PM every day.", tm: "நாங்கள் தினமும் மதியம் 1 மணிக்கு மதிய உணவு உண்கிறோம் (வைத்திருக்கிறோம்).", answer: "have", dist: ["has", "had", "having"] },
+      { q: "The laptop ___ 8GB RAM.", tm: "அந்த மடிக்கணினியில் 8GB ரேம் இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "You ___ a blue shirt.", tm: "உன்னிடம் ஒரு நீல நிற சட்டை இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "The students ___ exams this week.", tm: "மாணவர்களுக்கு இந்த வாரம் தேர்வுகள் இருக்கின்றன.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "My uncle ___ a coconut farm.", tm: "என் மாமாவிடம் ஒரு தென்னந்தோப்பு இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "The train ___ 10 coaches.", tm: "அந்த ரயிலில் 10 பெட்டிகள் இருக்கின்றன.", answer: "has", dist: ["have", "had", "having"] },
+      { q: "They ___ a team meeting right now.", tm: "அவர்களுக்கு இப்போது ஒரு குழு கூட்டம் இருக்கிறது.", answer: "have", dist: ["has", "had", "having"] },
+      { q: "He ___ a red sports car.", tm: "அவனிடம் ஒரு சிவப்பு நிற விளையாட்டு கார் இருக்கிறது.", answer: "has", dist: ["have", "had", "having"] }
+    ];
+
+    const negativeQuestions = [
+      { q: "I ___ a car.", tm: "என்னிடம் கார் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "She ___ long hair.", tm: "அவளுக்கு நீளமான முடி இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "They ___ a big house.", tm: "அவர்களிடம் பெரிய வீடு இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "He ___ a test today.", tm: "அவனுக்கு இன்று தேர்வு இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "We ___ a meeting now.", tm: "நமக்கு இப்போது கூட்டம் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "It ___ a proper cover.", tm: "அதற்கு சரியான உறை இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "You ___ enough time.", tm: "உன்னிடம் போதுமான நேரம் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "The school ___ classes today.", tm: "பள்ளியில் இன்று வகுப்புகள் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "My father ___ work today.", tm: "என் தந்தைக்கு இன்று வேலை இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "Birds ___ teeth.", tm: "பறவைகளுக்கு பற்கள் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "Ramu ___ a passport.", tm: "ராமுவிடம் கடவுச்சீட்டு (Passport) இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "We ___ power cut today.", tm: "நமக்கு இன்று மின்வெட்டு இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "I ___ any cash right now.", tm: "என்னிடம் இப்போது ரொக்கப் பணம் எதுவும் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "She ___ a flight today.", tm: "அவளுக்கு இன்று விமானம் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "The office ___ vacancies right now.", tm: "அலுவலகத்தில் இப்போது காலிப்பணியிடங்கள் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "You ___ to worry about this.", tm: "நீ இதைப் பற்றி கவலைப்படத் தேவையில்லை (இல்லை).", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "They ___ any doubts.", tm: "அவர்களுக்கு எந்த சந்தேகமும் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "He ___ enough change.", tm: "அவனிடம் போதுமான சில்லறை இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "The house ___ a backyard garden.", tm: "வீட்டில் புழக்கடை தோட்டம் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "I ___ your contact address.", tm: "என்னிடம் உனது தொடர்பு முகவரி இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "She ___ homework today.", tm: "அவளுக்கு இன்று வீட்டுப்பாடம் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "We ___ any complaints.", tm: "எங்களுக்கு எந்த புகார்களும் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "The dog ___ any pain now.", tm: "நாய்க்கு இப்போது எந்த வலியும் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "You ___ an interview today.", tm: "உனக்கு இன்று நேர்காணல் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "My teacher ___ free time today.", tm: "என் ஆசிரியருக்கு இன்று ஓய்வு நேரம் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "They ___ any issues with us.", tm: "அவர்களுக்கு நம்மிடம் எந்த பிரச்சனையும் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "He ___ a valid driving license.", tm: "அவனிடம் செல்லுபடியாகும் ஓட்டுநர் உரிமம் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "The plant ___ flowers yet.", tm: "அந்த செடியில் இன்னும் பூக்கள் இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] },
+      { q: "I ___ time for video games.", tm: "எனக்கு வீடியோ கேம் விளையாட நேரம் இல்லை.", answer: "don't have", dist: ["doesn't have", "doesn't has", "don't has"] },
+      { q: "She ___ her umbrella today.", tm: "இன்று அவளிடம் குடை இல்லை.", answer: "doesn't have", dist: ["don't have", "doesn't has", "don't has"] }
+    ];
+
+    const positiveQuestionQuestions = [
+      { q: "___ you have a pen?", tm: "உன்னிடம் பேனா இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Is"] },
+      { q: "___ she have long hair?", tm: "அவளுக்கு நீளமான முடி இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ they have a car?", tm: "அவர்களிடம் கார் இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ he have a meeting today?", tm: "அவனுக்கு இன்று கூட்டம் இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ we have a holiday today?", tm: "நமக்கு இன்று விடுமுறை இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ it have a battery?", tm: "அதற்கு பேட்டரி இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ you have free time now?", tm: "உனக்கு இப்போது ஓய்வு நேரம் இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ the children have toys?", tm: "குழந்தைகளிடம் பொம்மைகள் இருக்கின்றனவா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ Ramu have a movie ticket?", tm: "ராமுவிடம் சினிமா டிக்கெட் இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ the elephant have food?", tm: "யானைக்கு உணவு இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ you have any questions?", tm: "உங்களுக்கு கேள்விகள் ஏதேனும் இருக்கின்றனவா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ she have a bicycle?", tm: "அவளிடம் மிதிவண்டி இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ they have time to talk?", tm: "அவர்களுக்கு பேச நேரம் இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ he have a doctor appointment?", tm: "அவனுக்கு மருத்துவ சந்திப்பு இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ this hotel have Wi-Fi?", tm: "இந்த ஹோட்டலில் வைஃபை இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ we have enough water?", tm: "நம்மிடம் போதுமான தண்ணீர் இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ you have a valid ID card?", tm: "உன்னிடம் செல்லுபடியாகும் அடையாள அட்டை இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ she have my phone number?", tm: "அவளிடம் எனது தொலைபேசி எண் இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ they have a pet dog?", tm: "அவர்களிடம் செல்ல நாய் இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ the baby have milk?", tm: "குழந்தைக்கு பால் இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ I have any letters today?", tm: "எனக்கு இன்று ஏதேனும் கடிதங்கள் இருக்கின்றனவா?", answer: "Do", dist: ["Does", "Did", "Am"] },
+      { q: "___ he have a new job?", tm: "அவனுக்கு புதிய வேலை இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ you have Wi-Fi connection?", tm: "உன்னிடம் வைஃபை இணைப்பு இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ the shop have fresh fruits?", tm: "கடையில் புதிய பழங்கள் இருக்கின்றனவா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ we have football practice today?", tm: "நமக்கு இன்று கால்பந்து பயிற்சி இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ she have a dual SIM phone?", tm: "அவளிடம் இரட்டை சிம் போன் இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ they have a party tonight?", tm: "அவர்களுக்கு இன்றிரவு விருந்து இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ he have the room key?", tm: "அவனிடம் அறை சாவி இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] },
+      { q: "___ you have change for 100 rupees?", tm: "உன்னிடம் 100 ரூபாய்க்கு சில்லறை இருக்கிறதா?", answer: "Do", dist: ["Does", "Did", "Are"] },
+      { q: "___ the phone have warranty?", tm: "போனுக்கு உத்தரவாதம் இருக்கிறதா?", answer: "Does", dist: ["Do", "Did", "Is"] }
+    ];
+
+    const negativeQuestionQuestions = [
+      { q: "___ you have a pen?", tm: "உன்னிடம் பேனா இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ she have time to meet us?", tm: "அவளுக்கு நம்மை சந்திக்க நேரம் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ they have class today?", tm: "அவர்களுக்கு இன்று வகுப்பு இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ he have a car?", tm: "அவனிடம் கார் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ we have a meeting today?", tm: "நமக்கு இன்று கூட்டம் இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ it have a battery inside?", tm: "அதன் உள்ளே பேட்டரி இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ you have permission?", tm: "உனக்கு அனுமதி இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ the school have a holiday today?", tm: "பள்ளிக்கு இன்று விடுமுறை இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ your father have work today?", tm: "உன் தந்தைக்கு இன்று வேலை இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ she have an umbrella with her?", tm: "அவளிடம் குடை இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ they have enough water?", tm: "அவர்களிடம் போதுமான தண்ணீர் இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ he have a winter jacket?", tm: "அவனிடம் குளிர்கால ஜாக்கெட் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ the house have a security guard?", tm: "வீட்டில் பாதுகாப்பு ஊழியர் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ we have a bus ticket?", tm: "நம்மிடம் பேருந்து டிக்கெட் இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ you have school today?", tm: "உனக்கு இன்று பள்ளி இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ she have her hall ticket?", tm: "அவளிடம் ஹால் டிக்கெட் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ they have permission to enter?", tm: "அவர்களுக்கு நுழைய அனுமதி இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ he have his wallet with him?", tm: "அவனிடம் பணப்பை இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ the car have an AC?", tm: "காரில் ஏசி இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ you have lunch today?", tm: "உனக்கு இன்று மதிய உணவு இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ she have a bank account?", tm: "அவளிடம் வங்கி கணக்கு இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ they have interest in this topic?", tm: "அவர்களுக்கு இந்த தலைப்பில் ஆர்வம் இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ he have a bicycle to ride?", tm: "அவனிடம் மிதிவண்டி இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ we have a match today?", tm: "நமக்கு இன்று போட்டி இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ you have time to sleep?", tm: "உனக்கு தூங்க நேரம் இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ she have any help?", tm: "அவளுக்கு உதவி எதுவும் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ the room have proper lighting?", tm: "அறையில் சரியான வெளிச்சம் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ they have a TV in their home?", tm: "அவர்கள் வீட்டில் டிவி இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] },
+      { q: "___ he have cash right now?", tm: "அவனிடம் இப்போது ரொக்கம் இல்லையா?", answer: "Doesn't", dist: ["Don't", "Didn't", "Isn't"] },
+      { q: "___ you have a train ticket?", tm: "உன்னிடம் ரயில் டிக்கெட் இல்லையா?", answer: "Don't", dist: ["Doesn't", "Didn't", "Aren't"] }
+    ];
+
+    const quizData = {
+      positive: positiveQuestions,
+      negative: negativeQuestions,
+      posQuestion: positiveQuestionQuestions,
+      negQuestion: negativeQuestionQuestions
+    };
+
+    const sectionNames = {
+      positive: "Positive (+)",
+      negative: "Negative (-)",
+      posQuestion: "Positive Question (?)",
+      negQuestion: "Negative Question (?-)"
+    };
+
+    const sectionBadges = {
+      positive: "badge-positive",
+      negative: "badge-negative",
+      posQuestion: "badge-posQuestion",
+      negQuestion: "badge-negQuestion"
+    };
+
+    const sectionOrder = ['positive', 'negative', 'posQuestion', 'negQuestion'];
+
+    let currentSection = 'positive';
+    let currentIndex = 0;
+    let scores = { positive: 0, negative: 0, posQuestion: 0, negQuestion: 0 };
+
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const quizCard = document.getElementById('quizCard');
+    const sectionResultCard = document.getElementById('sectionResultCard');
+    const overallResultCard = document.getElementById('overallResultCard');
+
+    const progressBarFill = document.getElementById('progressBarFill');
+    const questionCounter = document.getElementById('questionCounter');
+    const sectionBadge = document.getElementById('sectionBadge');
+    const qNumber = document.getElementById('qNumber');
+    const questionText = document.getElementById('questionText');
+    const questionTamilMeaning = document.getElementById('questionTamilMeaning');
+    const optionsGrid = document.getElementById('optionsGrid');
+    const feedbackBox = document.getElementById('feedbackBox');
+    const nextBtn = document.getElementById('nextBtn');
+
+    const sectionResultTitle = document.getElementById('sectionResultTitle');
+    const sectionScoreNum = document.getElementById('sectionScoreNum');
+    const sectionCorrect = document.getElementById('sectionCorrect');
+    const sectionWrong = document.getElementById('sectionWrong');
+    const sectionPercent = document.getElementById('sectionPercent');
+    const nextSectionBtn = document.getElementById('nextSectionBtn');
+    const tryAgainBtn = document.getElementById('tryAgainBtn');
+
+    const rowPosCorrect = document.getElementById('rowPosCorrect');
+    const rowPosWrong = document.getElementById('rowPosWrong');
+    const rowPosPercent = document.getElementById('rowPosPercent');
+
+    const rowNegCorrect = document.getElementById('rowNegCorrect');
+    const rowNegWrong = document.getElementById('rowNegWrong');
+    const rowNegPercent = document.getElementById('rowNegPercent');
+
+    const rowPosQCorrect = document.getElementById('rowPosQCorrect');
+    const rowPosQWrong = document.getElementById('rowPosQWrong');
+    const rowPosQPercent = document.getElementById('rowPosQPercent');
+
+    const rowNegQCorrect = document.getElementById('rowNegQCorrect');
+    const rowNegQWrong = document.getElementById('rowNegQWrong');
+    const rowNegQPercent = document.getElementById('rowNegQPercent');
+
+    const rowTotalCorrect = document.getElementById('rowTotalCorrect');
+    const rowTotalWrong = document.getElementById('rowTotalWrong');
+    const rowTotalPercent = document.getElementById('rowTotalPercent');
+    const grandTotalText = document.getElementById('grandTotalText');
+
+    const restartAllBtn = document.getElementById('restartAllBtn');
+    const overallTryAgainBtn = document.getElementById('overallTryAgainBtn');
+
+    function shuffleArray(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function init() {
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => switchSection(btn.getAttribute('data-section')));
+      });
+
+      nextBtn.addEventListener('click', handleNextQuestion);
+      tryAgainBtn.addEventListener('click', restartCurrentSection);
+      nextSectionBtn.addEventListener('click', handleNextSection);
+
+      restartAllBtn.addEventListener('click', restartFullQuiz);
+      overallTryAgainBtn.addEventListener('click', restartCurrentSection);
+
+      loadQuestion();
+    }
+
+    function switchSection(sec) {
+      currentSection = sec;
+      currentIndex = 0;
+
+      tabBtns.forEach(btn => btn.classList.toggle('active', btn.getAttribute('data-section') === sec));
+
+      quizCard.style.display = 'block';
+      sectionResultCard.classList.remove('show');
+      overallResultCard.classList.remove('show');
+
+      loadQuestion();
+    }
+
+    function loadQuestion() {
+      const currentQuestions = quizData[currentSection];
+      const qData = currentQuestions[currentIndex];
+
+      const progressPercent = ((currentIndex + 1) / currentQuestions.length) * 100;
+      progressBarFill.style.width = `${progressPercent}%`;
+
+      questionCounter.textContent = `Question ${currentIndex + 1} / ${currentQuestions.length}`;
+      sectionBadge.textContent = sectionNames[currentSection];
+      sectionBadge.className = `badge ${sectionBadges[currentSection]}`;
+
+      qNumber.textContent = `Q${currentIndex + 1}.`;
+      questionText.textContent = qData.q;
+      questionTamilMeaning.textContent = qData.tm;
+
+      feedbackBox.className = 'feedback-box';
+      feedbackBox.textContent = '';
+      nextBtn.classList.remove('show');
+
+      const options = shuffleArray([qData.answer, ...qData.dist]);
+      optionsGrid.innerHTML = '';
+
+      options.forEach((opt, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerHTML = `<span class="option-marker">${String.fromCharCode(65 + index)}</span><span>${opt}</span>`;
+        btn.addEventListener('click', () => selectOption(opt, btn));
+        optionsGrid.appendChild(btn);
+      });
+    }
+
+    function selectOption(selectedOpt, btnElement) {
+      const qData = quizData[currentSection][currentIndex];
+      const optionBtns = optionsGrid.querySelectorAll('.option-btn');
+
+      optionBtns.forEach(b => b.disabled = true);
+
+      const isCorrect = (selectedOpt === qData.answer);
+
+      if (isCorrect) {
+        btnElement.classList.add('correct');
+        feedbackBox.className = 'feedback-box show correct';
+        feedbackBox.textContent = 'Correct!';
+        scores[currentSection]++;
+      } else {
+        btnElement.classList.add('wrong');
+        feedbackBox.className = 'feedback-box show wrong';
+        feedbackBox.textContent = `Wrong! Correct Answer: ${qData.answer}`;
+
+        optionBtns.forEach(b => {
+          if (b.innerText.includes(qData.answer)) {
+            b.classList.add('correct');
+          }
+        });
+      }
+
+      nextBtn.textContent = (currentIndex === quizData[currentSection].length - 1) ? 'View Section Results ➔' : 'Next Question ➔';
+      nextBtn.classList.add('show');
+    }
+
+    function handleNextQuestion() {
+      if (currentIndex < quizData[currentSection].length - 1) {
+        currentIndex++;
+        loadQuestion();
+      } else {
+        showSectionResult();
+      }
+    }
+
+    function showSectionResult() {
+      quizCard.style.display = 'none';
+      sectionResultCard.classList.add('show');
+
+      const total = quizData[currentSection].length;
+      const correct = scores[currentSection];
+      const wrong = total - correct;
+      const percent = Math.round((correct / total) * 100);
+
+      sectionResultTitle.textContent = `${sectionNames[currentSection]} Completed!`;
+      sectionScoreNum.textContent = correct;
+      sectionCorrect.textContent = correct;
+      sectionWrong.textContent = wrong;
+      sectionPercent.textContent = `${percent}%`;
+
+      const currIdx = sectionOrder.indexOf(currentSection);
+      if (currIdx < sectionOrder.length - 1) {
+        nextSectionBtn.textContent = `Next Section (${sectionNames[sectionOrder[currIdx + 1]]}) ➔`;
+      } else {
+        nextSectionBtn.textContent = "View Final Overall Summary ➔";
+      }
+    }
+
+    function handleNextSection() {
+      const currIdx = sectionOrder.indexOf(currentSection);
+      if (currIdx < sectionOrder.length - 1) {
+        switchSection(sectionOrder[currIdx + 1]);
+      } else {
+        showOverallSummary();
+      }
+    }
+
+    function restartCurrentSection() {
+      scores[currentSection] = 0;
+      switchSection(currentSection);
+    }
+
+    function showOverallSummary() {
+      quizCard.style.display = 'none';
+      sectionResultCard.classList.remove('show');
+      overallResultCard.classList.add('show');
+
+      const pos = scores.positive;
+      const neg = scores.negative;
+      const posQ = scores.posQuestion;
+      const negQ = scores.negQuestion;
+
+      rowPosCorrect.textContent = pos;
+      rowPosWrong.textContent = 30 - pos;
+      rowPosPercent.textContent = `${Math.round((pos / 30) * 100)}%`;
+
+      rowNegCorrect.textContent = neg;
+      rowNegWrong.textContent = 30 - neg;
+      rowNegPercent.textContent = `${Math.round((neg / 30) * 100)}%`;
+
+      rowPosQCorrect.textContent = posQ;
+      rowPosQWrong.textContent = 30 - posQ;
+      rowPosQPercent.textContent = `${Math.round((posQ / 30) * 100)}%`;
+
+      rowNegQCorrect.textContent = negQ;
+      rowNegQWrong.textContent = 30 - negQ;
+      rowNegQPercent.textContent = `${Math.round((negQ / 30) * 100)}%`;
+
+      const totalCorrect = pos + neg + posQ + negQ;
+      const totalWrong = 120 - totalCorrect;
+      const grandPercent = Math.round((totalCorrect / 120) * 100);
+
+      rowTotalCorrect.innerHTML = `<strong>${totalCorrect}</strong>`;
+      rowTotalWrong.innerHTML = `<strong>${totalWrong}</strong>`;
+      rowTotalPercent.innerHTML = `<strong>${grandPercent}%</strong>`;
+
+      grandTotalText.textContent = `${totalCorrect} / 120 (${grandPercent}%)`;
+    }
+
+    function restartFullQuiz() {
+      scores = { positive: 0, negative: 0, posQuestion: 0, negQuestion: 0 };
+      switchSection('positive');
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

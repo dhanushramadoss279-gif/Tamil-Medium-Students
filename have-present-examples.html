@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRESENT TENSE — have / has | Tamil Medium Student</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --bg-main: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #e2e8f0;
+      
+      --pos-color: #16a34a;
+      --pos-bg: #f0fdf4;
+      --pos-border: #bbf7d0;
+
+      --neg-color: #dc2626;
+      --neg-bg: #fef2f2;
+      --neg-border: #fecaca;
+
+      --q-color: #2563eb;
+      --q-bg: #eff6ff;
+      --q-border: #bfdbfe;
+
+      --nq-color: #7c3aed;
+      --nq-bg: #f5f3ff;
+      --nq-border: #ddd6fe;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      margin-bottom: 24px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .brand-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 6px;
+    }
+
+    .page-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    /* Overview Box */
+    .overview-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .overview-group {
+      background-color: #f8fafc;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+    }
+
+    .overview-verb {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 4px;
+      display: inline-block;
+    }
+
+    .overview-list {
+      list-style: none;
+    }
+
+    .overview-list li {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 4px 0;
+    }
+
+    /* Sections */
+    .section-block {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+    }
+
+    .section-head {
+      font-size: 1.3rem;
+      font-weight: 800;
+      padding: 10px 18px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .head-pos { background-color: var(--pos-bg); color: var(--pos-color); border: 1px solid var(--pos-border); }
+    .head-neg { background-color: var(--neg-bg); color: var(--neg-color); border: 1px solid var(--neg-border); }
+    .head-q { background-color: var(--q-bg); color: var(--q-color); border: 1px solid var(--q-border); }
+    .head-nq { background-color: var(--nq-bg); color: var(--nq-color); border: 1px solid var(--nq-border); }
+
+    /* Rule Cards */
+    .rule-box {
+      background-color: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .rule-box div {
+      margin-bottom: 4px;
+    }
+    .rule-box div:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Example Cards List */
+    .examples-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .example-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background-color: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 14px 16px;
+      border-radius: 12px;
+    }
+
+    .ex-num {
+      background-color: var(--card-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      font-weight: 800;
+      font-size: 0.9rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ex-content {
+      flex: 1;
+    }
+
+    .ex-eng {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .ex-tam {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 16px 10px;
+      }
+
+      .header {
+        padding: 20px 14px;
+      }
+
+      .page-title {
+        font-size: 1.4rem;
+      }
+
+      .section-block {
+        padding: 16px 12px;
+      }
+
+      .example-card {
+        padding: 12px;
+        gap: 10px;
+      }
+
+      .ex-eng {
+        font-size: 1rem;
+      }
+
+      .ex-tam {
+        font-size: 0.92rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand-title">Tamil Medium Student</div>
+      <h1 class="page-title">PRESENT TENSE — have / has</h1>
+    </header>
+
+    <!-- Overview Card -->
+    <section class="overview-card">
+      <div class="overview-grid">
+        <div class="overview-group">
+          <div class="overview-verb">HAVE</div>
+          <ul class="overview-list">
+            <li>I have</li>
+            <li>We have</li>
+            <li>You have</li>
+            <li>They have</li>
+          </ul>
+        </div>
+        <div class="overview-group">
+          <div class="overview-verb">HAS</div>
+          <ul class="overview-list">
+            <li>He has</li>
+            <li>She has</li>
+            <li>It has</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Positive (+) Section -->
+    <section class="section-block">
+      <div class="section-head head-pos">✅ Positive (+)</div>
+      <div class="examples-list">
+        <div class="example-card">
+          <div class="ex-num">1</div>
+          <div class="ex-content">
+            <div class="ex-eng">I have a book.</div>
+            <div class="ex-tam">என்னிடம் ஒரு புத்தகம் உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">2</div>
+          <div class="ex-content">
+            <div class="ex-eng">I have a pen.</div>
+            <div class="ex-tam">என்னிடம் ஒரு பேனா உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">3</div>
+          <div class="ex-content">
+            <div class="ex-eng">He has a car.</div>
+            <div class="ex-tam">அவனிடம் ஒரு கார் உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">4</div>
+          <div class="ex-content">
+            <div class="ex-eng">She has a bag.</div>
+            <div class="ex-tam">அவளிடம் ஒரு பை உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">5</div>
+          <div class="ex-content">
+            <div class="ex-eng">It has four legs.</div>
+            <div class="ex-tam">அதற்கு நான்கு கால்கள் உள்ளன.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">6</div>
+          <div class="ex-content">
+            <div class="ex-eng">We have a house.</div>
+            <div class="ex-tam">எங்களிடம் ஒரு வீடு உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">7</div>
+          <div class="ex-content">
+            <div class="ex-eng">You have a new phone.</div>
+            <div class="ex-tam">உங்களிடம் ஒரு புதிய தொலைபேசி உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">8</div>
+          <div class="ex-content">
+            <div class="ex-eng">They have two children.</div>
+            <div class="ex-tam">அவர்களுக்கு இரண்டு குழந்தைகள் உள்ளனர்.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">9</div>
+          <div class="ex-content">
+            <div class="ex-eng">The boy has a bicycle.</div>
+            <div class="ex-tam">அந்த சிறுவனிடம் ஒரு மிதிவண்டி உள்ளது.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">10</div>
+          <div class="ex-content">
+            <div class="ex-eng">The students have books.</div>
+            <div class="ex-tam">மாணவர்களிடம் புத்தகங்கள் உள்ளன.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Negative (-) Section -->
+    <section class="section-block">
+      <div class="section-head head-neg">❌ Negative (-)</div>
+      
+      <div class="rule-box">
+        <div>I / We / You / They + do not have</div>
+        <div>He / She / It + does not have</div>
+      </div>
+
+      <div class="examples-list">
+        <div class="example-card">
+          <div class="ex-num">1</div>
+          <div class="ex-content">
+            <div class="ex-eng">I do not have a car.</div>
+            <div class="ex-tam">என்னிடம் கார் இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">2</div>
+          <div class="ex-content">
+            <div class="ex-eng">I do not have a pen.</div>
+            <div class="ex-tam">என்னிடம் பேனா இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">3</div>
+          <div class="ex-content">
+            <div class="ex-eng">He does not have a bicycle.</div>
+            <div class="ex-tam">அவனிடம் மிதிவண்டி இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">4</div>
+          <div class="ex-content">
+            <div class="ex-eng">She does not have a bag.</div>
+            <div class="ex-tam">அவளிடம் பை இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">5</div>
+          <div class="ex-content">
+            <div class="ex-eng">It does not have a tail.</div>
+            <div class="ex-tam">அதற்கு வால் இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">6</div>
+          <div class="ex-content">
+            <div class="ex-eng">We do not have a car.</div>
+            <div class="ex-tam">எங்களிடம் கார் இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">7</div>
+          <div class="ex-content">
+            <div class="ex-eng">You do not have a ticket.</div>
+            <div class="ex-tam">உங்களிடம் டிக்கெட் இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">8</div>
+          <div class="ex-content">
+            <div class="ex-eng">They do not have a house.</div>
+            <div class="ex-tam">அவர்களிடம் வீடு இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">9</div>
+          <div class="ex-content">
+            <div class="ex-eng">The boy does not have a book.</div>
+            <div class="ex-tam">அந்த சிறுவனிடம் புத்தகம் இல்லை.</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">10</div>
+          <div class="ex-content">
+            <div class="ex-eng">The students do not have pens.</div>
+            <div class="ex-tam">மாணவர்களிடம் பேனாக்கள் இல்லை.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Positive Question (?) Section -->
+    <section class="section-block">
+      <div class="section-head head-q">❓ Positive Question (?)</div>
+
+      <div class="rule-box">
+        <div>Do + I / We / You / They + have...?</div>
+        <div>Does + He / She / It + have...?</div>
+      </div>
+
+      <div class="examples-list">
+        <div class="example-card">
+          <div class="ex-num">1</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do I have a book?</div>
+            <div class="ex-tam">என்னிடம் ஒரு புத்தகம் இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">2</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do I have a pen?</div>
+            <div class="ex-tam">என்னிடம் பேனா இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">3</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does he have a car?</div>
+            <div class="ex-tam">அவனிடம் கார் இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">4</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does she have a bag?</div>
+            <div class="ex-tam">அவளிடம் பை இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">5</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does it have four legs?</div>
+            <div class="ex-tam">அதற்கு நான்கு கால்கள் உள்ளனவா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">6</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do we have enough time?</div>
+            <div class="ex-tam">நமக்கு போதுமான நேரம் இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">7</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do you have a phone?</div>
+            <div class="ex-tam">உங்களிடம் தொலைபேசி இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">8</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do they have a house?</div>
+            <div class="ex-tam">அவர்களிடம் வீடு இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">9</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does the boy have a bicycle?</div>
+            <div class="ex-tam">அந்த சிறுவனிடம் மிதிவண்டி இருக்கிறதா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">10</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do the students have books?</div>
+            <div class="ex-tam">மாணவர்களிடம் புத்தகங்கள் இருக்கிறதா?</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Negative Question (?-) Section -->
+    <section class="section-block">
+      <div class="section-head head-nq">❓❌ Negative Question (?-)</div>
+
+      <div class="rule-box">
+        <div>Do + I / We / You / They + not + have...?</div>
+        <div>Does + He / She / It + not + have...?</div>
+      </div>
+
+      <div class="examples-list">
+        <div class="example-card">
+          <div class="ex-num">1</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do I not have a book?</div>
+            <div class="ex-tam">என்னிடம் புத்தகம் இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">2</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do I not have a pen?</div>
+            <div class="ex-tam">என்னிடம் பேனா இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">3</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does he not have a car?</div>
+            <div class="ex-tam">அவனிடம் கார் இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">4</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does she not have a bag?</div>
+            <div class="ex-tam">அவளிடம் பை இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">5</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does it not have four legs?</div>
+            <div class="ex-tam">அதற்கு நான்கு கால்கள் இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">6</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do we not have enough time?</div>
+            <div class="ex-tam">நமக்கு போதுமான நேரம் இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">7</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do you not have a phone?</div>
+            <div class="ex-tam">உங்களிடம் தொலைபேசி இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">8</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do they not have a house?</div>
+            <div class="ex-tam">அவர்களிடம் வீடு இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">9</div>
+          <div class="ex-content">
+            <div class="ex-eng">Does the boy not have a bicycle?</div>
+            <div class="ex-tam">அந்த சிறுவனிடம் மிதிவண்டி இல்லையா?</div>
+          </div>
+        </div>
+        <div class="example-card">
+          <div class="ex-num">10</div>
+          <div class="ex-content">
+            <div class="ex-eng">Do the students not have books?</div>
+            <div class="ex-tam">மாணவர்களிடம் புத்தகங்கள் இல்லையா?</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Minimal page initialization script
+    });
+  </script>
+</body>
+</html>

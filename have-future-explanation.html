@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAVE VERB - Future Tense Explanation | Tamil Medium Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e3a8a;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #cbd5e1;
+            
+            --pos-color: #15803d;
+            --pos-bg: #f0fdf4;
+            --neg-color: #b91c1c;
+            --neg-bg: #fef2f2;
+            --que-color: #b45309;
+            --que-bg: #fffbeb;
+            --negque-color: #6b21a8;
+            --negque-bg: #faf5ff;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 3rem;
+        }
+
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 1.25rem;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            background-color: #eff6ff;
+            border-radius: 8px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.25rem;
+        }
+
+        /* HERO HEADER */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 0.3rem;
+            color: #93c5fd;
+        }
+
+        .subject-rules {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+        }
+
+        .subject-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* SECTION CARDS */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-header {
+            margin-bottom: 1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-explanation {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .rule-alert {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            color: #92400e;
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .formula-box {
+            display: inline-block;
+            background-color: #1e293b;
+            color: #f8fafc;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* TABLES */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background-color: #ffffff;
+            font-size: 0.98rem;
+        }
+
+        th, td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .subject-cell {
+            font-weight: 700;
+            color: var(--primary-blue);
+            width: 15%;
+        }
+
+        .verb-cell {
+            font-weight: 700;
+            color: #0f172a;
+            width: 22%;
+        }
+
+        .example-cell {
+            font-weight: 600;
+            color: #0369a1;
+            width: 30%;
+        }
+
+        .tamil-cell {
+            color: #334155;
+            width: 33%;
+        }
+
+        /* SECTION SPECIFIC COLORS */
+        .pos-card { border-top: 6px solid var(--pos-color); }
+        .pos-card .card-title { color: var(--pos-color); }
+        .pos-card .card-explanation { border-left-color: var(--pos-color); background-color: var(--pos-bg); }
+
+        .neg-card { border-top: 6px solid var(--neg-color); }
+        .neg-card .card-title { color: var(--neg-color); }
+        .neg-card .card-explanation { border-left-color: var(--neg-color); background-color: var(--neg-bg); }
+
+        .que-card { border-top: 6px solid var(--que-color); }
+        .que-card .card-title { color: var(--que-color); }
+        .que-card .card-explanation { border-left-color: var(--que-color); background-color: var(--que-bg); }
+
+        .negque-card { border-top: 6px solid var(--negque-color); }
+        .negque-card .card-title { color: var(--negque-color); }
+        .negque-card .card-explanation { border-left-color: var(--negque-color); background-color: var(--negque-bg); }
+
+        /* SHORT FORMS & NOTE BOXES */
+        .short-forms-box {
+            background-color: #f1f5f9;
+            border: 1px dashed var(--border-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .mistake-box {
+            background-color: #fef2f2;
+            border: 1px solid #fca5a5;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            color: #991b1b;
+            font-size: 0.95rem;
+        }
+
+        .important-rule-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #3b82f6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            color: #1e3a8a;
+        }
+
+        /* FINAL SUMMARY & MEMORY BOX */
+        .summary-card {
+            background-color: #ffffff;
+            border: 2px solid var(--primary-blue);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-top: 2.5rem;
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+            border: 2px dashed #f59e0b;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .memory-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #b45309;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .memory-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .memory-list li {
+            font-weight: 700;
+            color: #78350f;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .page-title { font-size: 1.75rem; }
+            .card { padding: 1.2rem; }
+            th, td { padding: 0.6rem 0.6rem; font-size: 0.88rem; }
+            .formula-box { font-size: 0.9rem; width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="back-link">← Back to Verbs</a>
+            <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-muted);">Tamil Medium Student</span>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- PAGE HERO -->
+        <section class="page-header">
+            <h1 class="page-title">HAVE VERB – FUTURE</h1>
+            <div class="page-subtitle">HAVE VERB (FUTURE) என்றால் என்ன?</div>
+            <p style="margin-top: 0.8rem; font-size: 1rem; line-height: 1.5;">
+                Future tense-ல் HAVE என்பது எதிர்காலத்தில் ஒருவர் அல்லது ஒரு பொருளிடம் ஏதாவது இருக்கும் / கிடைக்கும் என்பதை சொல்ல பயன்படும்.
+            </p>
+            <div class="subject-rules">
+                <span class="subject-badge">Future HAVE = WILL HAVE</span>
+                <span class="subject-badge">ALL Subjects (I, He, She, It, You, We, They) ➔ WILL HAVE</span>
+            </div>
+        </section>
+
+
+        <!-- 1. POSITIVE (+) -->
+        <section class="card pos-card">
+            <div class="card-header">
+                <h2 class="card-title">1. POSITIVE (+)</h2>
+            </div>
+            
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Future Positive sentence என்பது எதிர்காலத்தில் ஒருவர் அல்லது ஒரு பொருளிடம் ஏதாவது இருக்கும் என்பதை சொல்ல பயன்படும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: Subject + WILL HAVE + Object
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>HAVE Verb</th>
+                            <th>Example</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="subject-cell">I</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">I will have a book.</td>
+                            <td class="tamil-cell">என்னிடம் ஒரு புத்தகம் இருக்கும்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">He</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">He will have a bike.</td>
+                            <td class="tamil-cell">அவனிடம் ஒரு பைக் இருக்கும்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">She</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">She will have a bag.</td>
+                            <td class="tamil-cell">அவளிடம் ஒரு பை இருக்கும்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">It</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">It will have a name.</td>
+                            <td class="tamil-cell">அதற்கு ஒரு பெயர் இருக்கும்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">You</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">You will have a car.</td>
+                            <td class="tamil-cell">உங்களிடம் ஒரு கார் இருக்கும்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">We</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">We will have a house.</td>
+                            <td class="tamil-cell">எங்களிடம் ஒரு வீடு இருக்கும்.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">They</td>
+                            <td class="verb-cell">WILL HAVE</td>
+                            <td class="example-cell">They will have a new teacher.</td>
+                            <td class="tamil-cell">அவர்களிடம் ஒரு புதிய ஆசிரியர் இருப்பார்.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="short-forms-box">
+                💡 <strong>Simple Note:</strong><br>
+                • <strong>WILL HAVE</strong> = இருக்கும் / இருப்பான் / இருப்பாள் / இருப்போம் / இருப்பார்கள்<br>
+                • 📌 <strong>Important:</strong> WILL HAVE is the same for all subjects.
+            </div>
+        </section>
+
+
+        <!-- 2. NEGATIVE (-) -->
+        <section class="card neg-card">
+            <div class="card-header">
+                <h2 class="card-title">2. NEGATIVE (-)</h2>
+            </div>
+
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Future Negative sentence என்பது எதிர்காலத்தில் ஒருவர் அல்லது ஒரு பொருளிடம் ஏதாவது இருக்காது என்பதை சொல்ல பயன்படும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: Subject + WILL NOT HAVE + Object
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>HAVE Verb</th>
+                            <th>Example</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="subject-cell">I</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">I will not have a book.</td>
+                            <td class="tamil-cell">என்னிடம் ஒரு புத்தகம் இருக்காது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">He</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">He will not have a bike.</td>
+                            <td class="tamil-cell">அவனிடம் ஒரு பைக் இருக்காது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">She</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">She will not have a bag.</td>
+                            <td class="tamil-cell">அவளிடம் ஒரு பை இருக்காது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">It</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">It will not have a name.</td>
+                            <td class="tamil-cell">அதற்கு ஒரு பெயர் இருக்காது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">You</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">You will not have a car.</td>
+                            <td class="tamil-cell">உங்களிடம் ஒரு கார் இருக்காது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">We</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">We will not have a house.</td>
+                            <td class="tamil-cell">எங்களிடம் ஒரு வீடு இருக்காது.</td>
+                        </tr>
+                        <tr>
+                            <td class="subject-cell">They</td>
+                            <td class="verb-cell">WILL NOT HAVE</td>
+                            <td class="example-cell">They will not have a new teacher.</td>
+                            <td class="tamil-cell">அவர்களிடம் ஒரு புதிய ஆசிரியர் இருக்க மாட்டார்.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="short-forms-box">
+                ✂️ <strong>Short Forms (WILL NOT = WON'T):</strong><br>
+                • Examples: <i>I won't have a book. | He won't have a bike. | They won't have a new teacher.</i>
+            </div>
+
+            <div class="mistake-box">
+                ⚠️ <strong>IMPORTANT RULE:</strong><br>
+                All subjects use <strong>WILL NOT HAVE</strong>.<br><br>
+                ❌ <i>He will not has a bike.</i> &nbsp;|&nbsp; ❌ <i>They will not had a house.</i><br>
+                ✅ <strong>He will not have a bike.</strong> &nbsp;|&nbsp; ✅ <strong>They will not have a house.</strong>
+            </div>
+        </section>
+
+
+        <!-- 3. POSITIVE QUESTION (+?) -->
+        <section class="card que-card">
+            <div class="card-header">
+                <h2 class="card-title">3. POSITIVE QUESTION (+?)</h2>
+            </div>
+
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Future Positive Question என்பது எதிர்காலத்தில் ஒருவர் அல்லது ஒரு பொருளிடம் ஏதாவது இருக்குமா என்று கேட்க பயன்படும்.
+            </div>
+
+            <div class="rule-alert">
+                📌 Important rule: WILL sentence-ன் ஆரம்பத்தில் வரும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: WILL + Subject + HAVE + Object?
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Helping Verb</th>
+                            <th>Subject</th>
+                            <th>Question</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">I</td>
+                            <td class="example-cell">Will I have a book?</td>
+                            <td class="tamil-cell">என்னிடம் ஒரு புத்தகம் இருக்குமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">He</td>
+                            <td class="example-cell">Will he have a bike?</td>
+                            <td class="tamil-cell">அவனிடம் ஒரு பைக் இருக்குமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">She</td>
+                            <td class="example-cell">Will she have a bag?</td>
+                            <td class="tamil-cell">அவளிடம் ஒரு பை இருக்குமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">It</td>
+                            <td class="example-cell">Will it have a name?</td>
+                            <td class="tamil-cell">அதற்கு ஒரு பெயர் இருக்குமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">You</td>
+                            <td class="example-cell">Will you have a car?</td>
+                            <td class="tamil-cell">உங்களிடம் ஒரு கார் இருக்குமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">We</td>
+                            <td class="example-cell">Will we have a house?</td>
+                            <td class="tamil-cell">நம்மிடம் ஒரு வீடு இருக்குமா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">They</td>
+                            <td class="example-cell">Will they have a new teacher?</td>
+                            <td class="tamil-cell">அவர்களிடம் ஒரு புதிய ஆசிரியர் இருப்பாரா?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="short-forms-box">
+                🔄 <strong>Simple Pattern Comparison:</strong><br>
+                • Statement: <i>I will have a book.</i> ➔ Question: <i>Will I have a book?</i><br>
+                • Explain: Question-ல் WILL, Subject-க்கு முன் வரும்.
+            </div>
+
+            <div class="mistake-box">
+                📌 <strong>Important Rule:</strong> After WILL, always use <strong>HAVE</strong>.<br>
+                ✅ <strong>Will he have a bike?</strong><br>
+                ❌ <i>Will he has a bike?</i>
+            </div>
+        </section>
+
+
+        <!-- 4. NEGATIVE QUESTION (-?) -->
+        <section class="card negque-card">
+            <div class="card-header">
+                <h2 class="card-title">4. NEGATIVE QUESTION (-?)</h2>
+            </div>
+
+            <div class="card-explanation">
+                <strong>Explanation:</strong> Future Negative Question என்பது எதிர்காலத்தில் ஒருவர் அல்லது ஒரு பொருளிடம் ஏதாவது இருக்காதா என்று கேட்க பயன்படும்.
+            </div>
+
+            <div class="formula-box">
+                Formula: WILL + Subject + NOT + HAVE + Object?
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Helping Verb</th>
+                            <th>Subject</th>
+                            <th>Question</th>
+                            <th>Tamil Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">I</td>
+                            <td class="example-cell">Will I not have a book?</td>
+                            <td class="tamil-cell">என்னிடம் ஒரு புத்தகம் இருக்காதா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">He</td>
+                            <td class="example-cell">Will he not have a bike?</td>
+                            <td class="tamil-cell">அவனிடம் ஒரு பைக் இருக்காதா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">She</td>
+                            <td class="example-cell">Will she not have a bag?</td>
+                            <td class="tamil-cell">அவளிடம் ஒரு பை இருக்காதா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">It</td>
+                            <td class="example-cell">Will it not have a name?</td>
+                            <td class="tamil-cell">அதற்கு ஒரு பெயர் இருக்காதா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">You</td>
+                            <td class="example-cell">Will you not have a car?</td>
+                            <td class="tamil-cell">உங்களிடம் ஒரு கார் இருக்காதா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">We</td>
+                            <td class="example-cell">Will we not have a house?</td>
+                            <td class="tamil-cell">நம்மிடம் ஒரு வீடு இருக்காதா?</td>
+                        </tr>
+                        <tr>
+                            <td class="verb-cell">WILL</td>
+                            <td class="subject-cell">They</td>
+                            <td class="example-cell">Will they not have a new teacher?</td>
+                            <td class="tamil-cell">அவர்களிடம் ஒரு புதிய ஆசிரியர் இருக்க மாட்டாரா?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="short-forms-box">
+                ⚡ <strong>Common Short Forms:</strong><br>
+                • <strong>Won't I...?</strong> &nbsp;|&nbsp; • <strong>Won't he...?</strong> &nbsp;|&nbsp; • <strong>Won't she...?</strong> &nbsp;|&nbsp; • <strong>Won't it...?</strong><br>
+                • <strong>Won't you...?</strong> &nbsp;|&nbsp; • <strong>Won't we...?</strong> &nbsp;|&nbsp; • <strong>Won't they...?</strong><br><br>
+                <span style="font-size: 0.9rem; color: var(--text-muted);">
+                    Example: <i>Will he not have a bike?</i> ➔ Short form: <i>Won't he have a bike?</i> (WILL NOT → WON'T)
+                </span>
+            </div>
+
+            <div class="mistake-box">
+                📌 <strong>Important:</strong> After WILL / WON'T, use HAVE, not HAS or HAD.<br>
+                ✅ <strong>Will she have a bag?</strong><br>
+                ❌ <i>Will she has a bag?</i>
+            </div>
+        </section>
+
+
+        <!-- IMPORTANT HAVE FUTURE RULE BOX -->
+        <section class="important-rule-box">
+            <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem;">
+                🧠 Very Important
+            </h3>
+            <p style="font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem;">
+                • All Subjects ➔ <strong>WILL HAVE</strong><br>
+                <span style="font-size: 0.95rem; font-weight: 500;">(I, He, She, It, You, We, They ➔ WILL HAVE)</span>
+            </p>
+            <p style="font-size: 0.95rem; margin-top: 0.6rem; font-weight: 700; color: #b91c1c;">
+                There is NO HAS and NO HAD in Future.
+            </p>
+            <div style="background-color: #ffffff; padding: 0.8rem 1rem; border-radius: 8px; margin-top: 0.6rem; border: 1px solid #bfdbfe;">
+                • ✅ <strong>He will have a bike.</strong> &nbsp;|&nbsp; ❌ <i>He will has a bike.</i><br>
+                • ✅ <strong>They will have a house.</strong> &nbsp;|&nbsp; ❌ <i>They will had a house.</i>
+            </div>
+        </section>
+
+
+        <!-- FINAL SUMMARY -->
+        <section class="summary-card">
+            <h2 style="font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem;">
+                📋 FINAL SUMMARY
+            </h2>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Formula</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--pos-color);">Positive (+)</td>
+                            <td>Subject + WILL HAVE</td>
+                            <td style="font-weight: 600;">I will have a book.</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--neg-color);">Negative (-)</td>
+                            <td>Subject + WILL NOT HAVE</td>
+                            <td style="font-weight: 600;">I will not have a book.</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--que-color);">Positive Question (+?)</td>
+                            <td>WILL + Subject + HAVE?</td>
+                            <td style="font-weight: 600;">Will I have a book?</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 700; color: var(--negque-color);">Negative Question (-?)</td>
+                            <td>WILL + Subject + NOT + HAVE?</td>
+                            <td style="font-weight: 600;">Will I not have a book?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="memory-box">
+                <div class="memory-title">
+                    <span>🧠</span> நினைவில் வைத்துக்கொள்ளுங்கள்:
+                </div>
+                <ul class="memory-list">
+                    <li>• <strong>Future HAVE</strong> = WILL HAVE</li>
+                    <li>• <strong>I / He / She / It / You / We / They</strong> ➔ WILL HAVE</li>
+                    <li>• <strong>Positive</strong> ➔ WILL HAVE</li>
+                    <li>• <strong>Negative</strong> ➔ WILL NOT HAVE</li>
+                    <li>• <strong>Question</strong> ➔ WILL + Subject + HAVE?</li>
+                    <li>• <strong>Negative Question</strong> ➔ WILL + Subject + NOT + HAVE?</li>
+                    <li style="margin-top: 0.5rem; font-weight: 800; color: #92400e;">
+                        📌 Final easy memory: Present ➔ HAVE / HAS &nbsp;|&nbsp; Past ➔ HAD &nbsp;|&nbsp; Future ➔ WILL HAVE
+                    </li>
+                    <li style="margin-top: 0.5rem; background: rgba(255, 255, 255, 0.6); padding: 0.6rem; border-radius: 6px; border: 1px solid #fcd34d;">
+                        🌟 <strong>Golden Rule:</strong> Future-ல் எல்லா Subject-க்கும் WILL HAVE தான்.<br>
+                        I will have | He will have | She will have | It will have | You will have | We will have | They will have
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

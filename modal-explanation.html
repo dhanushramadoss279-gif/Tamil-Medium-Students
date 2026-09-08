@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Verbs - Tamil Medium Student</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e40af;
+            --bg-slate: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            
+            /* State Colors */
+            --pos-bg: #f0fdf4;
+            --pos-border: #86efac;
+            --pos-text: #166534;
+            
+            --neg-bg: #fef2f2;
+            --neg-border: #fca5a5;
+            --neg-text: #991b1b;
+            
+            --pos-q-bg: #eff6ff;
+            --pos-q-border: #93c5fd;
+            --pos-q-text: #1e40af;
+            
+            --neg-q-bg: #faf5ff;
+            --neg-q-border: #d8b4fe;
+            --neg-q-text: #6b21a8;
+            
+            --golden-bg: #fffbeb;
+            --golden-border: #fde68a;
+            --golden-text: #92400e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-slate);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* HEADER STYLES */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .back-btn:hover {
+            color: var(--primary-dark);
+        }
+
+        .brand-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            background: #eff6ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .page-title-banner {
+            text-align: center;
+            margin: 30px 0 20px 0;
+        }
+
+        .page-title-banner h1 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .page-title-banner p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* CARD STYLES */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ta-text {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            color: var(--text-muted);
+        }
+
+        /* FORMULA BOXES */
+        .formula-box {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--primary-blue);
+            padding: 10px 16px;
+            border-radius: 0 8px 8px 0;
+            font-weight: 600;
+            margin: 12px 0;
+            color: #1e293b;
+            font-size: 0.95rem;
+        }
+
+        /* TABLES */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 12px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* PATTERN GRID FOR MODAL TYPES */
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        @media (min-width: 768px) {
+            .modal-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .pattern-card {
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid transparent;
+        }
+
+        .pattern-card.pos {
+            background-color: var(--pos-bg);
+            border-color: var(--pos-border);
+        }
+        .pattern-card.neg {
+            background-color: var(--neg-bg);
+            border-color: var(--neg-border);
+        }
+        .pattern-card.pos-q {
+            background-color: var(--pos-q-bg);
+            border-color: var(--pos-q-border);
+        }
+        .pattern-card.neg-q {
+            background-color: var(--neg-q-bg);
+            border-color: var(--neg-q-border);
+        }
+
+        .pattern-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .pos .pattern-badge { background: #bbf7d0; color: var(--pos-text); }
+        .neg .pattern-badge { background: #fecaca; color: var(--neg-text); }
+        .pos-q .pattern-badge { background: #bfdbfe; color: var(--pos-q-text); }
+        .neg-q .pattern-badge { background: #e9d5ff; color: var(--neg-q-text); }
+
+        .example-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+
+        .example-item {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .example-en {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .example-ta {
+            font-size: 0.88rem;
+            color: #475569;
+        }
+
+        /* RULES HIGHLIGHT */
+        .rule-wrong {
+            color: #dc2626;
+            font-weight: 500;
+        }
+
+        .rule-correct {
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        /* SPECIAL CARDS */
+        .golden-card {
+            background-color: var(--golden-bg);
+            border: 2px solid var(--golden-border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .golden-card h2 {
+            color: var(--golden-text);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .golden-formula {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: #ffffff;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 8px;
+            border: 1px dashed #f59e0b;
+            color: #b45309;
+            margin: 10px 0;
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .memory-box h2 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .memory-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 14px;
+            border-radius: 6px;
+            backdrop-filter: blur(5px);
+        }
+
+        .memory-item span {
+            font-weight: 700;
+            color: #93c5fd;
+        }
+
+        /* UTILITY */
+        .note-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary-blue);
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="back-btn">← Back to Verbs</a>
+            <span class="brand-name">Tamil Medium Student</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- TITLE BANNER -->
+        <div class="page-title-banner">
+            <h1>MODAL VERBS</h1>
+            <p>Modal Verbs – தமிழ் விளக்கம்</p>
+        </div>
+
+        <!-- SECTION 1: WHAT ARE MODAL VERBS? -->
+        <div class="card">
+            <h2 class="section-title">What are Modal Verbs?</h2>
+            <p><strong>Modal Verbs</strong> are helping verbs used to express ability, permission, possibility, possibility in the future, advice, necessity, request, or willingness.</p>
+            
+            <p class="ta-text" style="margin-top: 10px;">
+                Modal Verbs என்பது ஒரு செயலை செய்ய முடியும், செய்யலாம், செய்ய வேண்டும், செய்யக் கூடாது, செய்யக்கூடும், செய்ய வேண்டும் என்று அறிவுரை கூறலாம் போன்ற அர்த்தங்களை தெரிவிக்க உதவும் Helping Verbs.
+            </p>
+
+            <div class="note-box" style="margin-top: 16px;">
+                <p class="example-en">Example: I can swim.</p>
+                <p class="example-ta">தமிழ்: நான் நீந்த முடியும்.</p>
+                <p style="font-size: 0.85rem; color: #2563eb; margin-top: 4px;"><strong>Explanation:</strong> CAN shows ability.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: COMMON MODAL VERBS -->
+        <div class="card">
+            <h2 class="section-title">Common Modal Verbs</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Modal Verb</th>
+                            <th>Tamil Meaning</th>
+                            <th>Main Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>CAN</strong></td><td>முடியும் / செய்யலாம்</td><td>Ability / Permission</td></tr>
+                        <tr><td><strong>COULD</strong></td><td>முடிந்தது / முடியுமா</td><td>Past Ability / Polite Request</td></tr>
+                        <tr><td><strong>MAY</strong></td><td>இருக்கலாம் / அனுமதி</td><td>Possibility / Permission</td></tr>
+                        <tr><td><strong>MIGHT</strong></td><td>இருக்கக்கூடும்</td><td>Possibility</td></tr>
+                        <tr><td><strong>WILL</strong></td><td>செய்வேன் / செய்வார்</td><td>Future / Willingness</td></tr>
+                        <tr><td><strong>WOULD</strong></td><td>செய்வேன் / செய்வீர்களா</td><td>Polite Request / Imaginary</td></tr>
+                        <tr><td><strong>SHALL</strong></td><td>செய்வோம் / செய்வோமா</td><td>Suggestion / Future</td></tr>
+                        <tr><td><strong>SHOULD</strong></td><td>செய்ய வேண்டும்</td><td>Advice</td></tr>
+                        <tr><td><strong>MUST</strong></td><td>கண்டிப்பாக செய்ய வேண்டும்</td><td>Necessity</td></tr>
+                        <tr><td><strong>OUGHT TO</strong></td><td>செய்ய வேண்டும்</td><td>Advice / Duty</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 3: BASIC MODAL VERB RULE -->
+        <div class="card">
+            <h2 class="section-title">Modal Verb Basic Rule</h2>
+            <p>After a modal verb, always use the <strong>BASE FORM</strong> of the main verb.</p>
+            
+            <div class="formula-box">
+                Formula: Subject + Modal + Base Verb + Object
+            </div>
+
+            <p><strong>Examples:</strong></p>
+            <ul class="example-list" style="margin-bottom: 16px;">
+                <li class="example-item">
+                    <span class="example-en">I can swim.</span> — <span class="example-ta">நான் நீந்த முடியும்.</span>
+                </li>
+                <li class="example-item">
+                    <span class="example-en">He can play cricket.</span> — <span class="example-ta">அவன் கிரிக்கெட் விளையாட முடியும்.</span>
+                </li>
+                <li class="example-item">
+                    <span class="example-en">She should study.</span> — <span class="example-ta">அவள் படிக்க வேண்டும்.</span>
+                </li>
+            </ul>
+
+            <div style="background-color: #fef2f2; border: 1px solid #fca5a5; padding: 12px; border-radius: 8px;">
+                <p style="font-weight: 700; color: #991b1b; margin-bottom: 6px;">IMPORTANT RULE:</p>
+                <p class="rule-wrong">❌ I can swims.</p>
+                <p class="rule-correct" style="margin-bottom: 8px;">✅ I can swim.</p>
+                <p class="rule-wrong">❌ He should studies.</p>
+                <p class="rule-correct" style="margin-bottom: 8px;">✅ He should study.</p>
+                <p class="rule-wrong">❌ She can goes.</p>
+                <p class="rule-correct">✅ She can go.</p>
+            </div>
+
+            <p class="ta-text" style="margin-top: 12px;">
+                Modal Verb-க்கு பிறகு வரும் Main Verb எப்போதும் Base Form-ல் தான் இருக்க வேண்டும்.
+            </p>
+        </div>
+
+        <!-- SECTION 4: CAN -->
+        <div class="card">
+            <h2 class="section-title">CAN – முடியும் / செய்யலாம்</h2>
+            <p class="ta-text">CAN என்பது ஒருவரால் ஒரு செயலை செய்ய முடியும் அல்லது அனுமதி உள்ளது என்பதை தெரிவிக்க பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <!-- Positive -->
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + CAN + Base Verb + Object</div>
+                    <ul class="example-list">
+                        <li class="example-item"><div class="example-en">I can swim.</div><div class="example-ta">நான் நீந்த முடியும்.</div></li>
+                        <li class="example-item"><div class="example-en">He can drive.</div><div class="example-ta">அவனால் வாகனம் ஓட்ட முடியும்.</div></li>
+                        <li class="example-item"><div class="example-en">She can sing.</div><div class="example-ta">அவளால் பாட முடியும்.</div></li>
+                        <li class="example-item"><div class="example-en">They can play cricket.</div><div class="example-ta">அவர்களால் கிரிக்கெட் விளையாட முடியும்.</div></li>
+                    </ul>
+                </div>
+
+                <!-- Negative -->
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + CANNOT / CAN'T + Base Verb + Object</div>
+                    <ul class="example-list">
+                        <li class="example-item"><div class="example-en">I cannot swim.</div><div class="example-ta">என்னால் நீந்த முடியாது.</div></li>
+                        <li class="example-item"><div class="example-en">He cannot drive.</div><div class="example-ta">அவனால் வாகனம் ஓட்ட முடியாது.</div></li>
+                        <li class="example-item"><div class="example-en">She can't sing.</div><div class="example-ta">அவளால் பாட முடியாது.</div></li>
+                    </ul>
+                </div>
+
+                <!-- Positive Question -->
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">CAN + Subject + Base Verb + Object?</div>
+                    <ul class="example-list">
+                        <li class="example-item"><div class="example-en">Can I swim?</div><div class="example-ta">நான் நீந்த முடியுமா?</div></li>
+                        <li class="example-item"><div class="example-en">Can he drive?</div><div class="example-ta">அவனால் வாகனம் ஓட்ட முடியுமா?</div></li>
+                        <li class="example-item"><div class="example-en">Can she sing?</div><div class="example-ta">அவளால் பாட முடியுமா?</div></li>
+                    </ul>
+                </div>
+
+                <!-- Negative Question -->
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">CAN + Subject + NOT + Base Verb + Object?</div>
+                    <ul class="example-list">
+                        <li class="example-item"><div class="example-en">Can I not swim?</div><div class="example-ta">நான் நீந்த முடியாதா?</div></li>
+                        <li class="example-item"><div class="example-en">Can he not drive?</div><div class="example-ta">அவனால் வாகனம் ஓட்ட முடியாதா?</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: COULD -->
+        <div class="card">
+            <h2 class="section-title">COULD – முடிந்தது / முடியுமா</h2>
+            <p class="ta-text">COULD என்பது கடந்த காலத்தில் ஒரு செயலை செய்ய முடிந்தது என்பதையும், மரியாதையாக கேட்கவும் பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + COULD + Base Verb + Object</div>
+                    <div class="example-item"><div class="example-en">I could swim when I was young.</div><div class="example-ta">நான் சிறியவனாக இருந்தபோது நீந்த முடிந்தது.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + COULD NOT + Base Verb + Object</div>
+                    <div class="example-item"><div class="example-en">I could not swim when I was young.</div><div class="example-ta">நான் சிறியவனாக இருந்தபோது நீந்த முடியவில்லை.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">COULD + Subject + Base Verb + Object?</div>
+                    <div class="example-item"><div class="example-en">Could you help me?</div><div class="example-ta">நீங்கள் எனக்கு உதவ முடியுமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">COULD + Subject + NOT + Base Verb + Object?</div>
+                    <div class="example-item"><div class="example-en">Could you not help me?</div><div class="example-ta">நீங்கள் எனக்கு உதவ முடியாதா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 6: MAY -->
+        <div class="card">
+            <h2 class="section-title">MAY – இருக்கலாம் / அனுமதி</h2>
+            <p class="ta-text">MAY என்பது ஒரு செயல் நடக்கக்கூடும் என்பதையும், அனுமதி கேட்கவும் பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + MAY + Base Verb</div>
+                    <div class="example-item"><div class="example-en">It may rain.</div><div class="example-ta">மழை பெய்யலாம்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + MAY NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">It may not rain.</div><div class="example-ta">மழை பெய்யாமல் இருக்கலாம்.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">MAY + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">May I come in?</div><div class="example-ta">நான் உள்ளே வரலாமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">MAY + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">May I not come in?</div><div class="example-ta">நான் உள்ளே வரக்கூடாதா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: MIGHT -->
+        <div class="card">
+            <h2 class="section-title">MIGHT – இருக்கக்கூடும்</h2>
+            <p class="ta-text">MIGHT என்பது ஒரு செயல் நடக்க வாய்ப்பு குறைவாக இருக்கலாம் என்பதை தெரிவிக்க பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + MIGHT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">He might come.</div><div class="example-ta">அவன் வரக்கூடும்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + MIGHT NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">He might not come.</div><div class="example-ta">அவன் வராமல் இருக்கக்கூடும்.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">MIGHT + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Might he come?</div><div class="example-ta">அவன் வரக்கூடுமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">MIGHT + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Might he not come?</div><div class="example-ta">அவன் வராமல் இருக்கக்கூடுமா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 8: WILL -->
+        <div class="card">
+            <h2 class="section-title">WILL – செய்வேன் / செய்வார்</h2>
+            <p class="ta-text">WILL என்பது எதிர்கால செயலை தெரிவிக்கவும், ஒருவர் செய்யத் தயாராக இருப்பதை தெரிவிக்கவும் பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + WILL + Base Verb</div>
+                    <div class="example-item"><div class="example-en">I will study.</div><div class="example-ta">நான் படிப்பேன்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + WILL NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">I will not study.</div><div class="example-ta">நான் படிக்க மாட்டேன்.</div></div>
+                    <p style="font-size: 0.8rem; color: #991b1b; margin-top: 4px;">* Short form: WILL NOT = WON'T</p>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">WILL + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Will you study?</div><div class="example-ta">நீங்கள் படிப்பீர்களா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">WILL + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Will you not study?</div><div class="example-ta">நீங்கள் படிக்க மாட்டீர்களா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 9: WOULD -->
+        <div class="card">
+            <h2 class="section-title">WOULD – செய்வீர்களா / செய்வேன்</h2>
+            <p class="ta-text">WOULD என்பது மரியாதையாக கேட்கவும், கற்பனை நிலைமைகளையும் தெரிவிக்க பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + WOULD + Base Verb</div>
+                    <div class="example-item"><div class="example-en">I would help you.</div><div class="example-ta">நான் உங்களுக்கு உதவுவேன்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + WOULD NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">I would not help him.</div><div class="example-ta">நான் அவனுக்கு உதவ மாட்டேன்.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">WOULD + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Would you help me?</div><div class="example-ta">நீங்கள் எனக்கு உதவுவீர்களா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">WOULD + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Would you not help me?</div><div class="example-ta">நீங்கள் எனக்கு உதவ மாட்டீர்களா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 10: SHALL -->
+        <div class="card">
+            <h2 class="section-title">SHALL – செய்வோமா / செய்வோம்</h2>
+            <p class="ta-text">SHALL என்பது குறிப்பாக I / WE உடன் suggestion அல்லது future idea தெரிவிக்க பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + SHALL + Base Verb</div>
+                    <div class="example-item"><div class="example-en">We shall go.</div><div class="example-ta">நாங்கள் செல்வோம்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + SHALL NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">We shall not go.</div><div class="example-ta">நாங்கள் செல்ல மாட்டோம்.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">SHALL + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Shall we go?</div><div class="example-ta">நாம் செல்லலாமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">SHALL + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Shall we not go?</div><div class="example-ta">நாம் செல்லக்கூடாதா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 11: SHOULD -->
+        <div class="card">
+            <h2 class="section-title">SHOULD – செய்ய வேண்டும்</h2>
+            <p class="ta-text">SHOULD என்பது ஒருவருக்கு அறிவுரை அல்லது நல்ல செயலை கூறுவதற்கு பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + SHOULD + Base Verb</div>
+                    <div class="example-item"><div class="example-en">You should study.</div><div class="example-ta">நீங்கள் படிக்க வேண்டும்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + SHOULD NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">You should not waste time.</div><div class="example-ta">நீங்கள் நேரத்தை வீணாக்கக்கூடாது.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">SHOULD + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Should I study?</div><div class="example-ta">நான் படிக்க வேண்டுமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">SHOULD + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Should I not study?</div><div class="example-ta">நான் படிக்க வேண்டாமா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 12: MUST -->
+        <div class="card">
+            <h2 class="section-title">MUST – கண்டிப்பாக செய்ய வேண்டும்</h2>
+            <p class="ta-text">MUST என்பது கட்டாயம் அல்லது மிகவும் முக்கியமான செயலை தெரிவிக்க பயன்படும்.</p>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + MUST + Base Verb</div>
+                    <div class="example-item"><div class="example-en">You must study.</div><div class="example-ta">நீங்கள் கண்டிப்பாக படிக்க வேண்டும்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + MUST NOT + Base Verb</div>
+                    <div class="example-item"><div class="example-en">You must not smoke.</div><div class="example-ta">நீங்கள் புகைபிடிக்கக் கூடாது.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">MUST + Subject + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Must I study?</div><div class="example-ta">நான் கட்டாயம் படிக்க வேண்டுமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">MUST + Subject + NOT + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Must I not study?</div><div class="example-ta">நான் படிக்கக் கூடாதா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 13: OUGHT TO -->
+        <div class="card">
+            <h2 class="section-title">OUGHT TO – செய்ய வேண்டும்</h2>
+            <p class="ta-text">OUGHT TO என்பது அறிவுரை, கடமை அல்லது சரியான செயலை தெரிவிக்க பயன்படும்.</p>
+            <div style="background-color: #fff7ed; border-left: 4px solid #f97316; padding: 8px 12px; margin: 8px 0; border-radius: 4px; font-size: 0.88rem;">
+                <strong>IMPORTANT:</strong> Unlike other modal verbs, use: <code>OUGHT TO + BASE VERB</code>
+            </div>
+
+            <div class="modal-grid">
+                <div class="pattern-card pos">
+                    <span class="pattern-badge">Positive (+)</span>
+                    <div class="formula-box">Subject + OUGHT TO + Base Verb</div>
+                    <div class="example-item"><div class="example-en">You ought to study.</div><div class="example-ta">நீங்கள் படிக்க வேண்டும்.</div></div>
+                </div>
+
+                <div class="pattern-card neg">
+                    <span class="pattern-badge">Negative (-)</span>
+                    <div class="formula-box">Subject + OUGHT NOT TO + Base Verb</div>
+                    <div class="example-item"><div class="example-en">You ought not to waste time.</div><div class="example-ta">நீங்கள் நேரத்தை வீணாக்கக் கூடாது.</div></div>
+                </div>
+
+                <div class="pattern-card pos-q">
+                    <span class="pattern-badge">Positive Question (+?)</span>
+                    <div class="formula-box">OUGHT + Subject + TO + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Ought I to study?</div><div class="example-ta">நான் படிக்க வேண்டுமா?</div></div>
+                </div>
+
+                <div class="pattern-card neg-q">
+                    <span class="pattern-badge">Negative Question (-?)</span>
+                    <div class="formula-box">OUGHT + Subject + NOT + TO + Base Verb?</div>
+                    <div class="example-item"><div class="example-en">Ought I not to study?</div><div class="example-ta">நான் படிக்க வேண்டாமா?</div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 14: IMPORTANT GOLDEN RULE -->
+        <div class="golden-card">
+            <h2>🔥 GOLDEN RULE</h2>
+            <div class="golden-formula">MODAL + BASE VERB</div>
+            
+            <div style="max-width: 400px; margin: 16px auto; text-align: left; font-size: 0.95rem;">
+                <p class="rule-correct">✅ I can go.</p>
+                <p class="rule-wrong" style="margin-bottom: 8px;">❌ I can goes.</p>
+                
+                <p class="rule-correct">✅ He should study.</p>
+                <p class="rule-wrong" style="margin-bottom: 8px;">❌ He should studies.</p>
+                
+                <p class="rule-correct">✅ They will come.</p>
+                <p class="rule-wrong">❌ They will comes.</p>
+            </div>
+
+            <p class="ta-text" style="color: var(--golden-text); font-weight: 500;">
+                Modal Verb-க்கு பிறகு Main Verb எப்போதும் Base Form-ல் வரும்.
+            </p>
+        </div>
+
+        <!-- SECTION 15: QUICK FORMULA -->
+        <div class="card">
+            <h2 class="section-title">Quick Formula</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="formula-box" style="margin: 0; background-color: var(--pos-bg); border-color: var(--pos-border);">
+                    <strong>Positive (+):</strong> Subject + Modal + Base Verb
+                </div>
+                <div class="formula-box" style="margin: 0; background-color: var(--neg-bg); border-color: var(--neg-border);">
+                    <strong>Negative (-):</strong> Subject + Modal + NOT + Base Verb
+                </div>
+                <div class="formula-box" style="margin: 0; background-color: var(--pos-q-bg); border-color: var(--pos-q-border);">
+                    <strong>Positive Question (+?):</strong> Modal + Subject + Base Verb?
+                </div>
+                <div class="formula-box" style="margin: 0; background-color: var(--neg-q-bg); border-color: var(--neg-q-border);">
+                    <strong>Negative Question (-?):</strong> Modal + Subject + NOT + Base Verb?
+                </div>
+            </div>
+
+            <div style="margin-top: 12px; font-size: 0.9rem; color: var(--text-muted);">
+                <strong>Special case:</strong> <code>OUGHT TO + BASE VERB</code>
+            </div>
+        </div>
+
+        <!-- FINAL MEMORY BOX -->
+        <div class="memory-box">
+            <h2>🧠 Easy Memory</h2>
+            <div class="memory-grid">
+                <div class="memory-item"><span>CAN</span> → முடியும்</div>
+                <div class="memory-item"><span>COULD</span> → முடியுமா / முடிந்தது</div>
+                <div class="memory-item"><span>MAY</span> → இருக்கலாம் / அனுமதி</div>
+                <div class="memory-item"><span>MIGHT</span> → இருக்கக்கூடும்</div>
+                <div class="memory-item"><span>WILL</span> → செய்வேன் / செய்வார்</div>
+                <div class="memory-item"><span>WOULD</span> → செய்வீர்களா</div>
+                <div class="memory-item"><span>SHALL</span> → செய்வோமா</div>
+                <div class="memory-item"><span>SHOULD</span> → செய்ய வேண்டும்</div>
+                <div class="memory-item"><span>MUST</span> → கண்டிப்பாக செய்ய வேண்டும்</div>
+                <div class="memory-item"><span>OUGHT TO</span> → செய்ய வேண்டும்</div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px; font-weight: 700; font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px;">
+                Final Rule: MODAL + BASE VERB
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

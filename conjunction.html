@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CONJUNCTION – இணைப்புச்சொற்கள் (100 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-break: break-word;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 480px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="#" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>CONJUNCTION – இணைப்புச்சொற்கள்</h1>
+            <p>100 பயிற்சிகள் (50+50) தமிழ் விளக்கத்துடன்!</p>
+        </div>
+
+        <div class="progress-card">
+            <div class="progress-title">
+                <span>கற்றல் நிலை (Progress)</span>
+                <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+            </div>
+            <div class="progress-grid" id="progress-tracker-grid"></div>
+        </div>
+
+        <div class="topic-pills" id="topic-pills"></div>
+
+        <section class="topic-section" id="topic-content"></section>
+
+        <section class="quiz-container" id="quiz-box">
+            <div class="quiz-header">
+                <span class="quiz-title-badge" id="quiz-topic-badge">Linkers Quiz</span>
+                <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+            </div>
+
+            <div id="question-runner">
+                <div class="question-box">
+                    <div class="question-text" id="question-text">Loading question...</div>
+                    <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                    <div class="options-grid" id="options-container"></div>
+                </div>
+                <div class="feedback-box" id="feedback-box"></div>
+                <div class="quiz-actions">
+                    <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next)
+                        →</button>
+                </div>
+            </div>
+
+            <div class="result-card" id="result-runner">
+                <div class="score-circle">
+                    <span id="res-score">0</span>
+                </div>
+                <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!
+                </div>
+                <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 50 Questions Generator for Mostly Used Linkers
+        const generateMostlyUsedQuestions = () => {
+            const raw = [
+                ["I bought an apple ______ an orange.", "(நான் ஒரு ஆப்பிள் மற்றும் ஒரு ஆரஞ்சு வாங்கினேன்.)", ["and", "but", "until", "because"], 0, "இரண்டு பொருட்களை சேர்க்க 'and' (மற்றும்) பயன்படுகிறது."],
+                ["He studied hard, ______ he failed.", "(அவன் கடுமையாக படித்தான், ஆனால் தோல்வியடைந்தான்.)", ["so", "but", "or", "because"], 1, "எதிர்மறை முடிவைக் கூற 'but' (ஆனால்) பயன்படுகிறது."],
+                ["Take an umbrella ______ it is raining.", "(குடை எடுத்துச்செல் ஏனெனில் மழை பெய்கிறது.)", ["because", "but", "than", "until"], 0, "காரணத்தைக் கூற 'because' (ஏனெனில்) பயன்படுகிறது."],
+                ["Do you like tea ______ coffee?", "(உனக்கு டீ பிடிக்குமா அல்லது காபி பிடிக்குமா?)", ["and", "or", "so", "since"], 1, "தேர்வை குறிக்க 'or' (அல்லது) பயன்படுகிறது."],
+                ["______ you study well, you will pass.", "(நீ நன்றாக படித்தால், தேர்ச்சி பெறுவாய்.)", ["If", "Before", "Than", "Also"], 0, "நிபந்தனையைக் கூற 'If' (என்றால்) பயன்படுகிறது."],
+                ["Finish work, ______ you can go.", "(வேலையை முடி, பிறகு நீ செல்லலாம்.)", ["then", "because", "while", "if"], 0, "அடுத்த செயலைக் கூற 'then' (பிறகு) பயன்படுகிறது."],
+                ["She speaks English and ______ Tamil.", "(அவள் ஆங்கிலம் மற்றும் மேலும் தமிழ் பேசுகிறாள்.)", ["also", "but", "than", "until"], 0, "கூடுதலாகக் கூற 'also' (மேலும்) பயன்படுகிறது."],
+                ["Wash hands ______ eating.", "(சாப்பிடுவதற்கு முன்பு கைகளைக் கழுவு.)", ["before", "after", "since", "until"], 0, "'முன்பு' என்பதைக் குறிக்க 'before' பயன்படுகிறது."],
+                ["We went home ______ the movie.", "(படம் முடிந்த பிறகு வீட்டிற்கு சென்றோம்.)", ["after", "before", "if", "or"], 0, "'பிறகு' என்பதைக் குறிக்க 'after' பயன்படுகிறது."],
+                ["Call me ______ you arrive.", "(நீ வந்து சேர்ந்த போது எனக்கு போன் செய்.)", ["when", "so", "than", "and"], 0, "'போது' என்பதைக் குறிக்க 'when' பயன்படுகிறது."],
+                ["He slept ______ watching TV.", "(டிவி பார்த்துக் கொண்டிருக்கும் போது தூங்கிவிட்டான்.)", ["while", "until", "before", "so"], 0, "ஒரு செயல் நடக்கும் போது என்பதைக் குறிக்க 'while' பயன்படுகிறது."],
+                ["Do ______ I say.", "(நான் சொல்வது போல செய்.)", ["as", "than", "or", "because"], 0, "'போல' என்பதைக் குறிக்க 'as' பயன்படுகிறது."],
+                ["Wait here ______ I return.", "(நான் வரும் வரை காத்திரு.)", ["until", "since", "so", "and"], 0, "'வரை' என்பதைக் குறிக்க 'until' பயன்படுகிறது."],
+                ["I have lived here ______ 2015.", "(நான் 2015-ல் இருந்து இங்கு வாழ்கிறேன்.)", ["since", "until", "because", "before"], 0, "தொடங்கிய காலத்தைக் குறிக்க 'since' பயன்படுகிறது."],
+                ["He is ______ working at night.", "(அவன் இன்னும் இரவில் வேலை செய்கிறான்.)", ["still", "yet", "than", "or"], 0, "'இன்னும்' என்பதைக் குறிக்க 'still' பயன்படுகிறது."],
+                ["He has not come ______.", "(அவன் இன்னும் வரவில்லை.)", ["yet", "still", "so", "if"], 0, "எதிர்மறையில் 'இன்னும் இல்லை' என்பதை 'yet' குறிக்கும்."],
+                ["______ he was weak, he ran fast.", "(அவன் பலவீனமாக இருந்தபோதிலும் வேகமாக ஓடினான்.)", ["Though", "Because", "So", "Or"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'Though' பயன்படுகிறது."],
+                ["______ a child knows this.", "(ஒரு குழந்தை கூட இதை அறியும்.)", ["Even", "So", "Than", "Until"], 0, "'கூட' என்பதைக் குறிக்க 'Even' பயன்படுகிறது."],
+                ["Raju is taller ______ Sam.", "(ராஜு சாம்-ஐ விட உயரமானவன்.)", ["than", "then", "as", "so"], 0, "ஒப்பிட்டு 'விட' எனக் கூற 'than' பயன்படுகிறது."],
+                ["Work hard ______ you will fail.", "(கடினமாக உழை அல்லது தோற்றுவிடுவாய்.)", ["or", "and", "so", "since"], 0, "'அல்லது' என்ற தேர்வை குறிக்க 'or' பயன்படுகிறது."],
+                ["She is smart ______ lazy.", "(அவள் புத்திசாலி ஆனால் சோம்பேறி.)", ["but", "and", "so", "if"], 0, "மாறுபட்ட பண்பை இணைக்க 'but' பயன்படுகிறது."],
+                ["I was ill, ______ I took rest.", "(எனக்கு உடம்பு சரியில்லை, அதனால் ஓய்வு எடுத்தேன்.)", ["so", "because", "until", "than"], 0, "'அதனால்' என்ற விளைவைக் கூற 'so' பயன்படுகிறது."],
+                ["Eat well ______ stay healthy.", "(நன்றாக சாப்பிடு மற்றும் ஆரோக்கியமாக இரு.)", ["and", "but", "yet", "or"], 0, "இரண்டு நன்மைகளை இணைக்க 'and' பயன்படுகிறது."],
+                ["I love cats ______ dogs.", "(எனக்கு பூனைகள் மற்றும் நாய்கள் பிடிக்கும்.)", ["and", "so", "if", "until"], 0, "'மற்றும்' என்பதைக் குறிக்க 'and' பயன்படுகிறது."],
+                ["Stop ______ the light turns red.", "(சிவப்பு விளக்கு எரியும் போது நில்.)", ["when", "so", "than", "or"], 0, "'போது' என்பதைக் குறிக்க 'when' பயன்படுகிறது."],
+                ["He played ______ he was tired.", "(சோர்வாக இருந்தபோதிலும் விளையாடினான்.)", ["though", "because", "so", "and"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'though' பயன்படும்."],
+                ["Read the book ______ give it back.", "(புத்தகத்தை படி பிறகு திரும்பக் கொடு.)", ["then", "than", "because", "if"], 0, "'பிறகு' என்பதைக் குறிக்க 'then' பயன்படுகிறது."],
+                ["Is it black ______ white?", "(இது கருப்பா அல்லது வெள்ளையா?)", ["or", "and", "so", "because"], 0, "இரண்டில் ஒன்று 'அல்லது' என தேர்வு செய்ய 'or' பயன்படும்."],
+                ["I trust him ______ he is honest.", "(அவன் நேர்மையானவன் என்பதால், அவனை நம்புகிறேன்.)", ["because", "but", "or", "than"], 0, "'ஏனெனில்' என்ற காரணத்தைக் கூற 'because' பயன்படும்."],
+                ["Wait ______ the bus stops.", "(பேருந்து நிற்கும் வரை காத்திரு.)", ["until", "since", "so", "and"], 0, "'வரை' என்பதைக் குறிக்க 'until' பயன்படுகிறது."],
+                ["She came ______ I left.", "(நான் கிளம்பிய பிறகு அவள் வந்தாள்.)", ["after", "if", "or", "so"], 0, "'பிறகு' என்பதைக் குறிக்க 'after' பயன்படுகிறது."],
+                ["Think ______ you speak.", "(பேசுவதற்கு முன்பு யோசி.)", ["before", "after", "so", "and"], 0, "'முன்பு' என்பதைக் குறிக்க 'before' பயன்படுகிறது."],
+                ["______ you run, you can catch it.", "(நீ ஓடினால், பிடித்துவிடலாம்.)", ["If", "Than", "So", "Or"], 0, "'என்றால்' என்பதைக் குறிக்க 'If' பயன்படுகிறது."],
+                ["He came ______ sit down.", "(அவன் வந்தான் மற்றும் அமர்ந்தான்.)", ["and", "but", "so", "or"], 0, "தொடர் செயலை இணைக்க 'and' பயன்படுகிறது."],
+                ["Fast food is tasty ______ unhealthy.", "(பாஸ்ட் புட் சுவையானது ஆனால் ஆரோக்கியமற்றது.)", ["but", "so", "because", "until"], 0, "'ஆனால்' என்ற முரண்பாட்டைக் கூற 'but' பயன்படும்."],
+                ["He didn't study, ______ he failed.", "(அவன் படிக்கவில்லை, அதனால் தோற்றான்.)", ["so", "because", "if", "while"], 0, "'அதனால்' என்பதைக் குறிக்க 'so' பயன்படுகிறது."],
+                ["She is older ______ me.", "(அவள் என்னை விட மூத்தவள்.)", ["than", "then", "as", "so"], 0, "ஒப்பீட்டிற்கு 'than' பயன்படுகிறது."],
+                ["I know him ______ childhood.", "(எனக்கு சிறுவயதில் இருந்து அவனைத் தெரியும்.)", ["since", "until", "so", "or"], 0, "'இருந்து' என்பதைக் குறிக்க 'since' பயன்படுகிறது."],
+                ["______ it rains, we will stay home.", "(மழை பெய்தால், வீட்டில் தங்குவோம்.)", ["If", "Than", "So", "And"], 0, "'என்றால்' என்பதைக் குறிக்க 'If' பயன்படுகிறது."],
+                ["He was typing ______ I was writing.", "(நான் எழுதிய போது அவன் டைப் செய்தான்.)", ["while", "until", "because", "so"], 0, "'இருக்கும் போது' என்பதைக் குறிக்க 'while' பயன்படும்."],
+                ["I like coffee, ______ my brother likes tea.", "(எனக்கு காபி பிடிக்கும், ஆனால் என் சகோதரனுக்கு டீ பிடிக்கும்.)", ["but", "so", "until", "if"], 0, "முரண்பாட்டைக் காட்ட 'but' பயன்படுகிறது."],
+                ["Keep quiet ______ go out.", "(அமைதியாக இரு அல்லது வெளியே போ.)", ["or", "and", "so", "because"], 0, "விருப்பத் தேர்வுக்கு 'or' பயன்படும்."],
+                ["He worked hard ______ pass.", "(தேர்ச்சி பெற அவன் உழைத்தான்.)", ["to", "and", "so", "or"], 0, "'அடைய' என்பதைக் குறிக்கும் வாக்கிய வடிவம்."],
+                ["He hasn't called ______.", "(அவன் இன்னும் அழைக்கவில்லை.)", ["yet", "still", "so", "than"], 0, "'இன்னும் இல்லை' என்பதைக் குறிக்க 'yet' பயன்படும்."],
+                ["______ he is rich, he is sad.", "(பணக்காரனாக இருந்தபோதிலும் சோகமாக இருக்கிறான்.)", ["Though", "Because", "So", "And"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'Though' பயன்படும்."],
+                ["I will call you ______ I reach.", "(நான் சேர்ந்த போது உன்னை அழைக்கிறேன்.)", ["when", "so", "than", "or"], 0, "'போது' என்பதைக் குறிக்க 'when' பயன்படுகிறது."],
+                ["She arrived ______ 5 PM.", "(அவள் மாலை 5 மணிக்கு முன்பு வந்தாள்.)", ["before", "than", "so", "if"], 0, "நேரத்திற்கு 'before' (முன்பு) பயன்படும்."],
+                ["Don't move ______ I say.", "(நான் சொல்லும் வரை நகராதே.)", ["until", "since", "so", "than"], 0, "'வரை' என்பதைக் குறிக்க 'until' பயன்படுகிறது."],
+                ["He fell down ______ he got up.", "(கீழே விழுந்தான் ஆனால் எழுந்திருந்தான்.)", ["but", "so", "or", "if"], 0, "முரண்பட்ட செயலுக்கு 'but' பயன்படும்."],
+                ["Do it now ______ never.", "(இப்போது செய் அல்லது எப்போதுமில்லை.)", ["or", "and", "so", "until"], 0, "'அல்லது' என்பதைக் குறிக்க 'or' பயன்படுகிறது."]
+            ];
+            return raw.map(item => ({q: item[0], tq: item[1], o: item[2], a: item[3], e: item[4]}));
+        };
+
+        const generateMasteryQuestions = () => {
+            const raw = [
+                ["Run fast; ______ you will miss the train.", "(வேகமாக ஓடு; இல்லையெனில் ரயிலைத் தவறவிட்டுவிடுவாய்.)", ["otherwise", "instead", "whereas", "namely"], 0, "'இல்லையெனில்' என்பதைக் குறிக்க 'otherwise' பயன்படுகிறது."],
+                ["______ you work hard, you cannot clear the exam.", "(நீ கடினமாக உழைக்காவிட்டால், தேர்ச்சி பெற முடியாது.)", ["Unless", "Besides", "Hence", "Likewise"], 0, "'இல்லையெனில்/தவிர' என்பதைக் குறிக்க 'Unless' பயன்படுகிறது."],
+                ["He was sick; ______, he took leave.", "(அவனுக்கு உடம்பு சரியில்லை; ஆகவே, விடுப்பு எடுத்தான்.)", ["therefore", "whereas", "instead", "whereby"], 0, "'ஆகவே' என்ற முடிவைக் கூற 'therefore' பயன்படும்."],
+                ["Call me ______ you need help.", "(உதவி தேவைப்படும் போதெல்லாம் போன் செய்.)", ["whenever", "likewise", "hence", "namely"], 0, "'எப்போதெல்லாம்' என்பதைக் குறிக்க 'whenever' சரியானது."],
+                ["I like hot milk, ______ he likes cold milk.", "(எனக்கு சூடான பால் பிடிக்கும், அதேசமயம் அவனுக்கோ குளிர்ந்த பால் பிடிக்கும்.)", ["whereas", "unless", "whereby", "furthermore"], 0, "'அதேசமயம்/ஆனால்' என ஒப்பிட 'whereas' பயன்படும்."],
+                ["He is rich; ______, he is humble.", "(அவன் பணக்காரன்; இருப்பினும், எளிமையானவன்.)", ["however", "thus", "hence", "namely"], 0, "'இருப்பினும்' என்பதைக் குறிக்க 'however' பயன்படுகிறது."],
+                ["The car is fast; ______, it is cheap.", "(கார் வேகமானது; மேலும், அது மலிவானது.)", ["moreover", "unless", "whereby", "otherwise"], 0, "'மேலும்' என தகவலைச் சேர்க்க 'moreover' பயன்படும்."],
+                ["______ it rained, we played.", "(மழை பெய்தபோதிலும், விளையாடினோம்.)", ["Although", "Hence", "Thus", "Otherwise"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'Although' பயன்படும்."],
+                ["Cook food; ______, I will clean.", "(சமை; இதற்கிடையில், நான் சுத்தம் செய்கிறேன்.)", ["meanwhile", "unless", "namely", "whereby"], 0, "'இதற்கிடையில்' என்பதைக் குறிக்க 'meanwhile' பயன்படும்."],
+                ["I ate rice ______ of wheat.", "(கோதுமைக்கு பதிலாக சாதம் சாப்பிட்டேன்.)", ["instead", "besides", "hence", "thus"], 0, "'அதற்கு பதிலாக' என்பதைக் குறிக்க 'instead' பயன்படும்."],
+                ["______ Tamil, she knows English.", "(தமிழைத் தவிர, ஆங்கிலமும் தெரியும்.)", ["Besides", "Unless", "Whereas", "Otherwise"], 0, "'அதற்கு மேல்/கூட' என்பதைக் குறிக்க 'Besides' பயன்படும்."],
+                ["He is smart; ______, he is polite.", "(அவன் புத்திசாலி; மேலும், மரியாதையானவன்.)", ["furthermore", "unless", "instead", "whereby"], 0, "'மேலும்' என்பதைக் குறிக்க 'furthermore' பயன்படும்."],
+                ["He didn't study, ______ he failed.", "(அவன் படிக்கவில்லை, ஆகையால் தோல்வியடைந்தான்.)", ["hence", "unless", "whereas", "besides"], 0, "'ஆகையால்' என்பதைக் குறிக்க 'hence' பயன்படும்."],
+                ["______, the project was completed.", "(இவ்வாறு, திட்டம் நிறைவடைந்தது.)", ["Thus", "Unless", "Whereas", "Otherwise"], 0, "'இவ்வாறு/ஆகவே' என்பதைக் குறிக்க 'Thus' பயன்படும்."],
+                ["God is ______ you look.", "(நீ பார்க்கும் இடமெல்லாம் இறைவன் இருக்கிறான்.)", ["wherever", "whenever", "whereby", "namely"], 0, "'எங்கு இருந்தாலும்' என்பதைக் குறிக்க 'wherever' பயன்படும்."],
+                ["They signed a deal ______ both gain.", "(ஒரு ஒப்பந்தம் செய்தனர், அதன் மூலம் இருவருக்கும் லாபம்.)", ["whereby", "unless", "besides", "likewise"], 0, "'அதன் மூலம்' என்பதைக் குறிக்க 'whereby' பயன்படும்."],
+                ["Respect all; ______, they will respect you.", "(அனைவரையும் மதி; அதேபோல், உன்னை மதிப்பார்கள்.)", ["likewise", "unless", "whereas", "otherwise"], 0, "'அதேபோல்' என்பதைக் குறிக்க 'likewise' பயன்படும்."],
+                ["Two boys passed, ______ Ram and Sam.", "(இரண்டு பேர் தேர்ச்சி பெற்றனர், அதாவது ராம் மற்றும் சாம்.)", ["namely", "unless", "whereby", "hence"], 0, "'அதாவது' எனப் பெயரிட 'namely' பயன்படும்."],
+                ["He came late; ______, he missed it.", "(தாமதமாக வந்தான்; அதன் விளைவாக, தவறவிட்டான்.)", ["consequently", "unless", "whereas", "besides"], 0, "'அதன் விளைவாக' என்பதைக் குறிக்க 'consequently' பயன்படும்."],
+                ["It was hard; ______, she passed.", "(கடினமாக இருந்தது; இருந்தபோதிலும், தேர்ச்சி பெற்றாள்.)", ["nevertheless", "unless", "whereby", "namely"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'nevertheless' பயன்படும்."],
+                ["Eat well; ______, you will fall sick.", "(நன்றாக சாப்பிடு; இல்லையெனில், நோயுறுவாய்.)", ["otherwise", "instead", "likewise", "thus"], 0, "'இல்லையெனில்' என்பதைக் குறிக்க 'otherwise' பயன்படும்."],
+                ["______ you practice, you cannot win.", "(பயிற்சி செய்யாவிட்டால், வெல்ல முடியாது.)", ["Unless", "Besides", "Hence", "Moreover"], 0, "'இல்லையெனில்' என்பதைக் குறிக்க 'Unless' பயன்படும்."],
+                ["He worked hard; ______, he got top rank.", "(கடினமாக உழைத்தான்; ஆகவே, முதல் ரேங்க் பெற்றான்.)", ["therefore", "whereas", "instead", "otherwise"], 0, "'ஆகவே' என்பதைக் குறிக்க 'therefore' பயன்படும்."],
+                ["Visit us ______ you are free.", "(ஃப்ரீயாக இருக்கும் போதெல்லாம் வா.)", ["whenever", "likewise", "hence", "namely"], 0, "'எப்போதெல்லாம்' என்பதைக் குறிக்க 'whenever' பயன்படும்."],
+                ["I run fast, ______ he runs slowly.", "(நான் வேகமாக ஓடுகிறேன், அதேசமயம் அவனோ மெதுவாக ஓடுகிறான்.)", ["whereas", "unless", "whereby", "besides"], 0, "'அதேசமயம்' எனக் வேறுபடுத்த 'whereas' பயன்படும்."],
+                ["The plan was risky; ______, we tried.", "(திட்டம் ஆபத்தானது; இருப்பினும், முயற்சித்தோம்.)", ["however", "thus", "hence", "namely"], 0, "'இருப்பினும்' என்பதைக் குறிக்க 'however' பயன்படும்."],
+                ["He is rich; ______, he is famous.", "(அவன் பணக்காரன்; மேலும், புகழ்பெற்றவன்.)", ["moreover", "unless", "otherwise", "whereby"], 0, "'மேலும்' என்பதைக் குறிக்க 'moreover' பயன்படும்."],
+                ["______ he was ill, he attended.", "(உடம்பு சரியில்லாத போதிலும், வந்தான்.)", ["Although", "Hence", "Thus", "Otherwise"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'Although' பயன்படும்."],
+                ["Wait here; ______, I will buy tea.", "(இங்கே இரு; இதற்கிடையில், நான் டீ வாங்கி வருகிறேன்.)", ["meanwhile", "unless", "namely", "whereby"], 0, "'இதற்கிடையில்' என்பதைக் குறிக்க 'meanwhile' பயன்படும்."],
+                ["Drink juice ______ of tea.", "(டீக்கு பதிலாக ஜூஸ் குடி.)", ["instead", "besides", "hence", "thus"], 0, "'அதற்கு பதிலாக' என்பதைக் குறிக்க 'instead' பயன்படும்."],
+                ["______ music, he likes sports.", "(இசையைத் தவிர, விளையாட்டு பிடிக்கும்.)", ["Besides", "Unless", "Whereas", "Otherwise"], 0, "'கூட/தவிர' என்பதைக் குறிக்க 'Besides' பயன்படும்."],
+                ["He is honest; ______, he is hard-working.", "(அவன் நேர்மையானவன்; மேலும், உழைப்பாளி.)", ["furthermore", "unless", "instead", "whereby"], 0, "'மேலும்' என்பதைக் குறிக்க 'furthermore' பயன்படும்."],
+                ["Rain fell; ______, match stopped.", "(மழை பெய்தது; ஆகையால், போட்டி நிறுத்தப்பட்டது.)", ["hence", "unless", "whereas", "besides"], 0, "'ஆகையால்' என்பதைக் குறிக்க 'hence' பயன்படும்."],
+                ["______, the problem was solved.", "(இவ்வாறு, பிரச்சனை தீர்க்கப்பட்டது.)", ["Thus", "Unless", "Whereas", "Otherwise"], 0, "'இவ்வாறு' என்பதைக் குறிக்க 'Thus' பயன்படும்."],
+                ["Sit ______ you like.", "(உனக்கு பிடித்த இடத்தில் உட்காரு.)", ["wherever", "whenever", "whereby", "namely"], 0, "'எங்கு இருந்தாலும்' என்பதைக் குறிக்க 'wherever' பயன்படும்."],
+                ["A rule ______ all must obey.", "(ஒரு விதி, அதன் மூலம் அனைவரும் கீழ்ப்படிய வேண்டும்.)", ["whereby", "unless", "besides", "likewise"], 0, "'அதன் மூலம்' என்பதைக் குறிக்க 'whereby' பயன்படும்."],
+                ["Work well; ______, you will earn.", "(நன்றாக உழை; அதேபோல், சம்பாதிக்கலாம்.)", ["likewise", "unless", "whereas", "otherwise"], 0, "'அதேபோல்' என்பதைக் குறிக்க 'likewise' பயன்படும்."],
+                ["Buy three fruits, ______ apple, mango, banana.", "(மூன்று பழங்கள் வாங்கு, அதாவது ஆப்பிள், மாம்பழம், வாழை.)", ["namely", "unless", "whereby", "hence"], 0, "'அதாவது' என்பதைக் குறிக்க 'namely' பயன்படும்."],
+                ["Traffic was heavy; ______, I was late.", "(நெரிசல் அதிகம்; அதன் விளைவாக, தாமதமானேன்.)", ["consequently", "unless", "whereas", "besides"], 0, "'அதன் விளைவாக' என்பதைக் குறிக்க 'consequently' பயன்படும்."],
+                ["It was dark; ______, they walked.", "(இருட்டாக இருந்தது; இருந்தபோதிலும், நடந்தார்கள்.)", ["nevertheless", "unless", "whereby", "namely"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'nevertheless' பயன்படும்."],
+                ["Hurry up; ______ you will be late.", "(சீக்கிரம் செய்; இல்லையெனில் தாமதமாகிவிடும்.)", ["otherwise", "instead", "likewise", "thus"], 0, "'இல்லையெனில்' என்பதைக் குறிக்க 'otherwise' பயன்படும்."],
+                ["______ you ask, he won't tell.", "(நீ கேட்காவிட்டால், அவன் சொல்லமாட்டான்.)", ["Unless", "Besides", "Hence", "Moreover"], 0, "'இல்லையெனில்' என்பதைக் குறிக்க 'Unless' பயன்படும்."],
+                ["It rained; ______, game was cancelled.", "(மழை பெய்தது; ஆகவே, ஆட்டம் ரத்தானது.)", ["therefore", "whereas", "instead", "otherwise"], 0, "'ஆகவே' என்பதைக் குறிக்க 'therefore' பயன்படும்."],
+                ["Smile ______ you see a friend.", "(நண்பனைப் பார்க்கும் போதெல்லாம் புன்னகை செய்.)", ["whenever", "likewise", "hence", "namely"], 0, "'எப்போதெல்லாம்' என்பதைக் குறிக்க 'whenever' பயன்படும்."],
+                ["I work day, ______ he works night.", "(நான் பகலில் உழைக்கிறேன், அதேசமயம் அவனோ இரவில் உழைக்கிறான்.)", ["whereas", "unless", "whereby", "besides"], 0, "'அதேசமயம்' என்பதைக் குறிக்க 'whereas' பயன்படும்."],
+                ["He was tired; ______, he completed.", "(சோர்வாக இருந்தான்; இருப்பினும், முடித்தான்.)", ["however", "thus", "hence", "namely"], 0, "'இருப்பினும்' என்பதைக் குறிக்க 'however' பயன்படும்."],
+                ["It is quiet; ______, it is clean.", "(இது அமைதியானது; மேலும், சுத்தமானது.)", ["moreover", "unless", "otherwise", "whereby"], 0, "'மேலும்' என்பதைக் குறிக்க 'moreover' பயன்படும்."],
+                ["______ it was cold, we swam.", "(குளிராக இருந்தபோதிலும், நீந்தினோம்.)", ["Although", "Hence", "Thus", "Otherwise"], 0, "'இருந்தபோதிலும்' என்பதைக் குறிக்க 'Although' பயன்படும்."],
+                ["Study now; ______, I will cook.", "(இப்போது படி; இதற்கிடையில், நான் சமைக்கிறேன்.)", ["meanwhile", "unless", "namely", "whereby"], 0, "'இதற்கிடையில்' என்பதைக் குறிக்க 'meanwhile' பயன்படும்."],
+                ["Use pen ______ of pencil.", "(பென்சிலுக்கு பதிலாக பேனாவைப் பயன்படுத்து.)", ["instead", "besides", "hence", "thus"], 0, "'அதற்கு பதிலாக' என்பதைக் குறிக்க 'instead' பயன்படும்."]
+            ];
+            return raw.map(item => ({q: item[0], tq: item[1], o: item[2], a: item[3], e: item[4]}));
+        };
+
+        const conjunctionTopics = [
+            {
+                id: 1,
+                title: "MOSTLY USED LINKERS",
+                tamilTitle: "அடிக்கடி பயன்படும் இணைப்புச்சொற்கள்",
+                displayChain: "and • but • so • because • or • if • when • while • since • until",
+                explanation: "அன்றாட ஆங்கில உரையாடலிலும் எழுத்திலும் மிக அதிகமாகப் பயன்படும் 20 அடிப்படை இணைப்புச்சொற்கள்.",
+                tableData: [
+                    {l: "1. and", t: "மற்றும் / மேலும்", e: "Ram and Sam are brothers.", te: "ராமும் சாமும் சகோதரர்கள்."},
+                    {l: "2. but", t: "ஆனால்", e: "He tried hard, but he failed.", te: "அவன் கடுமையாக முயற்சி செய்தான், ஆனால் தோல்வியடைந்தான்."},
+                    {l: "3. so", t: "அதனால் / எனவே", e: "It was raining, so I stayed inside.", te: "மழை பெய்து கொண்டிருந்தது, எனவே நான் உள்ளேயே தங்கிவிட்டேன்."},
+                    {l: "4. because", t: "ஏனெனில்", e: "I came late because of traffic.", te: "போக்குவரத்து நெரிசல் காரணமாக (ஏனெனில்) நான் தாமதமாக வந்தேன்."},
+                    {l: "5. or", t: "அல்லது", e: "Do you want tea or coffee?", te: "உங்களுக்கு தேனீர் வேண்டுமா அல்லது காபி வேண்டுமா?"},
+                    {l: "6. if", t: "என்றால்", e: "If you study well, you will pass.", te: "நீ நன்றாக படித்தால், தேர்ச்சி பெறுவாய்."},
+                    {l: "7. then", t: "அப்போது / பிறகு", e: "Finish your work, then you can play.", te: "உன் வேலையை முடி, பிறகு நீ விளையாடலாம்."},
+                    {l: "8. also", t: "மேலும் / கூட", e: "She speaks Tamil, and she also speaks English.", te: "அவள் தமிழ் பேசுகிறாள், மேலும் ஆங்கிலமும் பேசுகிறாள்."},
+                    {l: "9. before", t: "முன்பு", e: "Wash your hands before eating.", te: "சாப்பிடுவதற்கு முன்பு உங்கள் கைகளைக் கழுவுங்கள்."},
+                    {l: "10. after", t: "பிறகு", e: "We went home after the movie.", te: "படம் முடிந்த பிறகு நாங்கள் வீட்டிற்குச் சென்றோம்."},
+                    {l: "11. when", t: "எப்போது / போது", e: "Call me when you reach.", te: "நீ சென்று சேர்ந்ததும் (போன போது) எனக்கு போன் செய்."},
+                    {l: "12. while", t: "இருக்கும் போது", e: "He fell asleep while reading.", te: "அவன் படித்துக் கொண்டிருக்கும் போது தூங்கிவிட்டான்."},
+                    {l: "13. as", t: "போல / போது", e: "Do as I say.", te: "நான் சொல்வது போல செய்."},
+                    {l: "14. until", t: "வரை", e: "Wait here until I come back.", te: "நான் திரும்பி வரும் வரை இங்கே காத்திரு."},
+                    {l: "15. since", t: "இருந்து / ஏனெனில்", e: "I have lived here since 2010.", te: "நான் 2010 முதல்/இருந்து இங்கு வசித்து வருகிறேன்."},
+                    {l: "16. still", t: "இன்னும்", e: "He is still working.", te: "அவன் இன்னும் வேலை செய்து கொண்டிருக்கிறான்."},
+                    {l: "17. yet", t: "இன்னும் / ஆனால் இன்னும் இல்லை", e: "The bus has not arrived yet.", te: "பேருந்து இன்னும் வரவில்லை."},
+                    {l: "18. though", t: "இருந்தாலும்", e: "Though he was tired, he worked.", te: "அவன் சோர்வாக இருந்தபோதிலும், வேலை செய்தான்."},
+                    {l: "19. even", t: "கூட", e: "Even a child can do this.", te: "ஒரு குழந்தை கூட இதை செய்ய முடியும்."},
+                    {l: "20. than", t: "விட", e: "He is taller than me.", te: "அவன் என்னை விட உயரமானவன்."}
+                ],
+                questions: generateMostlyUsedQuestions()
+            },
+            {
+                id: 2,
+                title: "MASTERY LINKERS",
+                tamilTitle: "மேம்பட்ட இணைப்புச்சொற்கள்",
+                displayChain: "however • therefore • moreover • although • otherwise • nevertheless",
+                explanation: "முறைசாரா மற்றும் உத்தியோகபூர்வ (Formal) எழுத்துகளில் சிறந்து விளங்க உதவும் 20 உயர்மட்ட இணைப்புச்சொற்கள்.",
+                tableData: [
+                    {l: "1. however", t: "ஆனால் / இருப்பினும்", e: "He is rich; however, he is humble.", te: "அவன் பணக்காரன்; இருப்பினும், எளிமையானவன்."},
+                    {l: "2. therefore", t: "ஆகவே", e: "He was sick; therefore, he took leave.", te: "அவனுக்கு உடம்பு சரியில்லை; ஆகவே, விடுப்பு எடுத்தான்."},
+                    {l: "3. moreover", t: "மேலும்", e: "The car is fast; moreover, it is fuel-efficient.", te: "கார் வேகமானது; மேலும், அது குறைந்த எரிபொருளையே பயன்படுத்தும்."},
+                    {l: "4. although", t: "இருந்தாலும்", e: "Although it rained, we played.", te: "மழை பெய்தபோதிலும், நாங்கள் விளையாடினோம்."},
+                    {l: "5. meanwhile", t: "இதற்கிடையில்", e: "Cook food; meanwhile, I will clean.", te: "உணவைச் சமை; இதற்கிடையில், நான் சுத்தம் செய்கிறேன்."},
+                    {l: "6. otherwise", t: "இல்லையெனில்", e: "Hurry up; otherwise, you will miss the train.", te: "சீக்கிரம் செய்; இல்லையெனில், ரயிலைத் தவறவிட்டுவிடுவாய்."},
+                    {l: "7. instead", t: "அதற்கு பதிலாக", e: "I ate rice instead of wheat.", te: "நான் கோதுமைக்கு பதிலாக சாதம் சாப்பிட்டேன்."},
+                    {l: "8. besides", t: "அதற்கு மேல் / கூட", e: "Besides Tamil, she knows English.", te: "தமிழைத் தவிர/அதற்கு மேல், அவளுக்கு ஆங்கிலமும் தெரியும்."},
+                    {l: "9. furthermore", t: "மேலும்", e: "He is talented; furthermore, he is polite.", te: "அவன் திறமைசாலி; மேலும், மரியாதையானவன்."},
+                    {l: "10. hence", t: "ஆகையால்", e: "He didn't study, hence he failed.", te: "அவன் படிக்கவில்லை, ஆகையால் தோல்வியடைந்தான்."},
+                    {l: "11. thus", t: "இவ்வாறு / ஆகவே", e: "Thus, the project was completed.", te: "இவ்வாறு, அந்த திட்டம் நிறைவடைந்தது."},
+                    {l: "12. unless", t: "இல்லையெனில் / தவிர", e: "Unless you work hard, you cannot win.", te: "நீ கடினமாக உழைக்காவிட்டால், உன்னால் ஜெயிக்க முடியாது."},
+                    {l: "13. whereas", t: "ஆனால் / அதேசமயம்", e: "I like hot milk, whereas he likes cold milk.", te: "எனக்கு சூடான பால் பிடிக்கும், அதேசமயம் அவனுக்கு குளிர்ந்த பால் பிடிக்கும்."},
+                    {l: "14. wherever", t: "எங்கு இருந்தாலும்", e: "God is wherever you look.", te: "நீ எங்கு பார்த்தாலும் இறைவன் இருக்கிறான்."},
+                    {l: "15. whenever", t: "எப்போதெல்லாம்", e: "Call me whenever you need help.", te: "உனக்கு உதவி தேவைப்படும் போதெல்லாம் எனக்கு போன் செய்."},
+                    {l: "16. whereby", t: "அதன் மூலம்", e: "They signed a contract whereby both benefit.", te: "அவர்கள் ஒரு ஒப்பந்தத்தில் கையெழுத்திட்டனர், அதன் மூலம் இருவரும் பயனடைவார்கள்."},
+                    {l: "17. likewise", t: "அதேபோல்", e: "Respect others; likewise, they will respect you.", te: "பிறரை மதி; அதேபோல், அவர்களும் உன்னை மதிப்பார்கள்."},
+                    {l: "18. namely", t: "அதாவது", e: "Two students got full marks, namely Ram and Sita.", te: "இரண்டு மாணவர்கள் முழு மதிப்பெண் பெற்றனர், அதாவது ராம் மற்றும் சீதா."},
+                    {l: "19. consequently", t: "அதன் விளைவாக", e: "He arrived late; consequently, he missed the meeting.", te: "அவன் தாமதமாக வந்தான்; அதன் விளைவாக, கூட்டத்தைத் தவறவிட்டான்."},
+                    {l: "20. nevertheless", t: "இருந்தபோதிலும்", e: "The test was hard; nevertheless, she passed.", te: "தேர்வு கடினமாக இருந்தது; இருந்தபோதிலும், அவள் தேர்ச்சி பெற்றாள்."}
+                ],
+                questions: generateMasteryQuestions()
+            }
+        ];
+
+        let currentTopicIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOptionIndex = null;
+        let currentShuffledOptions = [];
+        let topicProgress = [false, false];
+
+        window.onload = function () {
+            renderProgressTracker();
+            renderPills();
+            loadTopic(0);
+        };
+
+        function renderProgressTracker() {
+            const grid = document.getElementById('progress-tracker-grid');
+            grid.innerHTML = '';
+            let completedCount = topicProgress.filter(Boolean).length;
+            document.getElementById('overall-progress-text').innerText = `${completedCount} / ${conjunctionTopics.length} Completed`;
+
+            conjunctionTopics.forEach((topic, idx) => {
+                const item = document.createElement('div');
+                item.className = `progress-item ${topicProgress[idx] ? 'completed' : ''}`;
+                item.onclick = () => loadTopic(idx);
+                item.innerHTML = `
+                    <div class="check-icon">${topicProgress[idx] ? '✓' : idx + 1}</div>
+                    <span>${topic.title}</span>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        function renderPills() {
+            const pillsContainer = document.getElementById('topic-pills');
+            pillsContainer.innerHTML = '';
+            conjunctionTopics.forEach((topic, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentTopicIndex ? 'active' : ''}`;
+                btn.innerText = topic.title;
+                btn.onclick = () => loadTopic(idx);
+                pillsContainer.appendChild(btn);
+            });
+        }
+
+        function loadTopic(index) {
+            currentTopicIndex = index;
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedOptionIndex = null;
+            renderPills();
+            renderTopicContent();
+            loadQuestion();
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+        }
+
+        function renderTopicContent() {
+            const topic = conjunctionTopics[currentTopicIndex];
+            const contentBox = document.getElementById('topic-content');
+            let tableRows = topic.tableData.map(row => `
+                <tr>
+                    <td><b>${row.l}</b></td>
+                    <td>${row.t}</td>
+                    <td>
+                        <i>${row.e}</i>
+                        <span class="sent-ta">${row.te}</span>
+                    </td>
+                </tr>
+            `).join('');
+
+            contentBox.innerHTML = `
+                <div class="topic-title">${topic.title} – ${topic.tamilTitle}</div>
+                <div class="display-chain">${topic.displayChain}</div>
+                <div class="tamil-explain">${topic.explanation}</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Linker</th>
+                                <th>தமிழ் பொருள்</th>
+                                <th>Example Sentence & Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>${tableRows}</tbody>
+                    </table>
+                </div>
+            `;
+            document.getElementById('quiz-topic-badge').innerText = `${topic.title} Quiz`;
+        }
+
+        // Shuffle Array Function (Fisher-Yates)
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuestion() {
+            const topic = conjunctionTopics[currentTopicIndex];
+            const q = topic.questions[currentQuestionIndex];
+
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIndex + 1} / ${topic.questions.length}`;
+            document.getElementById('question-text').innerText = `${currentQuestionIndex + 1}. ${q.q}`;
+            document.getElementById('question-tamil-text').innerText = q.tq;
+
+            // Map options with correct status and SHUFFLE THEM
+            let optionObjects = q.o.map((optText, idx) => ({
+                text: optText,
+                isCorrect: idx === q.a
+            }));
+
+            currentShuffledOptions = shuffleArray(optionObjects);
+
+            const optionsGrid = document.getElementById('options-container');
+            optionsGrid.innerHTML = '';
+
+            currentShuffledOptions.forEach((optObj, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optObj.text;
+                btn.onclick = () => selectOption(idx);
+                optionsGrid.appendChild(btn);
+            });
+
+            const feedback = document.getElementById('feedback-box');
+            feedback.style.display = 'none';
+            document.getElementById('next-btn').disabled = true;
+            selectedOptionIndex = null;
+        }
+
+        function selectOption(index) {
+            if (selectedOptionIndex !== null) return;
+            selectedOptionIndex = index;
+
+            const topic = conjunctionTopics[currentTopicIndex];
+            const q = topic.questions[currentQuestionIndex];
+            const options = document.getElementById('options-container').children;
+            const feedback = document.getElementById('feedback-box');
+
+            const isCorrectAnswer = currentShuffledOptions[index].isCorrect;
+
+            if (isCorrectAnswer) {
+                score++;
+                options[index].classList.add('selected-correct');
+                feedback.className = 'feedback-box correct';
+                feedback.innerHTML = `<b>✓ சரியான பதில்!</b> ${q.e}`;
+            } else {
+                options[index].classList.add('selected-wrong');
+                // Correct option kandupidithu highlight seiyavum
+                const correctIndex = currentShuffledOptions.findIndex(item => item.isCorrect);
+                options[correctIndex].classList.add('selected-correct');
+                feedback.className = 'feedback-box wrong';
+                feedback.innerHTML = `<b>✗ தவறான பதில்!</b> ${q.e}`;
+            }
+
+            Array.from(options).forEach(opt => opt.disabled = true);
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            const topic = conjunctionTopics[currentTopicIndex];
+            if (currentQuestionIndex < topic.questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const topic = conjunctionTopics[currentTopicIndex];
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            document.getElementById('res-score').innerText = `${score} / ${topic.questions.length}`;
+            let percent = (score / topic.questions.length) * 100;
+            if (percent >= 70) {
+                topicProgress[currentTopicIndex] = true;
+                renderProgressTracker();
+                document.getElementById('res-msg').innerText = "அற்புதமான முயற்சி! 🎉";
+            } else {
+                document.getElementById('res-msg').innerText = "மீண்டும் முயற்சி செய்து பார்க்கவும்! 👍";
+            }
+        }
+
+        function resetCurrentQuiz() {
+            loadTopic(currentTopicIndex);
+        }
+    </script>
+</body>
+
+</html>

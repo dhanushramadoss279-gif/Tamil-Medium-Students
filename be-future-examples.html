@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. FUTURE TENSE — will be</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & GLOBAL STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans Tamil', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 24px 16px;
+    }
+
+    /* MAIN CONTAINER */
+    .main-container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+      padding: 20px 16px;
+      background-color: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .page-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+
+    /* VISUAL SECTION DISTINCT STYLES */
+    .positive-section .section-title {
+      background-color: #dcfce7;
+      color: #15803d;
+    }
+
+    .negative-section .section-title {
+      background-color: #ffe4e6;
+      color: #be123c;
+    }
+
+    .pos-question-section .section-title {
+      background-color: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .neg-question-section .section-title {
+      background-color: #f3e8ff;
+      color: #6b21a8;
+    }
+
+    /* CARDS GRID */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    /* CARD ITEM */
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .card:hover, .card.active-card {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    /* CARD NUMBER BADGES */
+    .card-number {
+      font-weight: 700;
+      font-size: 0.875rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .positive-section .card-number {
+      background-color: #f0fdf4;
+      color: #16a34a;
+      border: 1px solid #bbf7d0;
+    }
+
+    .negative-section .card-number {
+      background-color: #fff1f2;
+      color: #e11d48;
+      border: 1px solid #fecdd3;
+    }
+
+    .pos-question-section .card-number {
+      background-color: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .neg-question-section .card-number {
+      background-color: #faf5ff;
+      color: #9333ea;
+      border: 1px solid #e9d5ff;
+    }
+
+    /* CARD CONTENT */
+    .card-body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .english-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .tamil-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #475569;
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 640px) {
+      body {
+        padding: 16px 12px;
+      }
+
+      .page-title {
+        font-size: 1.4rem;
+      }
+
+      .section-title {
+        font-size: 1.15rem;
+        width: 100%;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .card {
+        padding: 14px 16px;
+      }
+
+      .english-text {
+        font-size: 1rem;
+      }
+
+      .tamil-text {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="main-container">
+    <header class="header">
+      <h1 class="page-title">3. FUTURE TENSE — will be</h1>
+    </header>
+
+    <!-- SECTION 1: POSITIVE -->
+    <section class="section positive-section">
+      <h2 class="section-title">✅ Positive (+)</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <span class="card-number">1</span>
+          <div class="card-body">
+            <p class="english-text">I will be happy.</p>
+            <p class="tamil-text">நான் மகிழ்ச்சியாக இருப்பேன்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">2</span>
+          <div class="card-body">
+            <p class="english-text">I will be ready.</p>
+            <p class="tamil-text">நான் தயாராக இருப்பேன்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">3</span>
+          <div class="card-body">
+            <p class="english-text">He will be a doctor.</p>
+            <p class="tamil-text">அவன் ஒரு மருத்துவராக இருப்பான்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">4</span>
+          <div class="card-body">
+            <p class="english-text">She will be a teacher.</p>
+            <p class="tamil-text">அவள் ஒரு ஆசிரியையாக இருப்பாள்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">5</span>
+          <div class="card-body">
+            <p class="english-text">It will be easy.</p>
+            <p class="tamil-text">அது எளிதாக இருக்கும்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">6</span>
+          <div class="card-body">
+            <p class="english-text">We will be successful.</p>
+            <p class="tamil-text">நாம் வெற்றிகரமாக இருப்போம்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">7</span>
+          <div class="card-body">
+            <p class="english-text">You will be busy.</p>
+            <p class="tamil-text">நீங்கள் பிஸியாக இருப்பீர்கள்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">8</span>
+          <div class="card-body">
+            <p class="english-text">They will be happy.</p>
+            <p class="tamil-text">அவர்கள் மகிழ்ச்சியாக இருப்பார்கள்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">9</span>
+          <div class="card-body">
+            <p class="english-text">The room will be clean.</p>
+            <p class="tamil-text">அறை சுத்தமாக இருக்கும்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">10</span>
+          <div class="card-body">
+            <p class="english-text">The children will be safe.</p>
+            <p class="tamil-text">குழந்தைகள் பாதுகாப்பாக இருப்பார்கள்.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 2: NEGATIVE -->
+    <section class="section negative-section">
+      <h2 class="section-title">❌ Negative (-)</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <span class="card-number">1</span>
+          <div class="card-body">
+            <p class="english-text">I will not be tired.</p>
+            <p class="tamil-text">நான் சோர்வாக இருக்க மாட்டேன்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">2</span>
+          <div class="card-body">
+            <p class="english-text">I will not be angry.</p>
+            <p class="tamil-text">நான் கோபமாக இருக்க மாட்டேன்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">3</span>
+          <div class="card-body">
+            <p class="english-text">He will not be at home.</p>
+            <p class="tamil-text">அவன் வீட்டில் இருக்க மாட்டான்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">4</span>
+          <div class="card-body">
+            <p class="english-text">She will not be busy.</p>
+            <p class="tamil-text">அவள் பிஸியாக இருக்க மாட்டாள்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">5</span>
+          <div class="card-body">
+            <p class="english-text">It will not be difficult.</p>
+            <p class="tamil-text">அது கடினமாக இருக்காது.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">6</span>
+          <div class="card-body">
+            <p class="english-text">We will not be late.</p>
+            <p class="tamil-text">நாம் தாமதமாக இருக்க மாட்டோம்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">7</span>
+          <div class="card-body">
+            <p class="english-text">You will not be wrong.</p>
+            <p class="tamil-text">நீங்கள் தவறாக இருக்க மாட்டீர்கள்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">8</span>
+          <div class="card-body">
+            <p class="english-text">They will not be ready.</p>
+            <p class="tamil-text">அவர்கள் தயாராக இருக்க மாட்டார்கள்.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">9</span>
+          <div class="card-body">
+            <p class="english-text">The room will not be dirty.</p>
+            <p class="tamil-text">அறை அழுக்காக இருக்காது.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">10</span>
+          <div class="card-body">
+            <p class="english-text">The boys will not be lazy.</p>
+            <p class="tamil-text">சிறுவர்கள் சோம்பேறிகளாக இருக்க மாட்டார்கள்.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 3: POSITIVE QUESTION -->
+    <section class="section pos-question-section">
+      <h2 class="section-title">❓ Positive Question (?)</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <span class="card-number">1</span>
+          <div class="card-body">
+            <p class="english-text">Will I be right?</p>
+            <p class="tamil-text">நான் சரியாக இருப்பேனா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">2</span>
+          <div class="card-body">
+            <p class="english-text">Will I be ready?</p>
+            <p class="tamil-text">நான் தயாராக இருப்பேனா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">3</span>
+          <div class="card-body">
+            <p class="english-text">Will he be your friend?</p>
+            <p class="tamil-text">அவன் உங்கள் நண்பனாக இருப்பானா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">4</span>
+          <div class="card-body">
+            <p class="english-text">Will she be a doctor?</p>
+            <p class="tamil-text">அவள் மருத்துவராக இருப்பாளா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">5</span>
+          <div class="card-body">
+            <p class="english-text">Will it be easy?</p>
+            <p class="tamil-text">அது எளிதாக இருக்குமா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">6</span>
+          <div class="card-body">
+            <p class="english-text">Will we be successful?</p>
+            <p class="tamil-text">நாம் வெற்றிகரமாக இருப்போமா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">7</span>
+          <div class="card-body">
+            <p class="english-text">Will you be busy?</p>
+            <p class="tamil-text">நீங்கள் பிஸியாக இருப்பீர்களா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">8</span>
+          <div class="card-body">
+            <p class="english-text">Will they be happy?</p>
+            <p class="tamil-text">அவர்கள் மகிழ்ச்சியாக இருப்பார்களா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">9</span>
+          <div class="card-body">
+            <p class="english-text">Will the room be clean?</p>
+            <p class="tamil-text">அறை சுத்தமாக இருக்குமா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">10</span>
+          <div class="card-body">
+            <p class="english-text">Will the children be safe?</p>
+            <p class="tamil-text">குழந்தைகள் பாதுகாப்பாக இருப்பார்களா?</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NEGATIVE QUESTION -->
+    <section class="section neg-question-section">
+      <h2 class="section-title">❓❌ Negative Question (?-)</h2>
+      <div class="cards-grid">
+        <article class="card">
+          <span class="card-number">1</span>
+          <div class="card-body">
+            <p class="english-text">Will I not be right?</p>
+            <p class="tamil-text">நான் சரியாக இருக்க மாட்டேனா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">2</span>
+          <div class="card-body">
+            <p class="english-text">Will I not be your friend?</p>
+            <p class="tamil-text">நான் உங்கள் நண்பனாக இருக்க மாட்டேனா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">3</span>
+          <div class="card-body">
+            <p class="english-text">Will he not be at home?</p>
+            <p class="tamil-text">அவன் வீட்டில் இருக்க மாட்டானா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">4</span>
+          <div class="card-body">
+            <p class="english-text">Will she not be happy?</p>
+            <p class="tamil-text">அவள் மகிழ்ச்சியாக இருக்க மாட்டாளா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">5</span>
+          <div class="card-body">
+            <p class="english-text">Will it not be easy?</p>
+            <p class="tamil-text">அது எளிதாக இருக்காதா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">6</span>
+          <div class="card-body">
+            <p class="english-text">Will we not be ready?</p>
+            <p class="tamil-text">நாம் தயாராக இருக்க மாட்டோமா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">7</span>
+          <div class="card-body">
+            <p class="english-text">Will you not be busy?</p>
+            <p class="tamil-text">நீங்கள் பிஸியாக இருக்க மாட்டீர்களா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">8</span>
+          <div class="card-body">
+            <p class="english-text">Will they not be students?</p>
+            <p class="tamil-text">அவர்கள் மாணவர்களாக இருக்க மாட்டார்களா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">9</span>
+          <div class="card-body">
+            <p class="english-text">Will the room not be clean?</p>
+            <p class="tamil-text">அறை சுத்தமாக இருக்காதா?</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-number">10</span>
+          <div class="card-body">
+            <p class="english-text">Will the children not be safe?</p>
+            <p class="tamil-text">குழந்தைகள் பாதுகாப்பாக இருக்க மாட்டார்களா?</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach((card) => {
+        card.addEventListener('click', () => {
+          cards.forEach((c) => c.classList.remove('active-card'));
+          card.classList.add('active-card');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

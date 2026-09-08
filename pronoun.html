@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRONOUN – பிரதிப்பெயர் | Tamil Medium Student</title>
+    <!-- Google Fonts for Tamil & English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #0f172a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --success-color: #16a34a;
+            --success-bg: #f0fdf4;
+            --error-color: #dc2626;
+            --error-bg: #fef2f2;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* Top Navigation Header */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            background-color: #eff6ff;
+            transition: background-color 0.2s;
+        }
+
+        .back-link:hover {
+            background-color: #dbeafe;
+        }
+
+        .brand-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-align: right;
+        }
+
+        .brand-tagline {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 32px 20px;
+            border-radius: var(--radius-lg);
+            margin: 24px 0;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        /* Progress Card */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .progress-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            background: var(--bg-color);
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+            transition: all 0.2s;
+        }
+
+        .progress-item:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success-color);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .completed .check-icon {
+            background: var(--success-color);
+        }
+
+        /* Nav Pills for Topics */
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            scrollbar-width: none;
+        }
+
+        .topic-pills::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 18px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pill-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* Topic Main Content Box */
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 32px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .topic-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 12px;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary-color);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            margin: 16px 0;
+            text-align: center;
+            border: 1px dashed #93c5fd;
+            word-wrap: break-word;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary-color);
+            padding: 12px 16px;
+            margin: 16px 0;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.98rem;
+            color: #334155;
+        }
+
+        /* Data Tables */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+            min-width: 480px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--secondary-color);
+            padding: 12px 16px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Formula Card */
+        .formula-card {
+            background: #fffbe2;
+            border: 1px solid #fde047;
+            padding: 14px 18px;
+            border-radius: var(--radius-md);
+            margin: 16px 0;
+            font-size: 0.95rem;
+            color: #854d0e;
+        }
+
+        /* Quiz Box Container */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            border: 2px solid #e0e7ff;
+            box-shadow: var(--shadow-md);
+            margin-top: 32px;
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .quiz-title-badge {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .question-box {
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            padding: 14px 16px;
+            text-align: left;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.98rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success-color) !important;
+            color: var(--success-color) !important;
+            font-weight: 700;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error-color) !important;
+            color: var(--error-color) !important;
+            font-weight: 700;
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+        }
+
+        /* Feedback Explanation Box */
+        .feedback-box {
+            margin-top: 16px;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background-color: var(--success-bg);
+            border: 1px solid #bbf7d0;
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background-color: var(--error-bg);
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .next-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        /* Results Screen */
+        .result-card {
+            text-align: center;
+            padding: 30px 16px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary-color);
+        }
+
+        .score-number {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .score-total {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .percentage-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .performance-msg {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .result-stats {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stat-box {
+            padding: 10px 16px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .stat-box.green {
+            background: var(--success-bg);
+            color: var(--success-color);
+        }
+
+        .stat-box.red {
+            background: var(--error-bg);
+            color: var(--error-color);
+        }
+
+        .retry-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .retry-btn:hover {
+            background: #334155;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 24px 16px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.88rem;
+        }
+
+        footer p.tamil-footer {
+            margin-top: 4px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .topic-title {
+                font-size: 1.25rem;
+            }
+
+            .display-chain {
+                font-size: 0.95rem;
+            }
+
+            .quiz-container {
+                padding: 16px;
+            }
+
+            .question-text {
+                font-size: 1rem;
+            }
+
+            .option-btn {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">
+                ← Back to Home
+            </a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+                <div class="brand-tagline">Learn English Easily Through Tamil</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>PRONOUN – பிரதிப்பெயர்</h1>
+            <p>ஆங்கில இலக்கணத்தை தமிழ் வழியில் எளிமையாகக் கற்றுக்கொள்ளுங்கள்!</p>
+        </div>
+
+        <!-- Learning Progress Card -->
+        <div class="progress-card">
+            <div class="progress-title">
+                <span>Pronoun Learning Progress</span>
+                <span id="overall-progress-text" style="font-size: 0.85rem; color: var(--primary-color);">0 / 8
+                    Completed</span>
+            </div>
+            <div class="progress-grid" id="progress-tracker-grid">
+                <!-- Dynamic progress items rendered by JS -->
+            </div>
+        </div>
+
+        <!-- Topic Tabs -->
+        <div class="topic-pills" id="topic-pills">
+            <!-- Dynamic pills rendered by JS -->
+        </div>
+
+        <!-- Topic Explanation Section -->
+        <section class="topic-section" id="topic-content">
+            <!-- Content dynamically rendered by JS -->
+        </section>
+
+        <!-- Quiz Section -->
+        <section class="quiz-container" id="quiz-box">
+            <div class="quiz-header">
+                <span class="quiz-title-badge" id="quiz-topic-badge">Subject Pronouns Quiz</span>
+                <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 30</span>
+            </div>
+
+            <!-- Active Question UI -->
+            <div id="question-runner">
+                <div class="question-box">
+                    <div class="question-text" id="question-text">Loading question...</div>
+                    <div class="options-grid" id="options-container"></div>
+                </div>
+
+                <div class="feedback-box" id="feedback-box"></div>
+
+                <div class="quiz-actions">
+                    <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>
+                        Next Question →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quiz Result UI -->
+            <div class="result-card" id="result-runner">
+                <div class="score-circle">
+                    <span class="score-number" id="res-score">0</span>
+                    <span class="score-total">/ 30</span>
+                </div>
+                <div class="percentage-text" id="res-percent">0%</div>
+                <div class="performance-msg" id="res-msg">Good job!</div>
+                <div class="result-stats">
+                    <div class="stat-box green">✓ Correct: <span id="res-correct">0</span></div>
+                    <div class="stat-box red">✗ Wrong: <span id="res-wrong">0</span></div>
+                </div>
+                <button class="retry-btn" onclick="resetCurrentQuiz()">🔄 Try Again</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Dhanangsezhiyan R– Learn English Easily Through Tamil</p>
+        <p class="tamil-footer">தமிழ் மூலம் ஆங்கிலத்தை எளிதாகக் கற்றுக்கொள்வோம்</p>
+    </footer>
+
+    <script>
+        // Data Structure for all 8 Pronoun Topics and 30 Questions Each (Total = 240 questions)
+        const pronounTopics = [
+            {
+                id: 1,
+                title: "SUBJECT PRONOUNS",
+                tamilTitle: "எழுவாய் பிரதிப்பெயர்",
+                displayChain: "I → You → He → She → It → We → They",
+                explanation: "ஒரு செயலை செய்பவரை (Subject) குறிக்க பயன்படுத்தப்படும் Pronouns-ஐ Subject Pronouns என்போம்.",
+                tableData: [
+                    {p: "I", t: "நான்", e: "I am a student."},
+                    {p: "You", t: "நீ / நீங்கள்", e: "You are my friend."},
+                    {p: "He", t: "அவன்", e: "He is a boy."},
+                    {p: "She", t: "அவள்", e: "She is a girl."},
+                    {p: "It", t: "அது", e: "It is a book."},
+                    {p: "We", t: "நாம் / நாங்கள்", e: "We are students."},
+                    {p: "They", t: "அவர்கள் / அவைகள்", e: "They are happy."}
+                ],
+                extraInfo: "Sentence Structure: <b>Subject Pronoun + Verb + Object</b><br>எடுத்துக்காட்டாக: <i>I (Subject) + play (Verb) + football (Object).</i>",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+                        {q: "______ is my book (அருகில் உள்ள ஒரு புத்தகம்).", o: ["That", "This", "These", "Those"], a: 1, e: "அருகில் உள்ள ஒரு பொருளுக்கு 'This' பயன்படும்."},
+                        {q: "______ is your car (தூரத்தில் உள்ள ஒரு கார்).", o: ["This", "These", "That", "Those"], a: 2, e: "தூரத்தில் உள்ள ஒரு பொருளுக்கு 'That' பயன்படும்."},
+                        {q: "______ are my shoes (அருகில் உள்ள பல காலணிகள்).", o: ["This", "That", "Those", "These"], a: 3, e: "அருகில் உள்ள பல பொருட்களுக்கு 'These' பயன்படும்."},
+                        {q: "______ are distant stars (தூரத்தில் உள்ள பல நட்சத்திரங்கள்).", o: ["Those", "This", "That", "These"], a: 0, e: "தூரத்தில் உள்ள பல பொருட்களுக்கு 'Those' பயன்படும்."},
+                        {q: "Tamil meaning of 'This':", o: ["அது", "இது", "இவை", "அவை"], a: 1, e: "'This' என்றால் இது."},
+                        {q: "Tamil meaning of 'That':", o: ["இது", "இவை", "அது", "அவை"], a: 2, e: "'That' என்றால் அது."},
+                        {q: "Tamil meaning of 'These':", o: ["அவை", "இது", "அது", "இவை"], a: 3, e: "'These' என்றால் இவை."},
+                        {q: "Tamil meaning of 'Those':", o: ["அவை", "இவை", "அது", "இது"], a: 0, e: "'Those' என்றால் அவை."},
+                        {q: "Singular + Near =", o: ["That", "This", "These", "Those"], a: 1, e: "அருகில் உள்ள ஒருமை = 'This'."},
+                        {q: "Singular + Far =", o: ["This", "That", "These", "Those"], a: 1, e: "தூரத்தில் உள்ள ஒருமை = 'That'."},
+                        {q: "Plural + Near =", o: ["Those", "This", "These", "That"], a: 2, e: "அருகில் உள்ள பன்மை = 'These'."},
+                        {q: "Plural + Far =", o: ["These", "This", "That", "Those"], a: 3, e: "தூரத்தில் உள்ள பன்மை = 'Those'."},
+                        {q: "______ is a pen in my hand.", o: ["This", "That", "Those", "These"], a: 0, e: "கையில் (அருகில்) உள்ள ஒரு பொருள் = 'This'."},
+                        {q: "Look at the bird over there! ______ is beautiful.", o: ["This", "That", "These", "Those"], a: 1, e: "அங்கே (தூரத்தில்) உள்ள பறவை = 'That'."},
+                        {q: "______ apples here are very sweet.", o: ["Those", "These", "That", "This"], a: 1, e: "இங்கு (அருகில்) உள்ள பல ஆப்பிள்கள் = 'These'."},
+                        {q: "______ houses on the hill look small.", o: ["These", "This", "Those", "That"], a: 2, e: "மலையில் (தூரத்தில்) உள்ள வீடுகள் = 'Those'."},
+                        {q: "Which word is Singular?", o: ["These", "Those", "Both These & Those", "This"], a: 3, e: "'This' என்பது ஒருமை (Singular)."},
+                        {q: "Which word is Plural?", o: ["These", "This", "That", "It"], a: 0, e: "'These' என்பது பன்மை (Plural)."},
+                        {q: "Verb used with 'This':", o: ["are", "is", "were", "have"], a: 1, e: "'This' ஒருமை என்பதால் 'is' பயன்படும்."},
+                        {q: "Verb used with 'These':", o: ["is", "are", "am", "was"], a: 1, e: "'These' பன்மை என்பதால் 'are' பயன்படும்."},
+                        {q: "Identify Demonstrative Pronoun: 'This is my bag.'", o: ["is", "my", "bag", "This"], a: 3, e: "'This' என்பது Demonstrative Pronoun."},
+                        {q: "Identify Demonstrative Pronoun: 'I like those.'", o: ["I", "those", "like", "None"], a: 1, e: "'those' என்பது Demonstrative Pronoun."},
+                        {q: "Is 'That' Singular or Plural?", o: ["Singular", "Plural", "Both", "None"], a: 0, e: "'That' என்பது ஒருமை (Singular)."},
+                        {q: "Is 'Those' Singular or Plural?", o: ["Plural", "Singular", "Both", "None"], a: 0, e: "'Those' என்பது பன்மை (Plural)."},
+                        {q: "______ is my new watch on my wrist.", o: ["That", "This", "Those", "These"], a: 1, e: "கையிலுள்ள கடிகாரம் (அருகில்) = 'This'."},
+                        {q: "______ are my friends standing over there.", o: ["These", "This", "Those", "That"], a: 2, e: "அங்கே நிற்பவர்கள் (தூரம், பன்மை) = 'Those'."},
+                        {q: "______ was a great day yesterday.", o: ["This", "That", "These", "Those"], a: 1, e: "கடந்த காலம் (தூரம்) குறிக்க 'That' பயன்படும்."},
+                        {q: "What is the plural of 'This'?", o: ["Those", "Thises", "These", "Thats"], a: 2, e: "'This' என்பதன் பன்மை 'These'."},
+                        {q: "What is the plural of 'That'?", o: ["These", "Thats", "Thises", "Those"], a: 3, e: "'That' என்பதன் பன்மை 'Those'."},
+                        {q: "Choose correct sentence:", o: ["These is books.", "This are books.", "These are books.", "That are books."], a: 2, e: "'These are books' என்பதே சரியானது."}
+                    ];
+                    return qList[i];
+                })
+            },
+            {
+                id: 2,
+                title: "OBJECT PRONOUNS",
+                tamilTitle: "செயப்படுபொருள் பிரதிப்பெயர்",
+                displayChain: "Me → You → Him → Her → It → Us → Them",
+                explanation: "ஒரு செயலின் தாக்கத்தை பெறுபவரை (Object) குறிக்க Object Pronouns பயன்படுத்தப்படுகின்றன.",
+                tableData: [
+                    {p: "Me", t: "என்னை / எனக்கு", e: "He called me."},
+                    {p: "You", t: "உன்னை / உங்களை", e: "I like you."},
+                    {p: "Him", t: "அவனை / அவனுக்கு", e: "I saw him."},
+                    {p: "Her", t: "அவளை / அவளுக்கு", e: "I helped her."},
+                    {p: "It", t: "அதை / அதற்கு", e: "I bought it."},
+                    {p: "Us", t: "எங்களை / எங்களுக்கு", e: "They helped us."},
+                    {p: "Them", t: "அவர்களை / அவர்களுக்கு", e: "I saw them."}
+                ],
+                extraInfo: "Object Pronoun எப்போதும் வினைச்சொல்லுக்கு (Verb) அல்லது முன்னிடைச்சொல்லுக்கு (Preposition) பிறகே வரும்.",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "She helped ______ (நான்/என்னை).", o: ["my", "myself", "me", "I"], a: 2, e: "Verb-க்கு பின் எழும் செயலின் தாக்கத்தை பெற 'me' பயன்படும்." },
+    { q: "I saw ______ (அவனை) yesterday.", o: ["his", "he", "him", "himself"], a: 2, e: "'அவனை' என்பதன் ஆங்கிலச் சொல் 'him'." },
+    { q: "Teacher called ______ (அவளை).", o: ["herself", "hers", "her", "she"], a: 2, e: "'அவளை' என்பதன் ஆங்கிலச் சொல் 'her'." },
+    { q: "They invited ______ (எங்களை).", o: ["us", "ourselves", "we", "our"], a: 0, e: "'எங்களை' என்பதன் ஆங்கிலச் சொல் 'us'." },
+    { q: "I know ______ (அவர்களை) very well.", o: ["they", "their", "themselves", "them"], a: 3, e: "'அவர்களை' என்பதன் ஆங்கிலச் சொல் 'them'." },
+    { q: "Give the pen to ______ (என்னிடம்/எனக்கு).", o: ["mine", "my", "I", "me"], a: 3, e: "Preposition 'to' விற்கு பிறகு 'me' வரும்." },
+    { q: "I like ______ (உன்னை).", o: ["yours", "your", "you", "yourself"], a: 2, e: "'உன்னை' குறிக்க Object form 'you' பயன்படும்." },
+    { q: "He bought ______ (அதை) last week.", o: ["they", "its", "them", "it"], a: 3, e: "பொருளைக் குறிக்க Object Pronoun 'it' பயன்படும்." },
+    { q: "Tamil meaning of 'Me':", o: ["என்னை / எனக்கு", "என்னுடைய", "நான்", "நானே"], a: 0, e: "'Me' என்றால் என்னை / எனக்கு." },
+    { q: "Tamil meaning of 'Him':", o: ["அவனை / அவனுக்கு", "அவனே", "அவனுடைய", "அவன்"], a: 0, e: "'Him' என்றால் அவனை / அவனுக்கு." },
+    { q: "Tamil meaning of 'Her':", o: ["அவளுடையது", "அவளே", "அவளை / அவளுக்கு", "அவள்"], a: 2, e: "'Her' Object Pronoun ஆக வரும்போது அவளை/அவளுக்கு." },
+    { q: "Tamil meaning of 'Us':", o: ["நாங்கள்", "எங்களை / எங்களுக்கு", "எங்களுடைய", "நாங்களே"], a: 1, e: "'Us' என்றால் எங்களை / எங்களுக்கு." },
+    { q: "Tamil meaning of 'Them':", o: ["அவர்களே", "அவர்கள்", "அவர்களை / அவர்களுக்கு", "அவர்களுடைய"], a: 2, e: "'Them' என்றால் அவர்களை / அவர்களுக்கு." },
+    { q: "Identify Object Pronoun: 'Raman met him.'", o: ["Raman", "None", "met", "him"], a: 3, e: "இங்கு Object 'him'." },
+    { q: "Which sentence is correct?", o: ["She loves I.", "She loves mine.", "She loves my.", "She loves me."], a: 3, e: "Verb-க்கு பின் Object Pronoun 'me' வர வேண்டும்." },
+    { q: "Which sentence is correct?", o: ["I called himself.", "I called his.", "I called him.", "I called he."], a: 2, e: "Verb-க்கு பின் 'him' வர வேண்டும்." },
+    { q: "Don't disturb ______ (அவனை).", o: ["he", "him", "his", "himself"], a: 1, e: "'அவனை' குறிக்க 'him' சரியானது." },
+    { q: "Look at ______ (அவளை).", o: ["her", "she", "herself", "hers"], a: 0, e: "'Look at' தொடர்ந்து 'her' வரும்." },
+    { q: "Can you hear ______ (எங்களை)?", o: ["ours", "we", "our", "us"], a: 3, e: "'எங்களை' குறிக்க 'us' பயன்படும்." },
+    { q: "I will call ______ (உன்னை) later.", o: ["you", "your", "yours", "yourself"], a: 0, e: "'உன்னை' குறிக்க Object 'you' பயன்படும்." },
+    { q: "The boss praised ______ (அவர்களை).", o: ["they", "their", "theirs", "them"], a: 3, e: "'அவர்களை' குறிக்க 'them' வரும்." },
+    { q: "Give ______ (எனக்கு) a glass of water.", o: ["my", "me", "I", "mine"], a: 1, e: "'எனக்கு' என்பதன் Object வடிவம் 'me'." },
+    { q: "We are waiting for ______ (அவனுக்காக).", o: ["he", "him", "his", "himself"], a: 1, e: "Preposition 'for' பின் 'him' பயன்படும்." },
+    { q: "She bought a gift for ______ (எனக்கு).", o: ["me", "my", "mine", "I"], a: 0, e: "'for me' என்பது சரியான பிரயோகம்." },
+    { q: "Ask ______ (அவர்களிடம்) the question.", o: ["theirs", "them", "they", "their"], a: 1, e: "'them' என்பது Object Pronoun." },
+    { q: "Replace Noun with Object Pronoun: 'I saw Ram.'", o: ["I saw his.", "I saw he.", "I saw himself.", "I saw him."], a: 3, e: "'Ram' (ஆண்) என்பதால் Object 'him'." },
+    { q: "Replace Noun with Object Pronoun: 'He met Sita.'", o: ["He met herself.", "He met she.", "He met her.", "He met hers."], a: 2, e: "'Sita' (பெண்) என்பதால் Object 'her'." },
+    { q: "Replace Noun with Object Pronoun: 'I feed the dog.'", o: ["I feed its.", "I feed him.", "I feed it.", "I feed her."], a: 2, e: "விலங்கைக் குறிக்க 'it' பயன்படும்." },
+    { q: "They know ______ (நம்மை / எங்களை).", o: ["we", "our", "us", "ours"], a: 2, e: "'us' என்றால் எங்களை/நம்மை." },
+    { q: "Tell ______ (அவனிடம்) the truth.", o: ["him", "his", "himself", "he"], a: 0, e: "'him' என்பது Object Pronoun." }
+];
+                    return qList[i];
+                })
+            },
+            {
+                id: 3,
+                title: "POSSESSIVE ADJECTIVES",
+                tamilTitle: "உடமை யுரிமைச் சொற்கள்",
+                displayChain: "My → Your → His → Her → Its → Our → Their",
+                explanation: "ஒரு பொருள் அல்லது நபர் யாருடையது என்பதை குறிப்பிட Possessive Adjectives பயன்படுத்தப்படுகின்றன.",
+                tableData: [
+                    {p: "My", t: "என்னுடைய", e: "This is my book."},
+                    {p: "Your", t: "உன்னுடைய / உங்கள்", e: "This is your pen."},
+                    {p: "His", t: "அவனுடைய", e: "This is his bag."},
+                    {p: "Her", t: "அவளுடைய", e: "This is her phone."},
+                    {p: "Its", t: "அதன்", e: "The dog is eating its food."},
+                    {p: "Our", t: "எங்களுடைய / நம்முடைய", e: "This is our house."},
+                    {p: "Their", t: "அவர்களுடைய", e: "This is their car."}
+                ],
+                formula: "<b>முக்கிய விதி:</b> Possessive Adjective தொடர்ந்து எப்போதும் ஒரு Noun (பெயர்ச்சொல்) வர வேண்டும்.<br><b>Structure: Possessive Adjective + Noun</b> (e.g. My + Book = My book)",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "This is ______ (என்னுடைய) car.", o: ["mine", "I", "my", "me"], a: 2, e: "'car' என்ற Noun-க்கு முன் 'my' வர வேண்டும்." },
+    { q: "Where is ______ (உன்னுடைய) house?", o: ["your", "yours", "you", "yourself"], a: 0, e: "'house' என்ற Noun-க்கு முன் 'your' பயன்படும்." },
+    { q: "That is ______ (அவனுடைய) bike.", o: ["himself", "his", "he", "him"], a: 1, e: "'bike' என்ற Noun-க்கு முன் 'his' பயன்படும்." },
+    { q: "She loves ______ (அவளுடைய) dog.", o: ["hers", "herself", "she", "her"], a: 3, e: "'dog' என்ற Noun-க்கு முன் 'her' பயன்படும்." },
+    { q: "The cat drank ______ (அதன்) milk.", o: ["itself", "it's", "its", "it"], a: 2, e: "'milk' என்ற Noun-க்கு முன் 'its' (அப்போஸ்ட்ரோபி இல்லாமல்) வர வேண்டும்." },
+    { q: "This is ______ (எங்களுடைய) school.", o: ["our", "we", "ours", "us"], a: 0, e: "'school' என்ற Noun-க்கு முன் 'our' பயன்படும்." },
+    { q: "They sold ______ (அவர்களுடைய) house.", o: ["theirs", "their", "them", "they"], a: 1, e: "'house' என்ற Noun-க்கு முன் 'their' பயன்படும்." },
+    { q: "Tamil meaning of 'My':", o: ["என்னுடையது", "நான்", "என்னை", "என்னுடைய"], a: 3, e: "'My' என்றால் என்னுடைய." },
+    { q: "Tamil meaning of 'Your':", o: ["உன்னுடையது", "உன்னுடைய", "நீ", "உன்னை"], a: 1, e: "'Your' என்றால் உன்னுடைய / உங்களுடைய." },
+    { q: "Tamil meaning of 'His':", o: ["அவனுக்கு", "அவன்", "அவனுடைய", "அவளுடைய"], a: 2, e: "'His' என்றால் அவனுடைய." },
+    { q: "Tamil meaning of 'Her':", o: ["அவளுக்கு", "அவளுடைய", "அவளுடையது", "அவள்"], a: 1, e: "Possessive Adjective ஆக 'Her' என்றால் அவளுடைய." },
+    { q: "Tamil meaning of 'Its':", o: ["அதற்கு", "அதனுடையது", "அதன்", "அது"], a: 2, e: "'Its' என்றால் அதன்." },
+    { q: "Tamil meaning of 'Our':", o: ["நாங்கள்", "எங்களுடையது", "எங்களுடைய", "எங்களை"], a: 2, e: "'Our' என்றால் எங்களுடைய / நம்முடைய." },
+    { q: "Tamil meaning of 'Their':", o: ["அவர்கள்", "அவர்களுடைய", "அவர்களுடையது", "அவர்களை"], a: 1, e: "'Their' என்றால் அவர்களுடைய." },
+    { q: "Fill in: 'I lost ______ key.'", o: ["me", "my", "I", "mine"], a: 1, e: "Noun 'key' க்கு முன் 'my' பயன்படும்." },
+    { q: "Fill in: 'He forgot ______ homework.'", o: ["him", "himself", "his", "he"], a: 2, e: "Noun 'homework' க்கு முன் 'his' பயன்படும்." },
+    { q: "Fill in: 'She is washing ______ hands.'", o: ["herself", "her", "she", "hers"], a: 1, e: "Noun 'hands' க்கு முன் 'her' பயன்படும்." },
+    { q: "Fill in: 'We clean ______ room every day.'", o: ["us", "we", "our", "ours"], a: 2, e: "Noun 'room' க்கு முன் 'our' பயன்படும்." },
+    { q: "Fill in: 'They are doing ______ project.'", o: ["them", "their", "they", "theirs"], a: 1, e: "Noun 'project' க்கு முன் 'their' பயன்படும்." },
+    { q: "Which is a Possessive Adjective?", o: ["myself", "me", "mine", "my"], a: 3, e: "'my' என்பது Possessive Adjective." },
+    { q: "Identify structure: 'my + book'", o: ["Subject + Verb", "Possessive Adjective + Noun", "None", "Pronoun + Adverb"], a: 1, e: "Possessive Adjective தொடர்ந்து Noun வரும்." },
+    { q: "Correct sentence:", o: ["This is my coat.", "This is mine coat.", "This is me coat.", "This is I coat."], a: 0, e: "'my coat' என்பதே சரியானது." },
+    { q: "Correct sentence:", o: ["What is yours name?", "What is you name?", "What is your name?", "What is yourself name?"], a: 2, e: "'your name' என்பதே சரியானது." },
+    { q: "The bird opened ______ wings.", o: ["it's", "itself", "its", "it"], a: 2, e: "'its wings' (அதன் சிறகுகள்) சரியானது." },
+    { q: "Is 'its' same as 'it's'?", o: ["Yes", "Sometimes", "No (it's = it is, its = possessive)", "Don't know"], a: 2, e: "'its' உடமைச் சொல்; 'it's' என்பது 'it is' என்பதன் சுருக்கம்." },
+    { q: "Choose correct option: 'This is ______ (அவளுடைய) pen.'", o: ["hers", "she", "her", "herself"], a: 2, e: "'her pen' என்பதே சரியானது." },
+    { q: "Choose correct option: 'Where is ______ (அவர்களுடைய) school?'", o: ["their", "them", "theirs", "they"], a: 0, e: "'their school' என்பதே சரியானது." },
+    { q: "Choose correct option: 'We love ______ (நம்முடைய) country.'", o: ["our", "we", "ours", "us"], a: 0, e: "'our country' என்பதே சரியானது." },
+    { q: "Choose correct option: 'He is driving ______ (அவனுடைய) new car.'", o: ["himself", "his", "him", "he"], a: 1, e: "'his new car' என்பதே சரியானது." },
+    { q: "Identify Possessive Adjective in: 'She brush her teeth.'", o: ["teeth", "her", "She", "brush"], a: 1, e: "'her' என்பது Possessive Adjective." }
+];
+                    return qList[i];
+                })
+            },
+            {
+                id: 4,
+                title: "POSSESSIVE PRONOUNS",
+                tamilTitle: "உடைமைப் பிரதிப்பெயர்",
+                displayChain: "Mine → Yours → His → Hers → Ours → Theirs",
+                explanation: "ஒரு பொருள் யாருடையது என்பதை Noun-ஐ மீண்டும் சொல்லாமல் குறிப்பிட Possessive Pronouns பயன்படுத்தப்படுகின்றன.",
+                tableData: [
+                    {p: "Mine", t: "என்னுடையது", e: "This book is mine."},
+                    {p: "Yours", t: "உன்னுடையது / உங்களுடையது", e: "This pen is yours."},
+                    {p: "His", t: "அவனுடையது", e: "This bag is his."},
+                    {p: "Hers", t: "அவளுடையது", e: "This phone is hers."},
+                    {p: "Ours", t: "எங்களுடையது / நம்முடையது", e: "This house is ours."},
+                    {p: "Theirs", t: "அவர்களுடையது", e: "This car is theirs."}
+                ],
+                formula: "<b>முக்கிய ஒப்பீடு (Comparison):</b><br>• This is my book. → <b>My + Noun</b> (Possessive Adjective)<br>• This book is mine. → <b>Mine</b> (Possessive Pronoun - Noun வராது!)",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "This book is ______ (என்னுடையது).", o: ["me", "my", "I", "mine"], a: 3, e: "Noun இல்லாமல் தனியாக 'என்னுடையது' எனக் குறிக்க 'mine' பயன்படும்." },
+    { q: "That pen is ______ (உன்னுடையது).", o: ["you", "yours", "yourself", "your"], a: 1, e: "'உன்னுடையது' என்பதன் ஆங்கிலச் சொல் 'yours'." },
+    { q: "This bag is ______ (அவனுடையது).", o: ["his", "him", "himself", "he"], a: 0, e: "'அவனுடையது' என்பதைக் குறிக்க 'his' பயன்படும்." },
+    { q: "That phone is ______ (அவளுடையது).", o: ["herself", "she", "her", "hers"], a: 3, e: "'அவளுடையது' என்பதன் ஆங்கிலச் சொல் 'hers'." },
+    { q: "This house is ______ (எங்களுடையது).", o: ["us", "our", "ours", "we"], a: 2, e: "'எங்களுடையது' என்பதன் ஆங்கிலச் சொல் 'ours'." },
+    { q: "That car is ______ (அவர்களுடையது).", o: ["theirs", "them", "their", "they"], a: 0, e: "'அவர்களுடையது' என்பதன் ஆங்கிலச் சொல் 'theirs'." },
+    { q: "Tamil meaning of 'Mine':", o: ["நான்", "என்னுடையது", "என்னை", "என்னுடைய"], a: 1, e: "'Mine' என்றால் என்னுடையது." },
+    { q: "Tamil meaning of 'Yours':", o: ["உன்னுடையது", "உன்னை", "நீ", "உன்னுடைய"], a: 0, e: "'Yours' என்றால் உன்னுடையது / உங்களுடையது." },
+    { q: "Tamil meaning of 'Hers':", o: ["அவள்", "அவளுடைய", "அவளுடையது", "அவளை"], a: 2, e: "'Hers' என்றால் அவளுடையது." },
+    { q: "Tamil meaning of 'Ours':", o: ["எங்களை", "நாங்கள்", "எங்களுடைய", "எங்களுடையது"], a: 3, e: "'Ours' என்றால் எங்களுடையது / நம்முடையது." },
+    { q: "Tamil meaning of 'Theirs':", o: ["அவர்களுடையது", "அவர்கள்", "அவர்களை", "அவர்களுடைய"], a: 0, e: "'Theirs' என்றால் அவர்களுடையது." },
+    { q: "Which sentence is correct?", o: ["This book is my.", "This book is me.", "This book is mine.", "This book is I."], a: 2, e: "வாக்கியத்தின் இறுதியில் 'mine' சரியாக அமையும்." },
+    { q: "Which sentence is correct?", o: ["That car is us.", "That car is ours.", "That car is we.", "That car is our."], a: 1, e: "'ours' என்பதே சரி." },
+    { q: "Is this umbrella ______ (உன்னுடையதா)?", o: ["yourself", "your", "yours", "you"], a: 2, e: "'yours' என்பது Possessive Pronoun." },
+    { q: "The dress is ______ (அவளுடையது).", o: ["she", "hers", "her", "herself"], a: 1, e: "'hers' என்பது Possessive Pronoun." },
+    { q: "These toys are ______ (அவர்களுடையது).", o: ["they", "them", "their", "theirs"], a: 3, e: "'theirs' என்பது Possessive Pronoun." },
+    { q: "The fault is ______ (என்னுடையது).", o: ["mine", "I", "me", "my"], a: 0, e: "'mine' என்பது Possessive Pronoun." },
+    { q: "Convert: 'This is my bag.' → 'This bag is ______.'", o: ["me", "my", "mine", "I"], a: 2, e: "'my bag' என்பது 'bag is mine' என மாறும்." },
+    { q: "Convert: 'That is her dress.' → 'That dress is ______.'", o: ["herself", "her", "she", "hers"], a: 3, e: "'her dress' என்பது 'dress is hers' என மாறும்." },
+    { q: "Convert: 'This is our land.' → 'This land is ______.'", o: ["ours", "us", "we", "our"], a: 0, e: "'our land' என்பது 'land is ours' என மாறும்." },
+    { q: "Convert: 'Those are their shoes.' → 'Those shoes are ______.'", o: ["them", "their", "theirs", "they"], a: 2, e: "'their shoes' என்பது 'shoes are theirs' என மாறும்." },
+    { q: "Does Possessive Pronoun take a Noun after it?", o: ["Always", "Sometimes", "Yes", "No"], a: 3, e: "Possessive Pronoun தொடர்ந்து Noun வராது." },
+    { q: "Choose correct: 'This laptop is ______ (அவனுடையது).'", o: ["him", "he", "himself", "his"], a: 3, e: "'his' என்பது Possessive Adjective மற்றும் Possessive Pronoun இரண்டிற்கும் ஒரே சொல்." },
+    { q: "Identify Possessive Pronoun: 'The choice is yours.'", o: ["yours", "is", "The", "choice"], a: 0, e: "'yours' என்பது Possessive Pronoun." },
+    { q: "Fill in: 'My car is red, but ______ (அவனுடையது) is blue.'", o: ["his", "him", "he", "himself"], a: 0, e: "'his' என்றால் அவனுடையது." },
+    { q: "Fill in: 'Her team won, but ______ (எங்களுடையது) lost.'", o: ["we", "our", "us", "ours"], a: 3, e: "'ours' என்றால் எங்களுடையது." },
+    { q: "Fill in: 'Your garden is big, but ______ (அவர்களுடையது) is bigger.'", o: ["they", "their", "theirs", "them"], a: 2, e: "'theirs' என்றால் அவர்களுடையது." },
+    { q: "Fill in: 'This coat is not ______ (என்னுடையது).'", o: ["me", "mine", "I", "my"], a: 1, e: "'mine' என்றால் என்னுடையது." },
+    { q: "Choose correct word: 'Is that hat ______ (உன்னுடையது)?'", o: ["yours", "you", "your", "yourselves"], a: 0, e: "'yours' என்பது Possessive Pronoun." },
+    { q: "Possessive Pronoun form for 'She':", o: ["herself", "she", "hers", "her"], a: 2, e: "'She' என்பதன் Possessive Pronoun 'hers'." }
+];
+                    return qList[i];
+                })
+            },
+            {
+                id: 5,
+                title: "REFLEXIVE PRONOUNS",
+                tamilTitle: "தற்சுட்டு பிரதிப்பெயர்",
+                displayChain: "Myself → Yourself → Himself → Herself → Itself → Ourselves → Yourselves → Themselves",
+                explanation: "ஒரு செயலை செய்பவரும் அந்த செயலின் விளைவை பெறுபவரும் ஒருவராக இருக்கும்போது Reflexive Pronouns பயன்படுத்தப்படுகின்றன.",
+                tableData: [
+                    {p: "Myself", t: "நானே / என்னையே", e: "I did it myself."},
+                    {p: "Yourself", t: "நீயே / உங்களையே (ஒருமை)", e: "Do it yourself."},
+                    {p: "Himself", t: "அவனே / அவனையே", e: "He did it himself."},
+                    {p: "Herself", t: "அவளே / அவளையே", e: "She cooked it herself."},
+                    {p: "Itself", t: "அதுவே", e: "The machine stopped itself."},
+                    {p: "Ourselves", t: "நாங்களே / நாமே", e: "We did it ourselves."},
+                    {p: "Yourselves", t: "நீங்களே (பன்மை)", e: "Do it yourselves."},
+                    {p: "Themselves", t: "அவர்களே", e: "They did it themselves."}
+                ],
+                extraInfo: "<b>குறிப்பு:</b> Singular சொற்களுக்கு <b>-self</b> சேரும் (Myself, Himself). Plural சொற்களுக்கு <b>-selves</b> சேரும் (Ourselves, Themselves).",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "I completed the project ______ (நானே).", o: ["himself", "myself", "herself", "yourself"], a: 1, e: "'I' வந்தால் Reflexive Pronoun 'myself' வர வேண்டும்." },
+    { q: "He hurt ______ (அவனே) while playing.", o: ["itself", "herself", "himself", "myself"], a: 2, e: "'He' வந்தால் 'himself' வர வேண்டும்." },
+    { q: "She cooked dinner ______ (அவளே).", o: ["herself", "myself", "itself", "himself"], a: 0, e: "'She' வந்தால் 'herself' வர வேண்டும்." },
+    { q: "The cat cleaned ______ (அதுவே).", o: ["myself", "itself", "himself", "herself"], a: 1, e: "'It / Animal' வந்தால் 'itself' வர வேண்டும்." },
+    { q: "We enjoyed ______ (நாங்களே) at the party.", o: ["yourselves", "myself", "ourselves", "themselves"], a: 2, e: "'We' வந்தால் 'ourselves' வர வேண்டும்." },
+    { q: "They painted the wall ______ (அவர்களே).", o: ["themselves", "himself", "yourselves", "ourselves"], a: 0, e: "'They' வந்தால் 'themselves' வர வேண்டும்." },
+    { q: "Please do it ______ (நீயே - Singular).", o: ["himself", "yourself", "myself", "yourselves"], a: 1, e: "ஒருமை 'You' -விற்கு 'yourself' வர வேண்டும்." },
+    { q: "Children, do it ______ (நீங்களே - Plural).", o: ["yourselves", "ourselves", "yourself", "themselves"], a: 0, e: "பன்மை 'You' -விற்கு 'yourselves' வர வேண்டும்." },
+    { q: "Tamil meaning of 'Myself':", o: ["நீயே", "அவனே", "நானே / என்னையே", "அவளே"], a: 2, e: "'Myself' என்றால் நானே / என்னையே." },
+    { q: "Tamil meaning of 'Himself':", o: ["அவளே", "அதுவே", "அவனே / அவனையே", "நானே"], a: 2, e: "'Himself' என்றால் அவனே / அவனையே." },
+    { q: "Tamil meaning of 'Herself':", o: ["அவனே", "அவளே / அவளையே", "அவர்களே", "நானே"], a: 1, e: "'Herself' என்றால் அவளே / அவளையே." },
+    { q: "Tamil meaning of 'Ourselves':", o: ["அவர்களே", "நீங்களே", "நானே", "நாங்களே / நாமே"], a: 3, e: "'Ourselves' என்றால் நாங்களே / நாமே." },
+    { q: "Tamil meaning of 'Themselves':", o: ["நீங்களே", "அவர்களே / அவைகளே", "அவனே", "நாங்களே"], a: 1, e: "'Themselves' என்றால் அவர்களே / அவைகளே." },
+    { q: "Which Reflexive Pronoun matches 'I'?", o: ["itself", "herself", "myself", "himself"], a: 2, e: "'I' -> 'myself'." },
+    { q: "Which Reflexive Pronoun matches 'He'?", o: ["himself", "myself", "itself", "herself"], a: 0, e: "'He' -> 'himself'." },
+    { q: "Which Reflexive Pronoun matches 'She'?", o: ["herself", "itself", "himself", "myself"], a: 0, e: "'She' -> 'herself'." },
+    { q: "Which Reflexive Pronoun matches 'We'?", o: ["themselves", "ourselves", "myself", "yourselves"], a: 1, e: "'We' -> 'ourselves'." },
+    { q: "Which Reflexive Pronoun matches 'They'?", o: ["yourselves", "themselves", "ourselves", "myself"], a: 1, e: "'They' -> 'themselves'." },
+    { q: "Plural form ending for Reflexive Pronoun is:", o: ["-self", "-ing", "-selves", "-ed"], a: 2, e: "பன்மை Reflexive Pronoun '-selves' என முடியும்." },
+    { q: "Singular form ending for Reflexive Pronoun is:", o: ["-selves", "-s", "-self", "-es"], a: 2, e: "ஒருமை Reflexive Pronoun '-self' என முடியும்." },
+    { q: "Identify Reflexive Pronoun: 'I saw myself in the mirror.'", o: ["myself", "mirror", "saw", "I"], a: 0, e: "'myself' என்பது Reflexive Pronoun." },
+    { q: "The door closed by ______ (அதுவே).", o: ["himself", "itself", "myself", "herself"], a: 1, e: "'itself' என்பது பொருளினைக் குறிக்கும்." },
+    { q: "He looked at ______ in the glass.", o: ["herself", "itself", "himself", "myself"], a: 2, e: "'He' வந்தால் 'himself'." },
+    { q: "She bought a gift for ______.", o: ["himself", "itself", "herself", "myself"], a: 2, e: "'She' வந்தால் 'herself'." },
+    { q: "We solved the problem ______.", o: ["themselves", "ourselves", "myself", "yourselves"], a: 1, e: "'We' வந்தால் 'ourselves'." },
+    { q: "They prepared for exam ______.", o: ["ourselves", "yourselves", "themselves", "himself"], a: 2, e: "'They' வந்தால் 'themselves'." },
+    { q: "Take care of ______ (உன்னையே).", o: ["myself", "yourself", "herself", "himself"], a: 1, e: "'yourself' என்பது உன்னையே." },
+    { q: "Is 'theirself' a correct English word?", o: ["Sometimes", "Yes", "No (Correct word is 'themselves')", "Don't know"], a: 2, e: "'theirself' என்பது தவறானது. 'themselves' என்பதே சரி." },
+    { q: "Is 'ourself' correct for 'We'?", o: ["No (Correct word is 'ourselves')", "Yes", "Don't know", "Sometimes"], a: 0, e: "'We' பன்மை என்பதால் 'ourselves' என்பதே சரி." },
+    { q: "Choose correct sentence:", o: ["He made it hisself.", "He made it himself.", "He made it he.", "He made it him."], a: 1, e: "'himself' என்பதே சரியான Reflexive Pronoun." }
+];
+                    return qList[i];
+                })
+            },
+            {
+                id: 6,
+                title: "DEMONSTRATIVE PRONOUNS",
+                tamilTitle: "சுட்டுப் பிரதிப்பெயர்",
+                displayChain: "This → That → These → Those",
+                explanation: "ஒரு நபர் அல்லது பொருளை சுட்டிக்காட்ட Demonstrative Pronouns பயன்படுத்தப்படுகின்றன.",
+                tableData: [
+                    {p: "This", t: "இது (அருகில் உள்ள ஒரு பொருள்)", e: "This is my book."},
+                    {p: "That", t: "அது (தூரத்தில் உள்ள ஒரு பொருள்)", e: "That is your car."},
+                    {p: "These", t: "இவை (அருகில் உள்ள பல பொருட்கள்)", e: "These are my shoes."},
+                    {p: "Those", t: "அவை (தூரத்தில் உள்ள பல பொருட்கள்)", e: "Those are their houses."}
+                ],
+                extraInfo: "<b>நினைவில் கொள்க:</b><br>• Near (அருகில்): <b>This</b> (Singular), <b>These</b> (Plural)<br>• Far (தூரத்தில்): <b>That</b> (Singular), <b>Those</b> (Plural)",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "______ is my book (அருகில் உள்ள ஒரு புத்தகம்).", o: ["These", "This", "Those", "That"], a: 1, e: "அருகில் உள்ள ஒரு பொருளுக்கு 'This' பயன்படும்." },
+    { q: "______ is your car (தூரத்தில் உள்ள ஒரு கார்).", o: ["Those", "This", "That", "These"], a: 2, e: "தூரத்தில் உள்ள ஒரு பொருளுக்கு 'That' பயன்படும்." },
+    { q: "______ are my shoes (அருகில் உள்ள பல காலணிகள்).", o: ["These", "Those", "That", "This"], a: 0, e: "அருகில் உள்ள பல பொருட்களுக்கு 'These' பயன்படும்." },
+    { q: "______ are distant stars (தூரத்தில் உள்ள பல நட்சத்திரங்கள்).", o: ["This", "These", "Those", "That"], a: 2, e: "தூரத்தில் உள்ள பல பொருட்களுக்கு 'Those' பயன்படும்." },
+    { q: "Tamil meaning of 'This':", o: ["அவை", "இது", "இவை", "அது"], a: 1, e: "'This' என்றால் இது." },
+    { q: "Tamil meaning of 'That':", o: ["அது", "இது", "இவை", "அவை"], a: 0, e: "'That' என்றால் அது." },
+    { q: "Tamil meaning of 'These':", o: ["இது", "இவை", "அவை", "அது"], a: 1, e: "'These' என்றால் இவை." },
+    { q: "Tamil meaning of 'Those':", o: ["இவை", "அது", "அவை", "இது"], a: 2, e: "'Those' என்றால் அவை." },
+    { q: "Singular + Near =", o: ["These", "Those", "That", "This"], a: 3, e: "அருகில் உள்ள ஒருமை = 'This'." },
+    { q: "Singular + Far =", o: ["That", "This", "Those", "These"], a: 0, e: "தூரத்தில் உள்ள ஒருமை = 'That'." },
+    { q: "Plural + Near =", o: ["Those", "These", "That", "This"], a: 1, e: "அருகில் உள்ள பன்மை = 'These'." },
+    { q: "Plural + Far =", o: ["These", "That", "Those", "This"], a: 2, e: "தூரத்தில் உள்ள பன்மை = 'Those'." },
+    { q: "______ is a pen in my hand.", o: ["That", "These", "This", "Those"], a: 2, e: "கையில் (அருகில்) உள்ள ஒரு பொருள் = 'This'." },
+    { q: "Look at the bird over there! ______ is beautiful.", o: ["These", "Those", "This", "That"], a: 3, e: "அங்கே (தூரத்தில்) உள்ள பறவை = 'That'." },
+    { q: "______ apples here are very sweet.", o: ["These", "This", "Those", "That"], a: 0, e: "இங்கு (அருகில்) உள்ள பல ஆப்பிள்கள் = 'These'." },
+    { q: "______ houses on the hill look small.", o: ["That", "Those", "These", "This"], a: 1, e: "மலையில் (தூரத்தில்) உள்ள வீடுகள் = 'Those'." },
+    { q: "Which word is Singular?", o: ["This", "These", "Those", "Both These & Those"], a: 0, e: "'This' என்பது ஒருமை (Singular)." },
+    { q: "Which word is Plural?", o: ["That", "It", "These", "This"], a: 2, e: "'These' என்பது பன்மை (Plural)." },
+    { q: "Verb used with 'This':", o: ["were", "are", "is", "have"], a: 2, e: "'This' ஒருமை என்பதால் 'is' பயன்படும்." },
+    { q: "Verb used with 'These':", o: ["are", "is", "am", "was"], a: 0, e: "'These' பன்மை என்பதால் 'are' பயன்படும்." },
+    { q: "Identify Demonstrative Pronoun: 'This is my bag.'", o: ["bag", "is", "This", "my"], a: 2, e: "'This' என்பது Demonstrative Pronoun." },
+    { q: "Identify Demonstrative Pronoun: 'I like those.'", o: ["like", "None", "I", "those"], a: 3, e: "'those' என்பது Demonstrative Pronoun." },
+    { q: "Is 'That' Singular or Plural?", o: ["Plural", "Singular", "Both", "None"], a: 1, e: "'That' என்பது ஒருமை (Singular)." },
+    { q: "Is 'Those' Singular or Plural?", o: ["Singular", "Plural", "Both", "None"], a: 1, e: "'Those' என்பது பன்மை (Plural)." },
+    { q: "______ is my new watch on my wrist.", o: ["This", "That", "These", "Those"], a: 0, e: "கையிலுள்ள கடிகாரம் (அருகில்) = 'This'." },
+    { q: "______ are my friends standing over there.", o: ["These", "Those", "This", "That"], a: 1, e: "அங்கே நிற்பவர்கள் (தூரம், பன்மை) = 'Those'." },
+    { q: "______ was a great day yesterday.", o: ["Those", "This", "That", "These"], a: 2, e: "கடந்த காலம் (தூரம்) குறிக்க 'That' பயன்படும்." },
+    { q: "What is the plural of 'This'?", o: ["Thises", "These", "Those", "Thats"], a: 1, e: "'This' என்பதன் பன்மை 'These'." },
+    { q: "What is the plural of 'That'?", o: ["Those", "These", "Thats", "Thises"], a: 0, e: "'That' என்பதன் பன்மை 'Those'." },
+    { q: "Choose correct sentence:", o: ["This are books.", "These are books.", "These is books.", "That are books."], a: 1, e: "'These are books' என்பதே சரியானது." }
+];
+                    return qList[i];
+                })
+            },
+            {
+                id: 7,
+                title: "QUESTION PRONOUNS",
+                tamilTitle: "வினாப் பிரதிப்பெயர்",
+                displayChain: "Who → Whom → Whose → What → Which",
+                explanation: "கேள்விகளை கேட்க பயன்படுத்தப்படும் Pronouns-ஐ Question Pronouns (Interrogative Pronouns) என்போம்.",
+                tableData: [
+                    {p: "Who", t: "யார்", e: "Person (Subject) - Who are you?"},
+                    {p: "Whom", t: "யாரை / யாருக்கு", e: "Person (Object) - Whom did you meet?"},
+                    {p: "Whose", t: "யாருடைய", e: "Ownership - Whose book is this?"},
+                    {p: "What", t: "என்ன / எது", e: "Thing / Info - What is this?"},
+                    {p: "Which", t: "எது / எந்த", e: "Choice - Which one do you want?"}
+                ],
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "______ is calling you? (யார்)", o: ["Which", "Whose", "Who", "What"], a: 2, e: "நபரைக் கேட்க 'Who' பயன்படும்." },
+    { q: "______ did you see at the park? (யாரை)", o: ["What", "Whom", "Whose", "Which"], a: 1, e: "செயப்படுபொருள் நபரைக் கேட்க 'Whom' பயன்படும்." },
+    { q: "______ car is this? (யாருடைய)", o: ["Who", "What", "Whose", "Whom"], a: 2, e: "உரிமையைக் கேட்க 'Whose' பயன்படும்." },
+    { q: "______ is your name? (என்ன)", o: ["Which", "What", "Who", "Whose"], a: 1, e: "தகவலை அறிய 'What' பயன்படும்." },
+    { q: "______ color do you like, Red or Blue? (எது)", o: ["Who", "Which", "What", "Whose"], a: 1, e: "தேர்வை (Choice) கேட்க 'Which' பயன்படும்." },
+    { q: "Tamil meaning of 'Who':", o: ["என்ன", "எது", "யார்", "யாருடைய"], a: 2, e: "'Who' என்றால் யார்." },
+    { q: "Tamil meaning of 'Whom':", o: ["யார்", "என்ன", "எது", "யாரை / யாருக்கு"], a: 3, e: "'Whom' என்றால் யாரை / யாருக்கு." },
+    { q: "Tamil meaning of 'Whose':", o: ["என்ன", "யாருடைய", "எது", "யார்"], a: 1, e: "'Whose' என்றால் யாருடைய." },
+    { q: "Tamil meaning of 'What':", o: ["யார்", "என்ன / எது", "யாருடைய", "யாரை"], a: 1, e: "'What' என்றால் என்ன / எது." },
+    { q: "Tamil meaning of 'Which':", o: ["யார்", "யாருடைய", "எது / எந்த", "என்ன"], a: 2, e: "'Which' என்றால் எது / எந்த." },
+    { q: "______ made this cake?", o: ["What", "Who", "Which", "Whose"], a: 1, e: "செயலைச் செய்த நபரைக் கேட்க 'Who'." },
+    { q: "______ do you want to eat?", o: ["Who", "Whose", "What", "Whom"], a: 2, e: "பொருளை அறிய 'What'." },
+    { q: "______ pen is on the table?", o: ["Who", "Whom", "What", "Whose"], a: 3, e: "யாருடைய பேனா எனக் கேட்க 'Whose'." },
+    { q: "______ is your phone, the black one or the white one?", o: ["Who", "Which", "Whose", "Whom"], a: 1, e: "தேர்வை குறிக்க 'Which'." },
+    { q: "To ______ did you give the letter?", o: ["who", "whom", "whose", "what"], a: 1, e: "'To' Preposition உடன் 'whom' வரும்." },
+    { q: "Identify Question Pronoun: 'Who spoke first?'", o: ["spoke", "Who", "first", "None"], a: 1, e: "'Who' என்பது Question Pronoun." },
+    { q: "Identify Question Pronoun: 'What do you need?'", o: ["do", "you", "need", "What"], a: 3, e: "'What' என்பது Question Pronoun." },
+    { q: "______ knows the answer?", o: ["Which", "Who", "What", "Whose"], a: 1, e: "பதில் யாருக்குத் தெரியும் என்பதால் 'Who'." },
+    { q: "______ is your bag? This one or that one?", o: ["What", "Who", "Which", "Whose"], a: 2, e: "தேர்வு என்பதால் 'Which'." },
+    { q: "______ happened yesterday?", o: ["Who", "Whose", "What", "Which"], a: 2, e: "என்ன நடந்தது என அறிய 'What'." },
+    { q: "______ house is bigger?", o: ["Who", "Whose", "Whom", "What"], a: 1, e: "யாருடைய வீடு என்பதால் 'Whose'." },
+    { q: "______ are you talking to?", o: ["What", "Which", "Whom / Who", "Whose"], a: 2, e: "யாருடன் பேசுகிறாய் என்பதால் 'Who/Whom'." },
+    { q: "Question word used for choice between options:", o: ["Who", "Which", "What", "Whose"], a: 1, e: "'Which' என்பது தேர்வுக்கு பயன்படும்." },
+    { q: "Question word used to ask about ownership:", o: ["Who", "What", "Whose", "Which"], a: 2, e: "'Whose' உரிமையைக் குறிக்கும்." },
+    { q: "Question word used for persons as Subject:", o: ["What", "Who", "Which", "Whose"], a: 1, e: "'Who' நபர்களைக் குறிக்கும்." },
+    { q: "Question word used for objects/information:", o: ["Who", "Whose", "What", "Whom"], a: 2, e: "'What' பொருட்களைக் குறிக்கும்." },
+    { q: "______ of these books have you read?", o: ["Who", "Which", "What", "Whose"], a: 1, e: "புத்தகங்களின் தேர்வுக்கு 'Which'." },
+    { q: "______ is sitting in the garden?", o: ["What", "Who", "Which", "Whose"], a: 1, e: "தோட்டத்தில் இருப்பது யார் என்பதால் 'Who'." },
+    { q: "______ is your hobby?", o: ["Who", "What", "Whose", "Whom"], a: 1, e: "பொழுதுபோக்கு என்ன என்பதால் 'What'." },
+    { q: "______ key is this?", o: ["Who", "What", "Whose", "Which"], a: 2, e: "யாருடைய சாவி என்பதால் 'Whose'." }
+];
+                    return qList[i];
+                })
+            },
+            {
+                id: 8,
+                title: "INDEFINITE PRONOUNS",
+                tamilTitle: "பொதுப் பிரதிப்பெயர்",
+                displayChain: "Someone → Anyone → Everyone → Nobody → Something → Anything → Everything",
+                explanation: "குறிப்பிட்ட நபர் அல்லது பொருளின் பெயரை குறிப்பிடாமல் பொதுவாக சொல்ல பயன்படுத்தப்படும் Pronouns-ஐ Indefinite Pronouns என்போம்.",
+                tableData: [
+                    {p: "Someone", t: "யாரோ ஒருவர்"},
+                    {p: "Anyone", t: "யாராவது / யாரும்"},
+                    {p: "Everyone", t: "அனைவரும்"},
+                    {p: "Nobody", t: "யாருமில்லை"},
+                    {p: "Something", t: "ஏதோ ஒன்று"},
+                    {p: "Anything", t: "ஏதாவது / எதுவும்"},
+                    {p: "Everything", t: "எல்லாம் / அனைத்தும்"}
+                ],
+                extraInfo: "<b>எடுத்துக்காட்டுகள்:</b><br>• Someone is calling you. → <i>யாரோ ஒருவர் உங்களை அழைக்கிறார்.</i><br>• Anyone can learn English. → <i>யாரும் English கற்றுக்கொள்ளலாம்.</i><br>• Everyone is happy. → <i>அனைவரும் மகிழ்ச்சியாக இருக்கிறார்கள்.</i><br>• Nobody knows the answer. → <i>பதில் யாருக்கும் தெரியாது.</i><br>• Something is wrong. → <i>ஏதோ ஒன்று தவறாக உள்ளது.</i><br>• I don't want anything. → <i>எனக்கு எதுவும் வேண்டாம்.</i><br>• Everything is ready. → <i>எல்லாம் தயாராக உள்ளது.</i>",
+                questions: Array.from({length: 30}, (_, i) => {
+                    const qList = [
+    { q: "______ is calling you. (யாரோ ஒருவர்)", o: ["Nobody", "Everything", "Someone", "Anyone"], a: 2, e: "'Someone' என்றால் யாரோ ஒருவர்." },
+    { q: "______ can learn English. (யாரும் / எவரும்)", o: ["Something", "Anyone", "Nothing", "Nobody"], a: 1, e: "'Anyone' என்றால் யாராவது அல்லது யாரும்." },
+    { q: "______ is happy today. (அனைவரும்)", o: ["Nobody", "Something", "Everyone", "Anything"], a: 2, e: "'Everyone' என்றால் அனைவரும்." },
+    { q: "______ knows the answer. (யாருமில்லை)", o: ["Someone", "Nobody", "Everything", "Everyone"], a: 1, e: "'Nobody' என்றால் யாருமில்லை." },
+    { q: "______ is wrong here. (ஏதோ ஒன்று)", o: ["Anything", "Nobody", "Something", "Everyone"], a: 2, e: "'Something' என்றால் ஏதோ ஒன்று." },
+    { q: "I don't want ______ (எதுவும்).", o: ["something", "everyone", "anything", "nobody"], a: 2, e: "Negative வாக்கியத்தில் 'anything' வரும்." },
+    { q: "______ is ready. (எல்லாம்)", o: ["Someone", "Everything", "Anyone", "Nobody"], a: 1, e: "'Everything' என்றால் எல்லாம்." },
+    { q: "Tamil meaning of 'Someone':", o: ["அனைவரும்", "யாருமில்லை", "யாரோ ஒருவர்", "எல்லாம்"], a: 2, e: "'Someone' என்றால் யாரோ ஒருவர்." },
+    { q: "Tamil meaning of 'Anyone':", o: ["எல்லாம்", "யாராவது / யாரும்", "ஏதோ ஒன்று", "யாருமில்லை"], a: 1, e: "'Anyone' என்றால் யாராவது." },
+    { q: "Tamil meaning of 'Everyone':", o: ["யாருமில்லை", "அனைவரும்", "யாரோ ஒருவர்", "ஏதோ ஒன்று"], a: 1, e: "'Everyone' என்றால் அனைவரும்." },
+    { q: "Tamil meaning of 'Nobody':", o: ["அனைவரும்", "எல்லாம்", "யாருமில்லை", "யாராவது"], a: 2, e: "'Nobody' என்றால் யாருமில்லை." },
+    { q: "Tamil meaning of 'Something':", o: ["எல்லாம்", "ஏதோ ஒன்று", "அனைவரும்", "எதுவும்"], a: 1, e: "'Something' என்றால் ஏதோ ஒன்று." },
+    { q: "Tamil meaning of 'Anything':", o: ["எல்லாம்", "அனைவரும்", "யாருமில்லை", "ஏதாவது / எதுவும்"], a: 3, e: "'Anything' என்றால் ஏதாவது / எதுவும்." },
+    { q: "Tamil meaning of 'Everything':", o: ["யாரோ ஒருவர்", "எல்லாம் / அனைத்தும்", "ஏதோ ஒன்று", "யாருமில்லை"], a: 1, e: "'Everything' என்றால் எல்லாம்." },
+    { q: "Is ______ there? (யாராவது)", o: ["everyone", "nothing", "anyone", "everything"], a: 2, e: "கேள்விகளில் 'anyone' பயன்படும்." },
+    { q: "There is ______ in the box. It is empty. (எதுவுமில்லை)", o: ["everything", "nothing", "someone", "something"], a: 1, e: "'nothing' என்றால் எதுவுமில்லை." },
+    { q: "______ ate my cake! (யாரோ ஒருவர்)", o: ["Nothing", "Someone", "Anywhere", "Everything"], a: 1, e: "'Someone' என்றால் யாரோ ஒருவர்." },
+    { q: "Indefinite Pronouns take ______ verbs in general.", o: ["Plural", "Singular", "Future", "Past"], a: 1, e: "Someone, Everyone போன்ற சொற்களுக்கு Singular verb (is, has) வரும்." },
+    { q: "Correct sentence:", o: ["Everyone are here.", "Everyone is here.", "Everyone were here.", "Everyone be here."], a: 1, e: "'Everyone' உடன் Singular Verb 'is' வர வேண்டும்." },
+    { q: "Correct sentence:", o: ["Nobody knows.", "Nobody know.", "Nobody are know.", "Nobody knowing."], a: 0, e: "'Nobody' உடன் Singular Verb 'knows' வர வேண்டும்." },
+    { q: "Can ______ solve this question? (யாராவது)", o: ["nobody", "anyone", "everything", "nothing"], a: 1, e: "'anyone' என்பது கேள்விகளில் பயன்படும்." },
+    { q: "I have ______ to tell you. (ஏதோ ஒன்று)", o: ["anyone", "something", "nobody", "anything"], a: 1, e: "'something' என்றால் ஏதோ ஒன்று." },
+    { q: "She knows ______ about music. (எல்லாமும்)", o: ["nobody", "everything", "nothing", "anyone"], a: 1, e: "'everything' என்றால் எல்லாம்." },
+    { q: "There is ______ at the door. Go check. (யாரோ ஒருவர்)", o: ["anything", "everything", "someone", "nothing"], a: 2, e: "'someone' என்றால் யாரோ ஒருவர்." },
+    { q: "I didn't see ______ at the park. (யாரையும்)", o: ["someone", "anyone", "something", "everything"], a: 1, e: "Negative வாக்கியத்திற்கு 'anyone' வரும்." },
+    { q: "______ came to the party. The room was empty. (யாருமில்லை)", o: ["Everybody", "Nobody", "Everything", "Somebody"], a: 1, e: "'Nobody' என்றால் யாருமில்லை." },
+    { q: "Identify Indefinite Pronoun: 'Everything is lost.'", o: ["lost", "is", "Everything", "None"], a: 2, e: "'Everything' என்பது Indefinite Pronoun." },
+    { q: "Identify Indefinite Pronoun: 'Someone stole my pen.'", o: ["my", "Someone", "stole", "pen"], a: 1, e: "'Someone' என்பது Indefinite Pronoun." },
+    { q: "______ is fine now. (எல்லாம்)", o: ["Anyone", "Everything", "Someone", "Nobody"], a: 1, e: "'Everything' என்றால் எல்லாம்." },
+    { q: "Do you need ______ else? (ஏதாவது)", o: ["nobody", "anything", "everything", "someone"], a: 1, e: "'anything' என்றால் ஏதாவது." }
+];
+                    return qList[i];
+                })
+            }
+        ];
+
+        // Global State
+        let currentTopicIdx = 0;
+        let currentQuestionIdx = 0;
+        let topicScores = new Array(pronounTopics.length).fill(null); // stores score or null
+        let userAnswers = []; // stores user choices for current topic
+
+        // Initialize Page
+        window.onload = function () {
+            renderProgressGrid();
+            renderTopicPills();
+            loadTopic(0);
+        };
+
+        function renderProgressGrid() {
+            const container = document.getElementById('progress-tracker-grid');
+            container.innerHTML = '';
+            let completedCount = 0;
+
+            pronounTopics.forEach((topic, idx) => {
+                const isDone = topicScores[idx] !== null;
+                if (isDone) completedCount++;
+
+                const item = document.createElement('a');
+                item.className = `progress-item ${isDone ? 'completed' : ''}`;
+                item.href = `#`;
+                item.onclick = (e) => {e.preventDefault(); loadTopic(idx);};
+                item.innerHTML = `
+                    <div class="check-icon">${isDone ? '✓' : ''}</div>
+                    <span>${topic.title}</span>
+                `;
+                container.appendChild(item);
+            });
+
+            document.getElementById('overall-progress-text').innerText = `${completedCount} / 8 Completed`;
+        }
+
+        function renderTopicPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+
+            pronounTopics.forEach((topic, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentTopicIdx ? 'active' : ''}`;
+                btn.innerText = topic.title;
+                btn.onclick = () => loadTopic(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function loadTopic(idx) {
+            currentTopicIdx = idx;
+            currentQuestionIdx = 0;
+            userAnswers = [];
+
+            // Update pills
+            renderTopicPills();
+
+            const topic = pronounTopics[idx];
+
+            // Render Explanation Section
+            let tableHTML = '';
+            if (topic.tableData) {
+                let rows = topic.tableData.map(row => `
+                    <tr>
+                        <td><b>${row.p || row.w || ''}</b></td>
+                        <td>${row.t || ''}</td>
+                        ${row.e ? `<td><i>${row.e}</i></td>` : ''}
+                    </tr>
+                `).join('');
+
+                tableHTML = `
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pronoun / Word</th>
+                                    <th>Tamil Meaning</th>
+                                    ${topic.tableData[0].e ? '<th>Example</th>' : ''}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${rows}
+                            </tbody>
+                        </table>
+                    </div>
+                `;
+            }
+
+            const contentBox = document.getElementById('topic-content');
+            contentBox.innerHTML = `
+                <div class="topic-title">${topic.id}. ${topic.title} – ${topic.tamilTitle}</div>
+                <div class="display-chain">${topic.displayChain}</div>
+                <div class="tamil-explain">${topic.explanation}</div>
+                ${tableHTML}
+                ${topic.formula ? `<div class="formula-card">${topic.formula}</div>` : ''}
+                ${topic.extraInfo ? `<div class="tamil-explain" style="border-left-color: #16a34a; background: #f0fdf4;">${topic.extraInfo}</div>` : ''}
+            `;
+
+            // Reset Quiz View
+            document.getElementById('quiz-topic-badge').innerText = `${topic.title} Quiz`;
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+            window.scrollTo({top: contentBox.offsetTop - 80, behavior: 'smooth'});
+        }
+
+        function renderQuestion() {
+            const topic = pronounTopics[currentTopicIdx];
+            const q = topic.questions[currentQuestionIdx];
+
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${topic.questions.length}`;
+            document.getElementById('question-text').innerText = `${currentQuestionIdx + 1}. ${q.q}`;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            const feedbackBox = document.getElementById('feedback-box');
+            feedbackBox.style.display = 'none';
+            feedbackBox.className = 'feedback-box';
+
+            const nextBtn = document.getElementById('next-btn');
+            nextBtn.disabled = true;
+
+            q.o.forEach((opt, optIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => selectOption(optIdx);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(optIdx) {
+            const topic = pronounTopics[currentTopicIdx];
+            const q = topic.questions[currentQuestionIdx];
+            const buttons = document.querySelectorAll('.option-btn');
+
+            // Disable all buttons once selected
+            buttons.forEach(b => b.disabled = true);
+
+            const isCorrect = (optIdx === q.a);
+            userAnswers.push(isCorrect);
+
+            if (isCorrect) {
+                buttons[optIdx].classList.add('selected-correct');
+            } else {
+                buttons[optIdx].classList.add('selected-wrong');
+                buttons[q.a].classList.add('selected-correct');
+            }
+
+            // Feedback Message
+            const feedbackBox = document.getElementById('feedback-box');
+            feedbackBox.innerHTML = `
+                <b>${isCorrect ? '✓ Correct Answer!' : '✗ Wrong Answer!'}</b><br>
+                <span>${q.e}</span>
+            `;
+            feedbackBox.className = `feedback-box ${isCorrect ? 'correct' : 'wrong'}`;
+
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            const topic = pronounTopics[currentTopicIdx];
+            currentQuestionIdx++;
+
+            if (currentQuestionIdx < topic.questions.length) {
+                renderQuestion();
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            const topic = pronounTopics[currentTopicIdx];
+            const total = topic.questions.length;
+            const correct = userAnswers.filter(Boolean).length;
+            const wrong = total - correct;
+            const percent = Math.round((correct / total) * 100);
+
+            // Store topic score
+            topicScores[currentTopicIdx] = correct;
+            renderProgressGrid();
+
+            document.getElementById('question-runner').style.display = 'none';
+            const resultCard = document.getElementById('result-runner');
+            resultCard.style.display = 'block';
+
+            document.getElementById('res-score').innerText = correct;
+            document.getElementById('res-percent').innerText = `${percent}%`;
+            document.getElementById('res-correct').innerText = correct;
+            document.getElementById('res-wrong').innerText = wrong;
+
+            let msg = '';
+            if (percent >= 90) {
+                msg = 'Excellent! 🔥';
+            } else if (percent >= 75) {
+                msg = 'Very Good! 👍';
+            } else if (percent >= 50) {
+                msg = 'Good! Keep Practicing 💪';
+            } else {
+                msg = 'Learn Again & Try Again 📚';
+            }
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            currentQuestionIdx = 0;
+            userAnswers = [];
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+            renderQuestion();
+        }
+    </script>
+</body>
+
+</html>

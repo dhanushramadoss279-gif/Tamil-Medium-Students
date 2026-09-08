@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noun - Tamil Medium Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* CSS RESET & CORE VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --accent-green: #16a34a;
+            --accent-green-bg: #f0fdf4;
+            --accent-yellow-bg: #fefce8;
+            --accent-purple: #7c3aed;
+            --accent-purple-bg: #f3e8ff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER & NAVIGATION */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+            flex-shrink: 0;
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        .site-tagline {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-blue);
+        }
+
+        .site-tamil-tagline {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            padding: 0.2rem;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            padding: 0.4rem 0.8rem;
+            background-color: #eff6ff;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #dbeafe;
+        }
+
+        .lesson-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            margin-bottom: 1.5rem;
+        }
+
+        .lesson-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .lesson-title::before {
+            content: '';
+            width: 6px;
+            height: 1.6rem;
+            background-color: var(--primary-blue);
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .section-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 1.8rem 0 1rem 0;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #eff6ff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .definition-box {
+            background-color: #f1f5f9;
+            padding: 1.25rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .definition-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .definition-text {
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* FORMULA BOX */
+        .formula-card {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .formula-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+
+        .formula-text {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        /* EXAMPLES GRID */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .example-card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        .example-category {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .example-list {
+            font-size: 0.92rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* TYPES OF NOUNS GRID */
+        .types-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .type-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.1rem;
+            transition: all 0.2s ease;
+        }
+
+        .type-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+        }
+
+        .type-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .type-badge {
+            font-size: 0.75rem;
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .type-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .type-eg {
+            font-size: 0.9rem;
+            background-color: var(--bg-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* SENTENCE EXAMPLES */
+        .sentence-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sentence-item {
+            background-color: var(--bg-light);
+            border-left: 3px solid var(--accent-green);
+            padding: 0.8rem 1rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .highlight-noun {
+            background-color: #dcfce7;
+            color: #15803d;
+            font-weight: 700;
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        /* COUNTABLE VS UNCOUNTABLE */
+        .count-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .count-card {
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .count-card.countable {
+            background-color: #f0fdf4;
+            border-color: #bbf7d0;
+        }
+
+        .count-card.uncountable {
+            background-color: #fff7ed;
+            border-color: #ffedd5;
+        }
+
+        .count-head {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .countable .count-head { color: #15803d; }
+        .uncountable .count-head { color: #c2410c; }
+
+        /* MEMORY LINE BOX */
+        .memory-box {
+            background-color: var(--accent-yellow-bg);
+            border: 1px dashed #fde047;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .memory-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #b45309;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .memory-line {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #78350f;
+        }
+
+        /* QUIZ SECTION */
+        .quiz-container {
+            background-color: var(--accent-purple-bg);
+            border: 1px solid #e9d5ff;
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .quiz-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quiz-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #f3e8ff;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .quiz-btn {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .quiz-btn:hover {
+            border-color: var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .quiz-feedback {
+            margin-top: 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: none;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+        }
+
+        .quiz-feedback.correct {
+            display: block;
+            background-color: var(--accent-green-bg);
+            color: var(--accent-green);
+        }
+
+        .quiz-feedback.wrong {
+            display: block;
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 2rem 1.25rem;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .site-tamil-tagline {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+                gap: 0.25rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 1rem;
+            }
+
+            .lesson-card {
+                padding: 1.25rem;
+            }
+
+            .formula-text {
+                font-size: 1rem;
+            }
+
+            .examples-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .count-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html#home" class="logo-box">
+                <div class="logo-icon">📚</div>
+                <div class="logo-text-group">
+                    <span class="site-name">Tamil Medium Student</span>
+                    <span class="site-tagline">Learn English Easily Through Tamil</span>
+                    <span class="site-tamil-tagline">தமிழ் மூலம் ஆங்கிலத்தை எளிதாகக் கற்றுக்கொள்வோம்</span>
+                </div>
+            </a>
+
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#parts-of-speech" class="nav-link active">Parts of Speech</a></li>
+                <li><a href="index.html#tenses" class="nav-link">12 Tenses</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <a href="index.html#parts-of-speech" class="back-btn">← Back to Parts of Speech</a>
+
+        <div class="lesson-card">
+            <h1 class="lesson-title">NOUN (பெயர்ச்சொல்)</h1>
+
+            <!-- DEFINITION -->
+            <div class="definition-box">
+                <div class="definition-title">Noun என்றால் என்ன?</div>
+                <p class="definition-text">ஒரு நபர், இடம், விலங்கு, பொருள் அல்லது எண்ணங்களின் பெயரைக் குறிக்கும் வார்த்தை <b>Noun (பெயர்ச்சொல்)</b> ஆகும்.</p>
+            </div>
+
+            <!-- EASY FORMULA -->
+            <div class="formula-card">
+                <div class="formula-label">💡 Easy Formula</div>
+                <div class="formula-text">Person + Place + Animal + Thing = Noun</div>
+            </div>
+
+            <!-- EXAMPLES GRID -->
+            <div class="section-header">📌 Basic Examples (அடிப்படை உதாரணங்கள்)</div>
+            <div class="examples-grid">
+                
+                <div class="example-card">
+                    <div class="example-category">👤 Person (நபர்)</div>
+                    <div class="example-list">Raju, Teacher, Doctor, Boy</div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-category">📍 Place (இடம்)</div>
+                    <div class="example-list">School, Chennai, Village, Park</div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-category">🐕 Animal (விலங்கு)</div>
+                    <div class="example-list">Dog, Elephant, Lion, Cat</div>
+                </div>
+
+                <div class="example-card">
+                    <div class="example-category">📱 Thing (பொருள்)</div>
+                    <div class="example-list">Book, Pen, Laptop, Mobile</div>
+                </div>
+
+            </div>
+
+            <!-- TYPES OF NOUNS -->
+            <div class="section-header">🏷️ Types of Nouns (பெயர்ச்சொல்லின் வகைகள்)</div>
+            <p style="font-size:0.92rem; color:var(--text-muted); margin-bottom:1rem;">Noun-ஐ எளிதாகப் புரிந்துகொள்ள 5 முக்கிய வகைகளாகப் பிரிக்கலாம்:</p>
+
+            <div class="types-grid">
+
+                <div class="type-card">
+                    <div class="type-title">
+                        1. Proper Noun <span class="type-badge">சிறப்புப் பெயர்</span>
+                    </div>
+                    <div class="type-desc">குறிப்பிட்ட ஒரு நபர், இடம் அல்லது பொருளின் சொந்தப் பெயர். (எப்போதும் Capital letter-ல் தொடங்கும்).</div>
+                    <div class="type-eg">E.g. Chennai, Sachin, India, Sunday</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-title">
+                        2. Common Noun <span class="type-badge">பொதுப் பெயர்</span>
+                    </div>
+                    <div class="type-desc">பொதுவாக ஒரு வகை மனிதர்கள், இடங்கள் அல்லது பொருட்களைக் குறிப்பது.</div>
+                    <div class="type-eg">E.g. City, Boy, Country, Day, Book</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-title">
+                        3. Collective Noun <span class="type-badge">கூட்டுப் பெயர்</span>
+                    </div>
+                    <div class="type-desc">நபர்கள் அல்லது பொருட்களின் குழுவை (Group) ஒரே பெயரால் குறிப்பது.</div>
+                    <div class="type-eg">E.g. Team (அணி), Family (குடும்பம்), Crowd (கூட்டம்)</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-title">
+                        4. Abstract Noun <span class="type-badge">பண்பு / உணர்வுப் பெயர்</span>
+                    </div>
+                    <div class="type-desc">தொட்டுப் பார்க்க முடியாத, உணர மட்டுமே முடிந்த பண்பு அல்லது உணர்ச்சிகள்.</div>
+                    <div class="type-eg">E.g. Love (அன்பு), Honesty (நேர்மை), Happiness (மகிழ்ச்சி)</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-title">
+                        5. Material Noun <span class="type-badge">பொருட்பெயர் / மூலப்பொருள்</span>
+                    </div>
+                    <div class="type-desc">மற்ற பொருட்களை உருவாக்கப் பயன்படும் இயற்கை அல்லது மூலப் பொருட்கள்.</div>
+                    <div class="type-eg">E.g. Gold (தங்கம்), Water (நீர்), Wood (மரம்), Milk (பால்)</div>
+                </div>
+
+            </div>
+
+            <!-- COUNTABLE VS UNCOUNTABLE -->
+            <div class="section-header">🔢 Simple Tip: Countable vs Uncountable</div>
+            <div class="count-grid">
+                <div class="count-card countable">
+                    <div class="count-head">Countable Noun (எண்ணக்கூடியவை)</div>
+                    <p style="font-size: 0.88rem;">ஒன்று, இரண்டு என எண்ண முடியும்.</p>
+                    <p style="font-size: 0.88rem; font-weight:600; margin-top:0.3rem;">E.g. Apple, Pen, Car, Student</p>
+                </div>
+                <div class="count-card uncountable">
+                    <div class="count-head">Uncountable Noun (எண்ண முடியாதவை)</div>
+                    <p style="font-size: 0.88rem;">ஒன்று இரண்டாக எண்ண முடியாது (அளக்க மட்டுமே முடியும்).</p>
+                    <p style="font-size: 0.88rem; font-weight:600; margin-top:0.3rem;">E.g. Water, Sugar, Oil, Money</p>
+                </div>
+            </div>
+
+            <!-- NOUNS IN SENTENCES -->
+            <div class="section-header">💬 Nouns in Sentences (வாக்கியங்களில் Noun)</div>
+            <div class="sentence-list">
+                <div class="sentence-item">
+                    1. <span class="highlight-noun">Raju</span> goes to <span class="highlight-noun">school</span>. <br>
+                    <small style="color:var(--text-muted);">(ராஜு பள்ளிக்குச் செல்கிறான். - Raju, School ஆகியவை Nouns)</small>
+                </div>
+                <div class="sentence-item">
+                    2. The <span class="highlight-noun">dog</span> barks at the <span class="highlight-noun">cat</span>. <br>
+                    <small style="color:var(--text-muted);">(நாய் பூனையைப் பார்த்து குரைக்கிறது. - Dog, Cat ஆகியவை Nouns)</small>
+                </div>
+                <div class="sentence-item">
+                    3. <span class="highlight-noun">Honesty</span> is the best <span class="highlight-noun">policy</span>. <br>
+                    <small style="color:var(--text-muted);">(நேர்மையே சிறந்த கொள்கை. - Honesty என்பது Abstract Noun)</small>
+                </div>
+            </div>
+
+            <!-- EASY MEMORY LINE -->
+            <div class="memory-box">
+                <div class="memory-title">⭐ Easy Memory Line</div>
+                <div class="memory-line">“எந்தவொரு பெயரைக் குறிக்கும் வார்த்தையும் = Noun”</div>
+            </div>
+
+            <!-- INTERACTIVE QUIZ SECTION -->
+            <div class="quiz-container">
+                <div class="quiz-title">📝 Check Your Understanding (சுய பயிற்சி)</div>
+
+                <!-- Question 1 -->
+                <div class="quiz-card">
+                    <div class="quiz-question">1. "Chennai is a big city." - இதில் <b>Proper Noun</b> எது?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'Q1', 'Chennai ஒரு குறிப்பிட்ட இடத்தின் பெயர், அதனால் அது Proper Noun.')">Chennai</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'Q1', '')">city</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'Q1', '')">big</button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-Q1"></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="quiz-card">
+                    <div class="quiz-question">2. "Honesty" (நேர்மை) என்பது எந்த வகை Noun?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'Q2', '')">Proper Noun</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'Q2', 'Honesty தொட்டுப் பார்க்க முடியாத ஒரு பண்பு, அதனால் அது Abstract Noun.')">Abstract Noun</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'Q2', '')">Material Noun</button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-Q2"></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="quiz-card">
+                    <div class="quiz-question">3. "Water" (நீர்) என்பது எண்ணக்கூடியதா அல்லது எண்ண முடியாததா?</div>
+                    <div class="quiz-options">
+                        <button class="quiz-btn" onclick="checkAnswer(this, false, 'Q3', '')">Countable Noun</button>
+                        <button class="quiz-btn" onclick="checkAnswer(this, true, 'Q3', 'நீரை ஒன்று, இரண்டு என எண்ண முடியாது, அதனால் அது Uncountable Noun.')">Uncountable Noun</button>
+                    </div>
+                    <div class="quiz-feedback" id="feedback-Q3"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; Dhanangsezhiyan R - Learn English Easily Through Tamil</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function (event) {
+            const navMenu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        /* QUIZ INTERACTION FUNCTION */
+        function checkAnswer(btn, isCorrect, qId, explanation) {
+            const parentCard = btn.closest('.quiz-card');
+            const feedbackEl = parentCard.querySelector('.quiz-feedback');
+            const buttons = parentCard.querySelectorAll('.quiz-btn');
+
+            // Reset buttons styling in this question
+            buttons.forEach(b => {
+                b.style.backgroundColor = 'var(--bg-light)';
+                b.style.color = 'var(--text-dark)';
+                b.style.borderColor = 'var(--border-color)';
+            });
+
+            if (isCorrect) {
+                btn.style.backgroundColor = '#22c55e';
+                btn.style.color = '#ffffff';
+                btn.style.borderColor = '#22c55e';
+                feedbackEl.innerHTML = '✅ <b>சரி!</b> ' + explanation;
+                feedbackEl.className = 'quiz-feedback correct';
+            } else {
+                btn.style.backgroundColor = '#ef4444';
+                btn.style.color = '#ffffff';
+                btn.style.borderColor = '#ef4444';
+                feedbackEl.innerHTML = '❌ <b>தவறு!</b> மீண்டும் சரியாக முயற்சிக்கவும்.';
+                feedbackEl.className = 'quiz-feedback wrong';
+            }
+        }
+    </script>
+</body>
+
+</html>

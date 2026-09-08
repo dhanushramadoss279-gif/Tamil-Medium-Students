@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>INTERJECTION – வியப்புச் சொற்கள்</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .topic-section {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .display-chain {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin: 12px 0;
+            text-align: center;
+            border: 1px dashed #bfdbfe;
+            word-break: break-word;
+        }
+
+        .tamil-explain {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            padding: 10px 12px;
+            margin: 12px 0;
+            font-size: 0.9rem;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 16px 0;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 480px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            padding: 10px;
+            font-weight: 700;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .sent-ta {
+            display: block;
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-top: 3px;
+            font-weight: 500;
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            border: 2px solid #dbeafe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="#" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>INTERJECTION – வியப்புச் சொற்கள்</h1>
+            <p>20 பயிற்சிகள் (10+10) தமிழ் விளக்கத்துடன்!</p>
+        </div>
+
+        <div class="progress-card">
+            <div class="progress-title">
+                <span>கற்றல் நிலை (Progress)</span>
+                <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+            </div>
+            <div class="progress-grid" id="progress-tracker-grid"></div>
+        </div>
+
+        <div class="topic-pills" id="topic-pills"></div>
+
+        <section class="topic-section" id="topic-content"></section>
+
+        <section class="quiz-container" id="quiz-box">
+            <div class="quiz-header">
+                <span class="quiz-title-badge" id="quiz-topic-badge">Interjection Quiz</span>
+                <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 10</span>
+            </div>
+
+            <div id="question-runner">
+                <div class="question-box">
+                    <div class="question-text" id="question-text">Loading question...</div>
+                    <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                    <div class="options-grid" id="options-container"></div>
+                </div>
+                <div class="feedback-box" id="feedback-box"></div>
+                <div class="quiz-actions">
+                    <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next)
+                        →</button>
+                </div>
+            </div>
+
+            <div class="result-card" id="result-runner">
+                <div class="score-circle">
+                    <span id="res-score">0</span>
+                </div>
+                <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!
+                </div>
+                <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const generateBasicInterjections = () => {
+            const raw = [
+                ["______! What a beautiful view!", "(ஆஹா! எவ்வளவு அழகான காட்சி!)", ["Wow", "Ouch", "Alas", "Hush"], 0, "வியப்பு அல்லது ஆச்சரியத்தை வெளிப்படுத்த 'Wow' பயன்படுகிறது."],
+                ["______! We won the match!", "(ஹர்ரே! நாம் போட்டியில் வெற்றி பெற்றுவிட்டோம்!)", ["Hurrah", "Alas", "Oops", "Shh"], 0, "அதிக மகிழ்ச்சியை வெளிப்படுத்த 'Hurrah' பயன்படுகிறது."],
+                ["______! I dropped my phone.", "(ஐயோ! நான் என் போனை கீழே போட்டுவிட்டேன்.)", ["Oops", "Bravo", "Eureka", "Aha"], 0, "தற்செயலாக நடக்கும் தவறைக் குறிக்க 'Oops' பயன்படுகிறது."],
+                ["______! That hurt!", "(அம்மாடி! அது வலிக்கிறது!)", ["Ouch", "Yay", "Wow", "Hush"], 0, "திடீர் வலியை வெளிப்படுத்த 'Ouch' பயன்படுகிறது."],
+                ["______! The baby is sleeping.", "(ஷ்ஷ்! குழந்தை தூங்குகிறது.)", ["Shh", "Hurrah", "Bingo", "Wow"], 0, "அமைதியாக இருக்கும்படி கூற 'Shh' பயன்படுகிறது."],
+                ["______! He lost his purse.", "(ஐயோ! அவன் தன் பணப்பையை தொலைத்துவிட்டான்.)", ["Alas", "Yay", "Bravo", "Aha"], 0, "துக்கம் அல்லது வருத்தத்தை வெளிப்படுத்த 'Alas' பயன்படும்."],
+                ["______! Well played, team!", "(சபாஷ்! நன்றாக விளையாடினீர்கள்!)", ["Bravo", "Ouch", "Yuck", "Oops"], 0, "பாராட்டைக் குறிக்க 'Bravo' பயன்படுகிறது."],
+                ["______! This soup tastes terrible.", "(இச்சே! இந்த சூப் மிகவும் மோசமாக இருக்கிறது.)", ["Yuck", "Wow", "Hurrah", "Eureka"], 0, "அருவருப்பை வெளிப்படுத்த 'Yuck' பயன்படுகிறது."],
+                ["______! I found the missing key!", "(ஆஹா! காணாமல் போன சாவி கிடைத்துவிட்டது!)", ["Aha", "Alas", "Ouch", "Hush"], 0, "கண்டுபிடித்த மகிழ்ச்சியை வெளிப்படுத்த 'Aha' பயன்படுகிறது."],
+                ["______! We finally reached home safely.", "(அப்பாடா! ஒருவழியாக பாதுகாப்பாக வீடு வந்து சேர்ந்தோம்.)", ["Phew", "Yuck", "Boo", "Oops"], 0, "நிம்மதியை (Relief) வெளிப்படுத்த 'Phew' பயன்படுகிறது."]
+            ];
+            return raw.map(item => ({q: item[0], tq: item[1], o: item[2], a: item[3], e: item[4]}));
+        };
+
+        const generateAdvancedInterjections = () => {
+            const raw = [
+                ["______! Look at that giant snake!", "(ஐயோ! அந்த பெரிய பாம்பைப் பார்!)", ["Yikes", "Yay", "Bravo", "Shh"], 0, "பயம் அல்லது அதிர்ச்சியை வெளிப்படுத்த 'Yikes' பயன்படும்."],
+                ["______! That is the correct answer!", "(பிங்கோ! அதுதான் சரியான பதில்!)", ["Bingo", "Alas", "Oops", "Shh"], 0, "சரியான இலக்கை அடைந்தால் 'Bingo' பயன்படும்."],
+                ["______! What a mess you have created!", "(கடவுளே! எவ்வளவு பெரிய குழப்பத்தை ஏற்படுத்திவிட்டாய்!)", ["Good grief", "Hurrah", "Eureka", "Yay"], 0, "சலிப்பு அல்லது அதிர்ச்சியை வெளிப்படுத்த 'Good grief' பயன்படும்."],
+                ["______! I solved this difficult math problem!", "(யூரேகா! இந்த கடினமான கணக்கை தீர்த்துவிட்டேன்!)", ["Eureka", "Alas", "Yuck", "Ouch"], 0, "பெரிய கண்டுபிடிப்பின் மகிழ்ச்சியை 'Eureka' குறிக்கும்."],
+                ["______! That cake smells delicious.", "(யம்! அந்த கேக் மிகவும் சுவையாக மணக்கிறது.)", ["Yum", "Ouch", "Yikes", "Alas"], 0, "சுவையை ரசித்து வெளிப்படுத்த 'Yum' பயன்படுகிறது."],
+                ["______! It's so cold in here.", "(பர்ர்! இங்கே மிகவும் குளிராக இருக்கிறது.)", ["Brr", "Hurrah", "Bingo", "Aha"], 0, "குளிர் உணர்வை வெளிப்படுத்த 'Brr' பயன்படுகிறது."],
+                ["______! You made a silly mistake.", "(ப்ச்! நீ ஒரு முட்டாள்தனமான தவறு செய்துவிட்டாய்.)", ["Tut-tut", "Hurrah", "Eureka", "Wow"], 0, "கண்டனம் அல்லது வருத்தத்தைக் குறிக்க 'Tut-tut' பயன்படும்."],
+                ["______! I forgot to bring the keys.", "(ஐயோ! சாவி எடுத்துவர மறந்துவிட்டேன்.)", ["Dear me", "Hurrah", "Bravo", "Eureka"], 0, "வருத்தத்தை அல்லது கவலையை வெளிப்படுத்த 'Dear me' பயன்படும்."],
+                ["______! How dare you speak like that!", "(சீ! எவ்வளவு தைரியம் இருந்தால் இப்படி பேசுவாய்!)", ["Fie", "Bravo", "Phew", "Aha"], 0, "அவமானம் அல்லது கோபத்தைக் குறிக்க 'Fie' பயன்படுகிறது."],
+                ["______! Stop right there!", "(நில்! அங்கேயே நில்!)", ["Halt", "Yay", "Bingo", "Yum"], 0, "நிறுத்துமாறு உத்தரவிட 'Halt' பயன்படுகிறது."]
+            ];
+            return raw.map(item => ({q: item[0], tq: item[1], o: item[2], a: item[3], e: item[4]}));
+        };
+
+        const interjectionTopics = [
+            {
+                id: 1,
+                title: "BASIC INTERJECTIONS",
+                tamilTitle: "அடிப்படை வியப்புச் சொற்கள்",
+                displayChain: "Wow! • Hurrah! • Alas! • Ouch! • Oops! • Bravo! • Shh! • Yuck! • Aha! • Phew!",
+                explanation: "மனதில் தோன்றும் மகிழ்ச்சி, துக்கம், வலி, ஆச்சரியம் போன்ற உணர்ச்சிகளை உடனே வெளிப்படுத்த உதவும் சொற்கள்.",
+                tableData: [
+                    {l: "1. Wow!", t: "ஆஹா / வியப்பு", e: "Wow! What a beautiful flower!", te: "ஆஹா! எவ்வளவு அழகான பூ!"},
+                    {l: "2. Hurrah! / Yay!", t: "மகிழ்ச்சி ஆரவாரம்", e: "Hurrah! We won the match.", te: "ஹர்ரே! நாம் போட்டியில் ஜெயித்துவிட்டோம்."},
+                    {l: "3. Alas!", t: "ஐயோ / துக்கம்", e: "Alas! He lost his dog.", te: "ஐயோ! அவன் தன் நாயை தொலைத்துவிட்டான்."},
+                    {l: "4. Ouch!", t: "அம்மாடி / வலி", e: "Ouch! The needle hurt me.", te: "அம்மாடி! ஊசி குத்திவிட்டது."},
+                    {l: "5. Oops!", t: "ஐயோ / சிறு தவறு", e: "Oops! I dropped the glass.", te: "ஐயோ! கண்ணாடியை கீழே போட்டுவிட்டேன்."},
+                    {l: "6. Bravo!", t: "சபாஷ் / பாராட்டு", e: "Bravo! Excellent performance.", te: "சபாஷ்! அருமையான நடிப்பு."},
+                    {l: "7. Shh! / Hush!", t: "அமைதி", e: "Shh! The baby is asleep.", te: "ஷ்ஷ்! குழந்தை தூங்குகிறது."},
+                    {l: "8. Yuck!", t: "அருவருப்பு", e: "Yuck! This food tastes bad.", te: "இச்சே! இந்த உணவு நன்றாக இல்லை."},
+                    {l: "9. Aha!", t: "கண்டுபிடித்தல்", e: "Aha! I found the answer.", te: "ஆஹா! விடையை கண்டுபிடித்துவிட்டேன்."},
+                    {l: "10. Phew!", t: "அப்பாடா / நிம்மதி", e: "Phew! That was a close call.", te: "அப்பாடா! தப்பித்தோம்."}
+                ],
+                questions: generateBasicInterjections()
+            },
+            {
+                id: 2,
+                title: "ADVANCED INTERJECTIONS",
+                tamilTitle: "உயர்மட்ட வியப்புச் சொற்கள்",
+                displayChain: "Yikes! • Bingo! • Good grief! • Eureka! • Fie! • Yum! • Brr! • Tut-tut!",
+                explanation: "முறையான உரையாடல்களிலும் சூழலுக்கு ஏற்ப உணர்வுகளை வெளிப்படுத்தவும் உதவும் மேம்பட்ட சொற்கள்.",
+                tableData: [
+                    {l: "1. Yikes!", t: "அதிர்ச்சி / பயம்", e: "Yikes! Look at that big spider!", te: "அய்யோ! அந்த பெரிய சிலந்தியைப் பார்!"},
+                    {l: "2. Bingo!", t: "சரியான இலக்கு", e: "Bingo! That is the right code.", te: "பின்கோ! அதுதான் சரியான கோடு."},
+                    {l: "3. Good grief!", t: "சலிப்பு / அதிர்ச்சி", e: "Good grief! Why are you late?", te: "கடவுளே! ஏன் இவ்வளவு தாமதம்?"},
+                    {l: "4. Eureka!", t: "கண்டுபிடித்த மகிழ்ச்சி", e: "Eureka! I solved the puzzle.", te: "யூரேகா! புதிரை விடுவித்துவிட்டேன்."},
+                    {l: "5. Yum!", t: "சுவையான உணர்வு", e: "Yum! This cake is tasty.", te: "யம்! இந்த கேக் மிகவும் சுவையாக உள்ளது."},
+                    {l: "6. Brr!", t: "குளிர் உணர்வு", e: "Brr! It is freezing outside.", te: "பர்ர்! வெளியே ஒரே குளிராக இருக்கிறது."},
+                    {l: "7. Tut-tut!", t: "கண்டனம் / வருத்தம்", e: "Tut-tut! You shouldn't do that.", te: "ப்ச்! நீ அப்படி செய்திருக்கக் கூடாது."},
+                    {l: "8. Dear me!", t: "கவலை", e: "Dear me! What happened to you?", te: "ஐயோ! உனக்கு என்ன ஆச்சு?"}
+                ],
+                questions: generateAdvancedInterjections()
+            }
+        ];
+
+        let currentTopicIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let selectedOptionIndex = null;
+        let currentShuffledOptions = [];
+        let topicProgress = [false, false];
+
+        window.onload = function () {
+            renderProgressTracker();
+            renderPills();
+            loadTopic(0);
+        };
+
+        function renderProgressTracker() {
+            const grid = document.getElementById('progress-tracker-grid');
+            grid.innerHTML = '';
+            let completedCount = topicProgress.filter(Boolean).length;
+            document.getElementById('overall-progress-text').innerText = `${completedCount} / ${interjectionTopics.length} Completed`;
+
+            interjectionTopics.forEach((topic, idx) => {
+                const item = document.createElement('div');
+                item.className = `progress-item ${topicProgress[idx] ? 'completed' : ''}`;
+                item.onclick = () => loadTopic(idx);
+                item.innerHTML = `
+                    <div class="check-icon">${topicProgress[idx] ? '✓' : idx + 1}</div>
+                    <span>${topic.title}</span>
+                `;
+                grid.appendChild(item);
+            });
+        }
+
+        function renderPills() {
+            const pillsContainer = document.getElementById('topic-pills');
+            pillsContainer.innerHTML = '';
+            interjectionTopics.forEach((topic, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentTopicIndex ? 'active' : ''}`;
+                btn.innerText = topic.title;
+                btn.onclick = () => loadTopic(idx);
+                pillsContainer.appendChild(btn);
+            });
+        }
+
+        function loadTopic(index) {
+            currentTopicIndex = index;
+            currentQuestionIndex = 0;
+            score = 0;
+            selectedOptionIndex = null;
+            renderPills();
+            renderTopicContent();
+            loadQuestion();
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+        }
+
+        function renderTopicContent() {
+            const topic = interjectionTopics[currentTopicIndex];
+            const contentBox = document.getElementById('topic-content');
+            let tableRows = topic.tableData.map(row => `
+                <tr>
+                    <td><b>${row.l}</b></td>
+                    <td>${row.t}</td>
+                    <td>
+                        <i>${row.e}</i>
+                        <span class="sent-ta">${row.te}</span>
+                    </td>
+                </tr>
+            `).join('');
+
+            contentBox.innerHTML = `
+                <div class="topic-title">${topic.title} – ${topic.tamilTitle}</div>
+                <div class="display-chain">${topic.displayChain}</div>
+                <div class="tamil-explain">${topic.explanation}</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Interjection</th>
+                                <th>தமிழ் பொருள்</th>
+                                <th>Example Sentence & Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>${tableRows}</tbody>
+                    </table>
+                </div>
+            `;
+            document.getElementById('quiz-topic-badge').innerText = `${topic.title} Quiz`;
+        }
+
+        function shuffleArray(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        function loadQuestion() {
+            const topic = interjectionTopics[currentTopicIndex];
+            const q = topic.questions[currentQuestionIndex];
+
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIndex + 1} / ${topic.questions.length}`;
+            document.getElementById('question-text').innerText = `${currentQuestionIndex + 1}. ${q.q}`;
+            document.getElementById('question-tamil-text').innerText = q.tq;
+
+            let optionObjects = q.o.map((optText, idx) => ({
+                text: optText,
+                isCorrect: idx === q.a
+            }));
+
+            currentShuffledOptions = shuffleArray(optionObjects);
+
+            const optionsGrid = document.getElementById('options-container');
+            optionsGrid.innerHTML = '';
+
+            currentShuffledOptions.forEach((optObj, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optObj.text;
+                btn.onclick = () => selectOption(idx);
+                optionsGrid.appendChild(btn);
+            });
+
+            const feedback = document.getElementById('feedback-box');
+            feedback.style.display = 'none';
+            document.getElementById('next-btn').disabled = true;
+            selectedOptionIndex = null;
+        }
+
+        function selectOption(index) {
+            if (selectedOptionIndex !== null) return;
+            selectedOptionIndex = index;
+
+            const topic = interjectionTopics[currentTopicIndex];
+            const q = topic.questions[currentQuestionIndex];
+            const options = document.getElementById('options-container').children;
+            const feedback = document.getElementById('feedback-box');
+
+            const isCorrectAnswer = currentShuffledOptions[index].isCorrect;
+
+            if (isCorrectAnswer) {
+                score++;
+                options[index].classList.add('selected-correct');
+                feedback.className = 'feedback-box correct';
+                feedback.innerHTML = `<b>✓ சரியான பதில்!</b> ${q.e}`;
+            } else {
+                options[index].classList.add('selected-wrong');
+                const correctIndex = currentShuffledOptions.findIndex(item => item.isCorrect);
+                options[correctIndex].classList.add('selected-correct');
+                feedback.className = 'feedback-box wrong';
+                feedback.innerHTML = `<b>✗ தவறான பதில்!</b> ${q.e}`;
+            }
+
+            Array.from(options).forEach(opt => opt.disabled = true);
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            const topic = interjectionTopics[currentTopicIndex];
+            if (currentQuestionIndex < topic.questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            const topic = interjectionTopics[currentTopicIndex];
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            document.getElementById('res-score').innerText = `${score} / ${topic.questions.length}`;
+            let percent = (score / topic.questions.length) * 100;
+            if (percent >= 70) {
+                topicProgress[currentTopicIndex] = true;
+                renderProgressTracker();
+                document.getElementById('res-msg').innerText = "அற்புதமான முயற்சி! 🎉";
+            } else {
+                document.getElementById('res-msg').innerText = "மீண்டும் முயற்சி செய்து பார்க்கவும்! 👍";
+            }
+        }
+
+        function resetCurrentQuiz() {
+            loadTopic(currentTopicIndex);
+        }
+    </script>
+</body>
+
+</html>

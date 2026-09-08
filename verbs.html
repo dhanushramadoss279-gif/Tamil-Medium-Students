@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbs Types - Tamil Medium Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* CSS RESET & CORE VARIABLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2563eb;
+            --primary-dark: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+
+            --easy-bg: #dcfce7;
+            --easy-text: #15803d;
+            --medium-bg: #fef3c7;
+            --medium-text: #b45309;
+            --hard-bg: #ffe4e6;
+            --hard-text: #be123c;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER & NAVIGATION */
+        .header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+            flex-shrink: 0;
+        }
+
+        .logo-text-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-name {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        .site-tagline {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-blue);
+        }
+
+        .site-tamil-tagline {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #eff6ff;
+            color: var(--primary-blue);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            padding: 0.2rem;
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.25rem 2rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            padding: 0.4rem 0.8rem;
+            background-color: #eff6ff;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background-color: #dbeafe;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 6px;
+            height: 1.6rem;
+            background-color: var(--primary-blue);
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .section-subtext {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* VERBS GRID (4 BUTTONS) */
+        .verbs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .verb-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 160px;
+        }
+
+        .verb-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 12px 24px -5px rgba(37, 99, 235, 0.15);
+        }
+
+        .verb-card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .verb-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .verb-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 0.3rem;
+        }
+
+        .verb-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            padding-top: 1rem;
+            border-top: 1px dashed var(--border-color);
+            margin-top: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 2rem 1.25rem;
+            margin-top: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .site-tamil-tagline {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+                gap: 0.25rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: left;
+                padding: 0.75rem 1rem;
+            }
+
+            .verbs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html#home" class="logo-box">
+                <div class="logo-icon">📚</div>
+                <div class="logo-text-group">
+                    <span class="site-name">Tamil Medium Student</span>
+                    <span class="site-tagline">Learn English Easily Through Tamil</span>
+                    <span class="site-tamil-tagline">தமிழ் மூலம் ஆங்கிலத்தை எளிதாகக் கற்றுக்கொள்வோம்</span>
+                </div>
+            </a>
+
+            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#home" class="nav-link">Home</a></li>
+                <li><a href="index.html#parts-of-speech" class="nav-link active">Parts of Speech</a></li>
+                <li><a href="index.html#tenses" class="nav-link">12 Tenses</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <a href="index.html#parts-of-speech" class="back-btn">← Back to Parts of Speech</a>
+
+        <div class="section-header">
+            <h1 class="section-title">Types of Verbs (வினைச்சொல் வகைகள்)</h1>
+            <p class="section-subtext">ஆங்கிலத்தில் Verbs-ஐ முக்கியமாக 4 வகைகளாகப் பிரிக்கலாம். கீழே உள்ள வகையைத் தேர்ந்தெடுத்துப் படிக்கவும்.</p>
+        </div>
+
+        <!-- 4 VERB BUTTONS GRID -->
+        <div class="verbs-grid">
+
+            <!-- 1. BE VERB -->
+            <a href="be_verb.html" class="verb-card">
+                <div>
+                    <div class="verb-card-icon">⚡</div>
+                    <div class="verb-title">BE VERBS</div>
+                    <div class="verb-sub">(Am, Is, Are, Was, Were, Being, Been)</div>
+                </div>
+                <div class="verb-action">
+                    <span>Learn Be Verbs</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- 2. HAVE VERB -->
+            <a href="have_verb.html" class="verb-card">
+                <div>
+                    <div class="verb-card-icon">💼</div>
+                    <div class="verb-title">HAVE VERBS</div>
+                    <div class="verb-sub">(Has, Have, Had, Having)</div>
+                </div>
+                <div class="verb-action">
+                    <span>Learn Have Verbs</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- 3. DO VERB -->
+            <a href="do_verb.html" class="verb-card">
+                <div>
+                    <div class="verb-card-icon">🎯</div>
+                    <div class="verb-title">DO VERBS</div>
+                    <div class="verb-sub">(Do, Does, Did, Doing, Done)</div>
+                </div>
+                <div class="verb-action">
+                    <span>Learn Do Verbs</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+            <!-- 4. MODAL VERB -->
+            <a href="modal_verb.html" class="verb-card">
+                <div>
+                    <div class="verb-card-icon">🚀</div>
+                    <div class="verb-title">MODAL VERBS</div>
+                    <div class="verb-sub">(Can, Could, May, Might, Will, Should...)</div>
+                </div>
+                <div class="verb-action">
+                    <span>Learn Modal Verbs</span>
+                    <span>→</span>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; Tamil Medium Student - Learn English Easily Through Tamil</p>
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE MENU -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function (event) {
+            const navMenu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>BE VERB - Tamil Medium Student</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===================================================
+       1. CSS RESET & GLOBAL VARIABLES
+       =================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden; /* Strict Rule 39: Prevent page horizontal scroll */
+      background-color: #f8fafc;
+      color: #0f172a;
+      font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
+      line-height: 1.6;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --dark-btn: #111827;
+      --dark-btn-hover: #1f2937;
+      --card-bg: #ffffff;
+      --border-color: #cbd5e1;
+
+      --correct-bg: #f0fdf4;
+      --correct-border: #22c55e;
+      --correct-text: #15803d;
+
+      --wrong-bg: #fef2f2;
+      --wrong-border: #ef4444;
+      --wrong-text: #b91c1c;
+
+      --tamil-box-bg: #e0f2fe;
+      --tamil-box-border: #bae6fd;
+      --tamil-box-text: #0369a1;
+    }
+
+    /* Container Standard (Rule 23) */
+    .container {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ===================================================
+       2. MOBILE HEADER & NAVIGATION (Rule 24)
+       =================================================== */
+    .site-header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    .site-title {
+      font-size: 18px; /* Rule 22: Website name 18px */
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #475569;
+      text-decoration: none;
+      font-size: 15px; /* Rule 22: Navigation menu text 15px */
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    /* Back Button Top Bar */
+    .btn-header-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px; /* Rule 38: Touch target min 44px */
+      padding: 0 14px;
+      background-color: #f1f5f9;
+      color: #0f172a;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px; /* Rule 22: Back button 14px */
+      border: 1px solid #cbd5e1;
+    }
+
+    /* Hamburger Button (Mobile) */
+    .hamburger-btn {
+      display: none;
+      min-width: 44px;
+      min-height: 44px; /* Rule 24 & 38: 44px x 44px */
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 8px;
+    }
+
+    .hamburger-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: #0f172a;
+      border-radius: 2px;
+    }
+
+    .mobile-menu-dropdown {
+      display: none;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mobile-menu-dropdown.active {
+      display: flex;
+    }
+
+    /* ===================================================
+       3. PAGE HEADER SECTION (Rule 25 & 40)
+       =================================================== */
+    .page-header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #ffffff;
+      padding: 24px 18px;
+      border-radius: 16px;
+      margin: 20px 0 24px 0;
+      text-align: center;
+      box-shadow: 0 8px 16px -4px rgba(37, 99, 235, 0.2);
+    }
+
+    .page-header h1 {
+      font-size: 28px; /* Rule 22 & 25: BE VERB title 28px */
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 17px; /* Rule 22: Subtitle 17px */
+      font-weight: 600;
+      margin-bottom: 12px;
+      word-break: break-word;
+    }
+
+    .header-tamil-exp {
+      font-size: 15px; /* Rule 22: Tamil explanation 15px */
+      line-height: 1.8; /* Rule 22 & 36: Tamil line height 1.8 */
+      color: #e0e7ff;
+      margin-bottom: 16px;
+    }
+
+    .btn-header-verb-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      background-color: #ffffff;
+      color: var(--primary);
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 14px; /* Rule 22: Back to VERB button 14px */
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    /* ===================================================
+       4. EXPLANATION CARDS (Rule 26)
+       =================================================== */
+    .section-card {
+      background: var(--card-bg);
+      border-radius: 12px; /* Rule 26: Border radius 12px */
+      padding: 18px; /* Rule 26: Padding 16px-18px */
+      margin-bottom: 24px; /* Rule 36: Section gap 24px */
+      border: 1px solid var(--border-color);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .section-title {
+      font-size: 22px; /* Rule 22: Section heading 22px */
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 8px;
+    }
+
+    .exp-box {
+      background-color: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 16px;
+      border-radius: 0 10px 10px 0;
+      margin-bottom: 16px;
+    }
+
+    .exp-en {
+      font-size: 16px; /* Rule 22: English text 15-16px */
+      line-height: 1.6;
+      font-weight: 600;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+
+    .exp-ta {
+      font-size: 16px; /* Rule 22: Tamil text 16px */
+      line-height: 1.8; /* Rule 22: Tamil line-height 1.8 */
+      color: #1e40af;
+      background-color: var(--tamil-box-bg); /* Rule 26: Light blue for Tamil */
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--tamil-box-border);
+    }
+
+    .tense-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .tense-badge-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .tense-badge-card h4 {
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 6px;
+    }
+
+    .tense-badge-card .verbs {
+      font-size: 18px; /* Rule 22: Sub-heading / Verb size 18px */
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ===================================================
+       5. SUBJECT-WISE BE VERB MOBILE LAYOUT (Rule 27)
+       =================================================== */
+    .subject-wise-container {
+      display: grid;
+      grid-template-columns: 1fr; /* Rule 27: 1-column on mobile screens */
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .subject-wise-container {
+        grid-template-columns: repeat(3, 1fr); /* 3-column on Desktop */
+      }
+    }
+
+    .tense-block {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+    }
+
+    .tense-block h3 {
+      font-size: 18px; /* Rule 22: Sub-heading 18px */
+      color: var(--primary);
+      margin-bottom: 12px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+
+    .subject-card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; /* Rule 27: Gap 10px */
+    }
+
+    .subject-item-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 14px; /* Rule 27: Card padding 14px */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .subj-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subj-name {
+      font-size: 16px; /* Rule 27: Subject 16px bold */
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .subj-verb {
+      font-size: 18px; /* Rule 27: BE Verb 18px bold */
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .subj-tamil {
+      font-size: 16px; /* Rule 27: Tamil meaning 15px-16px */
+      line-height: 1.8;
+      color: #475569;
+      font-weight: 500;
+      text-align: right;
+    }
+
+    /* ===================================================
+       6. MAIN TABLE MOBILE BEHAVIOUR (Rule 28 & 39)
+       =================================================== */
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto; /* Rule 28: Horizontal scroll ONLY inside table wrapper */
+      -webkit-overflow-scrolling: touch;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      margin-top: 14px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px; /* Rule 28: Minimum width ~700px */
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px; /* Rule 22 & 28: Table text 14px */
+      line-height: 1.5;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 10px 12px; /* Rule 28: Padding 10px */
+      border-bottom: 2px solid var(--border-color);
+      font-size: 14px;
+    }
+
+    td {
+      padding: 10px 12px; /* Rule 28: Padding 10px */
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .table-tense-title {
+      background-color: #e2e8f0 !important;
+      font-weight: 700;
+      color: var(--primary-hover);
+    }
+
+    /* ===================================================
+       7. SENTENCE EXAMPLES MOBILE (Rule 29)
+       =================================================== */
+    .examples-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .example-card {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      padding: 14px 16px; /* Rule 29: Padding 14-16px */
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px; /* Rule 29: Gap 6-8px */
+    }
+
+    .example-en {
+      font-size: 16px; /* Rule 29: English 16px */
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .example-ta {
+      font-size: 16px; /* Rule 29: Tamil 16px */
+      line-height: 1.8; /* Rule 29: Line-height 1.8 */
+      color: #475569;
+    }
+
+    /* ===================================================
+       8. QUIZ CATEGORY BUTTONS MOBILE (Rule 30)
+       =================================================== */
+    .quiz-section {
+      background: #0f172a;
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 22px 16px;
+      margin-top: 28px;
+    }
+
+    .quiz-main-title {
+      font-size: 22px; /* Rule 22: Section title 22px */
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .quiz-main-desc {
+      font-size: 15px;
+      color: #94a3b8;
+      text-align: center;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .quiz-tense-block {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-tense-block h3 {
+      font-size: 18px; /* Rule 22: Sub-heading 18px */
+      color: #38bdf8;
+      margin-bottom: 14px;
+    }
+
+    .quiz-btn-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Rule 30: 2x2 grid on mobile */
+      gap: 10px; /* Rule 30: Gap 10px */
+    }
+
+    @media (max-width: 340px) {
+      .quiz-btn-grid {
+        grid-template-columns: 1fr; /* 1 column for tight 320px screens */
+      }
+    }
+
+    .quiz-cat-btn {
+      background-color: var(--dark-btn); /* Rule 30: Must remain black */
+      color: #ffffff;
+      border: 1px solid #374151;
+      min-height: 48px; /* Rule 30 & 38: Min height 48px */
+      padding: 10px 12px;
+      border-radius: 8px; /* Rule 30: Border radius 8px */
+      font-size: 14px; /* Rule 30: Font size 14-15px */
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: inherit;
+      transition: background 0.2s;
+    }
+
+    .quiz-cat-btn:hover, .quiz-cat-btn:active {
+      background-color: var(--dark-btn-hover);
+      border-color: #6b7280;
+    }
+
+    /* ===================================================
+       9. MOBILE QUIZ SCREEN (Rule 31, 32, 33, 34)
+       =================================================== */
+    #quiz-play-area {
+      display: none;
+      scroll-margin-top: 70px;
+    }
+
+    .quiz-play-card {
+      background: #ffffff;
+      color: #0f172a;
+      border-radius: 14px;
+      padding: 18px;
+      border: 2px solid var(--primary);
+      margin-top: 20px;
+    }
+
+    .quiz-play-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .quiz-badge {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .q-counter {
+      font-size: 14px; /* Rule 31: Question counter 14-15px */
+      font-weight: 600;
+      color: #64748b;
+      background: #f1f5f9;
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 8px;
+      background-color: #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background-color: var(--primary);
+      width: 0%;
+      transition: width 0.2s ease;
+    }
+
+    /* STEP 1: Tamil Sentence FIRST (Rule 8 & 31) */
+    .prompt-box-ta {
+      background-color: var(--tamil-box-bg);
+      border: 1px solid var(--tamil-box-border);
+      color: var(--tamil-box-text);
+      padding: 14px 16px;
+      border-radius: 10px;
+      margin-bottom: 16px;
+    }
+
+    .prompt-label-ta {
+      font-size: 15px; /* Rule 31: Tamil label 15px bold */
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .prompt-text-ta {
+      font-size: 18px; /* Rule 31: Tamil question 18px */
+      font-weight: 700;
+      line-height: 1.8; /* Rule 31: Line-height 1.8 */
+    }
+
+    /* STEP 2: English Fill in the blank */
+    .prompt-box-en {
+      margin-bottom: 18px;
+    }
+
+    .prompt-label-en {
+      font-size: 15px; /* Rule 31: English label 15px bold */
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 4px;
+    }
+
+    .prompt-text-en {
+      font-size: 18px; /* Rule 31: English fill-in-blank 18px */
+      font-weight: 500; /* Rule 31: Font weight 500 */
+      line-height: 1.6; /* Rule 31: Line-height 1.6 */
+      color: #0f172a;
+    }
+
+    .blank-space {
+      display: inline-block;
+      padding: 0 8px;
+      border-bottom: 3px solid var(--primary);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* STEP 3: Options List (Rule 32) */
+    .options-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: #64748b;
+      margin-bottom: 10px;
+    }
+
+    .options-vertical-list {
+      display: flex;
+      flex-direction: column; /* Rule 32: Vertical list on mobile */
+      gap: 10px; /* Rule 32: Gap 10px */
+      margin-bottom: 18px;
+    }
+
+    .option-btn {
+      width: 100%;
+      min-height: 48px; /* Rule 32 & 38: Min height 48px */
+      background: #ffffff;
+      border: 2px solid var(--border-color);
+      padding: 12px 14px; /* Rule 32: Padding 12px 14px */
+      border-radius: 8px; /* Rule 32: Border radius 8px */
+      font-size: 16px; /* Rule 32: Font size 16px */
+      font-weight: 600;
+      color: #0f172a;
+      cursor: pointer;
+      text-align: left; /* Rule 32: Text aligned left */
+      font-family: inherit;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .option-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.9;
+    }
+
+    .option-btn.selected-correct {
+      background-color: var(--correct-bg) !important;
+      border-color: var(--correct-border) !important;
+      color: var(--correct-text) !important;
+    }
+
+    .option-btn.selected-wrong {
+      background-color: var(--wrong-bg) !important;
+      border-color: var(--wrong-border) !important;
+      color: var(--wrong-text) !important;
+    }
+
+    .option-btn.highlight-correct {
+      border-color: var(--correct-border) !important;
+      background-color: var(--correct-bg) !important;
+      color: var(--correct-text) !important;
+    }
+
+    /* STEP 4 & 5: Feedback Card (Rule 33) */
+    .feedback-card {
+      display: none;
+      padding: 14px 16px; /* Rule 33: Padding 14-16px */
+      border-radius: 10px;
+      margin-bottom: 18px;
+    }
+
+    .feedback-card.correct {
+      background-color: var(--correct-bg);
+      border: 1px solid var(--correct-border);
+      color: var(--correct-text);
+    }
+
+    .feedback-card.wrong {
+      background-color: var(--wrong-bg);
+      border: 1px solid var(--wrong-border);
+      color: var(--wrong-text);
+    }
+
+    .feedback-status {
+      font-size: 17px; /* Rule 33: Feedback heading 17px */
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .correct-ans-text {
+      font-size: 16px; /* Rule 33: Correct answer 16px */
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .tamil-meaning-box {
+      margin-top: 8px;
+      padding: 12px;
+      background-color: var(--tamil-box-bg);
+      border: 1px solid var(--tamil-box-border);
+      border-radius: 8px;
+      color: var(--tamil-box-text);
+      font-size: 16px; /* Rule 33: Tamil meaning 16px */
+      line-height: 1.8; /* Rule 33: Line-height 1.8 */
+      font-weight: 500;
+    }
+
+    /* Next Question Button (Rule 34) */
+    .btn-next {
+      display: none;
+      width: 100%; /* Rule 34: 100% on mobile */
+      min-height: 48px; /* Rule 34 & 38: Min height 48px */
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px; /* Rule 34: Border radius 8px */
+      font-size: 16px; /* Rule 34: Font size 15-16px */
+      font-weight: 700;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 14px; /* Rule 34: Margin-top 14px */
+      font-family: inherit;
+    }
+
+    .btn-next:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* ===================================================
+       10. QUIZ COMPLETION MOBILE (Rule 35)
+       =================================================== */
+    .score-card {
+      display: none;
+      text-align: center;
+      padding: 28px 16px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 2px solid var(--primary);
+    }
+
+    .score-heading {
+      font-size: 22px; /* Rule 35: Heading 22px */
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .score-value {
+      font-size: 24px; /* Rule 35: Score 24px */
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .score-percent {
+      font-size: 20px; /* Rule 35: Percentage 20px */
+      font-weight: 600;
+      color: #475569;
+      margin-bottom: 16px;
+    }
+
+    .perf-badge {
+      display: inline-block;
+      font-size: 17px; /* Rule 35: Performance 17px */
+      font-weight: 700;
+      padding: 8px 18px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+
+    .perf-exc { background: #dcfce7; color: #15803d; }
+    .perf-vg  { background: #e0f2fe; color: #0369a1; }
+    .perf-g   { background: #fef9c3; color: #a16207; }
+    .perf-again { background: #fee2e2; color: #b91c1c; }
+
+    .btn-retry {
+      width: 100%; /* Rule 35: Full-width button on mobile */
+      min-height: 48px; /* Rule 35: Min 48px height */
+      background-color: var(--dark-btn);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* Page bottom padding (Rule 36) */
+    body {
+      padding-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER (Rule 24) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="site-title">Tamil Medium Student</a>
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu-dropdown" id="mobile-menu">
+      <a href="verb.html" class="btn-header-back" style="width: 100%;">← Back to VERB</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- PAGE HEADER (Rule 25 & 40) -->
+    <section class="page-header">
+      <h1>BE VERB</h1>
+      <div class="subtitle">am → is → are → was → were → will be</div>
+      <p class="header-tamil-exp">BE Verb என்பது “இரு / இருக்க” என்ற பொருளைத் தரும் verb.</p>
+      <a href="verb.html" class="btn-header-verb-back">← Back to VERB</a>
+    </section>
+
+    <!-- 1. WHAT IS BE VERB? (Rule 40 Order) -->
+    <section class="section-card">
+      <h2 class="section-title">💡 WHAT IS BE VERB?</h2>
+      
+      <div class="exp-box">
+        <div class="exp-en">BE Verb is used to describe a person, place, thing, condition, state, identity, age, location, etc.</div>
+        <div class="exp-ta">BE Verb என்பது ஒருவர் அல்லது ஒரு பொருள் எப்படி இருக்கிறது, எங்கே இருக்கிறது, யார் என்பதைச் சொல்ல பயன்படுத்தப்படுகிறது.</div>
+      </div>
+
+      <div class="tense-grid">
+        <div class="tense-badge-card">
+          <h4>Present Tense</h4>
+          <div class="verbs">am / is / are</div>
+        </div>
+        <div class="tense-badge-card">
+          <h4>Past Tense</h4>
+          <div class="verbs">was / were</div>
+        </div>
+        <div class="tense-badge-card">
+          <h4>Future Tense</h4>
+          <div class="verbs">will be</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SUBJECT-WISE BE VERB (Rule 27 Mobile Stack) -->
+    <section class="section-card">
+      <h2 class="section-title">📘 SUBJECT-WISE BE VERB</h2>
+      <div class="subject-wise-container">
+        
+        <!-- PRESENT -->
+        <div class="tense-block">
+          <h3>PRESENT TENSE</h3>
+          <div class="subject-card-list">
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">I</span> → <span class="subj-verb">am</span></div><div class="subj-tamil">நான் இருக்கிறேன்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">You</span> → <span class="subj-verb">are</span></div><div class="subj-tamil">நீ இருக்கிறாய்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">He</span> → <span class="subj-verb">is</span></div><div class="subj-tamil">அவன் இருக்கிறான்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">She</span> → <span class="subj-verb">is</span></div><div class="subj-tamil">அவள் இருக்கிறாள்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">It</span> → <span class="subj-verb">is</span></div><div class="subj-tamil">அது இருக்கிறது</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">We</span> → <span class="subj-verb">are</span></div><div class="subj-tamil">நாம் இருக்கிறோம்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">They</span> → <span class="subj-verb">are</span></div><div class="subj-tamil">அவர்கள் இருக்கிறார்கள்</div></div>
+          </div>
+        </div>
+
+        <!-- PAST -->
+        <div class="tense-block">
+          <h3>PAST TENSE</h3>
+          <div class="subject-card-list">
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">I</span> → <span class="subj-verb">was</span></div><div class="subj-tamil">நான் இருந்தேன்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">You</span> → <span class="subj-verb">were</span></div><div class="subj-tamil">நீ இருந்தாய்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">He</span> → <span class="subj-verb">was</span></div><div class="subj-tamil">அவன் இருந்தான்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">She</span> → <span class="subj-verb">was</span></div><div class="subj-tamil">அவள் இருந்தாள்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">It</span> → <span class="subj-verb">was</span></div><div class="subj-tamil">அது இருந்தது</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">We</span> → <span class="subj-verb">were</span></div><div class="subj-tamil">நாம் இருந்தோம்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">They</span> → <span class="subj-verb">were</span></div><div class="subj-tamil">அவர்கள் இருந்தார்கள்</div></div>
+          </div>
+        </div>
+
+        <!-- FUTURE -->
+        <div class="tense-block">
+          <h3>FUTURE TENSE</h3>
+          <div class="subject-card-list">
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">I</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">நான் இருப்பேன்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">You</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">நீ இருப்பாய்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">He</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">அவன் இருப்பான்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">She</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">அவள் இருப்பாள்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">It</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">அது இருக்கும்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">We</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">நாம் இருப்போம்</div></div>
+            <div class="subject-item-card"><div class="subj-left"><span class="subj-name">They</span> → <span class="subj-verb">will be</span></div><div class="subj-tamil">அவர்கள் இருப்பார்கள்</div></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. MAIN TABLE (Rule 28 Horizontally Scrollable Container) -->
+    <section class="section-card">
+      <h2 class="section-title">📊 MAIN BE VERB TABLE</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Tense</th>
+              <th>Subject</th>
+              <th>Positive (+)</th>
+              <th>Positive Question (?)</th>
+              <th>Negative (-)</th>
+              <th>Negative Question (?-)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-tense-title"><td colspan="6">PRESENT TENSE</td></tr>
+            <tr>
+              <td>PRESENT</td>
+              <td><strong>I</strong></td>
+              <td>I am</td>
+              <td>Am I?</td>
+              <td>I am not</td>
+              <td>Am I not?</td>
+            </tr>
+            <tr>
+              <td>PRESENT</td>
+              <td><strong>He / She / It</strong></td>
+              <td>He is</td>
+              <td>Is he?</td>
+              <td>He is not</td>
+              <td>Is he not?</td>
+            </tr>
+            <tr>
+              <td>PRESENT</td>
+              <td><strong>You / We / They</strong></td>
+              <td>You are</td>
+              <td>Are you?</td>
+              <td>You are not</td>
+              <td>Are you not?</td>
+            </tr>
+
+            <tr class="table-tense-title"><td colspan="6">PAST TENSE</td></tr>
+            <tr>
+              <td>PAST</td>
+              <td><strong>I / He / She / It</strong></td>
+              <td>I was</td>
+              <td>Was I?</td>
+              <td>I was not</td>
+              <td>Was I not?</td>
+            </tr>
+            <tr>
+              <td>PAST</td>
+              <td><strong>You / We / They</strong></td>
+              <td>You were</td>
+              <td>Were you?</td>
+              <td>You were not</td>
+              <td>Were you not?</td>
+            </tr>
+
+            <tr class="table-tense-title"><td colspan="6">FUTURE TENSE</td></tr>
+            <tr>
+              <td>FUTURE</td>
+              <td><strong>All Subjects</strong></td>
+              <td>I will be</td>
+              <td>Will I be?</td>
+              <td>I will not be</td>
+              <td>Won't I be?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 4. SENTENCE EXAMPLES (Rule 29 Mobile Full Width) -->
+    <section class="section-card">
+      <h2 class="section-title">📝 SENTENCE EXAMPLES</h2>
+      <div class="examples-grid">
+        <div class="example-card">
+          <div class="example-en">I am happy.</div>
+          <div class="example-ta">→ நான் மகிழ்ச்சியாக இருக்கிறேன்.</div>
+        </div>
+        <div class="example-card">
+          <div class="example-en">You are busy.</div>
+          <div class="example-ta">→ நீ பிஸியாக இருக்கிறாய்.</div>
+        </div>
+        <div class="example-card">
+          <div class="example-en">He is a student.</div>
+          <div class="example-ta">→ அவன் ஒரு மாணவன்.</div>
+        </div>
+        <div class="example-card">
+          <div class="example-en">She is at home.</div>
+          <div class="example-ta">→ அவள் வீட்டில் இருக்கிறாள்.</div>
+        </div>
+        <div class="example-card">
+          <div class="example-en">It is beautiful.</div>
+          <div class="example-ta">→ அது அழகாக இருக்கிறது.</div>
+        </div>
+        <div class="example-card">
+          <div class="example-en">We are ready.</div>
+          <div class="example-ta">→ நாம் தயாராக இருக்கிறோம்.</div>
+        </div>
+        <div class="example-card">
+          <div class="example-en">They are friends.</div>
+          <div class="example-ta">→ அவர்கள் நண்பர்கள்.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. QUIZ SECTIONS (Rule 30 - 35) -->
+    <section class="quiz-section">
+      <h2 class="quiz-main-title">🎯 TENSE QUIZ SYSTEM</h2>
+      <p class="quiz-main-desc">Choose a tense quiz category below to practice. Every quiz contains exactly 70 questions (7 subjects × 10 practical contexts).</p>
+
+      <!-- PRESENT -->
+      <div class="quiz-tense-block">
+        <h3>PRESENT TENSE QUIZZES</h3>
+        <div class="quiz-btn-grid">
+          <button class="quiz-cat-btn" onclick="startQuiz('present', 'pos')">Positive (+)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('present', 'neg')">Negative (-)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('present', 'q_pos')">Positive Question (?)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('present', 'q_neg')">Negative Question (?-)</button>
+        </div>
+      </div>
+
+      <!-- PAST -->
+      <div class="quiz-tense-block">
+        <h3>PAST TENSE QUIZZES</h3>
+        <div class="quiz-btn-grid">
+          <button class="quiz-cat-btn" onclick="startQuiz('past', 'pos')">Positive (+)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('past', 'neg')">Negative (-)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('past', 'q_pos')">Positive Question (?)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('past', 'q_neg')">Negative Question (?-)</button>
+        </div>
+      </div>
+
+      <!-- FUTURE -->
+      <div class="quiz-tense-block">
+        <h3>FUTURE TENSE QUIZZES</h3>
+        <div class="quiz-btn-grid">
+          <button class="quiz-cat-btn" onclick="startQuiz('future', 'pos')">Positive (+)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('future', 'neg')">Negative (-)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('future', 'q_pos')">Positive Question (?)</button>
+          <button class="quiz-cat-btn" onclick="startQuiz('future', 'q_neg')">Negative Question (?-)</button>
+        </div>
+      </div>
+
+      <!-- ACTIVE QUIZ PLAY AREA (Rule 31) -->
+      <div id="quiz-play-area">
+        
+        <div id="question-card" class="quiz-play-card">
+          
+          <div class="quiz-play-header">
+            <span id="quiz-title-badge" class="quiz-badge">Present Tense Quiz</span>
+            <span id="question-tracker" class="q-counter">Question 1 / 70</span>
+          </div>
+
+          <div class="progress-bar-bg">
+            <div id="progress-bar" class="progress-bar-fill"></div>
+          </div>
+
+          <!-- STEP 1: TAMIL SENTENCE FIRST (Rule 8 & 31) -->
+          <div class="prompt-box-ta">
+            <div class="prompt-label-ta">தமிழ்:</div>
+            <div id="prompt-text-ta" class="prompt-text-ta">நான் இன்று மகிழ்ச்சியாக இருக்கிறேன்.</div>
+          </div>
+
+          <!-- STEP 2: ENGLISH FILL IN THE BLANK (Rule 8 & 31) -->
+          <div class="prompt-box-en">
+            <div class="prompt-label-en">English Fill in the Blank:</div>
+            <div id="prompt-text-en" class="prompt-text-en">I <span class="blank-space">____</span> happy today.</div>
+          </div>
+
+          <!-- STEP 3: 4 OPTIONS VERTICAL LIST (Rule 32) -->
+          <div class="options-label">Choose the correct BE Verb:</div>
+          <div id="options-list" class="options-vertical-list">
+            <!-- Rendered dynamically -->
+          </div>
+
+          <!-- STEP 4 & 5: FEEDBACK CARD (Rule 33) -->
+          <div id="feedback-card" class="feedback-card">
+            <div id="feedback-status" class="feedback-status">Correct! 🎉</div>
+            <div id="correct-ans-text" class="correct-ans-text"></div>
+            <div class="tamil-meaning-box">
+              <strong>Tamil Meaning / முழு தமிழ் அர்த்தம்:</strong>
+              <div id="tamil-meaning-text" style="margin-top: 4px;"></div>
+            </div>
+          </div>
+
+          <!-- NEXT QUESTION BUTTON (Rule 34) -->
+          <button id="btn-next" class="btn-next" onclick="nextQuestion()">Next Question ➔</button>
+        </div>
+
+        <!-- FINAL SCORE CARD (Rule 35) -->
+        <div id="score-card" class="score-card">
+          <div class="score-heading">Quiz Completed 🎉</div>
+          <div id="score-value" class="score-value">65 / 70</div>
+          <div id="score-percent" class="score-percent">Percentage: 92.85%</div>
+          <div><span id="perf-badge" class="perf-badge perf-exc">Excellent 🌟</span></div>
+          <button class="btn-retry" onclick="retryQuiz()">Try Again 🔄</button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ===================================================
+       11. JAVASCRIPT LOGIC (840 Questions Engine)
+       =================================================== -->
+  <script>
+    // Mobile Hamburger Menu Toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+      });
+    }
+
+    // Context Data
+    const CONTEXTS_HUMAN = [
+      { en: "happy", ta: "மகிழ்ச்சியாக" },
+      { en: "busy", ta: "பிஸியாக" },
+      { en: "ready", ta: "தயாராக" },
+      { en: "tired", ta: "சோர்வாக" },
+      { en: "hungry", ta: "பசியோடு" },
+      { en: "at home", ta: "வீட்டில்" },
+      { en: "at school", ta: "பள்ளியில்" },
+      { en: "in the office", ta: "அலுவலகத்தில்" },
+      { en: "late", ta: "தாமதமாக" },
+      { en: "careful", ta: "கவனமாக" }
+    ];
+
+    const CONTEXTS_IT = [
+      { en: "beautiful", ta: "அழகாக" },
+      { en: "useful", ta: "பயனுள்ளதாக" },
+      { en: "ready", ta: "தயாராக" },
+      { en: "clean", ta: "சுத்தமாக" },
+      { en: "important", ta: "முக்கியமாக" },
+      { en: "difficult", ta: "கடினமாக" },
+      { en: "good", ta: "நல்லதாக" },
+      { en: "at home", ta: "வீட்டில்" },
+      { en: "late", ta: "தாமதமாக" },
+      { en: "careful", ta: "கவனமாக" }
+    ];
+
+    const SUBJECTS = [
+      { id: "I", en: "I", ta: "நான்", presBE: "am", pastBE: "was", presPosTa: "இருக்கிறேன்", presQTa: "இருக்கிறேனா", pastPosTa: "இருந்தேன்", pastQTa: "இருந்தேனா", futPosTa: "இருப்பேன்", futQTa: "இருப்பேனா", futNegTa: "இருக்க மாட்டேன்", futNegQTa: "இருக்க மாட்டேனா" },
+      { id: "You", en: "You", ta: "நீ", presBE: "are", pastBE: "were", presPosTa: "இருக்கிறாய்", presQTa: "இருக்கிறாயா", pastPosTa: "இருந்தாய்", pastQTa: "இருந்தாயா", futPosTa: "இருப்பாய்", futQTa: "இருப்பாயா", futNegTa: "இருக்க மாட்டாய்", futNegQTa: "இருக்க மாட்டாயா" },
+      { id: "He", en: "He", ta: "அவன்", presBE: "is", pastBE: "was", presPosTa: "இருக்கிறான்", presQTa: "இருக்கிறானா", pastPosTa: "இருந்தான்", pastQTa: "இருந்தானா", futPosTa: "இருப்பான்", futQTa: "இருப்பானா", futNegTa: "இருக்க மாட்டான்", futNegQTa: "இருக்க மாட்டானா" },
+      { id: "She", en: "She", ta: "அவள்", presBE: "is", pastBE: "was", presPosTa: "இருக்கிறாள்", presQTa: "இருக்கிறாளா", pastPosTa: "இருந்தாள்", pastQTa: "இருந்தாளா", futPosTa: "இருப்பாள்", futQTa: "இருப்பாளா", futNegTa: "இருக்க மாட்டாள்", futNegQTa: "இருக்க மாட்டாளா" },
+      { id: "It", en: "It", ta: "அது", presBE: "is", pastBE: "was", presPosTa: "இருக்கிறது", presQTa: "இருக்கிறதா", pastPosTa: "இருந்தது", pastQTa: "இருந்ததா", futPosTa: "இருக்கும்", futQTa: "இருக்குமா", futNegTa: "இருக்காது", futNegQTa: "இருக்காதா" },
+      { id: "We", en: "We", ta: "நாம்", presBE: "are", pastBE: "were", presPosTa: "இருக்கிறோம்", presQTa: "இருக்கிறோமா", pastPosTa: "இருந்தோம்", pastQTa: "இருந்தோமா", futPosTa: "இருப்போம்", futQTa: "இருப்போமா", futNegTa: "இருக்க மாட்டோம்", futNegQTa: "இருக்க மாட்டோமா" },
+      { id: "They", en: "They", ta: "அவர்கள்", presBE: "are", pastBE: "were", presPosTa: "இருக்கிறார்கள்", presQTa: "இருக்கிறார்களா", pastPosTa: "இருந்தார்கள்", pastQTa: "இருந்தார்களா", futPosTa: "இருப்பார்கள்", futQTa: "இருப்பார்களா", futNegTa: "இருக்க மாட்டார்கள்", futNegQTa: "இருக்க மாட்டார்களா" }
+    ];
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function capitalize(str) {
+      return str ? str.charAt(0).toUpperCase() + str.slice(1) : '';
+    }
+
+    function getOptions(correct, pool) {
+      const distractors = pool.filter(item => item !== correct);
+      const chosenDistractors = shuffle(distractors).slice(0, 3);
+      return shuffle([correct, ...chosenDistractors]);
+    }
+
+    // Dynamic 70 Question Generator
+    function generate70Questions(tense, type) {
+      const qList = [];
+
+      SUBJECTS.forEach(subj => {
+        const contexts = (subj.id === 'It') ? CONTEXTS_IT : CONTEXTS_HUMAN;
+
+        contexts.forEach(ctx => {
+          let correct = "";
+          let tamilQ = "";
+          let englishQ = "";
+          let tamilMeaning = "";
+          let options = [];
+
+          const subjLower = (subj.en === "I") ? "I" : subj.en.toLowerCase();
+
+          if (tense === 'present') {
+            if (type === 'pos') {
+              correct = subj.presBE;
+              tamilQ = `${subj.ta} இன்று ${ctx.ta} ${subj.presPosTa}.`;
+              englishQ = `${subj.en} <span class="blank-space">____</span> ${ctx.en} today.`;
+              tamilMeaning = `${subj.ta} இன்று ${ctx.ta} ${subj.presPosTa}.`;
+              options = getOptions(correct, ["am", "is", "are", "was", "were"]);
+            } else if (type === 'neg') {
+              correct = subj.presBE;
+              tamilQ = `${subj.ta} இன்று ${ctx.ta} இல்லை.`;
+              englishQ = `${subj.en} <span class="blank-space">____</span> not ${ctx.en} today.`;
+              tamilMeaning = `${subj.ta} இன்று ${ctx.ta} இல்லை.`;
+              options = getOptions(correct, ["am", "is", "are", "was", "were"]);
+            } else if (type === 'q_pos') {
+              correct = capitalize(subj.presBE);
+              tamilQ = `${subj.ta} ${ctx.ta} ${subj.presQTa}?`;
+              englishQ = `<span class="blank-space">____</span> ${subjLower} ${ctx.en}?`;
+              tamilMeaning = `${subj.ta} ${ctx.ta} ${subj.presQTa}?`;
+              options = getOptions(correct, ["Am", "Is", "Are", "Was", "Were"]);
+            } else if (type === 'q_neg') {
+              correct = capitalize(subj.presBE);
+              tamilQ = `${subj.ta} இன்று ${ctx.ta} இல்லையா?`;
+              englishQ = `<span class="blank-space">____</span> ${subjLower} not ${ctx.en} today?`;
+              tamilMeaning = `${subj.ta} இன்று ${ctx.ta} இல்லையா?`;
+              options = getOptions(correct, ["Am", "Is", "Are", "Was", "Were"]);
+            }
+          } else if (tense === 'past') {
+            if (type === 'pos') {
+              correct = subj.pastBE;
+              tamilQ = `${subj.ta} நேற்று ${ctx.ta} ${subj.pastPosTa}.`;
+              englishQ = `Yesterday, ${subj.en} <span class="blank-space">____</span> ${ctx.en}.`;
+              tamilMeaning = `${subj.ta} நேற்று ${ctx.ta} ${subj.pastPosTa}.`;
+              options = getOptions(correct, ["was", "were", "am", "is", "are"]);
+            } else if (type === 'neg') {
+              correct = subj.pastBE;
+              tamilQ = `${subj.ta} நேற்று ${ctx.ta} இல்லை.`;
+              englishQ = `${subj.en} <span class="blank-space">____</span> not ${ctx.en} yesterday.`;
+              tamilMeaning = `${subj.ta} நேற்று ${ctx.ta} இல்லை.`;
+              options = getOptions(correct, ["was", "were", "am", "is", "are"]);
+            } else if (type === 'q_pos') {
+              correct = capitalize(subj.pastBE);
+              tamilQ = `${subj.ta} நேற்று ${ctx.ta} ${subj.pastQTa}?`;
+              englishQ = `<span class="blank-space">____</span> ${subjLower} ${ctx.en} yesterday?`;
+              tamilMeaning = `${subj.ta} நேற்று ${ctx.ta} ${subj.pastQTa}?`;
+              options = getOptions(correct, ["Was", "Were", "Am", "Is", "Are"]);
+            } else if (type === 'q_neg') {
+              correct = capitalize(subj.pastBE);
+              tamilQ = `${subj.ta} நேற்று ${ctx.ta} இல்லையா?`;
+              englishQ = `<span class="blank-space">____</span> ${subjLower} not ${ctx.en} yesterday?`;
+              tamilMeaning = `${subj.ta} நேற்று ${ctx.ta} இல்லையா?`;
+              options = getOptions(correct, ["Was", "Were", "Am", "Is", "Are"]);
+            }
+          } else if (tense === 'future') {
+            if (type === 'pos') {
+              correct = "will";
+              tamilQ = `${subj.ta} நாளை ${ctx.ta} ${subj.futPosTa}.`;
+              englishQ = `${subj.en} <span class="blank-space">____</span> be ${ctx.en} tomorrow.`;
+              tamilMeaning = `${subj.ta} நாளை ${ctx.ta} ${subj.futPosTa}.`;
+              options = getOptions(correct, ["will", "would", "can", "should"]);
+            } else if (type === 'neg') {
+              correct = "will";
+              tamilQ = `${subj.ta} நாளை ${ctx.ta} ${subj.futNegTa}.`;
+              englishQ = `${subj.en} <span class="blank-space">____</span> not be ${ctx.en} tomorrow.`;
+              tamilMeaning = `${subj.ta} நாளை ${ctx.ta} ${subj.futNegTa}.`;
+              options = getOptions(correct, ["will", "would", "can", "should"]);
+            } else if (type === 'q_pos') {
+              correct = "Will";
+              tamilQ = `${subj.ta} நாளை ${ctx.ta} ${subj.futQTa}?`;
+              englishQ = `<span class="blank-space">____</span> ${subjLower} be ${ctx.en} tomorrow?`;
+              tamilMeaning = `${subj.ta} நாளை ${ctx.ta} ${subj.futQTa}?`;
+              options = getOptions(correct, ["Will", "Would", "Should", "Can"]);
+            } else if (type === 'q_neg') {
+              correct = "Won't";
+              tamilQ = `${subj.ta} நாளை ${ctx.ta} ${subj.futNegQTa}?`;
+              englishQ = `<span class="blank-space">____</span> ${subjLower} not be ${ctx.en} tomorrow?`;
+              tamilMeaning = `${subj.ta} நாளை ${ctx.ta} ${subj.futNegQTa}?`;
+              options = getOptions(correct, ["Won't", "Would", "Should", "Can"]);
+            }
+          }
+
+          qList.push({ tamilQ, englishQ, correct, tamilMeaning, options });
+        });
+      });
+
+      return shuffle(qList);
+    }
+
+    // Quiz Execution State Variables
+    let currentTense = '';
+    let currentType = '';
+    let questionsList = [];
+    let currentIndex = 0;
+    let score = 0;
+    let isAnswered = false;
+
+    function startQuiz(tense, type) {
+      currentTense = tense;
+      currentType = type;
+      questionsList = generate70Questions(tense, type);
+      currentIndex = 0;
+      score = 0;
+
+      const typeLabels = {
+        'pos': 'Positive (+)',
+        'neg': 'Negative (-)',
+        'q_pos': 'Positive Question (?)',
+        'q_neg': 'Negative Question (?-)'
+      };
+
+      document.getElementById('quiz-title-badge').innerText = `${capitalize(tense)} Tense - ${typeLabels[type]}`;
+
+      const playArea = document.getElementById('quiz-play-area');
+      playArea.style.display = 'block';
+      document.getElementById('question-card').style.display = 'block';
+      document.getElementById('score-card').style.display = 'none';
+
+      playArea.scrollIntoView({ behavior: 'smooth' });
+
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      isAnswered = false;
+      const q = questionsList[currentIndex];
+
+      // Update Tracker & Progress
+      document.getElementById('question-tracker').innerText = `Question ${currentIndex + 1} / 70`;
+      const pct = ((currentIndex + 1) / 70) * 100;
+      document.getElementById('progress-bar').style.width = `${pct}%`;
+
+      // STEP 1: Tamil Prominent (Rule 31)
+      document.getElementById('prompt-text-ta').innerText = q.tamilQ;
+
+      // STEP 2: English Fill in blank
+      document.getElementById('prompt-text-en').innerHTML = q.englishQ;
+
+      // Hide Feedback and Next Button
+      document.getElementById('feedback-card').style.display = 'none';
+      document.getElementById('btn-next').style.display = 'none';
+
+      // STEP 3: Options (Rule 32 Vertical List)
+      const listContainer = document.getElementById('options-list');
+      listContainer.innerHTML = '';
+
+      q.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = opt;
+        btn.onclick = () => selectOption(opt, btn);
+        listContainer.appendChild(btn);
+      });
+    }
+
+    function selectOption(selectedOpt, selectedBtn) {
+      if (isAnswered) return;
+      isAnswered = true;
+
+      const q = questionsList[currentIndex];
+      const isCorrect = (selectedOpt === q.correct);
+
+      const allBtns = document.querySelectorAll('.option-btn');
+      allBtns.forEach(btn => btn.disabled = true);
+
+      const feedbackCard = document.getElementById('feedback-card');
+      const feedbackStatus = document.getElementById('feedback-status');
+      const correctAnsText = document.getElementById('correct-ans-text');
+      const tamilMeaningText = document.getElementById('tamil-meaning-text');
+
+      if (isCorrect) {
+        score++;
+        selectedBtn.classList.add('selected-correct');
+        feedbackCard.className = 'feedback-card correct';
+        feedbackStatus.innerText = '✅ Correct!';
+        correctAnsText.innerText = '';
+      } else {
+        selectedBtn.classList.add('selected-wrong');
+        feedbackCard.className = 'feedback-card wrong';
+        feedbackStatus.innerText = '❌ Wrong!';
+        correctAnsText.innerText = `Correct Answer: ${q.correct}`;
+
+        allBtns.forEach(btn => {
+          if (btn.innerText === q.correct) {
+            btn.classList.add('highlight-correct');
+          }
+        });
+      }
+
+      // STEP 5: Full Tamil Sentence Meaning (Rule 33)
+      tamilMeaningText.innerText = q.tamilMeaning;
+      feedbackCard.style.display = 'block';
+
+      const nextBtn = document.getElementById('btn-next');
+      nextBtn.innerText = (currentIndex === 69) ? 'View Final Results 🏆' : 'Next Question ➔';
+      nextBtn.style.display = 'block';
+    }
+
+    function nextQuestion() {
+      if (currentIndex < 69) {
+        currentIndex++;
+        renderQuestion();
+      } else {
+        showFinalResults();
+      }
+    }
+
+    function showFinalResults() {
+      document.getElementById('question-card').style.display = 'none';
+      const scoreCard = document.getElementById('score-card');
+      scoreCard.style.display = 'block';
+
+      const pct = ((score / 70) * 100).toFixed(2);
+      document.getElementById('score-value').innerText = `${score} / 70`;
+      document.getElementById('score-percent').innerText = `Percentage: ${pct}%`;
+
+      const badge = document.getElementById('perf-badge');
+      if (pct >= 90) {
+        badge.className = 'perf-badge perf-exc';
+        badge.innerText = '90–100% → Excellent 🌟';
+      } else if (pct >= 75) {
+        badge.className = 'perf-badge perf-vg';
+        badge.innerText = '75–89% → Very Good 👍';
+      } else if (pct >= 50) {
+        badge.className = 'perf-badge perf-g';
+        badge.innerText = '50–74% → Good 🙂';
+      } else {
+        badge.className = 'perf-badge perf-again';
+        badge.innerText = 'Below 50% → Learn Again 📚';
+      }
+    }
+
+    function retryQuiz() {
+      startQuiz(currentTense, currentType);
+    }
+  </script>
+</body>
+</html>
