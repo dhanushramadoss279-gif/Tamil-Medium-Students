@@ -1,0 +1,502 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Asking Directions - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Asking Directions</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Excuse me, can you help me?</div>
+<div class="tamil">மன்னிக்கவும், நீங்கள் எனக்கு உதவ முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Excuse me, can you help me?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Sure. What are you looking for?</div>
+<div class="tamil">நிச்சயமாக. நீங்கள் எதைத் தேடுகிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure. What are you looking for?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Where is the railway station?</div>
+<div class="tamil">ரயில் நிலையம் எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is the railway station?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">The railway station is nearby.</div>
+<div class="tamil">ரயில் நிலையம் அருகில்தான் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('The railway station is nearby.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">How can I get there?</div>
+<div class="tamil">நான் அங்கே எப்படி செல்லலாம்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How can I get there?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Go straight along this road.</div>
+<div class="tamil">இந்த சாலையில் நேராகச் செல்லுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Go straight along this road.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Should I turn left or right?</div>
+<div class="tamil">நான் இடதுபுறமா அல்லது வலதுபுறமா திரும்ப வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Should I turn left or right?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Turn left at the next street.</div>
+<div class="tamil">அடுத்த தெருவில் இடதுபுறம் திரும்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Turn left at the next street.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Is it far from here?</div>
+<div class="tamil">இங்கிருந்து அது தொலைவில் இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is it far from here?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">No, it is very close.</div>
+<div class="tamil">இல்லை, அது மிகவும் அருகில் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('No, it is very close.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">How long will it take to walk there?</div>
+<div class="tamil">அங்கே நடந்து செல்ல எவ்வளவு நேரம் ஆகும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How long will it take to walk there?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">It will take about ten minutes.</div>
+<div class="tamil">சுமார் பத்து நிமிடங்கள் ஆகும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('It will take about ten minutes.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Where is the nearest bus stop?</div>
+<div class="tamil">அருகிலுள்ள பேருந்து நிறுத்தம் எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is the nearest bus stop?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">It is opposite the bank.</div>
+<div class="tamil">அது வங்கிக்கு எதிரே இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('It is opposite the bank.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Is there a hospital near here?</div>
+<div class="tamil">இங்கே அருகில் மருத்துவமனை இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is there a hospital near here?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, there is a hospital nearby.</div>
+<div class="tamil">ஆம், அருகில் ஒரு மருத்துவமனை இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, there is a hospital nearby.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">How do I get to the hospital?</div>
+<div class="tamil">நான் மருத்துவமனைக்கு எப்படி செல்வது?</div>
+</div>
+<button class="speak-btn" onclick="speak('How do I get to the hospital?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Go straight and turn right.</div>
+<div class="tamil">நேராகச் சென்று வலதுபுறம் திரும்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Go straight and turn right.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Is there a traffic signal ahead?</div>
+<div class="tamil">முன்னால் போக்குவரத்து சிக்னல் இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is there a traffic signal ahead?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, there is a signal ahead.</div>
+<div class="tamil">ஆம், முன்னால் ஒரு சிக்னல் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, there is a signal ahead.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What is near the signal?</div>
+<div class="tamil">சிக்னல் அருகில் என்ன இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('What is near the signal?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">There is a supermarket near the signal.</div>
+<div class="tamil">சிக்னல் அருகில் ஒரு சூப்பர் மார்க்கெட் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('There is a supermarket near the signal.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Is the school on this road?</div>
+<div class="tamil">பள்ளி இந்த சாலையில் இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is the school on this road?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, the school is on this road.</div>
+<div class="tamil">ஆம், பள்ளி இந்த சாலையில் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, the school is on this road.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Which way should I go?</div>
+<div class="tamil">நான் எந்த வழியில் செல்ல வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Which way should I go?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Take the road on your left.</div>
+<div class="tamil">உங்கள் இடதுபுறத்தில் உள்ள சாலையில் செல்லுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Take the road on your left.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Can I go there by bus?</div>
+<div class="tamil">நான் அங்கே பேருந்தில் செல்லலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I go there by bus?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, you can take bus number ten.</div>
+<div class="tamil">ஆம், நீங்கள் பத்து எண் பேருந்தில் செல்லலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, you can take bus number ten.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Where should I get down?</div>
+<div class="tamil">நான் எங்கே இறங்க வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where should I get down?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Get down at the next stop.</div>
+<div class="tamil">அடுத்த நிறுத்தத்தில் இறங்குங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Get down at the next stop.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Thank you for your help.</div>
+<div class="tamil">உங்கள் உதவிக்கு நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you for your help.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">You are welcome. Have a nice day.</div>
+<div class="tamil">பரவாயில்லை. இனிய நாள் வாழ்த்துகள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You are welcome. Have a nice day.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

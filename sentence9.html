@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use Sentences (801-900)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-xl bg-white shadow-xl rounded-3xl p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+        
+        <div>
+            <!-- Quick Page Jump Bar -->
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">பகுதிக்குச் செல்:</span>
+                <select id="pageSelect" onchange="jumpToPage(this.value)" class="w-full bg-gray-50 border border-gray-200 text-xs font-semibold rounded-lg p-2 text-blue-900 focus:outline-none focus:border-blue-500">
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+
+            <!-- Sentences List -->
+            <div id="sentenceContainer" class="flex flex-col gap-2.5">
+                <!-- Dynamic Sentences will load here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+            <button onclick="changePage(-1)" id="prevBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                ← முந்தையது
+            </button>
+            <span id="pageCountDisplay" class="text-xs font-bold text-gray-400">1 / 10</span>
+            <button onclick="changePage(1)" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                அடுத்தது →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // File 9: Sentences 801 to 900 (10 Pages x 10 Sentences)
+        const file9Sentences = [
+            // Page 1 (801 - 810)
+            [
+                { en: "How do you build self-confidence?", ta: "தன்னம்பிக்கையை எப்படி வளர்த்துக்கொள்வது?" },
+                { en: "Believe in your own abilities.", ta: "உங்கள் சொந்தத் திறமைகளை நம்புங்கள்." },
+                { en: "Face your fears with courage.", ta: "உங்கள் பயங்களை தைரியத்துடன் எதிர்கொள்ளுங்கள்." },
+                { en: "Accept failures as stepping stones.", ta: "தோல்விகளைப் படிக்கட்டுகளாக ஏற்றுக்கொள்ளுங்கள்." },
+                { en: "Speak clearly and confidently.", ta: "தெளிவாகவும் நம்பிக்கையுடனும் பேசுங்கள்." },
+                { en: "Stop worrying about what others think.", ta: "மற்றவர்கள் என்ன நினைப்பார்கள் என்று கவலைப்படுவதை நிறுத்துங்கள்." },
+                { en: "Set realistic and achievable goals.", ta: "எதார்த்தமான மற்றும் அடையக்கூடிய இலக்குகளை அமையுங்கள்." },
+                { en: "Celebrate your small victories.", ta: "உங்கள் சிறிய வெற்றிகளைக் கொண்டாடுங்கள்." },
+                { en: "Surround yourself with positive people.", ta: "நேர்மறையான மக்களுடன் உங்களைச் சுற்றி வையுங்கள்." },
+                { en: "You are stronger than you think.", ta: "நீங்கள் நினைப்பதை விட மிகவும் வலிமையானவர்." }
+            ],
+            // Page 2 (811 - 820)
+            [
+                { en: "What are the benefits of reading?", ta: "வாசிப்பதის நன்மைகள் என்ன?" },
+                { en: "Reading expands vocabulary and knowledge.", ta: "வாசிப்பு சொல்லகராதியையும் அறிவையும் விரிவுபடுத்துகிறது." },
+                { en: "It improves focus and concentration.", ta: "இது கவனத்தையும் செறிவையும் மேம்படுத்துகிறது." },
+                { en: "It reduces stress and anxiety.", ta: "இது மன அழுத்தத்தையும் கவலையையும் குறைக்கிறது." },
+                { en: "Books take you to another world.", ta: "புத்தகங்கள் உங்களை மற்றொரு உலகத்திற்கு அழைத்துச் செல்கின்றன." },
+                { en: "Read at least ten pages daily.", ta: "தினமும் குறைந்தது பத்து பக்கங்களாவது படியுங்கள்." },
+                { en: "Maintain a personal library.", ta: "ஒரு சொந்த நூலகத்தைப் பராமரியுங்கள்." },
+                { en: "Share good books with friends.", ta: "நல்ல புத்தகங்களை நண்பர்களுடன் பகிர்ந்துகொள்ளுங்கள்." },
+                { en: "A book is a gift you can open again.", ta: "புத்தகம் என்பது நீங்கள் மீண்டும் திறக்கக்கூடிய ஒரு பரிசு." },
+                { en: "Reading is food for the brain.", ta: "வாசிப்பு மூளைக்கு அளிக்கும் உணவு." }
+            ],
+            // Page 3 (821 - 830)
+            [
+                { en: "How do you manage time effectively?", ta: "நேரத்தை எவ்வாறு திறம்பட நிர்வகிப்பது?" },
+                { en: "Make a schedule for the day.", ta: "நாளுக்கான அட்டவணையைத் தயாரித்துக் கொள்ளுங்கள்." },
+                { en: "Avoid multitasking when focusing.", ta: "கவனத்தை ஒருமுகப்படுத்தும்போது ஒரே நேரத்தில் பல வேலைகளைச் செய்வதைத் தவிர்க்கவும்." },
+                { en: "Finish urgent tasks first.", ta: "அவசரமான வேலைகளை முதலில் முடிக்கவும்." },
+                { en: "Take short breaks between work.", ta: "வேலைக்கு இடையில் சிறிய இடைவெளிகளை எடுத்துக் கொள்ளுங்கள்." },
+                { en: "Procrastination is the thief of time.", ta: "காலத்தைத் தள்ளிப்போடுவது நேரத்தைத் திருடும்." },
+                { en: "Do it now, not tomorrow.", ta: "நாளை அல்ல, இப்பொழுதே செய்யுங்கள்." },
+                { en: "Value every single minute.", ta: "ஒவ்வொரு நொடியையும் மதியுங்கள்." },
+                { en: "Time management brings peace of mind.", ta: "நேர மேலாண்மை மன அமைதியைத் தரும்." },
+                { en: "A well-managed day is productive.", ta: "நன்றாக நிர்வகிக்கப்பட்ட நாள் பயனுள்ளதாகும்." }
+            ],
+            // Page 4 (831 - 840)
+            [
+                { en: "What role does music play in life?", ta: "வாழ்க்கையில் இசையின் பங்கு என்ன?" },
+                { en: "Music heals the soul.", ta: "இசை ஆன்மாவைக் குணப்படுத்துகிறது." },
+                { en: "It brings peace to a troubled mind.", ta: "இது தொந்தரவான மனதிற்கு அமைதியைத் தருகிறது." },
+                { en: "I listen to classical melodies.", ta: "நான் பாரம்பரிய மெல்லிசைகளைக் கேட்பேன்." },
+                { en: "Songs express unspoken feelings.", ta: "பாடல்கள் சொல்லப்படாத உணர்வுகளை வெளிப்படுத்துகின்றன." },
+                { en: "Music has no language barriers.", ta: "இசைக்கு மொழி எல்லைகள் இல்லை." },
+                { en: "Singing lifts up my mood.", ta: "பாடுவது என் மனநிலையை உயர்த்துகிறது." },
+                { en: "Dance to the rhythm of life.", ta: "வாழ்வின் தாளத்திற்கு ஏற்ப நடனமாடுங்கள்." },
+                { en: "Melody brings joy to the heart.", ta: "மெல்லிசை இதயத்திற்கு மகிழ்ச்சியைத் தருகிறது." },
+                { en: "Keep listening to good tunes.", ta: "நல்ல இசையைக் தொடர்ந்து கேளுங்கள்." }
+            ],
+            // Page 5 (841 - 850)
+            [
+                { en: "How do you maintain friendships?", ta: "நட்பை எவ்வாறு பேணிப் பாதுகாப்பது?" },
+                { en: "Stay in touch with old friends.", ta: "பழைய நண்பர்களுடன் தொடர்பில் இருங்கள்." },
+                { en: "Be a good listener to their problems.", ta: "அவர்களின் பிரச்சினைகளைக் கவனித்துக் கேட்பவராக இருங்கள்." },
+                { en: "Support them in difficult times.", ta: "கடினமான காலங்களில் அவர்களுக்கு ஆதரவாக இருங்கள்." },
+                { en: "Forgive minor mistakes.", ta: "சிறிய தவறுகளை மன்னித்து விடுங்கள்." },
+                { en: "Trust is the foundation of friendship.", ta: "நம்பிக்கையே நட்பின் அடித்தளம்." },
+                { en: "True friends are rare gems.", ta: "உண்மையான நண்பர்கள் அரிதான மாணிக்கங்கள்." },
+                { en: "Share happy moments together.", ta: "மகிழ்ச்சியான தருணங்களை ஒன்றாகப் பகிர்ந்துகொள்ளுங்கள்." },
+                { en: "Loyalty matters most in relations.", ta: "உறவுகளில் விசுவாசமே மிகவும் முக்கியமானது." },
+                { en: "Cherish your friends forever.", ta: "நண்பர்களை எப்போதும் போற்றிப் பாதுகாத்திடுங்கள்." }
+            ],
+            // Page 6 (851 - 860)
+            [
+                { en: "What are the qualities of a leader?", ta: "ஒரு தலைவரின் குணங்கள் என்ன?" },
+                { en: "A leader inspires and motivates others.", ta: "ஒரு தலைவர் மற்றவர்களை ஊக்கப்படுத்தி உத்வேகம் அளிப்பார்." },
+                { en: "Lead by personal example.", ta: "சொந்த உதாரணம் மூலம் முன்னின்று நடத்துங்கள்." },
+                { en: "Listen to team members' opinions.", ta: "குழு உறுப்பினர்களின் கருத்துக்களைக் கேளுங்கள்." },
+                { en: "Take responsibility for failures.", ta: "தோல்விகளுக்குப் பொறுப்பேற்கவும்." },
+                { en: "Give credit to the team for success.", ta: "வெற்றிக்குக் குழுவினருக்குப் பாராட்டுத் தாருங்கள்." },
+                { en: "Make firm decisions during crises.", ta: "நெருக்கடி காலங்களில் உறுதியான முடிவுகளை எடுங்கள்." },
+                { en: "Encourage innovation and creativity.", ta: "புதுமை மற்றும் படைப்பாற்றலை ஊக்குவிக்கவும்." },
+                { en: "A good leader is a good listener.", ta: "சிறந்த தலைவர் என்பவன் நன்கு கேட்பவன்." },
+                { en: "Empower others to grow.", ta: "மற்றவர்கள் வளர்ச்சி பெற அதிகாரம் அளியுங்கள்." }
+            ],
+            // Page 7 (861 - 870)
+            [
+                { en: "How do you handle criticism?", ta: "விமர்சனங்களை எவ்வாறு கையாள்வது?" },
+                { en: "Accept constructive feedback positively.", ta: "গঠனாக்கமான விமர்சனங்களை நேர்மறையாக ஏற்றுக்கொள்ளுங்கள்." },
+                { en: "Do not take negative comments personally.", ta: "எதிர்மறையான கருத்துக்களைத் தனிப்பட்ட முறையில் எடுத்துக்கொள்ளாதீர்கள்." },
+                { en: "Use criticism to improve yourself.", ta: "உங்களை மேம்படுத்திக்கொள்ள விமர்சனத்தைப் பயன்படுத்துங்கள்." },
+                { en: "Stay calm when people criticize.", ta: "மக்கள் விமர்சிக்கும்போது அமைதியாக இருங்கள்." },
+                { en: "Actions speak louder than criticisms.", ta: "விமர்சனங்களை விடச் செயல்களே பலமாகப் பேசும்." },
+                { en: "Prove your worth through hard work.", ta: "கடின உழைப்பின் மூலம் உங்கள் மதிப்பை நிரூபியுங்கள்." },
+                { en: "Keep moving forward regardless.", ta: "எப்படியிருப்பினும் முன்னோக்கிச் சென்று கொண்டே இருங்கள்." },
+                { en: "Ignore useless opinions.", ta: "பயனற்ற கருத்துக்களைப் புறக்கணிக்கவும்." },
+                { en: "Focus on your own path.", ta: "உங்கள் சொந்த வழியில் கவனம் செலுத்துங்கள்." }
+            ],
+            // Page 8 (871 - 880)
+            [
+                { en: "Why is financial literacy important?", ta: "நிதி அறிவு ஏன் முக்கியமானது?" },
+                { en: "It helps in saving money wisely.", ta: "இது பணத்தை விவேகமாகச் சேமிக்க உதவுகிறது." },
+                { en: "Learn about investments and savings.", ta: "முதலீடுகள் மற்றும் சேமிப்புகள் பற்றி அறிந்துகொள்ளுங்கள்." },
+                { en: "Avoid unnecessary expenses.", ta: "தேவையற்ற செலவுகளைத் தவிர்க்கவும்." },
+                { en: "Plan your retirement early.", ta: "உங்கள் ஓய்வூதியக் காலத்தைத் முன்கூட்டியே திட்டமிடுங்கள்." },
+                { en: "Emergency fund is very crucial.", ta: "அவசரகால நிதி மிகவும் அவசியமானது." },
+                { en: "Budgeting prevents debt problems.", ta: "பட்ஜெட் தயாரித்தல் கடன் பிரச்சினைகளைத் தவிர்க்கும்." },
+                { en: "Spend less than you earn.", ta: "சம்பாதிப்பதை விடக் குறைவாகச் செலவழியுங்கள்." },
+                { en: "Financial discipline brings freedom.", ta: "நிதி ஒழுக்கம் சுதந்திரத்தைத் தரும்." },
+                { en: "Secure your financial future.", ta: "உங்கள் நிதி எதிர்காலத்தைப் பாதுகாப்பானதாக்குங்கள்." }
+            ],
+            // Page 9 (881 - 890)
+            [
+                { en: "What is the importance of gratitude?", ta: "நன்றியுணர்வின் முக்கியத்துவம் என்ன?" },
+                { en: "Always be thankful for what you have.", ta: "உங்களிடம் உள்ளவற்றுக்கு எப்போதும் நன்றியுடன் இருங்கள்." },
+                { en: "Gratitude brings inner peace.", ta: "நன்றியுணர்வு உள் அமைதியைத் தருகிறது." },
+                { en: "Appreciate people who help you.", ta: "உங்களுக்கு உதவியவர்களைப் போற்றுங்கள்." },
+                { en: "Say thank you with a genuine smile.", ta: "உண்மையான புன்னகையுடன் நன்றி சொல்லுங்கள்." },
+                { en: "A thankful heart is happy.", ta: "நன்றியுள்ள இதயம் மகிழ்ச்சியானது." },
+                { en: "Count your blessings daily.", ta: "தினமும் உங்கள் ஆசீர்வாதங்களை எண்ணிப் பாருங்கள்." },
+                { en: "Compliments brighten someone's day.", ta: "பாராட்டுக்கள் ஒருவரின் நாளைப் பிரகாசமாக்கும்." },
+                { en: "Spread kindness everywhere you go.", ta: "செல்லும் இடங்களில் எல்லாம் அன்பைப் பரப்புங்கள்." },
+                { en: "Gratitude turns what we have into enough.", ta: "நன்றியுணர்வு நம்மிடம் உள்ளதை போதுமானதாக மாற்றுகிறது." }
+            ],
+            // Page 10 (891 - 900)
+            [
+                { en: "How do you evaluate a successful life?", ta: "வெற்றிகரமான வாழ்க்கையை எப்படி மதிப்பிடுவது?" },
+                { en: "Success is measured by inner happiness.", ta: "வெற்றி என்பது உள் மகிழ்ச்சியால் அளவிடப்படுகிறது." },
+                { en: "Helping others brings true fulfillment.", ta: "மற்றவர்களுக்கு உதவுவது உண்மையான நிறைவைத் தரும்." },
+                { en: "Peace of mind is ultimate wealth.", ta: "மன அமைதியே உச்சக்கட்ட செல்வம்." },
+                { en: "Live a life with purpose and passion.", ta: "நோக்கமும் ஆர்வமும் கொண்ட வாழ்க்கையை வாழுங்கள்." },
+                { en: "Leave a positive legacy behind.", ta: "ஒரு நேர்மறையான வரலாற்றைப் பின்னால் விட்டுச் செல்லுங்கள்." },
+                { en: "Keep learning till your last breath.", ta: "உங்கள் கடைசி மூச்சு வரை கற்றுக் கொண்டே இருங்கள்." },
+                { en: "You have completed 900 sentences!", ta: "நீங்கள் 900 வாக்கியங்களைக் கற்று முடித்துவிட்டீர்கள்!" },
+                { en: "Only 100 sentences left to reach 1000!", ta: "1000-ஐ அடைய இன்னும் 100 வாக்கியங்கள் மட்டுமே உள்ளன!" },
+                { en: "Keep going with high spirit!", ta: "உற்சாகத்துடன் தொடர்ந்து செல்லுங்கள்!" }
+            ]
+        ];
+
+        let currentPage = 0;
+
+        // Populate dropdown options
+        const selectEl = document.getElementById('pageSelect');
+        for (let i = 0; i < file9Sentences.length; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = `பகுதி ${i + 1} (வாக்கியங்கள் ${801 + (i*10)} - ${800 + ((i+1)*10)})`;
+            selectEl.appendChild(opt);
+        }
+
+        function renderPage() {
+            const container = document.getElementById('sentenceContainer');
+            const pageData = file9Sentences[currentPage];
+            
+            let html = '';
+            pageData.forEach((item, index) => {
+                let sentenceNo = 801 + (currentPage * 10) + index;
+                html += `
+                    <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 flex flex-col gap-0.5 shadow-sm">
+                        <span class="text-[10px] font-bold text-blue-500">#${sentenceNo}</span>
+                        <p class="text-xs sm:text-sm font-bold text-blue-900">${item.en}</p>
+                        <p class="text-[11px] sm:text-xs font-medium text-gray-600">${item.ta}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.getElementById('pageCountDisplay').innerText = `${currentPage + 1} / 10`;
+            selectEl.value = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === file9Sentences.length - 1;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= file9Sentences.length) currentPage = file9Sentences.length - 1;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function jumpToPage(pageIndex) {
+            currentPage = parseInt(pageIndex);
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // முதல் பக்கத்தை ஏற்றுதல்
+        renderPage();
+    </script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+```html id="bank82"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bank Conversation - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Bank Conversation</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Good morning.</div>
+<div class="tamil">காலை வணக்கம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Good morning. How can I help you?</div>
+<div class="tamil">காலை வணக்கம். நான் உங்களுக்கு எப்படி உதவலாம்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning. How can I help you?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I want to open a bank account.</div>
+<div class="tamil">நான் ஒரு வங்கிக் கணக்கு திறக்க விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want to open a bank account.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">What type of account do you want?</div>
+<div class="tamil">நீங்கள் எந்த வகையான கணக்கு திறக்க விரும்புகிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What type of account do you want?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I want to open a savings account.</div>
+<div class="tamil">நான் சேமிப்பு கணக்கு திறக்க விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want to open a savings account.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Please fill out this form.</div>
+<div class="tamil">தயவுசெய்து இந்தப் படிவத்தை நிரப்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please fill out this form.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">What documents do I need?</div>
+<div class="tamil">எனக்கு என்ன ஆவணங்கள் தேவை?</div>
+</div>
+<button class="speak-btn" onclick="speak('What documents do I need?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">You need your ID and address proof.</div>
+<div class="tamil">உங்களுக்கு அடையாளச் சான்று மற்றும் முகவரிச் சான்று தேவை.</div>
+</div>
+<button class="speak-btn" onclick="speak('You need your ID and address proof.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Here are my documents.</div>
+<div class="tamil">இதோ என்னுடைய ஆவணங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Here are my documents.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Thank you. Please wait for a moment.</div>
+<div class="tamil">நன்றி. தயவுசெய்து சிறிது நேரம் காத்திருக்கவும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you. Please wait for a moment.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I deposit money here?</div>
+<div class="tamil">நான் இங்கே பணம் செலுத்தலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I deposit money here?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Yes, you can deposit money here.</div>
+<div class="tamil">ஆம், நீங்கள் இங்கே பணம் செலுத்தலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, you can deposit money here.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I want to deposit five thousand rupees.</div>
+<div class="tamil">நான் ஐந்தாயிரம் ரூபாய் செலுத்த விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want to deposit five thousand rupees.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Please fill out this deposit slip.</div>
+<div class="tamil">தயவுசெய்து இந்தப் பணம் செலுத்தும் படிவத்தை நிரப்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please fill out this deposit slip.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Where should I submit the slip?</div>
+<div class="tamil">நான் இந்தப் படிவத்தை எங்கே கொடுக்க வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where should I submit the slip?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Submit it at counter number two.</div>
+<div class="tamil">அதை இரண்டாம் எண் கவுண்டரில் கொடுக்கவும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Submit it at counter number two.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I also want to withdraw some money.</div>
+<div class="tamil">நான் கொஞ்சம் பணமும் எடுக்க விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I also want to withdraw some money.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">How much do you want to withdraw?</div>
+<div class="tamil">நீங்கள் எவ்வளவு பணம் எடுக்க விரும்புகிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How much do you want to withdraw?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I want to withdraw two thousand rupees.</div>
+<div class="tamil">நான் இரண்டாயிரம் ரூபாய் எடுக்க விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want to withdraw two thousand rupees.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Please show me your passbook.</div>
+<div class="tamil">தயவுசெய்து உங்கள் வங்கிப் புத்தகத்தைக் காட்டுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please show me your passbook.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Here is my passbook.</div>
+<div class="tamil">இதோ என்னுடைய வங்கிப் புத்தகம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Here is my passbook.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Do you have your debit card?</div>
+<div class="tamil">உங்களிடம் டெபிட் கார்டு இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have your debit card?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Yes, I have my debit card.</div>
+<div class="tamil">ஆம், என்னிடம் என்னுடைய டெபிட் கார்டு இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I have my debit card.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How can I check my balance?</div>
+<div class="tamil">எனது கணக்கு இருப்பை நான் எப்படி சரிபார்க்கலாம்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How can I check my balance?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">You can check it at the ATM.</div>
+<div class="tamil">நீங்கள் அதை ATM-ல் சரிபார்க்கலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You can check it at the ATM.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I need a new ATM card.</div>
+<div class="tamil">எனக்கு ஒரு புதிய ATM கார்டு வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I need a new ATM card.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Please fill out this application form.</div>
+<div class="tamil">தயவுசெய்து இந்த விண்ணப்பப் படிவத்தை நிரப்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please fill out this application form.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How long will it take?</div>
+<div class="tamil">எவ்வளவு நேரம் ஆகும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How long will it take?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">It will take about seven days.</div>
+<div class="tamil">சுமார் ஏழு நாட்கள் ஆகும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('It will take about seven days.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I update my phone number?</div>
+<div class="tamil">நான் என்னுடைய தொலைபேசி எண்ணைப் புதுப்பிக்கலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I update my phone number?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">Yes, please submit the required documents.</div>
+<div class="tamil">ஆம், தேவையான ஆவணங்களைச் சமர்ப்பிக்கவும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, please submit the required documents.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Thank you for your help.</div>
+<div class="tamil">உங்கள் உதவிக்கு நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you for your help.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Bank Clerk:</div>
+<div class="english">You are welcome. Have a nice day.</div>
+<div class="tamil">பரவாயில்லை. இனிய நாள் வாழ்த்துகள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You are welcome. Have a nice day.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

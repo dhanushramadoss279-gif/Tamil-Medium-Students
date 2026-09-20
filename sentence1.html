@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use Sentences (1-100)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-xl bg-white shadow-xl rounded-3xl p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+        
+        <div>
+            <!-- Quick Page Jump Bar -->
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">பகுதிக்குச் செல்:</span>
+                <select id="pageSelect" onchange="jumpToPage(this.value)" class="w-full bg-gray-50 border border-gray-200 text-xs font-semibold rounded-lg p-2 text-blue-900 focus:outline-none focus:border-blue-500">
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+
+            <!-- Sentences List -->
+            <div id="sentenceContainer" class="flex flex-col gap-2.5">
+                <!-- Dynamic Sentences will load here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+            <button onclick="changePage(-1)" id="prevBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                ← முந்தையது
+            </button>
+            <span id="pageCountDisplay" class="text-xs font-bold text-gray-400">1 / 10</span>
+            <button onclick="changePage(1)" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                அடுத்தது →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // File 1: Sentences 1 to 100 (10 Pages x 10 Sentences)
+        const file1Sentences = [
+            // Page 1 (1 - 10)
+            [
+                { en: "Come here.", ta: "இங்கே வா." },
+                { en: "Go there.", ta: "அங்கே போ." },
+                { en: "Sit down.", ta: "உட்கார்." },
+                { en: "Stand up.", ta: "எழுந்திரு." },
+                { en: "Listen to me.", ta: "நான் சொல்வதைக் கேள்." },
+                { en: "Look at me.", ta: "என்னைப் பார்." },
+                { en: "Open the door.", ta: "கதவைத் திற." },
+                { en: "Close the window.", ta: "சன்னலை மூடு." },
+                { en: "Read this book.", ta: "இந்தப் புத்தகத்தைப் படி." },
+                { en: "Write your name.", ta: "உன் பெயரை எழுது." }
+            ],
+            // Page 2 (11 - 20)
+            [
+                { en: "What is this?", ta: "இது என்ன?" },
+                { en: "What is that?", ta: "அது என்ன?" },
+                { en: "Who are you?", ta: "நீ யார்?" },
+                { en: "Who is he?", ta: "அவன் யார்?" },
+                { en: "Where are you?", ta: "நீ எங்கே இருக்கிறாய்?" },
+                { en: "Where is my pen?", ta: "என் பேனா எங்கே?" },
+                { en: "How are you?", ta: "எப்படி இருக்கிறீர்கள்?" },
+                { en: "I am fine.", ta: "நான் நலமாக இருக்கிறேன்." },
+                { en: "What are you doing?", ta: "நீ என்ன செய்கிறாய்?" },
+                { en: "Nothing special.", ta: "சிறப்பு ஒன்றும் இல்லை." }
+            ],
+            // Page 3 (21 - 30)
+            [
+                { en: "Do you know English?", ta: "உனக்கு ஆங்கிலம் தெரியுமா?" },
+                { en: "Yes, I know a little.", ta: "ஆம், எனக்கு கொஞ்சம் தெரியும்." },
+                { en: "No, I don't know.", ta: "இல்லை, எனக்குத் தெரியாது." },
+                { en: "Speak slowly, please.", ta: "தயவுசெய்து மெதுவாகப் பேசுங்கள்." },
+                { en: "Repeat it, please.", ta: "தயவுசெய்து அதைத் திரும்பச் சொல்லுங்கள்." },
+                { en: "I understand.", ta: "எனக்குப் புரிகிறது." },
+                { en: "I don't understand.", ta: "எனக்குப் புரியவில்லை." },
+                { en: "Do you understand?", ta: "உங்களுக்குப் புரிகிறதா?" },
+                { en: "What do you mean?", ta: "இதன் அர்த்தம் என்ன?" },
+                { en: "Tell me the truth.", ta: "உண்மையைச் சொல்." }
+            ],
+            // Page 4 (31 - 40)
+            [
+                { en: "Don't worry.", ta: "கவலைப்படாதே." },
+                { en: "Be happy.", ta: "மகிழ்ச்சியாக இரு." },
+                { en: "Be careful.", ta: "கவனமாக இரு." },
+                { en: "Hurry up.", ta: "சீக்கிரம் வா." },
+                { en: "Slow down.", ta: "மெதுவாகச் செல்." },
+                { en: "Wait for me.", ta: "எனக்காகக் காத்திரு." },
+                { en: "Give me that.", ta: "அதை எனக்குக் கொடு." },
+                { en: "Take this.", ta: "இதை எடுத்துக்கொள்." },
+                { en: "Help me.", ta: "எனக்கு உதவி செய்." },
+                { en: "Let me go.", ta: "என்னைப் போக விடு." }
+            ],
+            // Page 5 (41 - 50)
+            [
+                { en: "Are you ready?", ta: "நீ தயாராக இருக்கிறாயா?" },
+                { en: "I am ready.", ta: "நான் தயாராக இருக்கிறேன்." },
+                { en: "Let's go.", ta: "போகலாம்." },
+                { en: "Let's start.", ta: "தொடங்கலாம்." },
+                { en: "Are you sure?", ta: "உங்களுக்கு உறுதியாகத் தெரியுமா?" },
+                { en: "Yes, I am sure.", ta: "ஆம், எனக்குத் தெரியும்." },
+                { en: "Maybe.", ta: "இருக்கலாம்." },
+                { en: "Of course.", ta: "நிச்சயமாக." },
+                { en: "Why not?", ta: "ஏன் முடியாது?" },
+                { en: "Not at all.", ta: "பரவாயில்லை." }
+            ],
+            // Page 6 (51 - 60)
+            [
+                { en: "What time is it?", ta: "மணி என்ன?" },
+                { en: "It is 5 o'clock.", ta: "மணி 5 ஆகிறது." },
+                { en: "Today is Monday.", ta: "இன்று திங்கட்கிழமை." },
+                { en: "Tomorrow is a holiday.", ta: "நாளை விடுமுறை." },
+                { en: "Yesterday was Sunday.", ta: "நேற்று ஞாயிற்றுக்கிழமை." },
+                { en: "What is the date today?", ta: "இன்று என்ன தேதி?" },
+                { en: "The weather is good.", ta: "வானிலை நன்றாக உள்ளது." },
+                { en: "It is raining.", ta: "மழை பெய்கிறது." },
+                { en: "It is very hot today.", ta: "இன்று மிகவும் வெயிலாக இருக்கிறது." },
+                { en: "It is cold.", ta: "குளிராக இருக்கிறது." }
+            ],
+            // Page 7 (61 - 70)
+            [
+                { en: "I am hungry.", ta: "எனக்குப் பசியாக இருக்கிறது." },
+                { en: "I am thirsty.", ta: "எனக்குத் தாகமாக இருக்கிறது." },
+                { en: "I am tired.", ta: "எனக்குச் சோர்வாக இருக்கிறது." },
+                { en: "I am sleepy.", ta: "எனக்குத் தூக்கமாக வருகிறது." },
+                { en: "Give me some water.", ta: "கொஞ்சம் தண்ணீர் கொடு." },
+                { en: "I want to eat something.", ta: "நான் ஏதாவது சாப்பிட விரும்புகிறேன்." },
+                { en: "The food is delicious.", ta: "உணவு மிகவும் சுவையாக உள்ளது." },
+                { en: "I am full.", ta: "எனக்கு வயிறு நிரம்பிவிட்டது." },
+                { en: "Bring the menu.", ta: "மெனு கார்டைக் கொண்டு வாருங்கள்." },
+                { en: "The bill, please.", ta: "பில்லைத் தாருங்கள்." }
+            ],
+            // Page 8 (71 - 80)
+            [
+                { en: "Where are you going?", ta: "எங்கே செல்கிறாய்?" },
+                { en: "I am going home.", ta: "நான் வீடு செல்கிறேன்." },
+                { en: "Come in.", ta: "உள்ளே வாருங்கள்." },
+                { en: "Go out.", ta: "வெளியே போ." },
+                { en: "Stand in line.", ta: "வரிசையில் நில்." },
+                { en: "Don't make noise.", ta: "சத்தம் போடாதே." },
+                { en: "Keep quiet.", ta: "அமைதியாக இரு." },
+                { en: "Switch on the fan.", ta: "விசிறியைப் போடு." },
+                { en: "Switch off the light.", ta: "விளக்கை அணை." },
+                { en: "Clean the room.", ta: "அறையைச் சுத்தம் செய்." }
+            ],
+            // Page 9 (81 - 90)
+            [
+                { en: "What happened?", ta: "என்ன நடந்தது?" },
+                { en: "Nothing happened.", ta: "ஒன்றும் நடக்கவில்லை." },
+                { en: "Are you okay?", ta: "நீ நலம்தானா?" },
+                { en: "I am fine.", ta: "நான் நலமாக இருக்கிறேன்." },
+                { en: "Take care.", ta: "கவனமாகப் பார்த்துக் கொள்." },
+                { en: "See you tomorrow.", ta: "நாளை சந்திப்போம்." },
+                { en: "See you later.", ta: "பிறகு சந்திப்போம்." },
+                { en: "Good morning.", ta: "காலை வணக்கம்." },
+                { en: "Good evening.", ta: "மாலை வணக்கம்." },
+                { en: "Good night.", ta: "இரவு வணக்கம்." }
+            ],
+            // Page 10 (91 - 100)
+            [
+                { en: "Thank you very much.", ta: "மிகவும் நன்றி." },
+                { en: "You're welcome.", ta: "மகிழ்ச்சி." },
+                { en: "Excuse me.", ta: "மன்னிக்கவும்." },
+                { en: "I am sorry.", ta: "என்னை மன்னிக்கவும்." },
+                { en: "That's alright.", ta: "பரவாயில்லை." },
+                { en: "No problem.", ta: "பிரச்சனை இல்லை." },
+                { en: "Can you help me?", ta: "எனக்கு உதவி செய்ய முடியுமா?" },
+                { en: "With pleasure.", ta: "மகிழ்ச்சியுடன்." },
+                { en: "Have a good day.", ta: "இனிய நாளாக அமையட்டும்." },
+                { en: "Best of luck.", ta: "வாழ்த்துக்கள்." }
+            ]
+        ];
+
+        let currentPage = 0;
+
+        // Populate dropdown options
+        const selectEl = document.getElementById('pageSelect');
+        for (let i = 0; i < file1Sentences.length; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = `பகுதி ${i + 1} (வாக்கியங்கள் ${i*10 + 1} - ${(i+1)*10})`;
+            selectEl.appendChild(opt);
+        }
+
+        function renderPage() {
+            const container = document.getElementById('sentenceContainer');
+            const pageData = file1Sentences[currentPage];
+            
+            let html = '';
+            pageData.forEach((item, index) => {
+                let sentenceNo = (currentPage * 10) + index + 1;
+                html += `
+                    <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 flex flex-col gap-0.5 shadow-sm">
+                        <span class="text-[10px] font-bold text-blue-500">#${sentenceNo}</span>
+                        <p class="text-xs sm:text-sm font-bold text-blue-900">${item.en}</p>
+                        <p class="text-[11px] sm:text-xs font-medium text-gray-600">${item.ta}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.getElementById('pageCountDisplay').innerText = `${currentPage + 1} / 10`;
+            selectEl.value = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === file1Sentences.length - 1;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= file1Sentences.length) currentPage = file1Sentences.length - 1;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function jumpToPage(pageIndex) {
+            currentPage = parseInt(pageIndex);
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // முதல் பக்கத்தை ஏற்றுதல்
+        renderPage();
+    </script>
+</body>
+</html>

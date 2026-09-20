@@ -1,19 +1,850 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Perfect Continuous Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SIMPLE PRESENT TENSE – நிகழ்காலம் (100 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1d4ed8;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #bfdbfe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.90rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2rem; color: #0f172a;">Past Perfect Continuous</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>SIMPLE PRESENT TENSE – நிகழ்காலம்</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 100 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (100)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>எளிய நிகழ்காலம் (Simple Present Tense) என்றால் என்ன?</h2>
+            <p>வழக்கமான செயல்கள் (Habitual Actions), பொதுவான உண்மைகள் (General Truths), மற்றும் நிரந்தர உண்மைகளைக் (Permanent Truths) குறிக்க <b>Simple Present Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure & Rules)</h2>
+            <ul>
+                <li><b>I, We, You, They & Plurals:</b> Verb-ன் முதல் வடிவம் (V1) மட்டுமே பயன்படுத்தப்படும் (எ.கா: *play*, *go*, *eat*).</li>
+                <li><b>He, She, It & Singulars:</b> Verb-ுடன் 's' அல்லது 'es' சேர்க்கப்பட வேண்டும் (எ.கா: *plays*, *goes*, *eats*).</li>
+                <li><b>Negative (எதிர்மறை):</b> I/We/You/They-க்கு *don't + V1*, He/She/It-க்கு *doesn't + V1* பயன்படுத்தப்படும்.</li>
+                <li><b>Questions (வினாக்கள்):</b> Do அல்லது Does கொண்டு தொடங்கும்.</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. முக்கிய குறிப்புகள்</h2>
+            <p>தினசரி பழக்கவழக்கங்கள், அறிவியல் உண்மைகள் மற்றும் நிரந்தர நிலைமைகளைக் கூறும்போது இந்த காலத்தைப் பயன்படுத்த வேண்டும்.</p>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. I get up early every morning.</div>
+                <div class="ta">நான் தினமும் காலையில் சீக்கிரமாக எழுந்திருக்கிறேன்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She speaks English fluently.</div>
+                <div class="ta">அவள் சரளமாக ஆங்கிலம் பேசுகிறாள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. The sun rises in the east.</div>
+                <div class="ta">சூரியன் கிழக்கில் உதயமாகிறது.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. They play cricket on weekends.</div>
+                <div class="ta">அவர்கள் வார இறுதி நாட்களில் கிரிக்கெட் விளையாடுகிறார்கள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. Do you like coffee?</div>
+                <div class="ta">உங்களுக்குக் காபி பிடிக்குமா?</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Simple Present Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Fisher-Yates Shuffle utility to randomize options per question
+        function shuffleOptions(optionsArray, correctIndex) {
+            const optionsWithIndex = optionsArray.map((opt, idx) => ({ text: opt, isCorrect: idx === correctIndex }));
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+            const shuffledOptions = optionsWithIndex.map(item => item.text);
+            const newCorrectIndex = optionsWithIndex.findIndex(item => item.isCorrect);
+            return { shuffledOptions, newCorrectIndex };
+        }
+
+        // Set 1: Affirmative Simple Present Practice (50 Questions with verbs/S-forms)
+        const generateBasicSimplePresentQuestions = () => {
+            const raw = [
+                ["I ______ up early every morning.", "(நான் தினமும் காலையில் சீக்கிரமாக எழுந்திருக்கிறேன்.)", ["get", "gets", "got", "getting"], 0, "I வந்ததால் Verb-ன் முதல் வடிவம் 'get' மட்டுமே பயன்படுத்த வேண்டும்."],
+                ["She ______ English fluently.", "(அவள் சரளமாக ஆங்கிலம் பேசுகிறாள்.)", ["speak", "speaks", "spoke", "speaking"], 1, "She என்பது ஒருமை (Singular) என்பதால் Verb உடன் 's' சேர்த்து 'speaks' என எழுத வேண்டும்."],
+                ["The sun ______ in the east.", "(சூரியன் கிழக்கில் உதயமாகிறது.)", ["rise", "rises", "rose", "rising"], 1, "The sun என்பது ஒருமை என்பதால் 'rises' சரியானது."],
+                ["They ______ cricket on weekends.", "(அவர்கள் வார இறுதி நாட்களில் கிரிக்கெட் விளையாடுகிறார்கள்.)", ["play", "plays", "played", "playing"], 0, "They வந்ததால் Verb-ன் முதல் வடிவம் 'play' பயன்படுத்த வேண்டும்."],
+                ["He ______ hard for his exams.", "(அவன் தனது தேர்வுகளுக்காகக் கடினமாகப் படிக்கிறான்.)", ["study", "studies", "studied", "studying"], 1, "He என்பது ஒருமை என்பதால் 'studies' சரியானது."],
+                ["We ______ in Chennai.", "(நாங்கள் சென்னையில் வசிக்கிறோம்.)", ["live", "lives", "lived", "living"], 0, "We வந்ததால் 'live' பயன்படுத்த வேண்டும்."],
+                ["My mother ______ delicious food.", "(என் அம்மா சுவையான உணவு சமைக்கிறார்.)", ["cook", "cooks", "cooked", "cooking"], 1, "My mother என்பது ஒருமை என்பதால் 'cooks' சரியானது."],
+                ["Dogs ______ at night.", "(நாய்கள் இரவில் குரைக்கின்றன.)", ["bark", "barks", "barked", "barking"], 0, "Dogs என்பது பன்மை (Plural) என்பதால் 'bark' பயன்படுத்த வேண்டும்."],
+                ["Water ______ at 100 degrees Celsius.", "(நீர் 100 டிகிரி செல்சியஸ் வெப்பநிலையில் கொதிக்கிறது.)", ["boil", "boils", "boiled", "boiling"], 1, "Water என்பது ஒருமை என்பதால் 'boils' சரியானது."],
+                ["Birds ______ in the sky.", "(பறவைகள் வானத்தில் பறக்கின்றன.)", ["fly", "flies", "flew", "flying"], 0, "Birds என்பது பன்மை என்பதால் 'fly' பயன்படுத்த வேண்டும்."],
+                ["He ______ to office by bus.", "(அவன் பேருந்தில் அலுவலகத்திற்குச் செல்கிறான்.)", ["go", "goes", "went", "going"], 1, "He என்பது ஒருமை என்பதால் 'goes' சரியானது."],
+                ["You ______ very fast.", "(நீ மிகவும் வேகமாக ஓடுகிறாய்.)", ["run", "runs", "ran", "running"], 0, "You வந்ததால் 'run' பயன்படுத்த வேண்டும்."],
+                ["She ______ nice songs.", "(அவள் அருமையான பாடல்களைப் பாடுகிறாள்.)", ["sing", "sings", "sang", "singing"], 1, "She என்பது ஒருமை என்பதால் 'sings' சரியானது."],
+                ["Children ______ ice cream.", "(குழந்தைகளுக்கு ஐஸ்கிரீம் பிடிக்கும்/விரும்புகின்றன.)", ["like", "likes", "liked", "liking"], 0, "Children என்பது பன்மை என்பதால் 'like' பயன்படுத்த வேண்டும்."],
+                ["The earth ______ around the sun.", "(பூமி சூரியனைச் சுற்றிவருகிறது.)", ["move", "moves", "moved", "moving"], 1, "The earth என்பது ஒருமை என்பதால் 'moves' சரியானது."],
+                ["Ravi ______ Tamil books.", "(ரவி தமிழ் புத்தகங்களைப் படிக்கிறான்.)", ["read", "reads", "readed", "reading"], 1, "Ravi என்பது ஒருமை என்பதால் 'reads' சரியானது."],
+                ["Cats ______ milk.", "(பூனைகள் பால் குடிக்கின்றன.)", ["drink", "drinks", "drank", "drinking"], 0, "Cats என்பது பன்மை என்பதால் 'drink' பயன்படுத்த வேண்டும்."],
+                ["My father ______ a car.", "(என் அப்பா கார் ஓட்டுகிறார்.)", ["drive", "drives", "drove", "driving"], 1, "My father என்பது ஒருமை என்பதால் 'drives' சரியானது."],
+                ["Good students ______ their teachers.", "(நல்ல மாணவர்கள் தங்கள் ஆசிரியர்களை மதிக்கிறார்கள்.)", ["respect", "respects", "respected", "respecting"], 0, "Good students என்பது பன்மை என்பதால் 'respect' பயன்படுத்த வேண்டும்."],
+                ["She ______ the piano very well.", "(அவள் பியானோவை மிக நன்றாக வாசிக்கிறாள்.)", ["play", "plays", "played", "playing"], 1, "She ஒருமை என்பதால் 'plays' சரியானது."],
+                ["I ______ my homework daily.", "(நான் தினமும் என் வீட்டுப்பாடத்தைச் செய்கிறேன்.)", ["do", "does", "did", "doing"], 0, "I வந்ததால் 'do' பயன்படுத்த வேண்டும்."],
+                ["He ______ a nice bicycle.", "(அவனிடம் ஒரு நல்ல சைக்கிள் இருக்கிறது.)", ["have", "has", "had", "having"], 1, "He உடன் 'has' பயன்படுத்த வேண்டும்."],
+                ["We ______ many friends.", "(எங்களுக்கு நிறைய நண்பர்கள் உள்ளனர்.)", ["have", "has", "had", "having"], 0, "We உடன் 'have' பயன்படுத்த வேண்டும்."],
+                ["The flower ______ sweet.", "(மலர் இனிமையான வாசனையைத் தருகிறது/இனிமையாக இருக்கிறது.)", ["smell", "smells", "smelled", "smelling"], 1, "The flower ஒருமை என்பதால் 'smells' சரியானது."],
+                ["Cow ______ us milk.", "(பசு நமக்குப்பால் தருகிறது.)", ["give", "gives", "gave", "giving"], 1, "Cow ஒருமை என்பதால் 'gives' சரியானது."],
+                ["Flowers ______ in the garden.", "(தோட்டத்தில் பூக்கள் பூக்கின்றன.)", ["bloom", "blooms", "bloomed", "blooming"], 0, "Flowers பன்மை என்பதால் 'bloom' சரியானது."],
+                ["An honest person never ______.", "(நாணயமான நபர் எப்பொழுதும் பொய் சொல்வதில்லை.)", ["lie", "lies", "lied", "lying"], 1, "An honest person ஒருமை என்பதால் 'lies' சரியானது."],
+                ["They ______ hard to win.", "(அவர்கள் வெற்றி பெறக் கடினமாக உழைக்கிறார்கள்.)", ["work", "works", "worked", "working"], 0, "They பன்மை என்பதால் 'work' சரியானது."],
+                ["She ______ tea every morning.", "(அவள் தினமும் காலை தேநீர் அருந்துகிறாள்.)", ["drink", "drinks", "drank", "drinking"], 1, "She ஒருமை என்பதால் 'drinks' சரியானது."],
+                ["I ______ what you say.", "(நீ சொல்வதை நான் புரிந்து கொள்கிறேன்.)", ["understand", "understands", "understood", "understanding"], 0, "I வந்ததால் 'understand' பயன்படுத்த வேண்டும்."],
+                ["He ______ the answer.", "(அவனுக்குப் பதில் தெரியும்.)", ["know", "knows", "knew", "knowing"], 1, "He ஒருமை என்பதால் 'knows' சரியானது."],
+                ["We ______ our country.", "(நாங்கள் எங்கள் நாட்டை நேசிக்கிறோம்.)", ["love", "loves", "loved", "loving"], 0, "We வந்ததால் 'love' பயன்படுத்த வேண்டும்."],
+                ["The baby ______ when hungry.", "(குழந்தை பசிக்கும்போது அழுகிறது.)", ["cry", "cries", "cried", "crying"], 1, "The baby ஒருமை என்பதால் 'cries' சரியானது."],
+                ["Fire ______ burn.", "(நெருப்பு சுடும்.)", ["hot", "is", "burns", "burning"], 2, "Fire ஒருமை என்பதால் 'burns' சரியானது."],
+                ["Stars ______ at night.", "(நட்சத்திரங்கள் இரவில் ஒளிர்கின்றன/மின்னுகின்றன.)", ["shine", "shines", "shined", "shining"], 0, "Stars பன்மை என்பதால் 'shine' பயன்படுத்த வேண்டும்."],
+                ["My brother ______ cricket well.", "(என் தம்பி கிரிக்கெட் நன்றாக விளையாடுகிறான்.)", ["play", "plays", "played", "playing"], 1, "My brother ஒருமை என்பதால் 'plays' சரியானது."],
+                ["You ______ English well.", "(நீ நன்றாக ஆங்கிலம் பேசுகிறாய்.)", ["speak", "speaks", "spoke", "speaking"], 0, "You வந்ததால் 'speak' பயன்படுத்த வேண்டும்."],
+                ["She ______ in a bank.", "(அவள் வங்கியில் வேலை செய்கிறாள்.)", ["work", "works", "worked", "working"], 1, "She ஒருமை என்பதால் 'works' சரியானது."],
+                ["I ______ music.", "(எனக்கு இசைப் பிடிக்கும்.)", ["like", "likes", "liked", "liking"], 0, "I வந்ததால் 'like' பயன்படுத்த வேண்டும்."],
+                ["The dog ______ its tail.", "(நாய் தன் வாலைக் காட்டுகிறது/ஆட்டுகிறது.)", ["wag", "wags", "wagged", "wagging"], 1, "The dog ஒருமை என்பதால் 'wags' சரியானது."],
+                ["Monsters ______ not exist.", "(பேய்கள் இல்லை/இருப்பதில்லை.)", ["do", "does", "did", "are"], 0, "Monsters பன்மை என்பதால் 'do' பயன்படுத்த வேண்டும்."],
+                ["He ______ the truth.", "(அவன் உண்மையைச் சொல்கிறான்.)", ["tell", "tells", "told", "telling"], 1, "He ஒருமை என்பதால் 'tells' சரியானது."],
+                ["We ______ breakfast at 8 AM.", "(நாங்கள் காலை 8 மணிக்குச் சிற்றுண்டி சாப்பிடுகிறோம்.)", ["eat", "eats", "ate", "eating"], 0, "We வந்ததால் 'eat' பயன்படுத்த வேண்டும்."],
+                ["The train ______ on time.", "(ரயில் சரியான நேரத்திற்கு வருகிறது.)", ["arrive", "arrives", "arrived", "arriving"], 1, "The train ஒருமை என்பதால் 'arrives' சரியானது."],
+                ["Farmers ______ crops.", "(விவசாயிகள் பயிர்களை விளைவிக்கிறார்கள்.)", ["grow", "grows", "grew", "growing"], 0, "Farmers பன்மை என்பதால் 'grow' பயன்படுத்த வேண்டும்."],
+                ["She ______ her mother in cooking.", "(சமையலில் அவள் தன் தாய்க்கு உதவுகிறாள்.)", ["help", "helps", "helped", "helping"], 1, "She ஒருமை என்பதால் 'helps' சரியானது."],
+                ["I ______ a letter to my friend.", "(நான் என் நண்பனுக்குக் கடிதம் எழுதுகிறேன்.)", ["write", "writes", "wrote", "writing"], 0, "I வந்ததால் 'write' பயன்படுத்த வேண்டும்."],
+                ["He ______ a new shirt.", "(அவன் புதிய சட்டை அணிந்திருக்கிறான்/போடுகிறான்.)", ["wear", "wears", "wore", "wearing"], 1, "He ஒருமை என்பதால் 'wears' சரியானது."],
+                ["The wind ______ heavily.", "(காற்று பலமாக வீசுகிறது.)", ["blow", "blows", "blew", "blowing"], 1, "The wind ஒருமை என்பதால் 'blows' சரியானது."],
+                ["Birds ______ nests.", "(பறவைகள் கூடுகள் கட்டுகின்றன.)", ["build", "builds", "built", "building"], 0, "Birds பன்மை என்பதால் 'build' பயன்படுத்த வேண்டும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        // Set 2: Negatives & Questions Simple Present Practice (50 Questions with Do/Does/Don't/Doesn't)
+        const generateMasterySimplePresentQuestions = () => {
+            const raw = [
+                ["I ______ not like coffee.", "( எனக்குக் காபி பிடிக்காது.)", ["do", "does", "did", "are"], 0, "I வந்ததால் எதிர்மறையில் 'do not' (don't) பயன்படுத்த வேண்டும்."],
+                ["She ______ not speak French.", "(அவளுக்குப் பிரெஞ்சு பேசத் தெரியாது/பேசுவதில்லை.)", ["do", "does", "did", "is"], 1, "She என்பது ஒருமை என்பதால் 'does not' (doesn't) பயன்படுத்த வேண்டும்."],
+                ["______ you play cricket?", "(உங்களுக்குக் கிரிக்கெட் விளையாடத் தெரியுமா/விளையாடுவீர்களா?)", ["Do", "Does", "Did", "Are"], 0, "You வருவதால் வினாத் தொடக்கத்தில் 'Do' பயன்படுத்த வேண்டும்."],
+                ["______ he live in Chennai?", "(அவன் சென்னையில் வசிக்கிறானா?)", ["Do", "Does", "Did", "Is"], 1, "He என்பது ஒருமை என்பதால் வினாத் தொடக்கத்தில் 'Does' பயன்படுத்த வேண்டும்."],
+                ["They ______ not watch TV often.", "(அவர்கள் அடிக்கடி டிவி பார்ப்பது இல்லை.)", ["do", "does", "did", "are"], 0, "They பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ she know the answer?", "(அவளுக்குப் பதில் தெரியுமா?)", ["Do", "Does", "Did", "Is"], 1, "She ஒருமை என்பதால் 'Does' கொண்டு வினா தொடங்க வேண்டும்."],
+                ["We ______ not eat meat.", "(நாங்கள் இறைச்சி சாப்பிடுவதில்லை.)", ["do", "does", "did", "are"], 0, "We பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ the sun rise in the west?", "(சூரியன் மேற்கில் உதயமாகிறதா?)", ["Do", "Does", "Did", "Is"], 1, "The sun ஒருமை என்பதால் 'Does' பயன்படுத்த வேண்டும்."],
+                ["He ______ not work on Sundays.", "(அவன் ஞாயிற்றுக்கிழமைகளில் வேலை செய்வதில்லை.)", ["do", "does", "did", "is"], 1, "He ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["Where ______ you live?", "(நீ எங்கே வசிக்கிறாய்?)", ["do", "does", "did", "are"], 0, "வினாச்சொல்லுக்குப் பின் You வருபவற்றுக்கு 'do' பயன்படுத்த வேண்டும்."],
+                ["What ______ she want?", "(அவள் என்ன விரும்புகிறாள்?)", ["do", "does", "did", "is"], 1, "She ஒருமை என்பதால் 'does' பயன்படுத்த வேண்டும்."],
+                ["______ they speak English?", "(அவர்கள் ஆங்கிலம் பேசுவார்களா?)", ["Do", "Does", "Did", "Are"], 0, "They பன்மை என்பதால் 'Do' கொண்டு தொடங்க வேண்டும்."],
+                ["I ______ not understand this.", "(எனக்குப் இது புரியவில்லை.)", ["do", "does", "did", "am"], 0, "I வந்ததால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["Why ______ he cry?", "(அவன் ஏன் அழுகிறான்?)", ["do", "does", "did", "is"], 1, "He ஒருமை என்பதால் 'does' பயன்படுத்த வேண்டும்."],
+                ["Dogs ______ not fly.", "(நாய்கள் பறப்பதில்லை.)", ["do", "does", "did", "are"], 0, "Dogs பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ your mother cook well?", "(உங்கள் அம்மா நன்றாகச் சமைப்பாரா?)", ["Do", "Does", "Did", "Is"], 1, "Your mother ஒருமை என்பதால் 'Does' பயன்படுத்த வேண்டும்."],
+                ["We ______ not waste time.", "(நாங்கள் நேரத்தை வீணடிப்பதில்லை.)", ["do", "does", "did", "are"], 0, "We பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["How ______ you come to school?", "(நீ எப்படிப் பள்ளிக்கு வருகிறாய்?)", ["do", "does", "did", "are"], 0, "You வருவதற்கு 'do' பயன்படுத்த வேண்டும்."],
+                ["She ______ not like sweets.", "(அவளுக்கு இனிப்புகள் பிடிப்பதில்லை.)", ["do", "does", "did", "is"], 1, "She ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["______ birds fly in the sky?", "(பறவைகள் வானத்தில் பறக்கின்றனவா?)", ["Do", "Does", "Did", "Are"], 0, "Birds பன்மை என்பதால் 'Do' பயன்படுத்த வேண்டும்."],
+                ["He ______ not smoke.", "(அவன் புகைப்பிடிப்பதில்லை.)", ["do", "does", "did", "is"], 1, "He ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["When ______ the train arrive?", "(ரயில் எப்போது வருகிறது?)", ["do", "does", "did", "is"], 1, "The train ஒருமை என்பதால் 'does' பயன்படுத்த வேண்டும்."],
+                ["Children ______ not like bitter gourd.", "(குழந்தைகளுக்குப் பாகற்காய் பிடிப்பதில்லை.)", ["do", "does", "did", "are"], 0, "Children பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ you have a pen?", "(உன்னிடம் பேனா இருக்கிறதா?)", ["Do", "Does", "Did", "Have"], 0, "You வருவதால் 'Do' கொண்டு தொடங்க வேண்டும்."],
+                ["My brother ______ not play cricket.", "(என் தம்பி கிரிக்கெட் விளையாடுவதில்லை.)", ["do", "does", "did", "is"], 1, "My brother ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["Who ______ you want to meet?", "(நீ யாரைச் சந்திக்க விரும்புகிறாய்?)", ["do", "does", "did", "are"], 0, "You முன் 'do' பயன்படுத்த வேண்டும்."],
+                ["It ______ not rain in summer.", "(கோடையில் மழை பெய்வதில்லை.)", ["do", "does", "did", "is"], 1, "It ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["______ they know the truth?", "(அவர்களுக்கு உண்மை தெரியுமா?)", ["Do", "Does", "Did", "Are"], 0, "They பன்மை என்பதால் 'Do' பயன்படுத்த வேண்டும்."],
+                ["I ______ not know her name.", "(எனக்கு அவளது பெயர் தெரியாது.)", ["do", "does", "did", "am"], 0, "I வந்ததால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ Ravi play football?", "(ரவி கால்பந்து விளையாடுவானா?)", ["Do", "Does", "Did", "Is"], 1, "Ravi ஒருமை என்பதால் 'Does' பயன்படுத்த வேண்டும்."],
+                ["Cats ______ not eat grass.", "(பூனைகள் புல் தின்பதில்லை.)", ["do", "does", "did", "are"], 0, "Cats பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["Why ______ you look sad?", "(நீ ஏன் சோகமாக இருக்கிறாய்?)", ["do", "does", "did", "are"], 0, "You உடன் 'do' பயன்படுத்த வேண்டும்."],
+                ["She ______ not tell lies.", "(அவள் பொய் சொல்வதில்லை.)", ["do", "does", "did", "is"], 1, "She ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["______ the baby sleep now?", "(இப்போது குழந்தை தூங்குகிறதா?)", ["Do", "Does", "Did", "Is"], 1, "The baby ஒருமை என்பதால் 'Does' பயன்படுத்த வேண்டும்."],
+                ["We ______ not hate anyone.", "(நாங்கள் யாரையும் வெறுப்பதில்லை.)", ["do", "does", "did", "are"], 0, "We பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["What ______ he say?", "(அவன் என்ன சொல்கிறான்?)", ["do", "does", "did", "is"], 1, "He ஒருமை என்பதால் 'does' பயன்படுத்த வேண்டும்."],
+                ["You ______ not keep your room clean.", "(நீ உன் அறையைச் சுத்தமாக வைத்திருப்பதில்லை.)", ["do", "does", "did", "are"], 0, "You வந்ததால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ the sun shine at night?", "(சூரியன் இரவில் பிரகாசிக்கிறதா?)", ["Do", "Does", "Did", "Is"], 1, "The sun ஒருமை என்பதால் 'Does' பயன்படுத்த வேண்டும்."],
+                ["He ______ not care about others.", "(அவன் மற்றவர்களைப் பற்றிக் கவலைப்படுவதில்லை.)", ["do", "does", "did", "is"], 1, "He ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["How ______ she sing so well?", "(அவள் எப்படி இவ்வளவு நன்றாகப் பாடுகிறாள்?)", ["do", "does", "did", "is"], 1, "She ஒருமை என்பதால் 'does' பயன்படுத்த வேண்டும்."],
+                ["They ______ not listen to advice.", "(அவர்கள் அறிவுரைகளைக் கேட்பதில்லை.)", ["do", "does", "did", "are"], 0, "They பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["______ dogs bark?", "(நாய்கள் குரைக்குமா?)", ["Do", "Does", "Did", "Are"], 0, "Dogs பன்மை என்பதால் 'Do' பயன்படுத்த வேண்டும்."],
+                ["I ______ not drink tea.", "(நான் தேநீர் குடிப்பதில்லை.)", ["do", "does", "did", "am"], 0, "I வந்ததால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["Where ______ they go every Sunday?", "(அவர்கள் ஒவ்வொரு ஞாயிற்றுக்கிழமையும் எங்கே செல்கிறார்கள்?)", ["do", "does", "did", "are"], 0, "They பன்மை என்பதால் 'do' பயன்படுத்த வேண்டும்."],
+                ["She ______ not wear costly dresses.", "(அவள் விலையுயர்ந்த ஆடைகளை அணிவதில்லை.)", ["do", "does", "did", "is"], 1, "She ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["______ you understand me?", "(நான் சொல்வது உனக்குப் புரிகிறதா?)", ["Do", "Does", "Did", "Are"], 0, "You வருவதால் 'Do' பயன்படுத்த வேண்டும்."],
+                ["The engine ______ not work.", "(இயந்திரம் வேலை செய்வதில்லை.)", ["do", "does", "did", "is"], 1, "The engine ஒருமை என்பதால் 'does not' பயன்படுத்த வேண்டும்."],
+                ["______ he like reading books?", "(அவனுக்குப் புத்தகம் படிக்கப் பிடிக்குமா?)", ["Do", "Does", "Did", "Is"], 1, "He ஒருமை என்பதால் 'Does' பயன்படுத்த வேண்டும்."],
+                ["We ______ not waste water.", "(நாங்கள் தண்ணீரை வீணடிப்பதில்லை.)", ["do", "does", "did", "are"], 0, "We பன்மை என்பதால் 'do not' பயன்படுத்த வேண்டும்."],
+                ["Who ______ you want?", "(உமக்கு யாரைத் வேண்டும்?)", ["do", "does", "did", "are"], 0, "You முன் 'do' பயன்படுத்த வேண்டும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item.q, tq: item.tq, o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        const setsData = [
+            { id: "set1", title: "1. Basic Simple Present (Affirmative)", badge: "Simple Present - Set 1", getQuestions: generateBasicSimplePresentQuestions },
+            { id: "set2", title: "2. Negatives & Questions (Do / Does)", badge: "Simple Present - Set 2", getQuestions: generateMasterySimplePresentQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('simple_present_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('simple_present_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

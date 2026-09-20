@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use Sentences (401-500)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-xl bg-white shadow-xl rounded-3xl p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+        
+        <div>
+            <!-- Quick Page Jump Bar -->
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">பகுதிக்குச் செல்:</span>
+                <select id="pageSelect" onchange="jumpToPage(this.value)" class="w-full bg-gray-50 border border-gray-200 text-xs font-semibold rounded-lg p-2 text-blue-900 focus:outline-none focus:border-blue-500">
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+
+            <!-- Sentences List -->
+            <div id="sentenceContainer" class="flex flex-col gap-2.5">
+                <!-- Dynamic Sentences will load here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+            <button onclick="changePage(-1)" id="prevBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                ← முந்தையது
+            </button>
+            <span id="pageCountDisplay" class="text-xs font-bold text-gray-400">1 / 10</span>
+            <button onclick="changePage(1)" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                அடுத்தது →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // File 5: Sentences 401 to 500 (10 Pages x 10 Sentences)
+        const file5Sentences = [
+            // Page 1 (401 - 410)
+            [
+                { en: "Where is the police station?", ta: "காவல் நிலையம் எங்கே இருக்கிறது?" },
+                { en: "I want to file a complaint.", ta: "நான் ஒரு புகார் அளிக்க வேண்டும்." },
+                { en: "I lost my wallet.", ta: "என் பணப்பையைத் தொலைத்துவிட்டேன்." },
+                { en: "My bag was stolen.", ta: "என் பை திருடப்பட்டுவிட்டது." },
+                { en: "Please help me find it.", ta: "இதைக்கண்டுபிடிக்க எனக்கு உதவுங்கள்." },
+                { en: "Here is my phone number.", ta: "இதோ என் தொலைபேசி எண்." },
+                { en: "Call me if you get any news.", ta: "ஏதேனும் தகவல் கிடைத்தால் என்னை அழைக்கவும்." },
+                { en: "Do not touch the evidence.", ta: "சாட்சியங்களைத் தொடாதீர்கள்." },
+                { en: "Tell me what you saw.", ta: "நீங்கள் என்ன பார்த்தீர்கள் என்று சொல்லுங்கள்." },
+                { en: "Cooperate with the police.", ta: "காவல்துறைக்கு ஒத்துழைப்பு கொடுங்கள்." }
+            ],
+            // Page 2 (411 - 420)
+            [
+                { en: "Where is the nearest hotel?", ta: "அருகிலுள்ள விடுதி எங்கே?" },
+                { en: "I want to book a room.", ta: "நான் ஒரு அறை முன்பதிவு செய்ய வேண்டும்." },
+                { en: "Do you have AC rooms?", ta: "ஏசி அறைகள் உள்ளதா?" },
+                { en: "What is the room rent per day?", ta: "ஒரு நாளுக்கான அறை வாடகை என்ன?" },
+                { en: "Breakfast is included.", ta: "காலை உணவு சேர்க்கப்பட்டுள்ளது." },
+                { en: "Please check in here.", ta: "தயவுசெய்து இங்கே பதிவு செய்யுங்கள் (Check-in)." },
+                { en: "Here is your room key.", ta: "இதோ உங்கள் அறையின் சாவி." },
+                { en: "Call room service for food.", ta: "உணவுக்கு ரூம் சர்வீஸை அழைக்கவும்." },
+                { en: "Checkout time is 11 AM.", ta: "வெளியேறும் நேரம் காலை 11 மணி." },
+                { en: "I had a wonderful stay.", ta: "எனது தங்குமிடம் மிகவும் அருமையாக இருந்தது." }
+            ],
+            // Page 3 (421 - 430)
+            [
+                { en: "How do I get to the airport?", ta: "விமான நிலையத்திற்கு எப்படிச் செல்வது?" },
+                { en: "Book a taxi to the airport.", ta: "விமான நிலையத்திற்கு ஒரு டாக்ஸி புக் செய்." },
+                { en: "When is your flight?", ta: "உங்கள் விமானம் எப்போது?" },
+                { en: "My flight is at 3 PM.", ta: "என் விமானம் பிற்பகல் 3 மணிக்கு." },
+                { en: "Show your passport and ticket.", ta: "உங்கள் கடவுச்சீட்டு மற்றும் டிக்கெட்டைக் காட்டுங்கள்." },
+                { en: "Place your baggage on the belt.", ta: "உங்கள் சாமான்களை பெல்ட்டில் வையுங்கள்." },
+                { en: "Proceed to boarding gate.", ta: "போர்டிங் வாயிலுக்குச் செல்லுங்கள்." },
+                { en: "Fasten your seatbelt.", ta: "உங்கள் சீட்பெட்டை அணியுங்கள்." },
+                { en: "The plane is taking off.", ta: "விமானம் புறப்படுகிறது." },
+                { en: "Welcome to Chennai.", ta: "சென்னைக்கு உங்களை வரவேற்கிறோம்." }
+            ],
+            // Page 4 (431 - 440)
+            [
+                { en: "What is your opinion?", ta: "உங்கள் கருத்து என்ன?" },
+                { en: "In my opinion, it is good.", ta: "என் கருத்துப்படி, இது நல்லது." },
+                { en: "I totally agree with you.", ta: "நான் உங்களை முழுமையாக ஏற்கிறேன்." },
+                { en: "That is a great idea.", ta: "அது ஒரு அருமையான யோசனை." },
+                { en: "Let us think about it.", ta: "இதைப் பற்றி நாம் யோசிப்போம்." },
+                { en: "I need some time to decide.", ta: "முடிவெடுக்க எனக்குச் சிறிது நேரம் வேண்டும்." },
+                { en: "Take your own time.", ta: "உங்கள் சொந்த நேரத்தை எடுத்துக் கொள்ளுங்கள்." },
+                { en: "I have made up my mind.", ta: "நான் முடிவு செய்துவிட்டேன்." },
+                { en: "Stick to your decision.", ta: "உங்கள் முடிவில் உறுதியாக இருங்கள்." },
+                { en: "Success will follow.", ta: "வெற்றி பின்தொடரும்." }
+            ],
+            // Page 5 (441 - 450)
+            [
+                { en: "Do you have any questions?", ta: "உங்களுக்கு ஏதேனும் கேள்விகள் உள்ளதா?" },
+                { en: "Yes, I have one question.", ta: "ஆம், எனக்கு ஒரு கேள்வி உள்ளது." },
+                { en: "Please explain this to me.", ta: "தயவுசெய்து இதை எனக்கு விளக்குங்கள்." },
+                { en: "Is this clear to everyone?", ta: "இது அனைவருக்கும் புரிகிறதா?" },
+                { en: "Yes, it is very clear.", ta: "ஆம், இது மிகவும் தெளிவாக உள்ளது." },
+                { en: "Do you have any doubts?", ta: "உங்களுக்கு ஏதேனும் சந்தேகங்கள் உள்ளதா?" },
+                { en: "No doubts at all.", ta: "சந்தேகங்கள் எதுவும் இல்லை." },
+                { en: "Let us move to the next topic.", ta: "அடுத்த தலைப்புக்குச் செல்வோம்." },
+                { en: "Thank you for listening.", ta:빙 = "கேட்டமைக்கு நன்றி." },
+                { en: "The session is over.", ta: "கூட்டம்/அமர்வு முடிந்தது." }
+            ],
+            // Page 6 (451 - 460)
+            [
+                { en: "How is business going?", ta: "வியாபாரம் எப்படிச் செல்கிறது?" },
+                { en: "Business is going well.", ta: "வியாபாரம் நன்றாகச் செல்கிறது." },
+                { en: "We got a new project.", ta: "எங்களுக்கு ஒரு புதிய திட்டம் கிடைத்துள்ளது." },
+                { en: "We need to work harder.", ta: "நாம் இன்னும் கடுமையாக உழைக்க வேண்டும்." },
+                { en: "Meet the clients tomorrow.", ta: "நாளை வாடிக்கையாளர்களைச் சந்தியுங்கள்." },
+                { en: "Prepare the report today.", ta: "இன்றே அறிக்கையைத் தயார் செய்யுங்கள்." },
+                { en: "Send the email immediately.", ta: "உடனே மின்னஞ்சலை அனுப்புங்கள்." },
+                { en: "Check the attachments.", ta: "இணைப்புகளைச் சரிபார்க்கவும்." },
+                { en: "The deadline is tomorrow.", ta: "கடைசி நாள் நாளை." },
+                { en: "We completed on time.", ta: "நாங்கள் குறித்த நேரத்தில் முடித்துவிட்டோம்." }
+            ],
+            // Page 7 (461 - 470)
+            [
+                { en: "Can we talk in private?", ta: "நாம் தனிப்பட்ட முறையில் பேசலாமா?" },
+                { en: "I want to share a secret.", ta: "நான் ஒரு ரகசியத்தைப் பகிர்ந்து கொள்ள விரும்புகிறேன்." },
+                { en: "Keep this to yourself.", ta: "இதை உங்களிடமே வைத்துக் கொள்ளுங்கள்." },
+                { en: "I will not tell anyone.", ta: "நான் யாரிடமும் சொல்ல மாட்டேன்." },
+                { en: "You can trust me.", ta: "நீங்கள் என்னை நம்பலாம்." },
+                { en: "I promise you.", ta: "நான் உங்களுக்கு வாக்களிக்கிறேன்." },
+                { en: "Do not break my trust.", ta: "என் நம்பிக்கையை உடைக்காதீர்கள்." },
+                { en: "I value our friendship.", ta: "நமது நட்பை நான் மதிக்கிறேன்." },
+                { en: "Friends forever.", ta: "எப்பொழுதும் நண்பர்கள்." },
+                { en: "Thanks for being there.", ta: "துணையாக இருந்ததற்கு நன்றி." }
+            ],
+            // Page 8 (471 - 480)
+            [
+                { en: "What are your plans for summer?", ta: "கோடை விடுமுறைக்கு என்ன திட்டம்?" },
+                { en: "I am going to my native place.", ta: "நான் என் சொந்த ஊருக்குப் போகிறேன்." },
+                { en: "We will visit the grandparents.", ta: "நாங்கள் தாத்தா பாட்டியைக் பார்க்கச் செல்வோம்." },
+                { en: "Let us go to a hill station.", ta: "ஒரு மலைப்பகுதிக்குச் செல்வோம்." },
+                { en: "The weather there is cool.", ta: "அங்கு வானிலை குளிராக இருக்கும்." },
+                { en: "Eat lots of mangoes.", ta: "நிறைய மாம்பழங்களைச் சாப்பிடு." },
+                { en: "Drink tender coconut water.", ta: "இளநீர் குடி." },
+                { en: "Protect yourself from the sun.", ta: "வெயிலிலிருந்து உங்களைப் பாதுகாத்துக் கொள்ளுங்கள்." },
+                { en: "Wear sunglasses.", ta: "கண் கண்ணாடியை அணியுங்கள்." },
+                { en: "Have a great vacation.", ta: "இனிய விடுமுறையைக் கழிப்பீர்." }
+            ],
+            // Page 9 (481 - 490)
+            [
+                { en: "What is your favorite festival?", ta: "உங்களுக்குப் பிடித்த திருவிழா என்ன?" },
+                { en: "My favorite festival is Pongal.", ta: "எனக்குப் பிடித்த திருவிழா பொங்கல்." },
+                { en: "Happy Deepavali to all.", ta: "அனைவருக்கும் இனிய தீபாவளி நல்வாழ்த்துகள்." },
+                { en: "Let us burst crackers.", ta: "நாம் பட்டாசுகளை வெடிப்போம்." },
+                { en: "Wear new clothes.", ta: "புதிய ஆடைகளை அணியுங்கள்." },
+                { en: "Eat sweets and snacks.", ta: "இனிப்புகளையும் பலகாரங்களையும் சாப்பிடுங்கள்." },
+                { en: "Celebrate with family.", ta: "குடும்பத்துடன் கொண்டாடுங்கள்." },
+                { en: "Spread love and joy.", ta: "அன்பையும் மகிழ்ச்சியையும் பரப்புங்கள்." },
+                { en: "Peace be with you.", ta: "அமைதி உங்களுடன் நிலவட்டும்." },
+                { en: "Happy New Year.", ta: "இனிய புத்தாண்டு நல்வாழ்த்துகள்." }
+            ],
+            // Page 10 (491 - 500)
+            [
+                { en: "Always speak the truth.", ta: "எப்பொழுதும் உண்மையை மட்டுமே பேசு." },
+                { en: "Respect your elders.", ta: "பெரியவர்களை மதியுங்கள்." },
+                { en: "Help the poor and needy.", ta: "ஏழைகளுக்கும் தேவையுள்ளவர்களுக்கும் உதவுங்கள்." },
+                { en: "Be kind to animals.", ta: "விலங்குகளிடம் கனிவாக இருங்கள்." },
+                { en: "Protect our environment.", ta: "நமது சுற்றுப்புறத்தைப் பாதுகாப்போம்." },
+                { en: "Read books to gain knowledge.", ta: "அறிவு பெற புத்தகங்களைப் படியுங்கள்." },
+                { en: "Practice makes a man perfect.", ta: "பயிற்சி மனிதனை முழுமையாக்குகிறது." },
+                { en: "Knowledge is power.", ta: "அறிவே சக்தி." },
+                { en: "Education is important.", ta: "கல்வி மிகவும் முக்கியமானது." },
+                { en: "You have completed 500 sentences!", ta: "நீங்கள் 500 வாக்கியங்களைக் கற்று முடித்துவிட்டீர்கள்!" }
+            ]
+        ];
+
+        let currentPage = 0;
+
+        // Populate dropdown options
+        const selectEl = document.getElementById('pageSelect');
+        for (let i = 0; i < file5Sentences.length; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = `பகுதி ${i + 1} (வாக்கியங்கள் ${401 + (i*10)} - ${400 + ((i+1)*10)})`;
+            selectEl.appendChild(opt);
+        }
+
+        function renderPage() {
+            const container = document.getElementById('sentenceContainer');
+            const pageData = file5Sentences[currentPage];
+            
+            let html = '';
+            pageData.forEach((item, index) => {
+                let sentenceNo = 401 + (currentPage * 10) + index;
+                html += `
+                    <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 flex flex-col gap-0.5 shadow-sm">
+                        <span class="text-[10px] font-bold text-blue-500">#${sentenceNo}</span>
+                        <p class="text-xs sm:text-sm font-bold text-blue-900">${item.en}</p>
+                        <p class="text-[11px] sm:text-xs font-medium text-gray-600">${item.ta}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.getElementById('pageCountDisplay').innerText = `${currentPage + 1} / 10`;
+            selectEl.value = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === file5Sentences.length - 1;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= file5Sentences.length) currentPage = file5Sentences.length - 1;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function jumpToPage(pageIndex) {
+            currentPage = parseInt(pageIndex);
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // முதல் பக்கத்தை ஏற்றுதல்
+        renderPage();
+    </script>
+</body>
+</html>

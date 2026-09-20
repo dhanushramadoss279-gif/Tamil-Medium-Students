@@ -1,0 +1,480 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Airport Travel - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Airport Travel</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Excuse me, where is the airport?</div>
+<div class="tamil">மன்னிக்கவும், விமான நிலையம் எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Excuse me, where is the airport?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person:</div>
+<div class="english">The airport is about ten kilometers from here.</div>
+<div class="tamil">விமான நிலையம் இங்கிருந்து சுமார் பத்து கிலோமீட்டர் தொலைவில் உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('The airport is about ten kilometers from here.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">How can I get to the airport?</div>
+<div class="tamil">நான் விமான நிலையத்திற்கு எப்படி செல்லலாம்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How can I get to the airport?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person:</div>
+<div class="english">You can take a taxi or a bus.</div>
+<div class="tamil">நீங்கள் டாக்ஸி அல்லது பேருந்தில் செல்லலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You can take a taxi or a bus.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">I have a flight today.</div>
+<div class="tamil">எனக்கு இன்று விமானப் பயணம் உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('I have a flight today.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">May I see your ticket, please?</div>
+<div class="tamil">தயவுசெய்து உங்கள் டிக்கெட்டைப் பார்க்கலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('May I see your ticket, please?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Sure. Here is my ticket.</div>
+<div class="tamil">நிச்சயமாக. இதோ என்னுடைய டிக்கெட்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure. Here is my ticket.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">May I see your passport?</div>
+<div class="tamil">உங்கள் பாஸ்போர்ட்டைப் பார்க்கலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('May I see your passport?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Yes, here is my passport.</div>
+<div class="tamil">ஆம், இதோ என்னுடைய பாஸ்போர்ட்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, here is my passport.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Which flight are you taking?</div>
+<div class="tamil">நீங்கள் எந்த விமானத்தில் செல்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Which flight are you taking?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">I am taking the Chennai to Singapore flight.</div>
+<div class="tamil">நான் சென்னை முதல் சிங்கப்பூர் செல்லும் விமானத்தில் செல்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am taking the Chennai to Singapore flight.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Do you have any luggage?</div>
+<div class="tamil">உங்களிடம் சாமான்கள் ஏதேனும் உள்ளதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have any luggage?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Yes, I have one suitcase.</div>
+<div class="tamil">ஆம், என்னிடம் ஒரு சூட்கேஸ் உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I have one suitcase.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Please put your bag on the scale.</div>
+<div class="tamil">தயவுசெய்து உங்கள் பையை எடை இயந்திரத்தின் மீது வையுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please put your bag on the scale.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Is my luggage within the limit?</div>
+<div class="tamil">என்னுடைய சாமான்கள் அனுமதிக்கப்பட்ட எடை வரம்பிற்குள் உள்ளதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is my luggage within the limit?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Yes, your luggage is within the limit.</div>
+<div class="tamil">ஆம், உங்கள் சாமான்கள் அனுமதிக்கப்பட்ட எடை வரம்பிற்குள் உள்ளன.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, your luggage is within the limit.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Where is the check-in counter?</div>
+<div class="tamil">செக்-இன் கவுண்டர் எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is the check-in counter?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">The check-in counter is on your left.</div>
+<div class="tamil">செக்-இன் கவுண்டர் உங்கள் இடதுபுறத்தில் உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('The check-in counter is on your left.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Where is the security check?</div>
+<div class="tamil">பாதுகாப்பு சோதனை எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is the security check?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Go straight and turn right.</div>
+<div class="tamil">நேராகச் சென்று வலதுபுறம் திரும்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Go straight and turn right.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Where is my boarding gate?</div>
+<div class="tamil">என்னுடைய போர்டிங் கேட் எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is my boarding gate?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Your boarding gate is Gate 5.</div>
+<div class="tamil">உங்களுடைய போர்டிங் கேட் கேட் 5 ஆகும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Your boarding gate is Gate 5.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">What time does boarding start?</div>
+<div class="tamil">போர்டிங் எத்தனை மணிக்கு தொடங்கும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What time does boarding start?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Boarding starts at six o'clock.</div>
+<div class="tamil">போர்டிங் ஆறு மணிக்கு தொடங்கும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Boarding starts at six o’clock.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Is the flight on time?</div>
+<div class="tamil">விமானம் சரியான நேரத்தில் உள்ளதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is the flight on time?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Yes, the flight is on time.</div>
+<div class="tamil">ஆம், விமானம் சரியான நேரத்தில் உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, the flight is on time.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Can I have a window seat?</div>
+<div class="tamil">எனக்கு ஜன்னல் ஓர இருக்கை கிடைக்குமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I have a window seat?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">Yes, I can give you a window seat.</div>
+<div class="tamil">ஆம், நான் உங்களுக்கு ஜன்னல் ஓர இருக்கை கொடுக்க முடியும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I can give you a window seat.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Thank you for your help.</div>
+<div class="tamil">உங்கள் உதவிக்கு நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you for your help.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Airport Staff:</div>
+<div class="english">You are welcome. Have a safe flight.</div>
+<div class="tamil">பரவாயில்லை. பாதுகாப்பான விமானப் பயணம் அமையட்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You are welcome. Have a safe flight.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Level 5 - TMS Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins','Noto Sans Tamil',sans-serif;
+    background:#f4f8ff;
+    color:#172554;
+    min-height:100vh;
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    padding:18px;
+}
+
+.header{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:white;
+    padding:20px;
+    border-radius:20px;
+    margin-bottom:18px;
+}
+
+.logo{
+    font-size:20px;
+    font-weight:700;
+}
+
+.subtitle{
+    font-size:12px;
+    opacity:.9;
+    margin-top:3px;
+}
+
+.level-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:8px;
+}
+
+.level{
+    font-size:18px;
+    font-weight:700;
+}
+
+.count{
+    font-size:13px;
+    color:#64748b;
+}
+
+.progress{
+    height:9px;
+    background:#dbeafe;
+    border-radius:20px;
+    overflow:hidden;
+    margin-bottom:22px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#2563eb,#4f46e5);
+    transition:.3s;
+}
+
+.card{
+    background:white;
+    border-radius:22px;
+    padding:24px 18px;
+    box-shadow:0 8px 30px rgba(15,23,42,.08);
+}
+
+.mode-badge{
+    display:inline-block;
+    background:#eff6ff;
+    color:#2563eb;
+    border:1px solid #bfdbfe;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.type-badge{
+    display:inline-block;
+    background:#f1f5f9;
+    color:#475569;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
+    margin-bottom:15px;
+}
+
+.tamil{
+    font-family:'Noto Sans Tamil',sans-serif;
+    font-size:21px;
+    font-weight:600;
+    text-align:center;
+    line-height:1.6;
+    margin-bottom:20px;
+}
+
+.answer-box{
+    min-height:58px;
+    border:2px dashed #bfdbfe;
+    border-radius:15px;
+    padding:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    margin-bottom:18px;
+    background:#f8fbff;
+}
+
+.placeholder{
+    width:100%;
+    text-align:center;
+    color:#94a3b8;
+    font-size:13px;
+}
+
+.words{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.word-btn{
+    border:1px solid #bfdbfe;
+    background:#eff6ff;
+    color:#1d4ed8;
+    padding:11px 14px;
+    border-radius:12px;
+    font-family:'Poppins';
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.word-btn:active{
+    transform:scale(.95);
+}
+
+.answer-word{
+    border:none;
+    background:#2563eb;
+    color:white;
+    padding:10px 13px;
+    border-radius:10px;
+    font-family:'Poppins';
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.blank-sentence{
+    font-size:19px;
+    font-weight:600;
+    text-align:center;
+    line-height:1.7;
+    margin:20px 0;
+}
+
+.blank-options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.blank-option{
+    border:1px solid #bfdbfe;
+    background:#eff6ff;
+    color:#1d4ed8;
+    padding:12px;
+    border-radius:12px;
+    font-family:'Poppins';
+    font-weight:600;
+    cursor:pointer;
+}
+
+.blank-option.selected{
+    background:#2563eb;
+    color:white;
+}
+
+.speak-box{
+    text-align:center;
+    padding:10px;
+}
+
+.mic-btn{
+    width:80px;
+    height:80px;
+    border:none;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-size:32px;
+    cursor:pointer;
+    margin:15px auto;
+    display:block;
+}
+
+.mic-btn.listening{
+    background:#dc2626;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+    100%{transform:scale(1);}
+}
+
+.transcript{
+    min-height:45px;
+    background:#f8fafc;
+    border-radius:12px;
+    padding:12px;
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.check-btn,
+.next-btn{
+    width:100%;
+    border:none;
+    border-radius:13px;
+    padding:14px;
+    font-family:'Poppins';
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.check-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.next-btn{
+    display:none;
+    background:#16a34a;
+    color:white;
+    margin-top:10px;
+}
+
+.result{
+    text-align:center;
+    font-size:14px;
+    font-weight:600;
+    min-height:25px;
+    margin-top:14px;
+}
+
+.complete{
+    display:none;
+    background:white;
+    text-align:center;
+    padding:35px 20px;
+    border-radius:22px;
+    box-shadow:0 8px 30px rgba(15,23,42,.08);
+}
+
+.complete-icon{
+    font-size:60px;
+}
+
+.complete h2{
+    color:#2563eb;
+    margin:10px 0;
+}
+
+.complete p{
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.level6-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#2563eb;
+    color:white;
+    padding:13px 22px;
+    border-radius:13px;
+    font-weight:700;
+}
+
+@media(max-width:500px){
+
+    .container{
+        padding:12px;
+    }
+
+    .card{
+        padding:20px 14px;
+    }
+
+    .tamil{
+        font-size:19px;
+    }
+
+    .blank-options{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">📚 TMS Academy</div>
+        <div class="subtitle">
+            Learn English Easily Through Tamil
+        </div>
+    </div>
+
+    <div class="level-row">
+        <div class="level">LEVEL 5</div>
+
+        <div class="count">
+            <span id="count">1</span> / 50
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div class="card" id="game">
+
+        <div class="mode-badge" id="modeBadge">
+            Sentence Game
+        </div>
+
+        <div class="type-badge" id="typeBadge">
+            Positive
+        </div>
+
+        <div class="tamil" id="tamil"></div>
+
+        <div id="content"></div>
+
+        <button class="check-btn" id="check">
+            Check Answer ✓
+        </button>
+
+        <div class="result" id="result"></div>
+
+        <button class="next-btn" id="next">
+            Next Question →
+        </button>
+
+    </div>
+
+
+    <div class="complete" id="complete">
+
+        <div class="complete-icon">🎉</div>
+
+        <h2>Level 5 Complete!</h2>
+
+        <p>
+            நீங்கள் Level 5-ஐ வெற்றிகரமாக முடித்துவிட்டீர்கள்!
+        </p>
+
+        <a href="level-6.html" class="level6-btn">
+            Continue to Level 6 →
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   50 QUESTIONS
+   ===================================================== */
+
+const questions = [
+
+/* SENTENCE 1 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"நான் English பேச முடியும்.",
+english:"I can speak English."
+},
+
+/* 2 */
+{
+mode:"sentence",
+type:"Negative",
+tamil:"நான் English பேச முடியாது.",
+english:"I can't speak English."
+},
+
+/* 3 */
+{
+mode:"sentence",
+type:"Positive Question",
+tamil:"நீ எனக்கு உதவ முடியுமா?",
+english:"Can you help me?"
+},
+
+/* 4 */
+{
+mode:"sentence",
+type:"Negative Question",
+tamil:"நீ எனக்கு உதவ முடியாதா?",
+english:"Can't you help me?"
+},
+
+/* 5 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"நான் நாளை வருவேன்.",
+english:"I will come tomorrow."
+},
+
+/* 6 */
+{
+mode:"sentence",
+type:"Negative",
+tamil:"நான் நாளை வரமாட்டேன்.",
+english:"I won't come tomorrow."
+},
+
+/* 7 */
+{
+mode:"sentence",
+type:"Positive Question",
+tamil:"நீ நாளை வருவாயா?",
+english:"Will you come tomorrow?"
+},
+
+/* 8 */
+{
+mode:"sentence",
+type:"Negative Question",
+tamil:"நீ நாளை வரமாட்டாயா?",
+english:"Won't you come tomorrow?"
+},
+
+/* 9 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"நான் உனக்கு உதவ வேண்டும்.",
+english:"I should help you."
+},
+
+/* 10 */
+{
+mode:"sentence",
+type:"Negative",
+tamil:"நான் உனக்கு உதவக்கூடாது.",
+english:"I shouldn't help you."
+},
+
+/* 11 */
+{
+mode:"sentence",
+type:"Positive Question",
+tamil:"நான் இப்போது செல்ல வேண்டுமா?",
+english:"Should I go now?"
+},
+
+/* 12 */
+{
+mode:"sentence",
+type:"Negative Question",
+tamil:"நான் இப்போது செல்லக்கூடாதா?",
+english:"Shouldn't I go now?"
+},
+
+/* 13 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"நான் கடினமாக உழைக்க வேண்டும்.",
+english:"I must work hard."
+},
+
+/* 14 */
+{
+mode:"sentence",
+type:"Negative",
+tamil:"நான் தாமதமாக வரக்கூடாது.",
+english:"I mustn't be late."
+},
+
+/* 15 */
+{
+mode:"sentence",
+type:"Positive Question",
+tamil:"நான் இதை செய்ய வேண்டுமா?",
+english:"Must I do this?"
+},
+
+/* 16 */
+{
+mode:"sentence",
+type:"Negative Question",
+tamil:"நான் இதை செய்யக்கூடாதா?",
+english:"Mustn't I do this?"
+},
+
+/* 17 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"அவனால் வேகமாக ஓட முடியும்.",
+english:"He can run fast."
+},
+
+/* 18 */
+{
+mode:"sentence",
+type:"Negative",
+tamil:"அவனால் வேகமாக ஓட முடியாது.",
+english:"He can't run fast."
+},
+
+/* 19 */
+{
+mode:"sentence",
+type:"Positive Question",
+tamil:"அவனால் English பேச முடியுமா?",
+english:"Can he speak English?"
+},
+
+/* 20 */
+{
+mode:"sentence",
+type:"Negative Question",
+tamil:"அவனால் English பேச முடியாதா?",
+english:"Can't he speak English?"
+},
+
+/* 21 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"அவள் நாளை வருவாள்.",
+english:"She will come tomorrow."
+},
+
+/* 22 */
+{
+mode:"sentence",
+type:"Negative",
+tamil:"அவள் நாளை வரமாட்டாள்.",
+english:"She won't come tomorrow."
+},
+
+/* 23 */
+{
+mode:"sentence",
+type:"Positive Question",
+tamil:"அவள் நாளை வருவாளா?",
+english:"Will she come tomorrow?"
+},
+
+/* 24 */
+{
+mode:"sentence",
+type:"Negative Question",
+tamil:"அவள் நாளை வரமாட்டாளா?",
+english:"Won't she come tomorrow?"
+},
+
+/* 25 */
+{
+mode:"sentence",
+type:"Positive",
+tamil:"நாம் கவனமாக இருக்க வேண்டும்.",
+english:"We should be careful."
+},
+
+
+/* =====================================================
+   FILL IN THE BLANK 26-40
+   ===================================================== */
+
+{
+mode:"blank",
+type:"Positive",
+tamil:"நான் English பேச முடியும்.",
+english:"I ___ speak English.",
+answer:"can",
+options:["can","can't","will","should"]
+},
+
+{
+mode:"blank",
+type:"Negative",
+tamil:"நான் English பேச முடியாது.",
+english:"I ___ speak English.",
+answer:"can't",
+options:["can","can't","will","must"]
+},
+
+{
+mode:"blank",
+type:"Positive Question",
+tamil:"நீ எனக்கு உதவ முடியுமா?",
+english:"___ you help me?",
+answer:"Can",
+options:["Can","Can't","Will","Should"]
+},
+
+{
+mode:"blank",
+type:"Negative Question",
+tamil:"நீ எனக்கு உதவ முடியாதா?",
+english:"___ you help me?",
+answer:"Can't",
+options:["Can","Can't","Will","Must"]
+},
+
+{
+mode:"blank",
+type:"Positive",
+tamil:"நான் நாளை வருவேன்.",
+english:"I ___ come tomorrow.",
+answer:"will",
+options:["will","won't","can","should"]
+},
+
+{
+mode:"blank",
+type:"Negative",
+tamil:"நான் நாளை வரமாட்டேன்.",
+english:"I ___ come tomorrow.",
+answer:"won't",
+options:["will","won't","can't","shouldn't"]
+},
+
+{
+mode:"blank",
+type:"Positive Question",
+tamil:"நீ நாளை வருவாயா?",
+english:"___ you come tomorrow?",
+answer:"Will",
+options:["Will","Won't","Can","Must"]
+},
+
+{
+mode:"blank",
+type:"Negative Question",
+tamil:"நீ நாளை வரமாட்டாயா?",
+english:"___ you come tomorrow?",
+answer:"Won't",
+options:["Will","Won't","Can","Should"]
+},
+
+{
+mode:"blank",
+type:"Positive",
+tamil:"நான் கடினமாக உழைக்க வேண்டும்.",
+english:"I ___ work hard.",
+answer:"must",
+options:["must","mustn't","can","won't"]
+},
+
+{
+mode:"blank",
+type:"Negative",
+tamil:"நான் தாமதமாக வரக்கூடாது.",
+english:"I ___ be late.",
+answer:"mustn't",
+options:["must","mustn't","can","will"]
+},
+
+{
+mode:"blank",
+type:"Positive Question",
+tamil:"நான் இப்போது செல்ல வேண்டுமா?",
+english:"___ I go now?",
+answer:"Should",
+options:["Should","Shouldn't","Can","Won't"]
+},
+
+{
+mode:"blank",
+type:"Negative Question",
+tamil:"நான் இப்போது செல்லக்கூடாதா?",
+english:"___ I go now?",
+answer:"Shouldn't",
+options:["Should","Shouldn't","Must","Can't"]
+},
+
+{
+mode:"blank",
+type:"Positive",
+tamil:"அவனால் வேகமாக ஓட முடியும்.",
+english:"He ___ run fast.",
+answer:"can",
+options:["can","can't","won't","mustn't"]
+},
+
+{
+mode:"blank",
+type:"Negative",
+tamil:"அவனால் வேகமாக ஓட முடியாது.",
+english:"He ___ run fast.",
+answer:"can't",
+options:["can","can't","will","should"]
+},
+
+{
+mode:"blank",
+type:"Positive Question",
+tamil:"அவனால் English பேச முடியுமா?",
+english:"___ he speak English?",
+answer:"Can",
+options:["Can","Can't","Will","Should"]
+},
+
+
+/* =====================================================
+   SPEAKING 41-50
+   ===================================================== */
+
+{
+mode:"speak",
+type:"Positive",
+tamil:"நான் English கற்க வேண்டும்.",
+english:"I should learn English."
+},
+
+{
+mode:"speak",
+type:"Negative",
+tamil:"நான் English கற்கக்கூடாது.",
+english:"I shouldn't learn English."
+},
+
+{
+mode:"speak",
+type:"Positive Question",
+tamil:"நீ English கற்க முடியுமா?",
+english:"Can you learn English?"
+},
+
+{
+mode:"speak",
+type:"Negative Question",
+tamil:"நீ English கற்க முடியாதா?",
+english:"Can't you learn English?"
+},
+
+{
+mode:"speak",
+type:"Positive",
+tamil:"நான் நாளை உன்னை சந்திப்பேன்.",
+english:"I will meet you tomorrow."
+},
+
+{
+mode:"speak",
+type:"Negative",
+tamil:"நான் நாளை உன்னை சந்திக்க மாட்டேன்.",
+english:"I won't meet you tomorrow."
+},
+
+{
+mode:"speak",
+type:"Positive Question",
+tamil:"நீ நாளை என்னை சந்திப்பாயா?",
+english:"Will you meet me tomorrow?"
+},
+
+{
+mode:"speak",
+type:"Negative Question",
+tamil:"நீ நாளை என்னை சந்திக்க மாட்டாயா?",
+english:"Won't you meet me tomorrow?"
+},
+
+{
+mode:"speak",
+type:"Positive",
+tamil:"நாம் கவனமாக இருக்க வேண்டும்.",
+english:"We must be careful."
+},
+
+{
+mode:"speak",
+type:"Negative",
+tamil:"நாம் கவனக்குறைவாக இருக்கக்கூடாது.",
+english:"We mustn't be careless."
+}
+
+];
+
+
+/* =====================================================
+   VARIABLES
+   ===================================================== */
+
+let currentIndex=0;
+let selectedWords=[];
+let selectedBlank="";
+let transcript="";
+let wrongAttempts=0;
+let locked=false;
+
+
+/* ELEMENTS */
+
+const count=document.getElementById("count");
+const progress=document.getElementById("progress");
+const modeBadge=document.getElementById("modeBadge");
+const typeBadge=document.getElementById("typeBadge");
+const tamil=document.getElementById("tamil");
+const content=document.getElementById("content");
+const check=document.getElementById("check");
+const next=document.getElementById("next");
+const result=document.getElementById("result");
+const game=document.getElementById("game");
+const complete=document.getElementById("complete");
+
+
+/* =====================================================
+   SHUFFLE
+   ===================================================== */
+
+function shuffle(array){
+
+    for(let i=array.length-1;i>0;i--){
+
+        const j=Math.floor(
+            Math.random()*(i+1)
+        );
+
+        [array[i],array[j]]=
+        [array[j],array[i]];
+
+    }
+
+    return array;
+}
+
+
+/* =====================================================
+   SUCCESS SOUND
+   ===================================================== */
+
+function successSound(){
+
+    const AC=
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    if(!AC) return;
+
+    const audio=new AC();
+
+    const osc=audio.createOscillator();
+
+    const gain=audio.createGain();
+
+    osc.frequency.value=700;
+
+    gain.gain.setValueAtTime(
+        .12,
+        audio.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        audio.currentTime+.3
+    );
+
+    osc.connect(gain);
+
+    gain.connect(audio.destination);
+
+    osc.start();
+
+    osc.stop(
+        audio.currentTime+.3
+    );
+}
+
+
+/* =====================================================
+   WRONG SOUND
+   ===================================================== */
+
+function wrongSound(){
+
+    const AC=
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    if(!AC) return;
+
+    const audio=new AC();
+
+    const osc=audio.createOscillator();
+
+    const gain=audio.createGain();
+
+    osc.type="square";
+
+    osc.frequency.value=180;
+
+    gain.gain.setValueAtTime(
+        .15,
+        audio.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        audio.currentTime+.2
+    );
+
+    osc.connect(gain);
+
+    gain.connect(audio.destination);
+
+    osc.start();
+
+    osc.stop(
+        audio.currentTime+.2
+    );
+}
+
+
+/* =====================================================
+   LOAD
+   ===================================================== */
+
+function loadQuestion(){
+
+    if(currentIndex>=questions.length){
+
+        finish();
+
+        return;
+    }
+
+    const q=questions[currentIndex];
+
+    count.textContent=currentIndex+1;
+
+    progress.style.width=
+        ((currentIndex/questions.length)*100)+"%";
+
+    modeBadge.textContent=
+        q.mode==="sentence"
+        ? "Sentence Game"
+        : q.mode==="blank"
+        ? "Fill in the Blank"
+        : "Speaking Practice";
+
+    typeBadge.textContent=q.type;
+
+    tamil.textContent=q.tamil;
+
+    selectedWords=[];
+
+    selectedBlank="";
+
+    transcript="";
+
+    wrongAttempts=0;
+
+    locked=false;
+
+    result.textContent="";
+
+    check.style.display="block";
+
+    next.style.display="none";
+
+    renderMode(q);
+}
+
+
+/* =====================================================
+   RENDER MODE
+   ===================================================== */
+
+function renderMode(q){
+
+    content.innerHTML="";
+
+    if(q.mode==="sentence"){
+
+        renderSentence(q);
+
+    }
+
+    else if(q.mode==="blank"){
+
+        renderBlank(q);
+
+    }
+
+    else{
+
+        renderSpeak(q);
+
+    }
+
+}
+
+
+/* =====================================================
+   SENTENCE GAME
+   ===================================================== */
+
+function renderSentence(q){
+
+    const answerBox=
+        document.createElement("div");
+
+    answerBox.className="answer-box";
+
+    answerBox.id="answerBox";
+
+    const wordsBox=
+        document.createElement("div");
+
+    wordsBox.className="words";
+
+    wordsBox.id="words";
+
+    content.appendChild(answerBox);
+
+    content.appendChild(wordsBox);
+
+    renderAnswer();
+
+    const words=
+        q.english.split(" ");
+
+    const shuffled=
+        shuffle(
+            words.map(
+                (word,index)=>({
+                    word:word,
+                    id:index
+                })
+            )
+        );
+
+    shuffled.forEach(item=>{
+
+        const button=
+            document.createElement("button");
+
+        button.className="word-btn";
+
+        button.textContent=item.word;
+
+        button.dataset.id=item.id;
+
+        button.onclick=()=>{
+
+            if(locked) return;
+
+            selectedWords.push(item);
+
+            button.style.display="none";
+
+            renderAnswer();
+
+        };
+
+        wordsBox.appendChild(button);
+
+    });
+
+}
+
+
+/* =====================================================
+   ANSWER
+   ===================================================== */
+
+function renderAnswer(){
+
+    const box=
+        document.getElementById("answerBox");
+
+    if(!box) return;
+
+    box.innerHTML="";
+
+    if(selectedWords.length===0){
+
+        const p=
+            document.createElement("div");
+
+        p.className="placeholder";
+
+        p.textContent=
+            "Words-ஐ click செய்து sentence உருவாக்குங்கள்";
+
+        box.appendChild(p);
+
+        return;
+    }
+
+    selectedWords.forEach(
+        (item,index)=>{
+
+            const button=
+                document.createElement("button");
+
+            button.className="answer-word";
+
+            button.textContent=item.word;
+
+            button.onclick=()=>{
+
+                if(locked) return;
+
+                selectedWords.splice(index,1);
+
+                restoreWord(item.id);
+
+                renderAnswer();
+
+            };
+
+            box.appendChild(button);
+
+        }
+    );
+}
+
+
+/* =====================================================
+   RESTORE
+   ===================================================== */
+
+function restoreWord(id){
+
+    const buttons=
+        document.querySelectorAll(
+            "#words .word-btn"
+        );
+
+    buttons.forEach(button=>{
+
+        if(Number(button.dataset.id)===id){
+
+            button.style.display=
+                "inline-block";
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   FILL BLANK
+   ===================================================== */
+
+function renderBlank(q){
+
+    const sentence=
+        document.createElement("div");
+
+    sentence.className="blank-sentence";
+
+    sentence.textContent=q.english;
+
+    content.appendChild(sentence);
+
+    const options=
+        document.createElement("div");
+
+    options.className="blank-options";
+
+    const shuffled=
+        shuffle([...q.options]);
+
+    shuffled.forEach(option=>{
+
+        const button=
+            document.createElement("button");
+
+        button.className="blank-option";
+
+        button.textContent=option;
+
+        button.onclick=()=>{
+
+            if(locked) return;
+
+            selectedBlank=option;
+
+            document
+                .querySelectorAll(".blank-option")
+                .forEach(btn=>{
+                    btn.classList.remove("selected");
+                });
+
+            button.classList.add("selected");
+
+        };
+
+        options.appendChild(button);
+
+    });
+
+    content.appendChild(options);
+
+}
+
+
+/* =====================================================
+   SPEAK
+   ===================================================== */
+
+function renderSpeak(q){
+
+    const box=
+        document.createElement("div");
+
+    box.className="speak-box";
+
+    box.innerHTML=`
+
+        <div style="font-size:14px;color:#64748b;">
+            இந்த sentence-ஐ English-ல் பேசுங்கள்
+        </div>
+
+        <button class="mic-btn" id="mic">
+            🎤
+        </button>
+
+        <div class="transcript" id="transcript">
+            Speak button-ஐ press செய்யுங்கள்
+        </div>
+
+    `;
+
+    content.appendChild(box);
+
+    const mic=
+        document.getElementById("mic");
+
+    const transcriptBox=
+        document.getElementById("transcript");
+
+    const SpeechRecognition=
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+    if(!SpeechRecognition){
+
+        transcriptBox.textContent=
+            "இந்த browser-ல் voice recognition support இல்லை.";
+
+        mic.disabled=true;
+
+        return;
+    }
+
+    const recognition=
+        new SpeechRecognition();
+
+    recognition.lang="en-US";
+
+    recognition.interimResults=false;
+
+    recognition.continuous=false;
+
+    mic.onclick=()=>{
+
+        if(locked) return;
+
+        transcriptBox.textContent=
+            "🎤 Listening...";
+
+        mic.classList.add("listening");
+
+        recognition.start();
+
+    };
+
+    recognition.onresult=(event)=>{
+
+        transcript=
+            event.results[0][0].transcript.trim();
+
+        transcriptBox.textContent=
+            transcript;
+
+        mic.classList.remove("listening");
+
+    };
+
+    recognition.onerror=()=>{
+
+        mic.classList.remove("listening");
+
+        transcriptBox.textContent=
+            "Voice கேட்கவில்லை. மீண்டும் try செய்யுங்கள்.";
+
+    };
+
+    recognition.onend=()=>{
+
+        mic.classList.remove("listening");
+
+    };
+
+}
+
+
+/* =====================================================
+   NORMALIZE
+   ===================================================== */
+
+function normalize(text){
+
+    return text
+        .toLowerCase()
+        .replace(/[?.!,]/g,"")
+        .replace(/\s+/g," ")
+        .trim();
+
+}
+
+
+/* =====================================================
+   CHECK
+   ===================================================== */
+
+check.onclick=()=>{
+
+    if(locked) return;
+
+    const q=questions[currentIndex];
+
+    let correct=false;
+
+    /* SENTENCE */
+
+    if(q.mode==="sentence"){
+
+        const user=
+            selectedWords
+            .map(item=>item.word)
+            .join(" ");
+
+        correct=
+            normalize(user) ===
+            normalize(q.english);
+
+    }
+
+    /* BLANK */
+
+    else if(q.mode==="blank"){
+
+        if(!selectedBlank){
+
+            result.textContent=
+                "⚠️ முதலில் answer select செய்யுங்கள்.";
+
+            result.style.color="#dc2626";
+
+            return;
+        }
+
+        correct=
+            normalize(selectedBlank) ===
+            normalize(q.answer);
+
+    }
+
+    /* SPEAK */
+
+    else{
+
+        if(!transcript){
+
+            result.textContent=
+                "⚠️ முதலில் sentence-ஐ பேசுங்கள்.";
+
+            result.style.color="#dc2626";
+
+            return;
+        }
+
+        correct=
+            normalize(transcript) ===
+            normalize(q.english);
+
+    }
+
+
+    /* CORRECT */
+
+    if(correct){
+
+        locked=true;
+
+        successSound();
+
+        result.textContent=
+            "✅ Correct!";
+
+        result.style.color="#16a34a";
+
+        check.style.display="none";
+
+        next.style.display="block";
+
+        return;
+
+    }
+
+
+    /* WRONG */
+
+    wrongAttempts++;
+
+    wrongSound();
+
+
+    if(wrongAttempts===1){
+
+        result.textContent=
+            "❌ Wrong! Try Again.";
+
+        result.style.color="#dc2626";
+
+        resetCurrentAnswer();
+
+        return;
+
+    }
+
+
+    /* SECOND WRONG */
+
+    locked=true;
+
+    result.innerHTML=
+        "❌ Wrong Again!<br>" +
+        "Correct Answer: <strong>" +
+        q.english +
+        "</strong>";
+
+    result.style.color="#dc2626";
+
+    check.style.display="none";
+
+    next.style.display="block";
+
+};
+
+
+/* =====================================================
+   RESET AFTER FIRST WRONG
+   ===================================================== */
+
+function resetCurrentAnswer(){
+
+    const q=questions[currentIndex];
+
+    if(q.mode==="sentence"){
+
+        selectedWords=[];
+
+        renderAnswer();
+
+        document
+            .querySelectorAll("#words .word-btn")
+            .forEach(button=>{
+                button.style.display="inline-block";
+            });
+
+    }
+
+    else if(q.mode==="blank"){
+
+        selectedBlank="";
+
+        document
+            .querySelectorAll(".blank-option")
+            .forEach(button=>{
+                button.classList.remove("selected");
+            });
+
+    }
+
+    else{
+
+        transcript="";
+
+        const box=
+            document.getElementById("transcript");
+
+        if(box){
+
+            box.textContent=
+                "மீண்டும் பேசுங்கள் 🎤";
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   NEXT
+   ===================================================== */
+
+next.onclick=()=>{
+
+    if(!locked) return;
+
+    currentIndex++;
+
+    if(currentIndex>=questions.length){
+
+        finish();
+
+        return;
+    }
+
+    loadQuestion();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
+
+
+/* =====================================================
+   FINISH
+   ===================================================== */
+
+function finish(){
+
+    progress.style.width="100%";
+
+    count.textContent="50";
+
+    game.style.display="none";
+
+    complete.style.display="block";
+
+}
+
+
+/* =====================================================
+   START
+   ===================================================== */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use Sentences (501-600)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-xl bg-white shadow-xl rounded-3xl p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+        
+        <div>
+            <!-- Quick Page Jump Bar -->
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">பகுதிக்குச் செல்:</span>
+                <select id="pageSelect" onchange="jumpToPage(this.value)" class="w-full bg-gray-50 border border-gray-200 text-xs font-semibold rounded-lg p-2 text-blue-900 focus:outline-none focus:border-blue-500">
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+
+            <!-- Sentences List -->
+            <div id="sentenceContainer" class="flex flex-col gap-2.5">
+                <!-- Dynamic Sentences will load here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+            <button onclick="changePage(-1)" id="prevBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                ← முந்தையது
+            </button>
+            <span id="pageCountDisplay" class="text-xs font-bold text-gray-400">1 / 10</span>
+            <button onclick="changePage(1)" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                அடுத்தது →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // File 6: Sentences 501 to 600 (10 Pages x 10 Sentences)
+        const file6Sentences = [
+            // Page 1 (501 - 510)
+            [
+                { en: "Where is the supermarket?", ta: "பல்பொருள் அங்காடி (Supermarket) எங்கே?" },
+                { en: "I need to buy groceries.", ta: "நான் மளிகைப் பொருட்கள் வாங்க வேண்டும்." },
+                { en: "Put the items in the trolley.", ta: "பொருட்களை வண்டியில் (Trolley) போடுங்கள்." },
+                { en: "Where are the fresh vegetables?", ta: "புதிய காய்கறிகள் எங்கே உள்ளன?" },
+                { en: "Weighing machine is over there.", ta: "எடை போடும் இயந்திரம் அங்கு உள்ளது." },
+                { en: "Get a bill at the counter.", ta: "கவுண்டரில் பில் வாங்கிக் கொள்ளுங்கள்." },
+                { en: "Do you have carry bags?", ta: "உங்களிடம் பைகள் உள்ளதா?" },
+                { en: "Scan the barcode, please.", ta: "பார்கோடை ஸ்கேன் செய்யுங்கள்." },
+                { en: "Pay the bill by UPI.", ta: "யூபிஐ (UPI) மூலம் பில்லைச் செலுத்துங்கள்." },
+                { en: "Thank you, visit again.", ta: "நன்றி, மீண்டும் வருக." }
+            ],
+            // Page 2 (511 - 520)
+            [
+                { en: "How can I open a bank account?", ta: "வங்கி கணக்கை எப்படித் தொடங்குவது?" },
+                { en: "Bring your passport size photos.", ta: "கடவுச்சீட்டு அளவு புகைப்படங்களைக் கொண்டு வாருங்கள்." },
+                { en: "Submit your address proof.", ta: "முகவரிக்கான சான்றைச் சமர்ப்பிக்கவும்." },
+                { en: "Deposit some cash into the account.", ta: "கணக்கில் கொஞ்சம் பணத்தைச் செலுத்தவும்." },
+                { en: "Here is your passbook.", ta: "இதோ உங்கள் கணக்குப் புத்தகம்." },
+                { en: "Activate your ATM card.", ta: "உங்கள் ஏடிஎம் அட்டையைச் செயல்படுத்துங்கள்." },
+                { en: "Change your secret PIN.", ta: "உங்கள் ரகசிய பின் எண்ணை மாற்றவும்." },
+                { en: "Check your account balance.", ta: "உங்கள் கணக்கு இருப்பைச் சரிபார்க்கவும்." },
+                { en: "Transfer money online.", ta: "இணையம் மூலம் பணத்தை மாற்றவும்." },
+                { en: "Never share your PIN with anyone.", ta: "உங்கள் பின் எண்ணை யாரிடமும் பகிராதீர்கள்." }
+            ],
+            // Page 3 (521 - 530)
+            [
+                { en: "What is your daily schedule?", ta: "உங்களின் தினசரி அட்டவணை என்ன?" },
+                { en: "I wake up at 6 AM daily.", ta: "நான் தினமும் காலை 6 மணிக்கு எழுகிறேன்." },
+                { en: "I go for a morning walk.", ta: "நான் காலை நடைப்பயிற்சிக்குச் செல்வேன்." },
+                { en: "I eat breakfast at 8 AM.", ta: "நான் காலை 8 மணிக்குச் சிற்றுண்டி சாப்பிடுகிறேன்." },
+                { en: "I leave for office at 9 AM.", ta: "நான் காலை 9 மணிக்கு அலுவலகத்திற்குப் புறப்படுகிறேன்." },
+                { en: "I have lunch at 1 PM.", ta: "நான் மதியம் 1 மணிக்கு மதிய உணவு உண்கிறேன்." },
+                { en: "I return home by 7 PM.", ta: "நான் மாலை 7 மணிக்கு வீடு திரும்புகிறேன்." },
+                { en: "I watch news in the evening.", ta: "நான் மாலையில் செய்தி பார்ப்பேன்." },
+                { en: "I have dinner at 9 PM.", ta: "நான் இரவு 9 மணிக்கு இரவு உணவு உண்கிறேன்." },
+                { en: "I go to bed by 10 PM.", ta: "நான் இரவு 10 மணிக்குத் தூங்கச் செல்வேன்." }
+            ],
+            // Page 4 (531 - 540)
+            [
+                { en: "How do you spend your weekends?", ta: "வார இறுதி நாட்களை எப்படிச் செலவிடுகிறீர்கள்?" },
+                { en: "I clean my house on Saturdays.", ta: "நான் சனிக்கிழமைகளில் வீட்டைச் சுத்தம் செய்வேன்." },
+                { en: "I wash my clothes.", ta: "நான் துணிகளைத் துவைப்பேன்." },
+                { en: "I cook special dishes.", ta: "நான் சிறப்பு உணவுகளைச் சமைப்பேன்." },
+                { en: "I visit my friends.", ta: "நான் நண்பர்களைச் சந்திக்கச் செல்வேன்." },
+                { en: "I go to the temple on Sundays.", ta: "நான் ஞாயிற்றுக்கிழமைகளில் கோவிலுக்குச் செல்வேன்." },
+                { en: "I read novels in my free time.", ta: "நான் ஓய்வு நேரத்தில் நாவல்களைப் படிப்பேன்." },
+                { en: "I listen to soothing music.", ta: "நான் அமைதியான இசையைக் கேட்பேன்." },
+                { en: "I take proper rest.", ta: "நான் முறையான ஓய்வு எடுப்பேன்." },
+                { en: "Relaxation is very important.", ta: "ஓய்வு மிகவும் அவசியமானது." }
+            ],
+            // Page 5 (541 - 550)
+            [
+                { en: "Can you recommend a good book?", ta: "ஒரு நல்ல புத்தகத்தைப் பரிந்துரைக்க முடியுமா?" },
+                { en: "This is an inspiring autobiography.", ta: "இது ஒரு ஊக்கமளிக்கும் தன்வரலாறு." },
+                { en: "Who is the author of this book?", ta: "இந்தப் புத்தகத்தின் ஆசிரியர் யார்?" },
+                { en: "Dr. A.P.J. Abdul Kalam wrote it.", ta: "டாக்டர் ஏ.பி.ஜே. அப்துல் கலாம் இதை எழுதினார்." },
+                { en: "Wings of Fire is a great book.", ta: "அக்னிச் சிறகுகள் ஒரு சிறந்த புத்தகம்." },
+                { en: "Reading broadens our mind.", ta: "வாசிப்பு நமது மனதை விரிவுபடுத்துகிறது." },
+                { en: "Books are our best friends.", ta: "புத்தகங்களே நமது சிறந்த நண்பர்கள்." },
+                { en: "Keep a habit of reading daily.", ta: "தினமும் படிக்கும் பழக்கத்தை வைத்துக்கொள்ளுங்கள்." },
+                { en: "Knowledge grows by sharing.", ta: "அறிவு பகிர்வதன் மூலம் வளர்கிறது." },
+                { en: "Learn something new every day.", ta: "தினமும் ஏதாவது புதியதைக் கற்றுக்கொள்ளுங்கள்." }
+            ],
+            // Page 6 (551 - 560)
+            [
+                { en: "How do you feel today?", ta: "இன்று உங்களுக்கு எப்படி இருக்கிறது?" },
+                { en: "I feel energetic and fresh.", ta: "நான் புத்துணர்ச்சியாகவும் சுறுசுறுப்பாகவும் உணர்கிறேன்." },
+                { en: "My mood is very good.", ta: "என் மனநிலை மிகவும் நன்றாக உள்ளது." },
+                { en: "Why are you looking upset?", ta: "நீங்கள் ஏன் கவலையாக இருக்கிறீர்கள்?" },
+                { en: "I lost my important file.", ta: "என் முக்கியமான கோப்பைத் தொலைத்துவிட்டேன்." },
+                { en: "Don't worry, we will find it.", ta: "கவலைப்படாதே, நாம் அதைக் கண்டுபிடிப்போம்." },
+                { en: "Keep your chin up.", ta: "தைரியமாக இருங்கள்." },
+                { en: "Things will get better soon.", ta: "காரியங்கள் விரைவில் சரியாகிவிடும்." },
+                { en: "Hope for the best.", ta: "நல்லதையே நம்புங்கள்." },
+                { en: "Stay strong through difficulties.", ta: "துன்பங்களை எதிர்கொண்டு பலமாக இருங்கள்." }
+            ],
+            // Page 7 (561 - 570)
+            [
+                { en: "What are your future goals?", ta: "உங்கள் எதிர்கால இலக்குகள் என்ன?" },
+                { en: "I want to become a software engineer.", ta: "நான் ஒரு மென்பொருள் பொறியாளராக விரும்புகிறேன்." },
+                { en: "I want to settle abroad.", ta: "நான் வெளிநாட்டில் குடியேற விரும்புகிறேன்." },
+                { en: "I want to build my own house.", ta: "நான் சொந்தமாக வீடு கட்ட விரும்புகிறேன்." },
+                { en: "I want to help needy people.", ta: "தேவையிலுள்ள மக்களுக்கு உதவ விரும்புகிறேன்." },
+                { en: "Plan your goals clearly.", ta: "உங்கள் இலக்குகளைத் தெளிவாகத் திட்டமிடுங்கள்." },
+                { en: "Work towards your dreams.", ta: "உங்கள் கனவுகளை நோக்கி உழையுங்கள்." },
+                { en: "Consistency is the key to success.", ta: "தொடர் முயற்சியே வெற்றிக்கு வழி." },
+                { en: "Do not let distractions stop you.", ta: "கவனச்சிதறல்கள் உங்களைத் தடுத்து நிறுத்த வேண்டாம்." },
+                { en: "You will achieve greatness.", ta: "நீங்கள் மிகப்பெரிய உயரத்தை அடைவீர்கள்." }
+            ],
+            // Page 8 (571 - 580)
+            [
+                { en: "Can we talk about sports?", ta: "விளையாட்டைப் பற்றிப் பேசலாமா?" },
+                { en: "Cricket is a religion in India.", ta: "இந்தியாவில் கிரிக்கெட் ஒரு மதம் போன்றது." },
+                { en: "Who won the match yesterday?", ta: "நேற்று நடந்த போட்டியில் யார் வென்றார்கள்?" },
+                { en: "India won the match easily.", ta: "இந்தியா எளிதில் போட்டியில் வென்றது." },
+                { en: "Sachin Tendulkar is a legend.", ta: "சச்சின் டெண்டுல்கர் ஒரு சாதனையாளர்." },
+                { en: "Do you play football?", ta: "உங்களுக்குக் கால்பந்து விளையாடத் தெரியுமா?" },
+                { en: "Olympics happen every four years.", ta: "ஒம்பிக் போட்டிகள் நான்கு ஆண்டுகளுக்கு ஒருமுறை நடக்கும்." },
+                { en: "Physical fitness is essential.", ta: "உடற்தகுதி மிகவும் அவசியமானது." },
+                { en: "Play with true sportsman spirit.", ta: "உண்மையான விளையாட்டு வீரரின் உணர்வுடன் விளையாடுங்கள்." },
+                { en: "Winning and losing are part of the game.", ta: "வெற்றி தோல்வி விளையாட்டின் ஒரு பகுதி." }
+            ],
+            // Page 9 (581 - 590)
+            [
+                { en: "What is your native place?", ta: "உங்கள் சொந்த ஊர் எது?" },
+                { en: "My native place is Madurai.", ta: "என் சொந்த ஊர் மதுரை." },
+                { en: "Madurai is famous for Jasmine flowers.", ta: "மதுரை மல்லிகைப் பூவிற்குப் பிரபலமானது." },
+                { en: "Meenakshi Amman temple is magnificent.", ta: "மீனாட்சி அம்மன் கோவில் மிகச் சிறப்பானது." },
+                { en: "Have you visited Thanjavur temple?", ta: "தஞ்சாவூர் கோவிலுக்குச் சென்றுள்ளீர்களா?" },
+                { en: "Tamil Nadu has a rich culture.", ta: "தமிழ்நாடு செழுமையான கலாச்சாரத்தைக் கொண்டுள்ளது." },
+                { en: "Tamil is an ancient language.", ta: "தமிழ் ஒரு மூத்த மொழி." },
+                { en: "We should preserve our heritage.", ta: "நாம் நமது பாரம்பரியத்தைப் பாதுகாக்க வேண்டும்." },
+                { en: "Tradition defines our identity.", ta: "பாரம்பரியமே நமது அடையாளத்தைக் காட்டுகிறது." },
+                { en: "Feel proud of your roots.", ta: "உங்கள் வேர்களைப் பற்றிப் பெருமைப்படுங்கள்." }
+            ],
+            // Page 10 (591 - 600)
+            [
+                { en: "Let us wrap up for today.", ta: "இன்றைய நாளை முடிக்கலாம்." },
+                { en: "It was a wonderful conversation.", ta: "இது ஒரு அற்புதமான உரையாடலாக இருந்தது." },
+                { en: "I enjoyed talking with you.", ta: "உங்களுடன் பேசியதில் மகிழ்ச்சி." },
+                { en: "Let us stay in touch.", ta: "தொடர்பில் இருப்போம்." },
+                { en: "Give my regards to your parents.", ta: "உங்கள் பெற்றோரிடம் என் வணக்கத்தைச் சொல்லுங்கள்." },
+                { en: "Have a safe trip back home.", ta: "வீட்டிற்குப் பாதுகாப்பாகச் செல்லுங்கள்." },
+                { en: "Take good care of your health.", ta: "உங்கள் உடல்நலத்தைக் நன்றாகப் பார்த்துக் கொள்ளுங்கள்." },
+                { en: "Wishing you all the best.", ta: "உங்களுக்கு நல்வாழ்த்துகள்." },
+                { en: "See you again very soon.", ta: "விரைவில் மீண்டும் சந்திப்போம்." },
+                { en: "You have learned 600 sentences!", ta: "நீங்கள் 600 வாக்கியங்களைக் கற்று முடித்துவிட்டீர்கள்!" }
+            ]
+        ];
+
+        let currentPage = 0;
+
+        // Populate dropdown options
+        const selectEl = document.getElementById('pageSelect');
+        for (let i = 0; i < file6Sentences.length; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = `பகுதி ${i + 1} (வாக்கியங்கள் ${501 + (i*10)} - ${500 + ((i+1)*10)})`;
+            selectEl.appendChild(opt);
+        }
+
+        function renderPage() {
+            const container = document.getElementById('sentenceContainer');
+            const pageData = file6Sentences[currentPage];
+            
+            let html = '';
+            pageData.forEach((item, index) => {
+                let sentenceNo = 501 + (currentPage * 10) + index;
+                html += `
+                    <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 flex flex-col gap-0.5 shadow-sm">
+                        <span class="text-[10px] font-bold text-blue-500">#${sentenceNo}</span>
+                        <p class="text-xs sm:text-sm font-bold text-blue-900">${item.en}</p>
+                        <p class="text-[11px] sm:text-xs font-medium text-gray-600">${item.ta}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.getElementById('pageCountDisplay').innerText = `${currentPage + 1} / 10`;
+            selectEl.value = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === file6Sentences.length - 1;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= file6Sentences.length) currentPage = file6Sentences.length - 1;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function jumpToPage(pageIndex) {
+            currentPage = parseInt(pageIndex);
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // முதல் பக்கத்தை ஏற்றுதல்
+        renderPage();
+    </script>
+</body>
+</html>

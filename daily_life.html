@@ -1,0 +1,524 @@
+```html id="m8k4zp"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Daily Life Conversation - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Daily Life Conversation</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Good morning. Did you sleep well?</div>
+<div class="tamil">காலை வணக்கம். நீங்கள் நன்றாக தூங்கினீர்களா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning. Did you sleep well?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, I slept well.</div>
+<div class="tamil">ஆம், நான் நன்றாக தூங்கினேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I slept well.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What time did you wake up?</div>
+<div class="tamil">நீங்கள் எத்தனை மணிக்கு எழுந்தீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What time did you wake up?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I woke up at six o'clock.</div>
+<div class="tamil">நான் ஆறு மணிக்கு எழுந்தேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I woke up at six o’clock.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What are you doing now?</div>
+<div class="tamil">நீங்கள் இப்போது என்ன செய்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are you doing now?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I am getting ready for the day.</div>
+<div class="tamil">நான் அன்றைய நாளுக்குத் தயாராகிக் கொண்டிருக்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am getting ready for the day.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Have you brushed your teeth?</div>
+<div class="tamil">நீங்கள் பல் துலக்கிவிட்டீர்களா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Have you brushed your teeth?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, I have brushed my teeth.</div>
+<div class="tamil">ஆம், நான் பல் துலக்கிவிட்டேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I have brushed my teeth.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What are you going to eat for breakfast?</div>
+<div class="tamil">காலை உணவாக நீங்கள் என்ன சாப்பிடப் போகிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are you going to eat for breakfast?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I am going to eat idli and sambar.</div>
+<div class="tamil">நான் இட்லி மற்றும் சாம்பார் சாப்பிடப் போகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am going to eat idli and sambar.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What time do you leave home?</div>
+<div class="tamil">நீங்கள் எத்தனை மணிக்கு வீட்டை விட்டு கிளம்புவீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What time do you leave home?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I leave home at eight o'clock.</div>
+<div class="tamil">நான் எட்டு மணிக்கு வீட்டை விட்டு கிளம்புவேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I leave home at eight o’clock.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">How do you go to college?</div>
+<div class="tamil">நீங்கள் கல்லூரிக்கு எப்படி செல்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How do you go to college?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I go to college by bus.</div>
+<div class="tamil">நான் பேருந்தில் கல்லூரிக்கு செல்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I go to college by bus.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What do you do in the afternoon?</div>
+<div class="tamil">நீங்கள் மதியம் என்ன செய்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What do you do in the afternoon?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I have lunch and take some rest.</div>
+<div class="tamil">நான் மதிய உணவு சாப்பிட்டு சிறிது ஓய்வு எடுப்பேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I have lunch and take some rest.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What are you doing in the evening?</div>
+<div class="tamil">நீங்கள் மாலையில் என்ன செய்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are you doing in the evening?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I usually go for a walk.</div>
+<div class="tamil">நான் வழக்கமாக நடைப்பயிற்சிக்குச் செல்வேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I usually go for a walk.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Do you exercise every day?</div>
+<div class="tamil">நீங்கள் தினமும் உடற்பயிற்சி செய்கிறீர்களா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you exercise every day?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, I exercise every evening.</div>
+<div class="tamil">ஆம், நான் தினமும் மாலை உடற்பயிற்சி செய்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I exercise every evening.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What do you do after exercise?</div>
+<div class="tamil">உடற்பயிற்சிக்குப் பிறகு நீங்கள் என்ன செய்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What do you do after exercise?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I take a shower and relax.</div>
+<div class="tamil">நான் குளித்துவிட்டு ஓய்வெடுப்பேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I take a shower and relax.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What do you usually have for dinner?</div>
+<div class="tamil">நீங்கள் வழக்கமாக இரவு உணவாக என்ன சாப்பிடுவீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What do you usually have for dinner?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I usually have rice and vegetables.</div>
+<div class="tamil">நான் வழக்கமாக சாதம் மற்றும் காய்கறிகள் சாப்பிடுவேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I usually have rice and vegetables.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Do you watch TV at night?</div>
+<div class="tamil">நீங்கள் இரவில் டிவி பார்ப்பீர்களா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you watch TV at night?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Sometimes I watch TV.</div>
+<div class="tamil">சில நேரங்களில் நான் டிவி பார்ப்பேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sometimes I watch TV.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Do you read books?</div>
+<div class="tamil">நீங்கள் புத்தகங்கள் படிப்பீர்களா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you read books?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Yes, I read books before sleeping.</div>
+<div class="tamil">ஆம், நான் தூங்குவதற்கு முன் புத்தகங்கள் படிப்பேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I read books before sleeping.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What time do you go to bed?</div>
+<div class="tamil">நீங்கள் எத்தனை மணிக்கு தூங்கச் செல்வீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What time do you go to bed?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I usually go to bed at ten o'clock.</div>
+<div class="tamil">நான் வழக்கமாக பத்து மணிக்கு தூங்கச் செல்வேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I usually go to bed at ten o’clock.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">What will you do tomorrow?</div>
+<div class="tamil">நீங்கள் நாளை என்ன செய்வீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What will you do tomorrow?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">I will go to college and study.</div>
+<div class="tamil">நான் கல்லூரிக்குச் சென்று படிப்பேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I will go to college and study.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person A:</div>
+<div class="english">Okay. Have a good night.</div>
+<div class="tamil">சரி. இனிய இரவு வணக்கம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay. Have a good night.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person B:</div>
+<div class="english">Good night. Sleep well.</div>
+<div class="tamil">இனிய இரவு வணக்கம். நன்றாக தூங்குங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good night. Sleep well.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

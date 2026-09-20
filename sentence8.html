@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use Sentences (701-800)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-xl bg-white shadow-xl rounded-3xl p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+        
+        <div>
+            <!-- Quick Page Jump Bar -->
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">பகுதிக்குச் செல்:</span>
+                <select id="pageSelect" onchange="jumpToPage(this.value)" class="w-full bg-gray-50 border border-gray-200 text-xs font-semibold rounded-lg p-2 text-blue-900 focus:outline-none focus:border-blue-500">
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+
+            <!-- Sentences List -->
+            <div id="sentenceContainer" class="flex flex-col gap-2.5">
+                <!-- Dynamic Sentences will load here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+            <button onclick="changePage(-1)" id="prevBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                ← முந்தையது
+            </button>
+            <span id="pageCountDisplay" class="text-xs font-bold text-gray-400">1 / 10</span>
+            <button onclick="changePage(1)" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                அடுத்தது →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // File 8: Sentences 701 to 800 (10 Pages x 10 Sentences)
+        const file8Sentences = [
+            // Page 1 (701 - 710)
+            [
+                { en: "How do you plan your day?", ta: "உங்கள் நாளை எப்படித் திட்டமிடுகிறீர்கள்?" },
+                { en: "I make a to-do list every morning.", ta: "நான் ஒவ்வொரு காலையிலும் செய்ய வேண்டிய பட்டியல் (To-do list) தயாரிப்பேன்." },
+                { en: "Prioritize your important tasks.", ta: "முக்கியமான வேலைகளுக்கு முன்னுரிமை கொடுங்கள்." },
+                { en: "Avoid wasting time on social media.", ta: "சமூக வலைதளங்களில் நேரத்தை வீணடிப்பதைத் தவிர்க்கவும்." },
+                { en: "Punctuality is a great virtue.", ta: "நேரத்தைக் கடைப்பிடித்தல் ஒரு சிறந்த பண்பாகும்." },
+                { en: "Always keep your promises.", ta: "எப்பொழுதும் உங்கள் வாக்கை நிறைவேற்றுங்கள்." },
+                { en: "Keep your workspace neat and clean.", ta: "உங்கள் பணிபுரியும் இடத்தை சுத்தமாகவும் நேர்த்தியாகவும் வைத்துக் கொள்ளுங்கள்." },
+                { en: "Discipline leads to success.", ta: "ஒழுக்கமே வெற்றிக்கு வழிவகுக்கும்." },
+                { en: "Stay focused on your goals.", ta: "உங்கள் இலக்குகளில் மட்டுமே கவனம் செலுத்துங்கள்." },
+                { en: "Hard work always pays off.", ta: "கடின உழைப்பு எப்போதுமே நல்ல பலனைத் தரும்." }
+            ],
+            // Page 2 (711 - 720)
+            [
+                { en: "What are you studying now?", ta: "இப்போது என்ன படித்துக் கொண்டிருக்கிறீர்கள்?" },
+                { en: "I am learning computer programming.", ta: "நான் கணினி நிரலாக்கம் (Programming) படித்துக் கொண்டிருக்கிறேன்." },
+                { en: "Technology is changing very fast.", ta: "தொழில்நுட்பம் மிக வேகமாக மாறி வருகிறது." },
+                { en: "Artificial Intelligence is the future.", ta: "செயற்கை நுண்ணறிவு (AI) தான் எதிர்காலம்." },
+                { en: "I love solving complex problems.", ta: "சிக்கலான சிக்கல்களைத் தீர்ப்பது எனக்குப் பிடிக்கும்." },
+                { en: "Practice coding daily.", ta: "தினமும் கோடிங் பயிற்சி செய்யுங்கள்." },
+                { en: "Errors help us learn better.", ta: "பிழைகள் நாம் சிறப்பாகக் கற்றுக்கொள்ள உதவுகின்றன." },
+                { en: "Never hesitate to ask questions.", ta: "கேள்விகள் கேட்க எப்போதுமே தயங்காதீர்கள்." },
+                { en: "Curiosity drives innovation.", ta: "ஆர்வம் தான் புதுமைகளுக்கு வித்திடுகிறது." },
+                { en: "Keep updating your technical skills.", ta: "உங்கள் தொழில்நுட்பத் திறன்களைத் தொடர்ந்து மேம்படுத்திக் கொள்ளுங்கள்." }
+            ],
+            // Page 3 (721 - 730)
+            [
+                { en: "How do you handle stress?", ta: "மன அழுத்தத்தை எப்படிச் சமாளிக்கிறீர்கள்?" },
+                { en: "I take deep breaths and relax.", ta: "நான் ஆழ்ந்த மூச்சுவிட்டு ஓய்வெடுப்பேன்." },
+                { en: "Listening to music calms me down.", ta: "பாட்டு கேட்பது என்னை அமைதிப்படுத்துகிறது." },
+                { en: "Talk to someone you trust.", ta: "நீங்கள் நம்பும் ஒருவரிடம் பேசுங்கள்." },
+                { en: "Never keep worries inside.", ta: "கவலைகளை எப்போதுமே உள்ளுக்குள் வைத்துக் கொள்ளாதீர்கள்." },
+                { en: "A positive attitude changes everything.", ta: "நேர்மறையான மனப்பான்மை எல்லாவற்றையும் மாற்றிவிடும்." },
+                { en: "Take a short walk in the park.", ta: "பூங்காவில் சிறிது நேரம் நடந்து வாருங்கள்." },
+                { en: "Smile through difficult times.", ta: "கடினமான காலங்களிலும் புன்னகையுடன் இருங்கள்." },
+                { en: "This too shall pass.", ta: "இதுவும் கடந்து போகும்." },
+                { en: "Tomorrow is a new beginning.", ta: "நாளை ஒரு புதிய தொடக்கம்." }
+            ],
+            // Page 4 (731 - 740)
+            [
+                { en: "What is your favorite cuisine?", ta: "உங்களுக்குப் பிடித்த உணவுவகை என்ன?" },
+                { en: "I love traditional South Indian food.", ta: "எனக்குப் பாரம்பரிய தென்னிந்திய உணவு மிகவும் பிடிக்கும்." },
+                { en: "Idli and Dosa are very healthy.", ta: "இட்லியும் தோசையும் மிகவும் ஆரோக்கியமானவை." },
+                { en: "Chettinad chicken is spicy and tasty.", ta: "செட்டிநாடு சிக்கன் காரமாகவும் சுவையாகவும் இருக்கும்." },
+                { en: "Do you like fast food?", ta: "உங்களுக்கு துரித உணவு பிடிக்குமா?" },
+                { en: "I prefer homemade fresh food.", ta: "நான் வீட்டில் தயாரித்த புதிய உணவையே விரும்புவேன்." },
+                { en: "Fruits are good for health.", ta: "பழங்கள் ஆரோக்கியத்திற்கு நல்லது." },
+                { en: "Drink coconut water in summer.", ta: "கோடையில் இளநீர் குடியுங்கள்." },
+                { en: "Never waste food.", ta: "உணவை ஒருபோதும் வீணாக்காதீர்கள்." },
+                { en: "Appreciate the farmers who grow food.", ta: "உணவு விளைவிக்கும் விவசாயிகளைப் போற்றுங்கள்." }
+            ],
+            // Page 5 (741 - 750)
+            [
+                { en: "How do you celebrate festivals?", ta: "திருவிழாக்களை எப்படிக் கொண்டாடுகிறீர்கள்?" },
+                { en: "We clean our house thoroughly.", ta: "நாங்கள் வீட்டை நன்றாகச் சுத்தம் செய்வோம்." },
+                { en: "Wear new clothes and burst crackers.", ta: "புதிய ஆடைகளை அணிந்து பட்டாசு வெடிப்போம்." },
+                { en: "Prepare delicious sweets and snacks.", ta: "சுவையான இனிப்புகளையும் பலகாரங்களையும் தயாரிப்போம்." },
+                { en: "Greet relatives and friends.", ta: "உறவினர்களுக்கும் நண்பர்களுக்கும் வாழ்த்துகள் கூறுவோம்." },
+                { en: "Share joy with poor people.", ta: "ஏழை மக்களுடன் மகிழ்ச்சியைப் பகிர்ந்துகொள்வோம்." },
+                { en: "Festivals bring families together.", ta: "திருவிழாக்கள் குடும்பங்களை ஒன்றிணைக்கின்றன." },
+                { en: "Maintain cultural traditions.", ta: "கலாச்சார பாரம்பரியத்தைக் காப்பாற்றுங்கள்." },
+                { en: "Respect every religion.", ta: "அனைத்து மதங்களையும் மதியுங்கள்." },
+                { en: "Live in peace and harmony.", ta: "அமைதியாகவும் ஒற்றுமையாகவும் வாழுங்கள்." }
+            ],
+            // Page 6 (751 - 760)
+            [
+                { en: "Can you tell me a short story?", ta: "எனக்கு ஒரு குட்டி கதை சொல்ல முடியுமா?" },
+                { en: "Once upon a time, there was a king.", ta: "ஒரு காலத்தில் ஒரு அரசர் இருந்தார்." },
+                { en: "He was very kind and just.", ta: "அவர் மிகவும் கனிவானவராகவும் நீதியுள்ளவராகவும் இருந்தார்." },
+                { en: "He helped all his subjects.", ta: "அவர் தனது குடிமக்களுக்கு உதவினார்." },
+                { en: "Everyone lived happily.", ta: "அனைவரும் மகிழ்ச்சியுடன் வாழ்ந்தனர்." },
+                { en: "Moral of the story is honesty.", ta: "இக்கதையின் நீதி நேர்மையே ஆகும்." },
+                { en: "Stories teach us valuable lessons.", ta: "கதைகள் நமக்கு மதிப்புமிக்க பாடங்களைக் கற்பிக்கின்றன." },
+                { en: "Read bedtime stories to kids.", ta: "குழந்தைகளுக்குத் தூங்கச் செல்லும் முன் கதைகள் படியுங்கள்." },
+                { en: "Imagination has no limits.", ta: "கற்பனைக்கு எல்லைகள் இல்லை." },
+                { en: "Creativity makes life colorful.", ta: "படைப்பாற்றல் வாழ்க்கையை வண்ணமயமாக்குகிறது." }
+            ],
+            // Page 7 (761 - 770)
+            [
+                { en: "How do you protect the environment?", ta: "சுற்றுச்சூழலை எப்படிப் பாதுகாக்கிறீர்கள்?" },
+                { en: "Plant more trees around your house.", ta: "உங்கள் வீட்டைச் சுற்றி நிறைய மரங்களை நட்டு வளர்க்கவும்." },
+                { en: "Avoid using single-use plastic bags.", ta: "ஒருமுறை மட்டுமே பயன்படுத்தும் நெகிழிப் பைகளைப் (Plastics) பயன்படுத்துவதைத் தவிர்க்கவும்." },
+                { en: "Use cloth bags for shopping.", ta: "ஷாப்பிங் செய்ய துணிப் பைகளைப் பயன்படுத்துங்கள்." },
+                { en: "Conserve electricity and water.", ta: "மின்சாரம் மற்றும் தண்ணீரைச் சேமிக்கவும்." },
+                { en: "Use public transport when possible.", ta: "முடிந்தவரை பொதுப் போக்குவரத்தைப் பயன்படுத்துங்கள்." },
+                { en: "Recycle waste materials.", ta: "கழிவுப் பொருட்களை மறுசுழற்சி செய்யுங்கள்." },
+                { en: "Keep public places clean.", ta: "பொது இடங்களைச் சுத்தமாக வைத்துக் கொள்ளுங்கள்." },
+                { en: "Earth is our only home.", ta: "பூமி மட்டுமே நமக்கு ஒரே வீடு." },
+                { en: "Protect nature for future generations.", ta: "எதிர்கால சந்ததிக்காக இயற்கையைக் காப்போம்." }
+            ],
+            // Page 8 (771 - 780)
+            [
+                { en: "What are your career ambitions?", ta: "உங்களது தொழில் லட்சியங்கள் என்ன?" },
+                { en: "I want to become a successful entrepreneur.", ta: "நான் ஒரு வெற்றிகரமான தொழில்முனைவோராக விரும்புகிறேன்." },
+                { en: "I want to create jobs for others.", ta: "மற்றவர்களுக்கு வேலைவாய்ப்புகளை உருவாக்க விரும்புகிறேன்." },
+                { en: "Innovation is key to business growth.", ta: "வணிக வளர்ச்சிக்கு புதுமையே முக்கியம்." },
+                { en: "Take calculated risks in life.", ta: "வாழ்வில் கணக்கிடப்பட்ட இடர்களை (Risks) எடுங்கள்." },
+                { en: "Learn from business failures.", ta: "வணிகத் தோல்விகளிலிருந்து கற்றுக்கொள்ளுங்கள்." },
+                { en: "Customer satisfaction is paramount.", ta: "வாடிக்கையாளர் திருப்தியே மிகவும் முக்கியமானது." },
+                { en: "Build a strong team spirit.", ta: "வழக்கமான குழு உணர்வை வளர்த்துக் கொள்ளுங்கள்." },
+                { en: "Integrity builds brand value.", ta: "நாணயம் பிராண்டின் மதிப்பை உயர்த்துகிறது." },
+                { en: "Strive for excellence always.", ta: "எப்பொழுதும் சிறந்து விளங்க முயலுங்கள்." }
+            ],
+            // Page 9 (781 - 790)
+            [
+                { en: "Do you like traveling to new places?", ta: "புதிய இடங்களுக்குப் பயணம் செய்யப் பிடிக்குமா?" },
+                { en: "Yes, traveling opens our mind.", ta: "ஆம், பயணம் நமது மனதை விரிவுபடுத்துகிறது." },
+                { en: "I want to explore historical monuments.", ta: "நான் வரலாற்றுச் சின்னங்களை ஆராய விரும்புகிறேன்." },
+                { en: "Himalayas are breathtakingly beautiful.", ta: "இமயமலை பார்ப்பதற்கு மிகவும் அழகாக இருக்கும்." },
+                { en: "Click pictures to preserve memories.", ta: "நினைவுகளைப் பாதுகாக்கப் புகைப்படங்கள் எடுங்கள்." },
+                { en: "Meet new people during travel.", ta: "பயணத்தின் போது புதியவர்களைச் சந்தியுங்கள்." },
+                { en: "Learn about different cultures.", ta: "பல்வேறு கலாச்சாரங்களைப் பற்றி அறிந்து கொள்ளுங்கள்." },
+                { en: "Keep a first aid kit handy.", ta: "முதலுதவி பெட்டியை அருகில் வைத்துக் கொள்ளுங்கள்." },
+                { en: "Check weather forecast before traveling.", ta: "பயணம் செல்வதற்கு முன் வானிலை முன்னறிவிப்பைச் சரிபார்க்கவும்." },
+                { en: "Collect wonderful memories everywhere.", ta: "எங்கும் அழகான நினைவுகளைச் சேகரியுங்கள்." }
+            ],
+            // Page 10 (791 - 800)
+            [
+                { en: "How do you evaluate your progress?", ta: "உங்கள் முன்னேற்றத்தை எப்படி மதிப்பிடுகிறீர்கள்?" },
+                { en: "Compare yourself with your past self.", ta: "உங்களை உங்கள் கடந்த காலத்துடனும் ஒப்பிட்டுப் பாருங்கள்." },
+                { en: "Every day is a chance to improve.", ta: "ஒவ்வொரு நாளும் உங்களை மேம்படுத்திக் கொள்ள ஒரு வாய்ப்பாகும்." },
+                { en: "Never compare with others.", ta: "எப்பொழுதும் மற்றவர்களுடன் உங்களை ஒப்பிடாதீர்கள்." },
+                { en: "Keep learning and growing.", ta: "தொடர்ந்து கற்றுக்கொண்டு முன்னேறுங்கள்." },
+                { en: "Stay humble in success.", ta: "வெற்றியில் பணிவாக இருங்கள்." },
+                { en: "Stay strong in failure.", ta: "தோல்வியில் பலமாக இருங்கள்." },
+                { en: "You have completed 800 sentences!", ta: "நீங்கள் 800 வாக்கியங்களைக் கற்று முடித்துவிட்டீர்கள்!" },
+                { en: "Keep up the fantastic work.", ta: "இந்த அற்புதமான பணியைத் தொடருங்கள்." },
+                { en: "Success is just around the corner.", ta: "வெற்றி உங்களை நெருங்கிவிட்டது." }
+            ]
+        ];
+
+        let currentPage = 0;
+
+        // Populate dropdown options
+        const selectEl = document.getElementById('pageSelect');
+        for (let i = 0; i < file8Sentences.length; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = `பகுதி ${i + 1} (வாக்கியங்கள் ${701 + (i*10)} - ${700 + ((i+1)*10)})`;
+            selectEl.appendChild(opt);
+        }
+
+        function renderPage() {
+            const container = document.getElementById('sentenceContainer');
+            const pageData = file8Sentences[currentPage];
+            
+            let html = '';
+            pageData.forEach((item, index) => {
+                let sentenceNo = 701 + (currentPage * 10) + index;
+                html += `
+                    <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 flex flex-col gap-0.5 shadow-sm">
+                        <span class="text-[10px] font-bold text-blue-500">#${sentenceNo}</span>
+                        <p class="text-xs sm:text-sm font-bold text-blue-900">${item.en}</p>
+                        <p class="text-[11px] sm:text-xs font-medium text-gray-600">${item.ta}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.getElementById('pageCountDisplay').innerText = `${currentPage + 1} / 10`;
+            selectEl.value = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === file8Sentences.length - 1;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= file8Sentences.length) currentPage = file8Sentences.length - 1;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function jumpToPage(pageIndex) {
+            currentPage = parseInt(pageIndex);
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // முதல் பக்கத்தை ஏற்றுதல்
+        renderPage();
+    </script>
+</body>
+</html>

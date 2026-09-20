@@ -1,19 +1,785 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Present Perfect Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PRESENT PERFECT TENSE – முற்றுப்பெற்ற நிகழ்காலம் (50 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1d4ed8;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #bfdbfe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            .option-btn {
+                font-size: 0.90rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2.2rem; color: #0f172a;">Present Perfect Tense</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>PRESENT PERFECT TENSE – முற்றுப்பெற்ற நிகழ்காலம்</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 50 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (50)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>முற்றுப்பெற்ற நிகழ்காலம் (Present Perfect Tense) என்றால் என்ன?</h2>
+            <p>தற்போது সবেমাত্র முடிவடைந்த செயல்களைக் குறிக்கவோ அல்லது கடந்த காலத்தில் தொடங்கி தற்பொழுதும் தாக்கம் உள்ள செயல்களைக் குறிக்கவோ <b>Present Perfect Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure & Rules)</h2>
+            <ul>
+                <li><b>Subject + have / has + Verb(V3) + Object</b></li>
+                <li><b>I, We, You, They & Plurals:</b> 'have' உடன் வினையின் மூன்றாம் வடிவம் (V3 - Past Participle) பயன்படுத்த வேண்டும்.</li>
+                <li><b>He, She, It & Singulars:</b> 'has' உடன் வினையின் மூன்றாம் வடிவம் (V3) பயன்படுத்த வேண்டும்.</li>
+                <li><b>Negative (எதிர்மறை):</b> have not (haven't) / has not (hasn't) உடன் V3 பயன்படுத்தப்படும்.</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. முக்கிய குறிப்புகள்</h2>
+            <p>just, already, yet, ever, never போன்ற வார்த்தைகள் வரும்போது இந்தக் காலம் பயன்படுத்தப்படுகிறது.</p>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. I have finished my homework.</div>
+                <div class="ta">நான் என் வீட்டுப்பாடத்தை முடித்துவிட்டேன்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She has cooked lunch.</div>
+                <div class="ta">அவள் மதிய உணவு சமைத்துவிட்டாள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. They have won the match.</div>
+                . <div class="ta">அவர்கள் போட்டியில் வென்றுவிட்டார்கள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. He has just left the office.</div>
+                <div class="ta">அவன் இப்போதான் அலுவலகத்தைவிட்டு வெளியேறினான்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. Have you ever visited Delhi?</div>
+                <div class="ta">நீ எப்போதாவது டெல்லிக்குச் சென்றிருக்கிறாயா?</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 1 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Present Perfect Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Fisher-Yates Shuffle utility to randomize options per question
+        function shuffleOptions(optionsArray, correctIndex) {
+            const optionsWithIndex = optionsArray.map((opt, idx) => ({ text: opt, isCorrect: idx === correctIndex }));
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+            const shuffledOptions = optionsWithIndex.map(item => item.text);
+            const newCorrectIndex = optionsWithIndex.findIndex(item => item.isCorrect);
+            return { shuffledOptions, newCorrectIndex };
+        }
+
+        // 50 Questions for Present Perfect Tense
+        const generatePresentPerfectQuestions = () => {
+            const raw = [
+                ["I ______ finished my homework.", "(நான் என் வீட்டுப்பாடத்தை முடித்துவிட்டேன்.)", ["have", "has", "had", "am"], 0, "I வந்ததால் 'have' உடன் V3 வடிவம் பயன்படுத்த வேண்டும்."],
+                ["She ______ cooked lunch.", "(அவள் மதிய உணவு சமைத்துவிட்டாள்.)", ["have", "has", "had", "is"], 1, "She ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["They ______ won the match.", "(அவர்கள் போட்டியில் வென்றுவிட்டார்கள்.)", ["have", "has", "had", "are"], 0, "They பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["He ______ just left the office.", "(அவன் இப்போதான் அலுவலகத்தைவிட்டு வெளியேறினான்.)", ["have", "has", "had", "is"], 1, "He ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["We ______ visited Delhi twice.", "(நாங்கள் இரண்டு முறை டெல்லிக்குச் சென்றிருக்கிறோம்.)", ["have", "has", "had", "are"], 0, "We பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["You ______ eaten all the apples.", "(நீ அனைத்து ஆப்பிள்களையும் சாப்பிட்டுவிட்டாய்.)", ["have", "has", "had", "are"], 0, "You உடன் 'have' பயன்படுத்த வேண்டும்."],
+                ["My mother ______ bought a new saree.", "(என் அம்மா ஒரு புதிய சேலை வாங்கியிருக்கிறார்.)", ["have", "has", "had", "is"], 1, "My mother ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["The train ______ arrived.", "(ரயில் வந்துவிட்டது.)", ["have", "has", "had", "is"], 1, "The train ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["Birds ______ built nests.", "(பறவைகள் கூடுகள் கட்டியுள்ளன.)", ["have", "has", "had", "are"], 0, "Birds பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["Ravi ______ lost his pen.", "(ரவி தன் பேனாவைத் தொலைத்துவிட்டான்.)", ["have", "has", "had", "is"], 1, "Ravi ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["I ______ never seen a tiger.", "(நான் எப்போதுமே ஒரு புலியைப் பார்த்ததில்லை.)", ["have", "has", "had", "am"], 0, "I வந்ததால் 'have' பயன்படுத்த வேண்டும்."],
+                ["______ you ever been to Ooty?", "(நீ எப்போதாவது ஊட்டிக்குச் சென்றிருக்கிறாயா?)", ["Have", "Has", "Had", "Did"], 0, "You வருவதால் வினாத் தொடக்கத்தில் 'Have' பயன்படுத்த வேண்டும்."],
+                ["______ she finished her work?", "(அவள் தன் வேலையை முடித்துவிட்டாளா?)", ["Have", "Has", "Had", "Does"], 1, "She ஒருமை என்பதால் 'Has' பயன்படுத்த வேண்டும்."],
+                ["What ______ you done?", "(நீ என்ன செய்துவிட்டாய்?)", ["have", "has", "had", "did"], 0, "You வருவதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["Where ______ he gone?", "(அவன் எங்கே சென்றுவிட்டான்?)", ["have", "has", "had", "did"], 1, "He ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["We ______ not seen him today.", "(நாங்கள் இன்று அவனைப் பார்க்கவில்லை.)", ["have", "has", "had", "do"], 0, "We பன்மை என்பதால் 'have not' பயன்படுத்த வேண்டும்."],
+                ["She ______ not eaten anything.", "(அவள் எதுவும் சாப்பிடவில்லை.)", ["have", "has", "had", "does"], 1, "She ஒருமை என்பதால் 'has not' பயன்படுத்த வேண்டும்."],
+                ["The children ______ gone to sleep.", "(குழந்தைகள் தூங்கச் சென்றுவிட்டனர்.)", ["have", "has", "had", "are"], 0, "The children பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["It ______ started to rain.", "(மழை பெய்யத் தொடங்கிவிட்டது.)", ["have", "has", "had", "is"], 1, "It ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["He ______ written three books.", "(அவன் மூன்று புத்தகங்கள் எழுதியுள்ளான்.)", ["have", "has", "had", "is"], 1, "He ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["I ______ known him for years.", "(எனக்கு அவனை பல ஆண்டுகளாகத் தெரியும்.)", ["have", "has", "had", "am"], 0, "I வந்ததால் 'have' பயன்படுத்த வேண்டும்."],
+                ["______ they arrived yet?", "(அவர்கள் இன்னும் வந்துவிட்டார்களா?)", ["Have", "Has", "Had", "Do"], 0, "They பன்மை என்பதால் 'Have' பயன்படுத்த வேண்டும்."],
+                ["My father ______ retired from service.", "(என் அப்பா பணியில் இருந்து ஓய்வு பெற்றுவிட்டார்.)", ["have", "has", "had", "is"], 1, "My father ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["The sun ______ set.", "(சூரியன் மறைந்துவிட்டது.)", ["have", "has", "had", "is"], 1, "The sun ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["You ______ broken the glass.", "(நீ கண்ணாடியை உடைத்துவிட்டாய்.)", ["have", "has", "had", "are"], 0, "You உடன் 'have' பயன்படுத்த வேண்டும்."],
+                ["She ______ cleaned the room.", "(அவள் அறையைச் சுத்தப்படுத்திவிட்டாள்.)", ["has cleaned", "have cleaned", "had cleaned", "is cleaning"], 0, "She ஒருமை என்பதால் 'has cleaned' சரியானது."],
+                ["They ______ bought a new car.", "(அவர்கள் ஒரு புதிய கார் வாங்கியுள்ளனர்.)", ["has bought", "have bought", "had bought", "are buying"], 1, "They பன்மை என்பதால் 'have bought' சரியானது."],
+                ["I ______ read this book.", "(நான் இந்தப் புத்தகத்தைப் படித்திருக்கிறேன்.)", ["has read", "have read", "had read", "am reading"], 1, "I வந்ததால் 'have read' சரியானது."],
+                ["He ______ passed the exam.", "(அவன் தேர்வில் தேறிவிட்டான்.)", ["have passed", "has passed", "had passed", "is passing"], 1, "He ஒருமை என்பதால் 'has passed' சரியானது."],
+                ["We ______ completed our project.", "(நாங்கள் எங்கள் திட்டப்பணியை முடித்துவிட்டோம்.)", ["has completed", "have completed", "had completed", "are completing"], 1, "We பன்மை என்பதால் 'have completed' சரியானது."],
+                ["______ you heard the news?", "(நீ செய்தி கேட்டிருக்கிறாயா?)", ["Has", "Have", "Had", "Did"], 1, "You வருவதால் 'Have' பயன்படுத்த வேண்டும்."],
+                ["______ the teacher checked the note?", "(ஆசிரியர் குறிப்பேட்டைச் சோதித்துவிட்டாரா?)", ["Have", "Has", "Had", "Does"], 1, "The teacher ஒருமை என்பதால் 'Has' பயன்படுத்த வேண்டும்."],
+                ["Dogs ______ chased the cat.", "(நாய்கள் பூனையைத் துரத்தியுள்ளன.)", ["has", "have", "had", "are"], 1, "Dogs பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["She ______ lived here since 2010.", "(அவள் 2010 முதல் இங்கு வசித்து வருகிறாள்.)", ["have", "has", "had", "is"], 1, "She ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["I ______ forgotten his name.", "(அவனது பெயரை நான் மறந்துவிட்டேன்.)", ["have", "has", "had", "am"], 0, "I வந்ததால் 'have' பயன்படுத்த வேண்டும்."],
+                ["He ______ repaired the bike.", "(அவன் பைக்கைச் சரிசெய்துவிட்டான்.)", ["has repaired", "have repaired", "had repaired", "is repairing"], 0, "He ஒருமை என்பதால் 'has repaired' சரியானது."],
+                ["The bell ______ rung.", "(மணி அடித்துவிட்டது.)", ["have", "has", "had", "is"], 1, "The bell ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["They ______ planted many trees.", "(அவர்கள் பல மரங்களை நட்டுள்ளனர்.)", ["has", "have", "had", "are"], 1, "They பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["Who ______ taken my pen?", "(என் பேனாவை எடுத்துச் சென்றவர் யார்?)", ["have", "has", "had", "did"], 1, "Who என்பது ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["We ______ seen this movie before.", "(நாங்கள் முன்பு இந்தப் படத்தைப் பார்த்திருக்கிறோம்.)", ["has seen", "have seen", "had seen", "are seeing"], 1, "We பன்மை என்பதால் 'have seen' சரியானது."],
+                ["She ______ prepared tea.", "(அவள் தேநீர் தயாரித்துவிட்டாள்.)", ["has prepared", "have prepared", "had prepared", "is preparing"], 0, "She ஒருமை என்பதால் 'has prepared' சரியானது."],
+                ["I ______ given him money.", "(நான் அவனுக்குப் பணம் கொடுத்திருக்கிறேன்.)", ["has given", "have given", "had given", "am giving"], 1, "I வந்ததால் 'have given' சரியானது."],
+                ["The wind ______ blown off my hat.", "(காற்று என் தொப்பியை அடித்துச் சென்றுவிட்டது.)", ["have", "has", "had", "is"], 1, "The wind ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["You ______ made a mistake.", "(நீ ஒரு தவறு செய்துவிட்டாய்.)", ["have", "has", "had", "are"], 0, "You உடன் 'have' பயன்படுத்த வேண்டும்."],
+                ["He ______ grown tall.", "(அவன் உயரமாக வளர்ந்துவிட்டான்.)", ["have", "has", "had", "is"], 1, "He ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["The guests ______ arrived.", "(விருந்தினர்கள் வந்துவிட்டனர்.)", ["has", "have", "had", "are"], 1, "The guests பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["I ______ not received any letter.", "(எனக்கு எந்தக் கடிதமும் வரவில்லை.)", ["have", "has", "had", "am"], 0, "I வந்ததால் 'have not' பயன்படுத்த வேண்டும்."],
+                ["She ______ not spoken to me.", "(அவள் என்னிடம் பேசவில்லை.)", ["have", "has", "had", "is"], 1, "She ஒருமை என்பதால் 'has not' பயன்படுத்த வேண்டும்."],
+                ["We ______ reached our goal.", "(நாங்கள் எங்கள் இலக்கை அடைந்துவிட்டோம்.)", ["has", "have", "had", "are"], 1, "We பன்மை என்பதால் 'have' பயன்படுத்த வேண்டும்."],
+                ["Why ______ you done this?", "(நீ ஏன் இதைச் செய்தாய்/செய்திருக்கிறாய்?)", ["have", "has", "had", "did"], 0, "You வருவதால் 'have' பயன்படுத்த வேண்டும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        const setsData = [
+            { id: "set1", title: "Present Perfect Mastery Quiz (50)", badge: "Present Perfect - Set 1", getQuestions: generatePresentPerfectQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('present_perfect_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('present_perfect_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,569 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Train Journey Conversation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚆 Train Journey Conversation</h1>
+
+<!-- 1 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Excuse me, where is the railway station?</div>
+<div class="tamil">மன்னிக்கவும், ரயில் நிலையம் எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Excuse me, where is the railway station?')">🔊</button>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person:</div>
+<div class="english">It is near the main road.</div>
+<div class="tamil">அது முக்கிய சாலைக்கு அருகில் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('It is near the main road.')">🔊</button>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Where can I buy a train ticket?</div>
+<div class="tamil">நான் ரயில் டிக்கெட்டை எங்கே வாங்கலாம்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where can I buy a train ticket?')">🔊</button>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Clerk:</div>
+<div class="english">You can buy it at the ticket counter.</div>
+<div class="tamil">நீங்கள் அதை டிக்கெட் கவுண்டரில் வாங்கலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You can buy it at the ticket counter.')">🔊</button>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">I need a ticket to Chennai.</div>
+<div class="tamil">எனக்கு சென்னைக்கு ஒரு டிக்கெட் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I need a ticket to Chennai.')">🔊</button>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Clerk:</div>
+<div class="english">One-way or return ticket?</div>
+<div class="tamil">ஒருவழி டிக்கெட்டா அல்லது இருவழி டிக்கெட்டா?</div>
+</div>
+<button class="speak-btn" onclick="speak('One-way or return ticket?')">🔊</button>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">I need a one-way ticket.</div>
+<div class="tamil">எனக்கு ஒருவழி டிக்கெட் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I need a one-way ticket.')">🔊</button>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Clerk:</div>
+<div class="english">Which class do you want?</div>
+<div class="tamil">உங்களுக்கு எந்த வகுப்பு வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Which class do you want?')">🔊</button>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">I want a sleeper ticket.</div>
+<div class="tamil">எனக்கு ஸ்லீப்பர் டிக்கெட் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want a sleeper ticket.')">🔊</button>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Clerk:</div>
+<div class="english">Here is your ticket.</div>
+<div class="tamil">இதோ உங்கள் டிக்கெட்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Here is your ticket.')">🔊</button>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Which platform should I go to?</div>
+<div class="tamil">நான் எந்த நடைமேடைக்குச் செல்ல வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Which platform should I go to?')">🔊</button>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person:</div>
+<div class="english">Go to platform number three.</div>
+<div class="tamil">மூன்றாம் எண் நடைமேடைக்குச் செல்லுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Go to platform number three.')">🔊</button>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">What time does the train leave?</div>
+<div class="tamil">ரயில் எத்தனை மணிக்கு புறப்படும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What time does the train leave?')">🔊</button>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person:</div>
+<div class="english">The train leaves at six o'clock.</div>
+<div class="tamil">ரயில் ஆறு மணிக்கு புறப்படும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('The train leaves at six o’clock.')">🔊</button>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Is the train on time?</div>
+<div class="tamil">ரயில் சரியான நேரத்தில் வருகிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is the train on time?')">🔊</button>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Person:</div>
+<div class="english">Yes, the train is on time.</div>
+<div class="tamil">ஆம், ரயில் சரியான நேரத்தில் வருகிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, the train is on time.')">🔊</button>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Is this the train to Chennai?</div>
+<div class="tamil">இது சென்னைக்கு செல்லும் ரயிலா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is this the train to Chennai?')">🔊</button>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Yes, this is the Chennai train.</div>
+<div class="tamil">ஆம், இதுதான் சென்னை ரயில்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, this is the Chennai train.')">🔊</button>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Is this seat number twenty?</div>
+<div class="tamil">இது இருபதாம் எண் இருக்கையா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Is this seat number twenty?')">🔊</button>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Yes, this is your seat.</div>
+<div class="tamil">ஆம், இதுதான் உங்கள் இருக்கை.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, this is your seat.')">🔊</button>
+</div>
+</div>
+
+<!-- 21 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Can I sit here?</div>
+<div class="tamil">நான் இங்கே உட்காரலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I sit here?')">🔊</button>
+</div>
+</div>
+
+<!-- 22 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Yes, this is your seat.</div>
+<div class="tamil">ஆம், இது உங்கள் இருக்கை.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, this is your seat.')">🔊</button>
+</div>
+</div>
+
+<!-- 23 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Where is the washroom?</div>
+<div class="tamil">கழிவறை எங்கே இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is the washroom?')">🔊</button>
+</div>
+</div>
+
+<!-- 24 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">It is at the end of the coach.</div>
+<div class="tamil">அது பெட்டியின் முடிவில் இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('It is at the end of the coach.')">🔊</button>
+</div>
+</div>
+
+<!-- 25 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">How long is the journey?</div>
+<div class="tamil">பயணம் எவ்வளவு நேரம் ஆகும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How long is the journey?')">🔊</button>
+</div>
+</div>
+
+<!-- 26 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">It takes about five hours.</div>
+<div class="tamil">சுமார் ஐந்து மணி நேரம் ஆகும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('It takes about five hours.')">🔊</button>
+</div>
+</div>
+
+<!-- 27 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Vendor:</div>
+<div class="english">Would you like some tea?</div>
+<div class="tamil">உங்களுக்கு கொஞ்சம் தேநீர் வேண்டுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Would you like some tea?')">🔊</button>
+</div>
+</div>
+
+<!-- 28 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Yes, please give me one tea.</div>
+<div class="tamil">ஆம், தயவுசெய்து எனக்கு ஒரு தேநீர் கொடுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, please give me one tea.')">🔊</button>
+</div>
+</div>
+
+<!-- 29 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">When will we reach Chennai?</div>
+<div class="tamil">நாம் எப்போது சென்னை சென்றடைவோம்?</div>
+</div>
+<button class="speak-btn" onclick="speak('When will we reach Chennai?')">🔊</button>
+</div>
+</div>
+
+<!-- 30 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">We will reach in two hours.</div>
+<div class="tamil">நாம் இரண்டு மணி நேரத்தில் சென்றடைவோம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('We will reach in two hours.')">🔊</button>
+</div>
+</div>
+
+<!-- 31 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Please wake me up before we arrive.</div>
+<div class="tamil">நாம் செல்வதற்கு முன் என்னை எழுப்புங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please wake me up before we arrive.')">🔊</button>
+</div>
+</div>
+
+<!-- 32 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Sure, I will wake you up.</div>
+<div class="tamil">சரி, நான் உங்களை எழுப்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure, I will wake you up.')">🔊</button>
+</div>
+</div>
+
+<!-- 33 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Our station is coming soon.</div>
+<div class="tamil">நம்முடைய நிலையம் விரைவில் வருகிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Our station is coming soon.')">🔊</button>
+</div>
+</div>
+
+<!-- 34 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Thank you for your help.</div>
+<div class="tamil">உங்கள் உதவிக்கு நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you for your help.')">🔊</button>
+</div>
+</div>
+
+<!-- 35 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Passenger:</div>
+<div class="english">Have a safe journey.</div>
+<div class="tamil">பாதுகாப்பான பயணம் அமையட்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Have a safe journey.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

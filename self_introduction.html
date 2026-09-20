@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Self Introduction - Tamil Medium Student</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+            background: #f4f8ff;
+            color: #1e293b;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        header h1 {
+            font-size: clamp(21px, 5vw, 30px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        header p {
+            margin-top: 5px;
+            font-family: "Noto Sans Tamil", sans-serif;
+            font-size: clamp(13px, 3.5vw, 16px);
+            opacity: 0.95;
+        }
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 25px 16px 40px;
+        }
+
+        /* =========================
+           PAGE TITLE
+        ========================= */
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .page-title h2 {
+            color: #1d4ed8;
+            font-size: clamp(24px, 7vw, 32px);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .page-title p {
+            margin-top: 5px;
+            font-family: "Noto Sans Tamil", sans-serif;
+            color: #64748b;
+            font-size: clamp(14px, 4vw, 17px);
+        }
+
+        /* =========================
+           INTRODUCTION CARD
+        ========================= */
+
+        .intro-card {
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2563eb;
+            box-shadow: 0 4px 18px rgba(37, 99, 235, 0.07);
+            transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.12);
+        }
+
+        /* =========================
+           ENGLISH TEXT
+        ========================= */
+
+        .english {
+            font-family: "Poppins", sans-serif;
+            font-size: clamp(17px, 4.5vw, 21px);
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.55;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        /* =========================
+           TAMIL TEXT
+        ========================= */
+
+        .tamil {
+            margin-top: 7px;
+            font-family: "Noto Sans Tamil", sans-serif;
+            font-size: clamp(15px, 4vw, 18px);
+            font-weight: 400;
+            color: #475569;
+            line-height: 1.8;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        /* =========================
+           LISTEN BUTTON
+        ========================= */
+
+        .listen-btn {
+            margin-top: 14px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            padding: 10px 17px;
+            min-height: 42px;
+            border-radius: 9px;
+            cursor: pointer;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            transition: background 0.2s ease,
+                transform 0.15s ease;
+        }
+
+        .listen-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .listen-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            width: 100%;
+            background: #1e40af;
+            color: white;
+            text-align: center;
+            padding: 20px 15px;
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (min-width: 600px) {
+
+            .container {
+                padding: 35px 25px 50px;
+            }
+
+            .intro-card {
+                padding: 25px;
+                margin-bottom: 18px;
+            }
+
+            .listen-btn {
+                padding: 10px 18px;
+            }
+        }
+
+        /* =========================
+           DESKTOP
+        ========================= */
+
+        @media (min-width: 900px) {
+
+            .container {
+                padding-top: 45px;
+            }
+
+            .intro-card {
+                padding: 27px 30px;
+            }
+        }
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media (max-width: 380px) {
+
+            header {
+                padding: 17px 12px;
+            }
+
+            .container {
+                padding: 20px 11px 30px;
+            }
+
+            .intro-card {
+                padding: 17px 15px;
+                border-radius: 13px;
+            }
+
+            .english {
+                font-size: 16px;
+            }
+
+            .tamil {
+                font-size: 14px;
+                line-height: 1.75;
+            }
+
+            .listen-btn {
+                width: 100%;
+                margin-top: 12px;
+            }
+
+            .page-title {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <h1>Tamil Medium Student</h1>
+
+        <p>Learn English Easily Through Tamil</p>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="container">
+
+        <div class="page-title">
+
+            <h2>Self Introduction</h2>
+
+            <p>சுய அறிமுகம்</p>
+
+        </div>
+
+
+        <!-- 1 -->
+        <div class="intro-card">
+
+            <div class="english">
+                Hello everyone.
+            </div>
+
+            <div class="tamil">
+                அனைவருக்கும் வணக்கம்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('Hello everyone.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 2 -->
+        <div class="intro-card">
+
+            <div class="english">
+                My name is Dhanangsezhiyan.
+            </div>
+
+            <div class="tamil">
+                என் பெயர் தனஞ்செழியன்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('My name is Dhanancheliyan.')">
+                🔊 Listen
+            </button>
+        </div>
+
+
+        <!-- 3 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I am 20 years old.
+            </div>
+
+            <div class="tamil">
+                எனக்கு 20 வயது.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I am 20 years old.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 4 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I am from Tamil Nadu.
+            </div>
+
+            <div class="tamil">
+                நான் தமிழ்நாட்டைச் சேர்ந்தவன்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I am from Tamil Nadu.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 5 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I am a college student.
+            </div>
+
+            <div class="tamil">
+                நான் ஒரு கல்லூரி மாணவன்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I am a college student.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 6 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I am studying Electrical and Electronics Engineering.
+            </div>
+
+            <div class="tamil">
+                நான் Electrical and Electronics Engineering படித்து வருகிறேன்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I am studying Electrical and Electronics Engineering.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 7 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I study at St. Joseph’s College of Engineering.
+            </div>
+
+            <div class="tamil">
+                நான் St. Joseph’s College of Engineering-ல் படிக்கிறேன்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I study at St. Joseph’s College of Engineering.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 8 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I am interested in learning new skills.
+            </div>
+
+            <div class="tamil">
+                எனக்கு புதிய திறன்களைக் கற்றுக்கொள்வதில் ஆர்வம் உள்ளது.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I am interested in learning new skills.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 9 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I like learning English.
+            </div>
+
+            <div class="tamil">
+                எனக்கு ஆங்கிலம் கற்றுக்கொள்வது பிடிக்கும்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I like learning English.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 10 -->
+        <div class="intro-card">
+
+            <div class="english">
+                My hobby is listening to music.
+            </div>
+
+            <div class="tamil">
+                என் பொழுதுபோக்கு இசை கேட்பது.
+            </div>
+
+            <button class="listen-btn" onclick="speak('My hobby is listening to music.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 11 -->
+        <div class="intro-card">
+
+            <div class="english">
+                My goal is to get a good job.
+            </div>
+
+            <div class="tamil">
+                என் இலக்கு ஒரு நல்ல வேலை பெறுவது.
+            </div>
+
+            <button class="listen-btn" onclick="speak('My goal is to get a good job.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 12 -->
+        <div class="intro-card">
+
+            <div class="english">
+                I always try to improve myself.
+            </div>
+
+            <div class="tamil">
+                நான் எப்போதும் என்னை மேம்படுத்த முயற்சி செய்கிறேன்.
+            </div>
+
+            <button class="listen-btn" onclick="speak('I always try to improve myself.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 13 -->
+        <div class="intro-card">
+
+            <div class="english">
+                Thank you for giving me this opportunity to introduce myself.
+            </div>
+
+            <div class="tamil">
+                என்னை அறிமுகப்படுத்த இந்த வாய்ப்பை வழங்கியதற்கு நன்றி.
+            </div>
+
+            <button class="listen-btn" onclick="speak('Thank you for giving me this opportunity to introduce myself.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+
+        <!-- 14 -->
+        <div class="intro-card">
+
+            <div class="english">
+                Thank you.
+            </div>
+
+            <div class="tamil">
+                நன்றி.
+            </div>
+
+            <button class="listen-btn" onclick="speak('Thank you.')">
+
+                🔊 Listen
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            Tamil Medium Student © 2026
+        </p>
+
+        <p>
+            Learn English Easily Through Tamil
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         SPEECH
+    ========================== -->
+
+    <script>
+
+        function speak(text) {
+
+            // Stop previous speech
+            window.speechSynthesis.cancel();
+
+            const speech =
+                new SpeechSynthesisUtterance(text);
+
+            speech.lang = "en-US";
+
+            // Slow pronunciation for beginners
+            speech.rate = 0.80;
+
+            speech.pitch = 1;
+
+            window.speechSynthesis.speak(speech);
+        }
+
+    </script>
+
+</body>
+
+</html>

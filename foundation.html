@@ -1,0 +1,1179 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TMS Academy - English Foundation</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .card-shadow {
+            box-shadow:
+                0 10px 30px rgba(37, 99, 235, 0.07),
+                0 3px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        .topic-btn {
+            transition: all 0.25s ease;
+        }
+
+        .topic-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .topic-btn.active {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
+        }
+
+        .word-card {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .word-card:hover {
+            transform: translateY(-2px);
+            border-color: #60a5fa;
+            background: #eff6ff;
+        }
+
+        .meaning-btn {
+            transition: all 0.2s ease;
+        }
+
+        .meaning-btn:hover {
+            transform: scale(1.01);
+        }
+
+        .quiz-option {
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            transform: translateY(-1px);
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-indigo-50 to-blue-100 min-h-screen text-gray-900 font-sans">
+
+<!-- HEADER -->
+<header class="bg-white/90 backdrop-blur-md border-b border-blue-100 sticky top-0 z-50">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+
+        <div class="flex items-center justify-between">
+
+            <div>
+                <h1 class="text-lg sm:text-2xl font-extrabold text-blue-700">
+                    TMS Academy
+                </h1>
+
+                <p class="text-[10px] sm:text-xs text-gray-500 font-medium">
+                    Learn English Through Tamil
+                </p>
+            </div>
+
+            <div class="bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold">
+                FOUNDATION
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+
+<!-- MAIN -->
+<main class="max-w-4xl mx-auto px-3 sm:px-5 py-6 sm:py-10">
+
+    <!-- INTRO -->
+    <section class="text-center mb-7 sm:mb-9">
+
+        <div class="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-[10px] sm:text-xs font-bold mb-3">
+            📚 ENGLISH BASIC FOUNDATION
+        </div>
+
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-blue-950 leading-tight">
+            Learn English Step by Step
+        </h2>
+
+        <p class="mt-2 text-xs sm:text-sm text-gray-600 max-w-xl mx-auto leading-6">
+            முதலில் English words-ஐ Tamil meaning உடன் கற்றுக்கொள்ளுங்கள்.
+            பிறகு Quiz மூலம் practice செய்யுங்கள்.
+        </p>
+
+    </section>
+
+
+    <!-- TOPIC BUTTONS -->
+    <section class="mb-6">
+
+        <div class="flex items-center justify-between mb-3 px-1">
+            <h3 class="text-sm sm:text-base font-bold text-blue-950">
+                Choose a Topic
+            </h3>
+
+            <span class="text-[10px] sm:text-xs text-gray-500 font-medium">
+                6 Topics
+            </span>
+        </div>
+
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
+
+            <button
+                onclick="showTopic('subject')"
+                id="btn-subject"
+                class="topic-btn p-3 sm:p-4 rounded-2xl bg-white border-2 border-blue-100 text-blue-950 text-left shadow-sm active:scale-95">
+
+                <div class="text-xl mb-1">📌</div>
+                <div class="font-bold text-xs sm:text-sm">Subject</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 mt-0.5">
+                    எழுவாய்
+                </div>
+
+            </button>
+
+
+            <button
+                onclick="showTopic('beVerb')"
+                id="btn-beVerb"
+                class="topic-btn p-3 sm:p-4 rounded-2xl bg-white border-2 border-blue-100 text-blue-950 text-left shadow-sm active:scale-95">
+
+                <div class="text-xl mb-1">⚡</div>
+                <div class="font-bold text-xs sm:text-sm">Be Verb</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 mt-0.5">
+                    Am / Is / Are
+                </div>
+
+            </button>
+
+
+            <button
+                onclick="showTopic('haveVerb')"
+                id="btn-haveVerb"
+                class="topic-btn p-3 sm:p-4 rounded-2xl bg-white border-2 border-blue-100 text-blue-950 text-left shadow-sm active:scale-95">
+
+                <div class="text-xl mb-1">💼</div>
+                <div class="font-bold text-xs sm:text-sm">Have Verb</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 mt-0.5">
+                    Have / Has / Had
+                </div>
+
+            </button>
+
+
+            <button
+                onclick="showTopic('doVerb')"
+                id="btn-doVerb"
+                class="topic-btn p-3 sm:p-4 rounded-2xl bg-white border-2 border-blue-100 text-blue-950 text-left shadow-sm active:scale-95">
+
+                <div class="text-xl mb-1">🛠️</div>
+                <div class="font-bold text-xs sm:text-sm">Do Verb</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 mt-0.5">
+                    Do / Does / Did
+                </div>
+
+            </button>
+
+
+            <button
+                onclick="showTopic('modalVerb')"
+                id="btn-modalVerb"
+                class="topic-btn p-3 sm:p-4 rounded-2xl bg-white border-2 border-blue-100 text-blue-950 text-left shadow-sm active:scale-95">
+
+                <div class="text-xl mb-1">💡</div>
+                <div class="font-bold text-xs sm:text-sm">Modal Verb</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 mt-0.5">
+                    Can / Will / Must
+                </div>
+
+            </button>
+
+
+            <button
+                onclick="showTopic('questionWords')"
+                id="btn-questionWords"
+                class="topic-btn p-3 sm:p-4 rounded-2xl bg-white border-2 border-blue-100 text-blue-950 text-left shadow-sm active:scale-95">
+
+                <div class="text-xl mb-1">❓</div>
+                <div class="font-bold text-xs sm:text-sm">Question Words</div>
+                <div class="text-[9px] sm:text-[10px] text-gray-500 mt-0.5">
+                    What / Who / Where
+                </div>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- WORD CONTENT -->
+    <section id="word-section"
+        class="bg-white rounded-3xl border border-blue-100 card-shadow p-4 sm:p-7">
+
+        <!-- DEFAULT -->
+        <div id="welcome">
+
+            <div class="text-center py-8 sm:py-12">
+
+                <div class="text-4xl sm:text-5xl mb-4">
+                    👆
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-extrabold text-blue-950">
+                    Select a Topic
+                </h3>
+
+                <p class="text-xs sm:text-sm text-gray-500 mt-2 leading-6">
+                    மேலே உள்ள topic-ல் ஒன்றை தேர்வு செய்யுங்கள்.
+                    <br>
+                    English words + Tamil meaning பார்க்கலாம்.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOPIC DISPLAY -->
+        <div id="topic-display" class="hidden">
+
+            <div class="flex items-center justify-between gap-3 pb-4 mb-5 border-b border-blue-100">
+
+                <div>
+
+                    <div id="topic-icon"
+                        class="text-xl mb-1">
+                        📌
+                    </div>
+
+                    <h2 id="topic-title"
+                        class="text-lg sm:text-2xl font-extrabold text-blue-950">
+                        Subject
+                    </h2>
+
+                    <p id="topic-subtitle"
+                        class="text-xs text-gray-500 mt-1">
+                        எழுவாய்
+                    </p>
+
+                </div>
+
+
+                <button
+                    onclick="closeTopic()"
+                    class="px-3 py-2 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-xl text-xs font-bold">
+
+                    ✕
+
+                </button>
+
+            </div>
+
+
+            <!-- INSTRUCTION -->
+            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-3 sm:p-4 mb-5">
+
+                <p class="text-xs sm:text-sm text-blue-900 font-semibold">
+                    💡 English word-ஐ படித்து, Tamil meaning-ஐ click செய்து Quiz விளையாடுங்கள்.
+                </p>
+
+            </div>
+
+
+            <!-- WORDS -->
+            <div id="word-list"
+                class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+            </div>
+
+
+            <!-- START QUIZ -->
+            <div class="mt-5 pt-5 border-t border-blue-100 text-center">
+
+                <button
+                    onclick="startQuiz()"
+                    class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-7 py-3.5 rounded-2xl font-bold text-sm shadow-lg active:scale-95 transition">
+
+                    🎯 Start Full Quiz
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUIZ -->
+    <section id="quiz-section"
+        class="hidden bg-white rounded-3xl border border-blue-100 card-shadow p-4 sm:p-7 mt-5">
+
+        <!-- QUIZ HEADER -->
+
+        <div class="flex items-center justify-between gap-3 mb-5">
+
+            <div>
+
+                <span id="quiz-topic"
+                    class="inline-block bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                    SUBJECT
+                </span>
+
+                <p id="quiz-progress"
+                    class="text-xs font-semibold text-gray-500 mt-2">
+                    Question 1 of 7
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="exitQuiz()"
+                class="px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-xl text-xs font-bold text-gray-600">
+
+                ✕ Exit
+
+            </button>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="w-full h-2 bg-blue-100 rounded-full overflow-hidden mb-7">
+
+            <div
+                id="progress"
+                class="progress-bar h-full bg-blue-600 rounded-full"
+                style="width: 14%">
+            </div>
+
+        </div>
+
+
+        <!-- QUESTION -->
+
+        <div class="text-center mb-7">
+
+            <p class="text-[10px] sm:text-xs text-blue-600 font-bold uppercase tracking-widest mb-2">
+                Find the Tamil Meaning
+            </p>
+
+            <h2 id="question-word"
+                class="text-4xl sm:text-5xl font-extrabold text-blue-950">
+                I
+            </h2>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div id="quiz-options"
+            class="grid grid-cols-1 gap-3">
+        </div>
+
+
+        <!-- FEEDBACK -->
+
+        <div id="feedback"
+            class="hidden mt-5">
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="text-center py-7 px-4">
+
+        <p class="text-xs text-blue-700 font-semibold">
+            © TMS Academy
+        </p>
+
+        <p class="text-[10px] text-gray-500 mt-1">
+            Learn English Easily Through Tamil
+        </p>
+
+    </footer>
+
+</main>
+
+
+<script>
+
+/* =========================
+   QUIZ DATA
+========================= */
+
+const quizData = {
+
+    subject: {
+        title: "Subject",
+        subtitle: "எழுவாய்",
+        icon: "📌",
+
+        words: [
+            ["I", "நான்"],
+            ["You", "நீ / நீங்கள்"],
+            ["We", "நாம் / நாங்கள்"],
+            ["They", "அவர்கள்"],
+            ["He", "அவன்"],
+            ["She", "அவள்"],
+            ["It", "அது"]
+        ]
+    },
+
+
+    beVerb: {
+        title: "Be Verb",
+        subtitle: "இரு / இருத்தல்",
+        icon: "⚡",
+
+        words: [
+            ["Am", "இருக்கிறேன்"],
+            ["Is", "இருக்கிறான் / இருக்கிறாள் / இருக்கிறது"],
+            ["Are", "இருக்கிறார்கள் / இருக்கிறீர்கள்"]
+        ]
+    },
+
+
+    haveVerb: {
+        title: "Have Verb",
+        subtitle: "உடைமை / வைத்திருத்தல்",
+        icon: "💼",
+
+        words: [
+            ["Have", "உள்ளது / வைத்திருக்கிறேன் / வைத்திருக்கிறோம்"],
+            ["Has", "உள்ளது / வைத்திருக்கிறான் / வைத்திருக்கிறாள்"],
+            ["Had", "வைத்திருந்தான் / வைத்திருந்தாள் / வைத்திருந்தோம்"]
+        ]
+    },
+
+
+    doVerb: {
+        title: "Do Verb",
+        subtitle: "செய் / செய்தல்",
+        icon: "🛠️",
+
+        words: [
+            ["Do", "செய் / செய்கிறேன் / செய்கிறோம்"],
+            ["Does", "செய்கிறான் / செய்கிறாள் / செய்கிறது"],
+            ["Did", "செய்தான் / செய்தாள் / செய்தோம்"]
+        ]
+    },
+
+
+    modalVerb: {
+        title: "Modal Verb",
+        subtitle: "செயல் உதவி வினைச்சொற்கள்",
+        icon: "💡",
+
+        words: [
+            ["Can", "முடியும்"],
+            ["Will", "செய்வேன் / நடக்கும்"],
+            ["Should", "வேண்டும் / செய்ய வேண்டும்"],
+            ["Must", "கண்டிப்பாக வேண்டும்"]
+        ]
+    },
+
+
+    questionWords: {
+        title: "Question Words",
+        subtitle: "வினா சொற்கள்",
+        icon: "❓",
+
+        words: [
+            ["What", "என்ன"],
+            ["Who", "யார்"],
+            ["Where", "எங்கே"],
+            ["When", "எப்போது"],
+            ["Why", "ஏன்"],
+            ["How", "எப்படி"]
+        ]
+    }
+
+};
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let currentTopic = null;
+let currentQuestion = 0;
+let score = 0;
+let quizQuestions = [];
+
+
+/* =========================
+   SHOW TOPIC
+========================= */
+
+function showTopic(topic) {
+
+    currentTopic = topic;
+
+    const data = quizData[topic];
+
+    /* Hide welcome */
+
+    document.getElementById("welcome")
+        .classList.add("hidden");
+
+    document.getElementById("topic-display")
+        .classList.remove("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.add("hidden");
+
+
+    /* Active buttons */
+
+    document.querySelectorAll(".topic-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+    document.getElementById("btn-" + topic)
+        .classList.add("active");
+
+
+    /* Topic information */
+
+    document.getElementById("topic-icon")
+        .innerText = data.icon;
+
+    document.getElementById("topic-title")
+        .innerText = data.title;
+
+    document.getElementById("topic-subtitle")
+        .innerText = data.subtitle;
+
+
+    /* Word list */
+
+    const list = document.getElementById("word-list");
+
+    list.innerHTML = "";
+
+
+    data.words.forEach((item, index) => {
+
+        const word = item[0];
+        const meaning = item[1];
+
+        const card = document.createElement("div");
+
+        card.className =
+            "word-card bg-white border-2 border-blue-100 rounded-2xl p-4";
+
+
+        card.innerHTML = `
+
+            <div class="flex items-center justify-between gap-3">
+
+                <div>
+
+                    <p class="text-lg sm:text-xl font-extrabold text-blue-950">
+                        ${word}
+                    </p>
+
+                    <button
+                        onclick="meaningQuiz('${topic}', ${index})"
+                        class="meaning-btn mt-2 text-left text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-800">
+
+                        ${meaning}
+
+                    </button>
+
+                </div>
+
+
+                <div class="w-9 h-9 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-sm">
+                    →
+                </div>
+
+            </div>
+
+        `;
+
+        list.appendChild(card);
+
+    });
+
+
+    document.getElementById("word-section")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+}
+
+
+/* =========================
+   CLOSE TOPIC
+========================= */
+
+function closeTopic() {
+
+    document.getElementById("topic-display")
+        .classList.add("hidden");
+
+    document.getElementById("welcome")
+        .classList.remove("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.add("hidden");
+
+    document.querySelectorAll(".topic-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+}
+
+
+/* =========================
+   CLICK TAMIL MEANING
+========================= */
+
+function meaningQuiz(topic, index) {
+
+    currentTopic = topic;
+
+    quizQuestions = quizData[topic].words.map(item => ({
+        word: item[0],
+        correct: item[1]
+    }));
+
+    currentQuestion = index;
+    score = 0;
+
+    document.getElementById("topic-display")
+        .classList.add("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.remove("hidden");
+
+    loadQuestion();
+
+    document.getElementById("quiz-section")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+}
+
+
+/* =========================
+   START FULL QUIZ
+========================= */
+
+function startQuiz() {
+
+    if (!currentTopic) return;
+
+    quizQuestions = quizData[currentTopic].words
+        .map(item => ({
+            word: item[0],
+            correct: item[1]
+        }))
+        .sort(() => Math.random() - 0.5);
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("topic-display")
+        .classList.add("hidden");
+
+    document.getElementById("quiz-section")
+        .classList.remove("hidden");
+
+    loadQuestion();
+
+    document.getElementById("quiz-section")
+        .scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+}
+
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+function loadQuestion() {
+
+    if (currentQuestion >= quizQuestions.length) {
+
+        showScore();
+
+        return;
+    }
+
+
+    const q = quizQuestions[currentQuestion];
+
+    const total = quizQuestions.length;
+
+    document.getElementById("quiz-topic")
+        .innerText =
+        quizData[currentTopic].title.toUpperCase();
+
+    document.getElementById("quiz-progress")
+        .innerText =
+        `Question ${currentQuestion + 1} of ${total}`;
+
+    document.getElementById("question-word")
+        .innerText = q.word;
+
+
+    /* Progress */
+
+    const percent =
+        ((currentQuestion + 1) / total) * 100;
+
+    document.getElementById("progress")
+        .style.width = percent + "%";
+
+
+    /* Options */
+
+    let options = [];
+
+    options.push(q.correct);
+
+
+    const otherMeanings =
+        quizData[currentTopic].words
+            .map(item => item[1])
+            .filter(m => m !== q.correct);
+
+
+    otherMeanings
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3)
+        .forEach(m => options.push(m));
+
+
+    options =
+        options.sort(() => Math.random() - 0.5);
+
+
+    const container =
+        document.getElementById("quiz-options");
+
+    container.innerHTML = "";
+
+
+    options.forEach(option => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "quiz-option w-full p-4 sm:p-5 rounded-2xl border-2 border-blue-100 bg-blue-50/40 hover:bg-blue-100 hover:border-blue-400 text-blue-950 font-bold text-sm sm:text-base text-left sm:text-center";
+
+        button.innerText = option;
+
+        button.onclick = () =>
+            checkAnswer(option, q.correct, button);
+
+        container.appendChild(button);
+
+    });
+
+
+    document.getElementById("feedback")
+        .classList.add("hidden");
+}
+
+
+/* =========================
+   CHECK ANSWER
+========================= */
+
+function checkAnswer(selected, correct, clickedButton) {
+
+    const buttons =
+        document.querySelectorAll("#quiz-options button");
+
+    buttons.forEach(btn => {
+        btn.disabled = true;
+    });
+
+
+    const feedback =
+        document.getElementById("feedback");
+
+    feedback.classList.remove("hidden");
+
+
+    if (selected === correct) {
+
+        score++;
+
+        clickedButton.classList.remove(
+            "bg-blue-50/40",
+            "border-blue-100"
+        );
+
+        clickedButton.classList.add(
+            "bg-green-100",
+            "border-green-500",
+            "text-green-800"
+        );
+
+
+        feedback.innerHTML = `
+
+            <div class="bg-green-50 border border-green-200 rounded-2xl p-4 flex items-center justify-between gap-3">
+
+                <div>
+
+                    <p class="font-extrabold text-green-700">
+                        ✅ Correct!
+                    </p>
+
+                    <p class="text-xs text-green-700 mt-1">
+                        சரியான பதில்
+                    </p>
+
+                </div>
+
+                <button
+                    onclick="nextQuestion()"
+                    class="bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        `;
+
+    } else {
+
+        clickedButton.classList.remove(
+            "bg-blue-50/40",
+            "border-blue-100"
+        );
+
+        clickedButton.classList.add(
+            "bg-red-100",
+            "border-red-400",
+            "text-red-800"
+        );
+
+
+        buttons.forEach(btn => {
+
+            if (btn.innerText === correct) {
+
+                btn.classList.remove(
+                    "bg-blue-50/40",
+                    "border-blue-100"
+                );
+
+                btn.classList.add(
+                    "bg-green-100",
+                    "border-green-500",
+                    "text-green-800"
+                );
+
+            }
+
+        });
+
+
+        feedback.innerHTML = `
+
+            <div class="bg-red-50 border border-red-200 rounded-2xl p-4 flex items-center justify-between gap-3">
+
+                <div>
+
+                    <p class="font-extrabold text-red-700">
+                        ❌ Incorrect
+                    </p>
+
+                    <p class="text-xs text-red-700 mt-1">
+                        சரியான பதில்: ${correct}
+                    </p>
+
+                </div>
+
+                <button
+                    onclick="nextQuestion()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm">
+
+                    Next →
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion() {
+
+    currentQuestion++;
+
+    loadQuestion();
+
+}
+
+
+/* =========================
+   SCORE
+========================= */
+
+function showScore() {
+
+    const total =
+        quizQuestions.length;
+
+    const percentage =
+        Math.round((score / total) * 100);
+
+
+    let message = "";
+
+    if (percentage === 100) {
+        message = "Excellent! 🎉";
+    } else if (percentage >= 70) {
+        message = "Very Good! 👍";
+    } else if (percentage >= 50) {
+        message = "Good! Keep Practicing 💪";
+    } else {
+        message = "Keep Learning! 📚";
+    }
+
+
+    document.getElementById("quiz-section")
+        .innerHTML = `
+
+        <div class="text-center py-7 sm:py-10">
+
+            <div class="text-5xl sm:text-6xl mb-4">
+                🏆
+            </div>
+
+            <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
+                Quiz Completed
+            </p>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-blue-950">
+                ${message}
+            </h2>
+
+            <div class="mt-5 bg-blue-50 rounded-3xl p-5 max-w-xs mx-auto">
+
+                <p class="text-xs text-gray-500 font-semibold">
+                    Your Score
+                </p>
+
+                <p class="text-4xl font-extrabold text-blue-600 mt-1">
+                    ${score} / ${total}
+                </p>
+
+                <p class="text-xs text-gray-500 mt-2">
+                    ${percentage}% Correct
+                </p>
+
+            </div>
+
+
+            <div class="flex flex-col sm:flex-row justify-center gap-3 mt-6">
+
+                <button
+                    onclick="restartQuiz()"
+                    class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-2xl font-bold text-sm shadow">
+
+                    🔄 Play Again
+
+                </button>
+
+                <button
+                    onclick="returnToWords()"
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-2xl font-bold text-sm">
+
+                    📖 View Words
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartQuiz() {
+
+    document.getElementById("quiz-section")
+        .innerHTML = `
+
+        <div class="flex items-center justify-between gap-3 mb-5">
+
+            <div>
+
+                <span id="quiz-topic"
+                    class="inline-block bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full text-[10px] font-bold">
+                    SUBJECT
+                </span>
+
+                <p id="quiz-progress"
+                    class="text-xs font-semibold text-gray-500 mt-2">
+                </p>
+
+            </div>
+
+            <button
+                onclick="exitQuiz()"
+                class="px-3 py-2 bg-gray-100 rounded-xl text-xs font-bold text-gray-600">
+
+                ✕ Exit
+
+            </button>
+
+        </div>
+
+        <div class="w-full h-2 bg-blue-100 rounded-full overflow-hidden mb-7">
+
+            <div
+                id="progress"
+                class="progress-bar h-full bg-blue-600 rounded-full">
+            </div>
+
+        </div>
+
+        <div class="text-center mb-7">
+
+            <p class="text-[10px] sm:text-xs text-blue-600 font-bold uppercase tracking-widest mb-2">
+                Find the Tamil Meaning
+            </p>
+
+            <h2 id="question-word"
+                class="text-4xl sm:text-5xl font-extrabold text-blue-950">
+            </h2>
+
+        </div>
+
+        <div id="quiz-options"
+            class="grid grid-cols-1 gap-3">
+        </div>
+
+        <div id="feedback"
+            class="hidden mt-5">
+        </div>
+    `;
+
+
+    quizQuestions =
+        quizData[currentTopic].words
+        .map(item => ({
+            word: item[0],
+            correct: item[1]
+        }))
+        .sort(() => Math.random() - 0.5);
+
+
+    currentQuestion = 0;
+    score = 0;
+
+    loadQuestion();
+
+}
+
+
+/* =========================
+   RETURN TO WORDS
+========================= */
+
+function returnToWords() {
+
+    document.getElementById("quiz-section")
+        .classList.add("hidden");
+
+    document.getElementById("word-section")
+        .classList.remove("hidden");
+
+    showTopic(currentTopic);
+
+}
+
+
+/* =========================
+   EXIT QUIZ
+========================= */
+
+function exitQuiz() {
+
+    document.getElementById("quiz-section")
+        .classList.add("hidden");
+
+    document.getElementById("topic-display")
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================
+   DEFAULT
+========================= */
+
+</script>
+
+</body>
+</html>
+```

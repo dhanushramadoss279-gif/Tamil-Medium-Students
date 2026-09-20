@@ -1,20 +1,850 @@
-
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Continuous Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FUTURE CONTINUOUS TENSE – எதிர்காலத் தொடர்ச்சி (100 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS (Explanation, Example, Quiz) */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1d4ed8;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #bfdbfe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.90rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2.2rem; color: #0f172a;">Future Continuous Tense</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>FUTURE CONTINUOUS TENSE – எதிர்காலத் தொடர்ச்சி</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 100 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (100)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>எதிர்காலத் தொடர்ச்சி (Future Continuous Tense) என்றால் என்ன?</h2>
+            <p>எதிர்காலத்தில் ஒரு குறிப்பிட்ட நேரத்தில் ஒரு செயல் தொடர்ச்சியாக (Ongoing action) நடந்து கொண்டிருக்கும் என்பதைக் குறிக்க <b>Future Continuous Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure & Helping Verbs)</h2>
+            <ul>
+                <li><b>جميع Pronouns (I, We, You, He, She, It, They):</b> will be + Verb + ing (V4)</li>
+                <li><b>Affirmative:</b> Subject + will be + V-ing (e.g., *will be reading*)</li>
+                <li><b>Negative:</b> Subject + will + not + be + V-ing (or *won't be + V-ing*) (e.g., *will not be reading*)</li>
+                <li><b>Question:</b> Will + Subject + be + V-ing? (e.g., *Will you be reading?*)</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. முக்கிய குறிப்புகள்</h2>
+            <p>At this time tomorrow, By this time next week போன்ற எதிர்காலக் குறிப்பு வார்த்தைகளுடன் இது அதிகமாகப் பயன்படுத்தப்படும்.</p>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. I will be reading a book at 5 PM tomorrow.</div>
+                <div class="ta">நாளை மாலை 5 மணிக்கு நான் ஒரு புத்தகம் படித்துக் கொண்டிருப்பேன்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She will be sleeping when you arrive.</div>
+                <div class="ta">நீ வரும்போது அவள் தூங்கிக் கொண்டிருப்பாள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. They will be playing cricket at this time tomorrow.</div>
+                <div class="ta">நாளை இந்நேரம் அவர்கள் கிரிக்கெட் விளையாடிக் கொண்டிருப்பார்கள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. Will you be waiting for me?</div>
+                <div class="ta">நீ எனக்காகக் காத்துக் கொண்டிருப்பாயா?</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. We will not be traveling next week.</div>
+                <div class="ta">நாங்கள் அடுத்த வாரம் பயணம் செய்து கொண்டிருக்க மாட்டோம்.</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Future Continuous Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Fisher-Yates Shuffle utility to randomize options per question
+        function shuffleOptions(optionsArray, correctIndex) {
+            const optionsWithIndex = optionsArray.map((opt, idx) => ({ text: opt, isCorrect: idx === correctIndex }));
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+            const shuffledOptions = optionsWithIndex.map(item => item.text);
+            const newCorrectIndex = optionsWithIndex.findIndex(item => item.isCorrect);
+            return { shuffledOptions, newCorrectIndex };
+        }
+
+        // Set 1: Basic Future Continuous Practice (Affirmative - 50 Questions)
+        const generateBasicFutureContinuousQuestions = () => {
+            const raw = [
+                ["I ______ reading a book at 5 PM tomorrow.", "(நாளை மாலை 5 மணிக்கு நான் புத்தகம் படித்துக் கொண்டிருப்பேன்.)", ["will be reading", "will read", "am reading", "was reading"], 0, "Future Continuous வாக்கியங்களில் 'will be + V-ing' (will be reading) பயன்படுத்த வேண்டும்."],
+                ["She ______ sleeping when you arrive.", "(நீ வரும்போது அவள் தூங்கிக் கொண்டிருப்பாள்.)", ["will be sleeping", "will sleep", "is sleeping", "was sleeping"], 0, "எதிர்காலத்தில் தொடரும் செயலுக்கு 'will be sleeping' சரியானது."],
+                ["They ______ playing cricket tomorrow.", "(அவர்கள் நாளை கிரிக்கெட் விளையாடிக் கொண்டிருப்பார்கள்.)", ["will be playing", "will play", "are playing", "were playing"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be playing' பயன்படும்."],
+                ["He ______ working at this time tomorrow.", "(நாளை இந்நேரம் அவன் வேலை செய்துகொண்டிருப்பான்.)", ["will be working", "will work", "is working", "was working"], 0, "எதிர்காலத் தொடர் செயலுக்கு 'will be working' பயன்படும்."],
+                ["We ______ traveling to Ooty next week.", "(நாங்கள் அடுத்த வாரம் ஊட்டிக்குப் பயணம் செய்து கொண்டிருப்போம்.)", ["will be traveling", "will travel", "are traveling", "were traveling"], 0, "எதிர்காலப் பயணத் தொடர்ச்சிக்கு 'will be traveling' பயன்படும்."],
+                ["It ______ raining by evening.", "(மாலைக்குள் மழை பெய்து கொண்டிருக்கும்.)", ["will be raining", "will rain", "is raining", "was raining"], 0, "எதிர்கால நிகழ்வுத் தொடர்ச்சிக்கு 'will be raining' பயன்படும்."],
+                ["You ______ watching television tonight.", "(நீ இன்று இரவு தொலைக்காட்சி பார்த்துக் கொண்டிருப்பாய்.)", ["will be watching", "will watch", "are watching", "were watching"], 0, "எதிர்காலச் செயலுக்கு 'will be watching' பயன்படும்."],
+                ["She ______ singing a song in the event.", "(அவள் அந்த நிகழ்வில் பாட்டுப் பாடிக்கொண்டிருப்பாள்.)", ["will be singing", "will sing", "is singing", "was singing"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be singing' பயன்படும்."],
+                ["I ______ cooking dinner at 8 PM.", "(இரவு 8 மணிக்கு நான் உணவு சமைத்துக் கொண்டிருப்பேன்.)", ["will be cooking", "will cook", "am cooking", "was cooking"], 0, "எதிர்காலத் தொடர் சமையலுக்கு 'will be cooking' பயன்படும்."],
+                ["They ______ building their new house next month.", "(அவர்கள் அடுத்த மாதம் தங்கள் புதிய வீட்டைக் கட்டிக் கொண்டிருப்பார்கள்.)", ["will be building", "will build", "are building", "were building"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be building' பயன்படும்."],
+                ["He ______ driving to Chennai tomorrow.", "(அவன் நாளை சென்னைக்கு வாகனம் ஓட்டிக்கொண்டு செல்வான்.)", ["will be driving", "will drive", "is driving", "was driving"], 0, "எதிர்காலச் செயலுக்கு 'will be driving' பயன்படும்."],
+                ["We ______ waiting for you at the station.", "(நாங்கள் நிலையத்தில் உனக்காகக் காத்துக் கொண்டிருப்போம்.)", ["will be waiting", "will wait", "are waiting", "were waiting"], 0, "எதிர்காலத் தொடர் காத்திருப்புக்கு 'will be waiting' பயன்படும்."],
+                ["She ______ teaching the class at this hour.", "(அவள் இந்நேரத்தில் வகுப்பில் பாடம் கற்பித்துக் கொண்டிருப்பாள்.)", ["will be teaching", "will teach", "is teaching", "was teaching"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be teaching' பயன்படும்."],
+                ["I ______ studying for the exam tomorrow.", "(நான் நாளை தேர்வுக்காகப் படித்துக் கொண்டிருப்பேன்.)", ["will be studying", "will study", "am studying", "was studying"], 0, "எதிர்காலப் படிப்புத் தொடர்ச்சிக்கு 'will be studying' பயன்படும்."],
+                ["They ______ cleaning the office soon.", "(அவர்கள் விரைவில் அலுவலகத்தைச் சுத்தப்படுத்திக் கொண்டிருப்பார்கள்.)", ["will be cleaning", "will clean", "are cleaning", "were cleaning"], 0, "எதிர்காலச் செயலுக்கு 'will be cleaning' பயன்படும்."],
+                ["He ______ repairing his bike tomorrow.", "(அவன் நாளை தன் பைக்கைச் சீரமைத்துக் கொண்டிருப்பான்.)", ["will be repairing", "will repair", "is repairing", "was repairing"], 0, "எதிர்காலத் தொடர் சீரமைப்புக்கு 'will be repairing' பயன்படும்."],
+                ["We ______ discussing the project.", "(நாங்கள் திட்டத்தைப் பற்றி விவாதித்துக் கொண்டிருப்போம்.)", ["will be discussing", "will discuss", "are discussing", "were discussing"], 0, "எதிர்கால விவாதத் தொடர்ச்சிக்கு 'will be discussing' பயன்படும்."],
+                ["She ______ painting the walls.", "(அவள் சுவர்களுக்கு வர்ணம் பூசிக்கொண்டிருப்பாள்.)", ["will be painting", "will paint", "is painting", "was painting"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be painting' பயன்படும்."],
+                ["I ______ listening to music later.", "(நான் பின்னர் இசை கேட்டுக்கொண்டிருப்பேன்.)", ["will be listening", "will listen", "am listening", "was listening"], 0, "எதிர்காலச் செயலுக்கு 'will be listening' பயன்படும்."],
+                ["They ______ practicing for the match.", "(அவர்கள் போட்டிக்காகப் பயிற்சி செய்துகொண்டிருப்பார்கள்.)", ["will be practicing", "will practice", "are practicing", "were practicing"], 0, "எதிர்காலப் பயிற்சித் தொடர்ச்சிக்கு 'will be practicing' பயன்படும்."],
+                ["He ______ attending the seminar.", "(அவன் கருத்தரங்கில் கலந்துகொண்டிருப்பான்.)", ["will be attending", "will attend", "is attending", "was attending"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be attending' பயன்படும்."],
+                ["We ______ celebrating our success.", "(நாங்கள் எங்கள் வெற்றியைக் கொண்டாடிக்கொண்டிருப்போம்.)", ["will be celebrating", "will celebrate", "are celebrating", "were celebrating"], 0, "எதிர்காலக் கொண்டாட்டத்திற்கு 'will be celebrating' பயன்படும்."],
+                ["She ______ wearing a blue dress.", "(அவள் நீல நிற ஆடை அணிந்திருப்பாள்/அணிந்து கொண்டிருப்பாள்.)", ["will be wearing", "will wear", "is wearing", "was wearing"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be wearing' பயன்படும்."],
+                ["I ______ helping my mother.", "(நான் என் தாய்க்கு உதவி செய்துகொண்டிருப்பேன்.)", ["will be helping", "will help", "am helping", "was helping"], 0, "எதிர்கால உதவித் தொடர்ச்சிக்கு 'will be helping' பயன்படும்."],
+                ["They ______ planting trees tomorrow.", "(அவர்கள் நாளை மரங்களை நட்டுக் கொண்டிருப்பார்கள்.)", ["will be planting", "will plant", "are planting", "were planting"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be planting' பயன்படும்."],
+                ["He ______ writing a letter.", "(அவன் ஒரு கடிதம் எழுதிக்கொண்டிருப்பான்.)", ["will be writing", "will write", "is writing", "was writing"], 0, "எதிர்கால எழுத்துத் தொடர்ச்சிக்கு 'will be writing' பயன்படும்."],
+                ["We ______ running the marathon.", "(நாங்கள் மاراتத்தான் ஓட்டத்தில் ஓடிக்கொண்டிருப்போம்.)", ["will be running", "will run", "are running", "were running"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be running' பயன்படும்."],
+                ["She ______ shopping in the mall.", "(அவள் மாலில் ஷாப்பிங் செய்துகொண்டிருப்பாள்.)", ["will be shopping", "will shop", "is shopping", "was shopping"], 0, "எதிர்காலச் செயலுக்கு 'will be shopping' பயன்படும்."],
+                ["I ______ taking a rest.", "(நான் ஓய்வு எடுத்துக் கொண்டிருப்பேன்.)", ["will be taking", "will take", "am taking", "was taking"], 0, "எதிர்கால ஓய்வுத் தொடர்ச்சிக்கு 'will be taking' பயன்படும்."],
+                ["They ______ standing outside.", "(அவர்கள் வெளியே நின்றுகொண்டிருப்பார்கள்.)", ["will be standing", "will stand", "are standing", "were standing"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be standing' பயன்படும்."],
+                ["He ______ speaking to the manager.", "(அவன் மேலாளரிடம் பேசிக்கொண்டிருப்பான்.)", ["will be speaking", "will speak", "is speaking", "was speaking"], 0, "எதிர்காலப் பேச்சுத் தொடர்ச்சிக்கு 'will be speaking' பயன்படும்."],
+                ["We ______ watching a movie.", "(நாங்கள் திரைப்படம் பார்த்துக் கொண்டிருப்போம்.)", ["will be watching", "will watch", "are watching", "were watching"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be watching' பயன்படும்."],
+                ["She ______ feeding the cat.", "(அவள் பூனைக்கு உணவு ஊட்டிவிட்டுக் கொண்டிருப்பாள்.)", ["will be feeding", "will feed", "is feeding", "was feeding"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be feeding' பயன்படும்."],
+                ["I ______ checking the emails.", "(நான் மின்னஞ்சல்களைச் சரிபார்த்துக் கொண்டிருப்பேன்.)", ["will be checking", "will check", "am checking", "was checking"], 0, "எதிர்காலச் சரிபார்ப்பிற்கு 'will be checking' பயன்படும்."],
+                ["They ______ gathering information.", "(அவர்கள் தகவல்களைத் சேகரித்துக் கொண்டிருப்பார்கள்.)", ["will be gathering", "will gather", "are gathering", "were gathering"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be gathering' பயன்படும்."],
+                ["He ______ organizing the files.", "(அவன் கோப்புகளை ஒழுங்குபடுத்திக் கொண்டிருப்பான்.)", ["will be organizing", "will organize", "is organizing", "was organizing"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be organizing' பயன்படும்."],
+                ["We ______ exploring the city.", "(நாங்கள் நகரத்தை ஆராய்ந்து/சுற்றிப் பார்த்துக் கொண்டிருப்போம்.)", ["will be exploring", "will explore", "are exploring", "were exploring"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be exploring' பயன்படும்."],
+                ["She ______ preparing tea.", "(அவள் தேநீர் தயாரித்துக் கொண்டிருப்பாள்.)", ["will be preparing", "will prepare", "is preparing", "was preparing"], 0, "எதிர்காலத் தயாரிப்புக்கு 'will be preparing' பயன்படும்."],
+                ["I ______ waiting for the call.", "(நான் அழைப்புக்காகக் காத்துக் கொண்டிருப்பேன்.)", ["will be waiting", "will wait", "am waiting", "was waiting"], 0, "எதிர்காலக் காத்திருப்புக்கு 'will be waiting' பயன்படும்."],
+                ["They ______ hosting the event.", "(அவர்கள் அந்த நிகழ்ச்சியை நடத்தி வைத்துக் கொண்டிருப்பார்கள்.)", ["will be hosting", "will host", "are hosting", "were hosting"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be hosting' பயன்படும்."],
+                ["He ______ performing on stage.", "(அவன் மேடையில் திறமையை வெளிப்படுத்திக்/நடித்துக் கொண்டிருப்பான்.)", ["will be performing", "will perform", "is performing", "was performing"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be performing' பயன்படும்."],
+                ["We ______ building a website.", "(நாங்கள் ஒரு வலைத்தளம் உருவாக்கிக் கொண்டிருப்போம்.)", ["will be building", "will build", "are building", "were building"], 0, "எதிர்காலத் தொடர்ச்சிக்கு 'will be building' பயன்படும்."],
+                ["She ______ learning French.", "(அவள் பிரெஞ்சு மொழி கற்றுக் கொண்டிருப்பாள்.)", ["will be learning", "will learn", "is learning", "was learning"], 0, "எதிர்காலக் கற்றல் தொடர்ச்சிக்கு 'will be learning' பயன்படும்."],
+                ["I ______ updating my resume.", "(நான் என் சுயவிவரத்தைப் புதுப்பித்துக் கொண்டிருப்பேன்.)", ["will be updating", "will update", "am updating", "was updating"], 0, "எதிர்காலச் செயலுக்கு 'will be updating' பயன்படும்."],
+                ["They ______ traveling abroad.", "(அவர்கள் வெளிநாடுகளுக்குப் பயணம் செய்து கொண்டிருப்பார்கள்.)", ["will be traveling", "will travel", "are traveling", "were traveling"], 0, "எதிர்காலப் பயணத்திற்கு 'will be traveling' பயன்படும்."],
+                ["He ______ testing the software.", "(அவன் மென்பொருளைச் சோதித்துக் கொண்டிருப்பான்.)", ["will be testing", "will test", "is testing", "was testing"], 0, "எதிர்காலச் சோதனைக்கு 'will be testing' பயன்படும்."],
+                ["We ______ planting flowers.", "(நாங்கள் பூச்செடிகளை நட்டுக் கொண்டிருப்போம்.)", ["will be planting", "will plant", "are planting", "were planting"], 0, "எதிர்காலச் செயலுக்கு 'will be planting' பயன்படும்."],
+                ["She ______ solving puzzles.", "(அவள் புதிர்களைத் தீர்த்துக் கொண்டிருப்பாள்.)", ["will be solving", "will solve", "is solving", "was solving"], 0, "எதிர்காலத் தீர்வுத் தொடர்ச்சிக்கு 'will be solving' பயன்படும்."],
+                ["I ______ writing a book.", "(நான் ஒரு புத்தகம் எழுதிக்கொண்டிருப்பேன்.)", ["will be writing", "will write", "am writing", "was writing"], 0, "எதிர்கால எழுத்துத் தொடர்ச்சிக்கு 'will be writing' பயன்படும்."],
+                ["They ______ waiting at the airport.", "(அவர்கள் விமான நிலையத்தில் காத்துக் கொண்டிருப்பார்கள்.)", ["will be waiting", "will wait", "are waiting", "were waiting"], 0, "எதிர்காலக் காத்திருப்புக்கு 'will be waiting' பயன்படும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        // Set 2: Negatives & Questions in Future Continuous Practice (50 Questions)
+        const generateMasteryFutureContinuousQuestions = () => {
+            const raw = [
+                ["I ______ not be reading a book at 5 PM.", "(மாலை 5 மணிக்கு நான் புத்தகம் படித்துக் கொண்டிருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will not be' பயன்படும்."],
+                ["______ you be sleeping when I arrive?", "(நான் வரும்போது நீ தூங்கிக் கொண்டிருப்பாயா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["She ______ not be working tomorrow.", "(அவள் நாளை வேலை செய்துகொண்டிருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ they be playing cricket?", "(அவர்கள் கிரிக்கெட் விளையாடிக் கொண்டிருப்பார்களா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["He ______ not be driving at that time.", "(அப்போது அவன் வாகனம் ஓட்டிக்கொண்டு இருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["Why ______ you be traveling next week?", "(அடுத்த வாரம் நீங்கள் ஏன் பயணம் செய்துகொண்டிருப்பீர்கள்?)", ["will", "do", "did", "are"], 0, "வினாச்சொல்லுக்குப் பிறகு 'will' பயன்படும்."],
+                ["______ she be singing in the show?", "(அவள் அந்த நிகழ்ச்சியில் பாடிக்கொண்டிருப்பாளா?)", ["Will", "Does", "Did", "Is"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["We ______ not be waiting for them.", "(நாங்கள் அவர்களுக்காகக் காத்துக் கொண்டிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["Where ______ they be staying tonight?", "(அவர்கள் இன்று இரவு எங்கே தங்கிக்கொண்டிருப்பார்கள்?)", ["will", "do", "did", "are"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["It ______ not be raining tomorrow.", "(நாளை மழை பெய்து கொண்டிருக்காது.)", ["will", "does", "did", "is"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ I be disturbing you?", "(நான் உங்களைத் தொந்தரவு செய்துகொண்டிருப்பேனா?)", ["Will", "Do", "Did", "Am"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["They ______ not be cleaning the house.", "(அவர்கள் வீட்டைச் சுத்தப்படுத்திக் கொண்டிருக்க மாட்டார்கள்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["What ______ he be doing at 10 AM?", "(காலை 10 மணிக்கு அவன் என்ன செய்துகொண்டிருப்பான்?)", ["will", "does", "did", "is"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["You ______ not be regretting this.", "(இதை நினைத்து நீங்கள் வருத்தப்பட்டுக் கொண்டிருக்க மாட்டீர்கள்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ the train be arriving soon?", "(ரயில் விரைவில் வந்து கொண்டிருக்குமா?)", ["Will", "Does", "Did", "Is"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["She ______ not be cooking dinner.", "(அவள் இரவு உணவு சமைத்துக் கொண்டிருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["Who ______ be helping you tomorrow?", "(நாளை உனக்கு யார் உதவி செய்துகொண்டிருப்பார்கள்?)", ["will", "does", "did", "is"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["We ______ not be wasting our time.", "(நாங்கள் எங்கள் நேரத்தை வீணடித்துக் கொண்டிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ the children be playing outside?", "(குழந்தைகள் வெளியே விளையாடிக் கொண்டிருப்பார்களா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["He ______ not be studying at night.", "(அவன் இரவில் படித்துக் கொண்டிருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["How ______ she be managing the event?", "(அவள் அந்த நிகழ்ச்சியை எப்படி நடத்திச் சென்றுகொண்டிருப்பாள்?)", ["will", "does", "did", "is"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["I ______ not be using your laptop.", "(நான் உன் மடிக்கணினியைப் பயன்படுத்திக் கொண்டிருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ you be attending the meeting?", "(நீங்கள் கூட்டத்தில் கலந்துகொண்டிருப்பீர்களா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["They ______ not be listening to music.", "(அவர்கள் இசை கேட்டுக்கொண்டிருக்க மாட்டார்கள்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["When ______ you be returning home?", "(நீங்கள் எப்போது வீடு திரும்பிச் சென்றுகொண்டிருப்பீர்கள் / திரும்புவீர்கள்?)", ["will", "do", "did", "are"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["She ______ not be wearing a coat.", "(அவள் கோட் அணிந்திருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ it be snowing in Ooty?", "(ஊட்டியில் பனி பெய்து கொண்டிருக்குமா?)", ["Will", "Does", "Did", "Is"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["We ______ not be playing matches.", "(நாங்கள் போட்டிகளில் விளையாடிக்கொண்டிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["Why ______ he be crying?", "(அவன் ஏன் அழுதிக்கொண்டிருப்பான்?)", ["will", "does", "did", "is"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["You ______ not be driving fast.", "(நீ வேகமாக வாகனம் ஓட்டிக்கொண்டு இருக்க மாட்டாய்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ the sun be shining tomorrow?", "(நாளை சூரியன் ஒளிர்கிறதா/ஒளிரக் கொண்டிருக்குமா?)", ["Will", "Does", "Did", "Is"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["I ______ not be talking to him.", "(நான் அவரிடம் பேசிக்கொண்டிருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["What ______ they be discussing?", "(அவர்கள் என்ன விவாதித்துக் கொண்டிருப்பார்கள்?)", ["will", "do", "did", "are"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["He ______ not be running in the race.", "(அவன் பந்தயத்தில் ஓடிக்கொண்டிருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ your parents be visiting us?", "(உங்கள் பெற்றோர் எங்களைச் சந்தித்துக் கொண்டிருப்பார்களா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["She ______ not be painting tomorrow.", "(அவள் நாளை வர்ணம் பூசிக்கொண்டிருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["Who ______ be singing next?", "(அடுத்துப் பாடப் போவது யார் / பாடிக்கொண்டிருக்கப் போவது யார்?)", ["will", "does", "did", "is"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["We ______ not be making noise.", "(நாங்கள் சத்தம் போட்டுக் கொண்டிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ you be missing me?", "(நீ என்னை மிஸ் பண்ணிக் கொண்டிருப்பாயா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["They ______ not be shouting.", "(அவர்கள் கத்திக் கொண்டிருக்க மாட்டார்கள்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["Where ______ you be parking your car?", "(உங்கள் காரை எங்கே நிறுத்திப் பழகிக்கொண்டிருப்பீர்கள்/நிறுத்துவீர்கள்?)", ["will", "do", "did", "are"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["He ______ not be sleeping at that time.", "(அப்போது அவன் தூங்கிக் கொண்டிருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ she be baking a cake?", "(அவள் கேக் தயாரித்துக் கொண்டிருப்பாளா?)", ["Will", "Does", "Did", "Is"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["I ______ not be troubling you.", "(நான் உங்களைத் தொந்தரவு செய்துகொண்டிருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["How ______ they be coming here?", "(அவர்கள் இங்கே எப்படி வந்து கொண்டிருப்பார்கள்?)", ["will", "do", "did", "are"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["It ______ not be working properly.", "(அது சரியாகச் செயல்பட்டுக் கொண்டிருக்காது.)", ["will", "does", "did", "is"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ you be helping me?", "(நீ எனக்கு உதவி செய்துகொண்டிருப்பாயா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["We ______ not be watching TV.", "(நாங்கள் தொலைக்காட்சி பார்த்துக் கொண்டிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Continuous எதிர்மறையில் 'will' பயன்படும்."],
+                ["When ______ the show be starting?", "(நிகழ்ச்சி எப்போது தொடங்கிக் கொண்டிருக்கும்?)", ["will", "does", "did", "is"], 0, "எதிர்காலத் தொடர்ச்சி வினாவிற்கு 'will' பயன்படும்."],
+                ["______ you be needing my help?", "(உமக்கு என் உதவி தேவைப்பட்டுக் கொண்டிருக்குமா?)", ["Will", "Do", "Did", "Are"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        const setsData = [
+            { id: "set1", title: "1. Basic Future Continuous (Affirmative)", badge: "Future Continuous - Set 1", getQuestions: generateBasicFutureContinuousQuestions },
+            { id: "set2", title: "2. Negatives & Questions (Will be)", badge: "Future Continuous - Set 2", getQuestions: generateMasteryFutureContinuousQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('future_continuous_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('future_continuous_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

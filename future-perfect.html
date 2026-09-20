@@ -1,19 +1,850 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future Perfect Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FUTURE PERFECT TENSE – எதிர்கால நிறைவு (100 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #eff6ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS (Explanation, Example, Quiz) */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #dbeafe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #eff6ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1d4ed8;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #bfdbfe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.90rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2.2rem; color: #0f172a;">Future Perfect Tense</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>FUTURE PERFECT TENSE – எதிர்கால நிறைவு</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 100 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (100)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>எதிர்கால நிறைவு (Future Perfect Tense) என்றால் என்ன?</h2>
+            <p>எதிர்காலத்தில் ஒரு குறிப்பிட்ட நேரத்திற்குள் அல்லது மற்றொரு செயலுக்கு முன்பாக ஒரு செயல் முழுமையாக நிறைவடைந்திருக்கும் (Completed action) என்பதைக் குறிக்க <b>Future Perfect Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure & Helping Verbs)</h2>
+            <ul>
+                <li><b>جميع Pronouns (I, We, You, He, She, It, They):</b> will have + Verb 3rd form (V3 / Past Participle)</li>
+                <li><b>Affirmative:</b> Subject + will have + V3 (e.g., *will have finished*)</li>
+                <li><b>Negative:</b> Subject + will + not + have + V3 (or *won't have + V3*) (e.g., *will not have finished*)</li>
+                <li><b>Question:</b> Will + Subject + have + V3? (e.g., *Will you have finished?*)</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. முக்கிய குறிப்புகள்</h2>
+            <p>By tomorrow, By next week, By 5 PM போன்ற எதிர்கால வரையறை வார்த்தைகளுடன் இது பொதுவாகப் பயன்படுத்தப்படும்.</p>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. I will have finished my work by 5 PM tomorrow.</div>
+                <div class="ta">நாளை மாலை 5 மணிக்குள் நான் என் வேலையை முடித்திருப்பேன்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She will have cooked dinner before you arrive.</div>
+                <div class="ta">நீ வருவதற்கு முன்பாக அவள் இரவு உணவு சமைத்திருப்பாள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. They will have reached Chennai by next week.</div>
+                <div class="ta">அவர்கள் அடுத்த வக்குள் சென்னையை அடைந்திருப்பார்கள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. Will you have completed the project by tomorrow?</div>
+                <div class="ta">நாளைக்குள் திட்டத்தை முடித்திருப்பாயா?</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. We will not have left the office before 6 PM.</div>
+                <div class="ta">நாங்கள் மாலை 6 மணிக்கு முன்பாக அலுவலகத்தை விட்டுச் சென்றிருக்க மாட்டோம்.</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Future Perfect Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Fisher-Yates Shuffle utility to randomize options per question
+        function shuffleOptions(optionsArray, correctIndex) {
+            const optionsWithIndex = optionsArray.map((opt, idx) => ({ text: opt, isCorrect: idx === correctIndex }));
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+            const shuffledOptions = optionsWithIndex.map(item => item.text);
+            const newCorrectIndex = optionsWithIndex.findIndex(item => item.isCorrect);
+            return { shuffledOptions, newCorrectIndex };
+        }
+
+        // Set 1: Basic Future Perfect Practice (Affirmative - 50 Questions with V3 verbs)
+        const generateBasicFuturePerfectQuestions = () => {
+            const raw = [
+                ["I ______ finished my work by tomorrow.", "(நாளைக்குள் நான் என் வேலையை முடித்திருப்பேன்.)", ["will have finished", "will finish", "have finished", "had finished"], 0, "Future Perfect வாக்கியங்களில் 'will have + V3' (will have finished) பயன்படுத்த வேண்டும்."],
+                ["She ______ cooked dinner by 8 PM.", "(மாலை 8 மணிக்குள் அவள் இரவு உணவு சமைத்திருப்பாள்.)", ["will have cooked", "will cook", "has cooked", "had cooked"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have cooked' சரியானது."],
+                ["They ______ reached Chennai by next week.", "(அவர்கள் அடுத்த வாரம் குள்ளாக சென்னையை அடைந்திருப்பார்கள்.)", ["will have reached", "will reach", "have reached", "had reached"], 0, "எதிர்கால நிறைவுத் தன்மைக்கு 'will have reached' பயன்படும்."],
+                ["He ______ written the letter by then.", "(அதற்குள் அவன் கடிதம் எழுதியிருப்பான்.)", ["will have written", "will write", "has written", "had written"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have written' பயன்படும்."],
+                ["We ______ completed the project by Friday.", "(வெள்ளிக்கிழமைக்குள் நாங்கள் திட்டத்தை முடித்திருப்போம்.)", ["will have completed", "will complete", "have completed", "had completed"], 0, "எதிர்கால நிறைவுத் தன்மைக்கு 'will have completed' பயன்படும்."],
+                ["It ______ stopped raining by evening.", "(மாலைக்குள் மழை நின்றிருக்கும்.)", ["will have stopped", "will stop", "has stopped", "had stopped"], 0, "எதிர்கால நிறைவு நிகழ்வுக்கு 'will have stopped' பயன்படும்."],
+                ["You ______ learned the lesson by tomorrow.", "(நாளைக்குள் நீ பாடம் கற்றுக் கொண்டிருப்பாய்/கற்று முடித்திருப்பாய்.)", ["will have learned", "will learn", "have learned", "had learned"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have learned' பயன்படும்."],
+                ["She ______ sung a song in the event.", "(அவள் அந்த நிகழ்வில் பாடியிருப்பாள்.)", ["will have sung", "will sing", "has sung", "had sung"], 0, "எதிர்கால நிறைவுத் தன்மைக்கு 'will have sung' பயன்படும்."],
+                ["I ______ read the book by Sunday.", "(ஞாயிற்றுக்கிழமைக்குள் நான் புத்தகத்தைப் படித்து முடித்திருப்பேன்.)", ["will have read", "will read", "have read", "had read"], 0, "எதிர்கால வாசிப்பு நிறைவிற்கு 'will have read' பயன்படும்."],
+                ["They ______ built their house by next year.", "(அவர்கள் அடுத்த வருடத்திற்குள் தங்கள் வீட்டைக் கட்டியிருப்பார்கள்.)", ["will have built", "will build", "have built", "had built"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have built' பயன்படும்."],
+                ["He ______ driven to Madurai by noon.", "(மதியத்திற்குள் அவன் மதுரைக்கு வாகனம் ஓட்டிச் சென்றிருப்பான்.)", ["will have driven", "will drive", "has driven", "had driven"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have driven' பயன்படும்."],
+                ["We ______ left the place by 6 AM.", "(காலை 6 மணிக்கு முன்பாக நாங்கள் அந்த இடத்தை விட்டுச் சென்றிருப்போம்.)", ["will have left", "will leave", "have left", "had left"], 0, "எதிர்கால நிறைவுப் பயணத்திற்கு 'will have left' பயன்படும்."],
+                ["She ______ taught the chapter by tomorrow.", "(நாளைக்குள் அவள் அந்தப் பாடப்பகுதியைக் கற்பித்திருப்பாள்.)", ["will have taught", "will teach", "has taught", "had taught"], 0, "எதிர்கால நிறைவுத் தன்மைக்கு 'will have taught' பயன்படும்."],
+                ["I ______ passed the exam by next month.", "(அடுத்த மாதத்திற்குள் நான் தேர்வில் தேர்ச்சி பெற்றிருப்பேன்.)", ["will have passed", "will pass", "have passed", "had passed"], 0, "எதிர்காலத் தேர்ச்சி நிறைவிற்கு 'will have passed' பயன்படும்."],
+                ["They ______ cleaned the office by Monday.", "(திங்கட்கிழமைக்குள் அவர்கள் அலுவலகத்தைச் சுத்தப்படுத்தியிருப்பார்கள்.)", ["will have cleaned", "will clean", "have cleaned", "had cleaned"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have cleaned' பயன்படும்."],
+                ["He ______ repaired his bike by evening.", "(மாலைக்குள் அவன் தன் பைக்கைச் சீரமைத்திருப்பான்.)", ["will have repaired", "will repair", "has repaired", "had repaired"], 0, "எதிர்கால சீரமைப்பு நிறைவிற்கு 'will have repaired' பயன்படும்."],
+                ["We ______ discussed the matter by then.", "(அதற்குள் நாங்கள் அந்த விஷயத்தைப் பற்றி விவாதித்திருப்போம்.)", ["will have discussed", "will discuss", "have discussed", "had discussed"], 0, "எதிர்கால விவாத நிறைவிற்கு 'will have discussed' பயன்படும்."],
+                ["She ______ painted the room by tomorrow.", "(நாளைக்குள் அவள் அறைக்கு வர்ணம் பூசியிருப்பாள்.)", ["will have painted", "will paint", "has painted", "had painted"], 0, "எதிர்கால நிறைவுத் தன்மைக்கு 'will have painted' பயன்படும்."],
+                ["I ______ bought the car by next week.", "(அடுத்த வாரத்திற்குள் நான் கார் வாங்கியிருப்பேன்.)", ["will have bought", "will buy", "have bought", "had bought"], 0, "எதிர்காலக் கொள்முதல் நிறைவிற்கு 'will have bought' பயன்படும்."],
+                ["They ______ practiced the song by the show.", "(நிகழ்ச்சிக்கு முன் அவர்கள் பாட்டுப் பயிற்சி செய்திருப்பார்கள்.)", ["will have practiced", "will practice", "have practiced", "had practiced"], 0, "எதிர்காலப் பயிற்சி நிறைவிற்கு 'will have practiced' பயன்படும்."],
+                ["He ______ attended the meeting by 4 PM.", "(மாலை 4 மணிக்குள் அவன் கூட்டத்தில் கலந்துகொண்டிருப்பான்.)", ["will have attended", "will attend", "has attended", "had attended"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have attended' பயன்படும்."],
+                ["We ______ won the match by then.", "(அதற்குள் நாங்கள் போட்டியில் வென்றிருப்போம்.)", ["will have won", "will win", "have won", "had won"], 0, "எதிர்கால வெற்றி நிறைவிற்கு 'will have won' பயன்படும்."],
+                ["She ______ worn the new dress.", "(அவள் புதிய ஆடை அணிந்திருப்பாள்.)", ["will have worn", "will wear", "has worn", "had worn"], 0, "எதிர்கால நிறைவுச் செயலுக்கு 'will have worn' பயன்படும்."],
+                ["I ______ helped my friend by then.", "(அதற்குள் நான் என் நண்பனுக்கு உதவியிருப்பேன்.)", ["will have helped", "will help", "have helped", "had helped"], 0, "எதிர்கால உதவி நிறைவிற்கு 'will have helped' பயன்படும்."],
+                ["They ______ planted the trees by evening.", "(மாலைக்குள் அவர்கள் மரங்களை நட்டிருப்பார்கள்.)", ["will have planted", "will plant", "have planted", "had planted"], 0, "எதிர்கால நிறைவுத் தன்மைக்கு 'will have planted' பயன்படும்."],
+                ["He ______ written the report.", "(அவன் அறிக்கையை எழுதியிருப்பான்.)", ["will have written", "will write", "has written", "had written"], 0, "எதிர்கால எழுத்து நிறைவிற்கு 'will have written' பயன்படும்."],
+                ["We ______ finished the race.", "(நாங்கள் பந்தயத்தை முடித்திருப்போம்.)", ["will have finished", "will finish", "have finished", "had finished"], 0, "எதிர்கால நிறைவிற்கு 'will have finished' பயன்படும்."],
+                ["She ______ bought the vegetables.", "(அவள் காய்கறிகளை வாங்கியிருப்பாள்.)", ["will have bought", "will buy", "has bought", "had bought"], 0, "எதிர்காலக் கொள்முதலுக்கு 'will have bought' பயன்படும்."],
+                ["I ______ taken my lunch by 2 PM.", "(மதியம் 2 மணிக்குள் நான் மதிய உணவு சாப்பிட்டிருப்பேன்.)", ["will have taken", "will take", "have taken", "had taken"], 0, "எதிர்கால நிறைவிற்கு 'will have taken' பயன்படும்."],
+                ["They ______ arrived at the hotel.", "(அவர்கள் விடுதியை அடைந்திருப்பார்கள்.)", ["will have arrived", "will arrive", "have arrived", "had arrived"], 0, "எதிர்கால வருகை நிறைவிற்கு 'will have arrived' பயன்படும்."],
+                ["He ______ spoken to the boss.", "(அவன் மேலாளரிடம் பேசியிருப்பான்.)", ["will have spoken", "will speak", "has spoken", "had spoken"], 0, "எதிர்காலப் பேச்சு நிறைவிற்கு 'will have spoken' பயன்படும்."],
+                ["We ______ watched the movie.", "(நாங்கள் திரைப்படத்தைப் பார்த்திருப்போம்.)", ["will have watched", "will watch", "have watched", "had watched"], 0, "எதிர்காலப் பார்வை நிறைவிற்கு 'will have watched' பயன்படும்."],
+                ["She ______ fed the pet.", "(அவள் செல்லப்பிராணிக்கு உணவு ஊட்டியிருப்பாள்.)", ["will have fed", "will feed", "has fed", "had fed"], 0, "எதிர்கால நிறைவிற்கு 'will have fed' பயன்படும்."],
+                ["I ______ checked the files.", "(நான் கோப்புகளைச் சரிபார்த்திருப்பேன்.)", ["will have checked", "will check", "have checked", "had checked"], 0, "எதிர்காலச் சரிபார்ப்பு நிறைவிற்கு 'will have checked' பயன்படும்."],
+                ["They ______ gathered the details.", "(அவர்கள் விவரங்களைச் சேகரித்திருப்பார்கள்.)", ["will have gathered", "will gather", "have gathered", "had gathered"], 0, "எதிர்காலச் சேகரிப்பு நிறைவிற்கு 'will have gathered' பயன்படும்."],
+                ["He ______ organized the desk.", "(அவன் மேசையை ஒழுங்குபடுத்தியிருப்பான்.)", ["will have organized", "will organize", "has organized", "had organized"], 0, "எதிர்கால ஒழுங்குபடுத்தல் நிறைவிற்கு 'will have organized' பயன்படும்."],
+                ["We ______ explored the town.", "(நாங்கள் நகரைச் சுற்றியிருப்போம்/ஆராய்ந்திருப்போம்.)", ["will have explored", "will explore", "have explored", "had explored"], 0, "எதிர்கால நிறைவிற்கு 'will have explored' பயன்படும்."],
+                ["She ______ prepared the coffee.", "(அவள் காபி தயாரித்திருப்பாள்.)", ["will have prepared", "will prepare", "has prepared", "had prepared"], 0, "எதிர்காலத் தயாரிப்பு நிறைவிற்கு 'will have prepared' பயன்படும்."],
+                ["I ______ received the parcel.", "(நான் பார்சலைப் பெற்றிருப்பேன்.)", ["will have received", "will receive", "have received", "had received"], 0, "எதிர்காலப் பெறுதல் நிறைவிற்கு 'will have received' பயன்படும்."],
+                ["They ______ hosted the party.", "(அவர்கள் விருந்து நிகழ்ச்சியை நடத்தியிருப்பார்கள்.)", ["will have hosted", "will host", "have hosted", "had hosted"], 0, "எதிர்கால நிறைவிற்கு 'will have hosted' பயன்படும்."],
+                ["He ______ performed his role.", "(அவன் தன் பங்கைச் செய்திருப்பான்.)", ["will have performed", "will perform", "has performed", "had performed"], 0, "எதிர்கால நிறைவிற்கு 'will have performed' பயன்படும்."],
+                ["We ______ designed the poster.", "(நாங்கள் சுவரொட்டியை வடிவமைத்திருப்போம்.)", ["will have designed", "will design", "have designed", "had designed"], 0, "எதிர்கால வடிவமைப்பு நிறைவிற்கு 'will have designed' பயன்படும்."],
+                ["She ______ studied the topic.", "(அவள் தலைப்பைப் படித்திருப்பான்/படித்திருப்பாள்.)", ["will have studied", "will study", "has studied", "had studied"], 0, "எதிர்காலப் படிப்பு நிறைவிற்கு 'will have studied' பயன்படும்."],
+                ["I ______ updated the software.", "(நான் மென்பொருளைப் புதுப்பித்திருப்பேன்.)", ["will have updated", "will update", "have updated", "had updated"], 0, "எதிர்காலப் புதுப்பித்தல் நிறைவிற்கு 'will have updated' பயன்படும்."],
+                ["They ______ traveled to London.", "(அவர்கள் லண்டனுக்குப் பயணம் செய்திருப்பார்கள்.)", ["will have traveled", "will travel", "have traveled", "had traveled"], 0, "எதிர்காலப் பயண நிறைவிற்கு 'will have traveled' பயன்படும்."],
+                ["He ______ tested the application.", "(அவன் செயலியைச் சோதித்திருப்பான்.)", ["will have tested", "will test", "has tested", "had tested"], 0, "எதிர்காலச் சோதனை நிறைவிற்கு 'will have tested' பயன்படும்."],
+                ["We ______ planted saplings.", "(நாங்கள் செடிகளை நட்டிருப்போம்.)", ["will have planted", "will plant", "have planted", "had planted"], 0, "எதிர்கால நிறைவிற்கு 'will have planted' பயன்படும்."],
+                ["She ______ solved the puzzle.", "(அவள் புதிரைத் தீர்த்திருப்பாள்.)", ["will have solved", "will solve", "has solved", "had solved"], 0, "எதிர்காலத் தீர்வு நிறைவிற்கு 'will have solved' பயன்படும்."],
+                ["I ______ written a novel.", "(நான் ஒரு புதினம் எழுதியிருப்பேன்.)", ["will have written", "will write", "have written", "had written"], 0, "எதிர்கால எழுத்து நிறைவிற்கு 'will have written' பயன்படும்."],
+                ["They ______ waited for an hour.", "(அவர்கள் ஒரு மணி நேரம் காத்துகொண்டிருந்திருப்பார்கள்/காத்திருப்பார்கள்.)", ["will have waited", "will wait", "have waited", "had waited"], 0, "எதிர்காலக் காத்திருப்பு நிறைவிற்கு 'will have waited' பயன்படும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        // Set 2: Negatives & Questions in Future Perfect Practice (50 Questions)
+        const generateMasteryFuturePerfectQuestions = () => {
+            const raw = [
+                ["I ______ not have finished my work by tomorrow.", "(நாளைக்குள் நான் என் வேலையை முடித்திருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will not have' பயன்படும்."],
+                ["______ you have finished your work by tomorrow?", "(நாளைக்குள் உன் வேலையை முடித்திருப்பாயா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["She ______ not have cooked dinner by 8 PM.", "(மாலை 8 மணிக்குள் அவள் இரவு உணவு சமைத்திருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ they have reached Chennai by next week?", "(அவர்கள் அடுத்த வாரத்திற்குள் சென்னையை அடைந்திருப்பார்களா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["He ______ not have written the letter by then.", "(அதற்குள் அவன் கடிதம் எழுதியிருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["Why ______ you have completed the project by Friday?", "(வெள்ளிக்கிழமைக்குள் நீங்கள் ஏன் திட்டத்தை முடித்திருப்பீர்கள்?)", ["will", "do", "did", "have"], 0, "வினாச்சொல்லுக்குப் பிறகு 'will' பயன்படும்."],
+                ["______ she have sung a song in the event?", "(அவள் அந்த நிகழ்வில் பாடியிருப்பாளா?)", ["Will", "Does", "Did", "Has"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["We ______ not have read the book by Sunday.", "(ஞாயிற்றுக்கிழமைக்குள் நாங்கள் புத்தகத்தைப் படித்து முடித்திருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["Where ______ they have built their house by next year?", "(அவர்கள் அடுத்த வருடத்திற்குள் எங்கே வீடு கட்டியிருப்பார்கள்?)", ["will", "do", "did", "have"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["It ______ not have stopped raining by evening.", "(மாலைக்குள் மழை நின்றிருக்காது.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ I have learned the lesson by tomorrow?", "(நாளைக்குள் நான் பாடத்தைக் கற்று முடித்திருப்பேனா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["They ______ not have cleaned the office by Monday.", "(திங்கட்கிழமைக்குள் அவர்கள் அலுவலகத்தைச் சுத்தப்படுத்தியிருக்க மாட்டார்கள்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["What ______ he have done by tomorrow?", "(நாளைக்குள் அவன் என்ன செய்திருப்பான்?)", ["will", "does", "did", "has"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["You ______ not have left the place by 6 AM.", "(காலை 6 மணிக்கு முன்பாக நீங்கள் அந்த இடத்தை விட்டுச் சென்றிருக்க மாட்டீர்கள்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ the train have arrived by noon?", "(மதியத்திற்குள் ரயில் வந்து சேர்ந்திருக்குமா?)", ["Will", "Does", "Did", "Has"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["She ______ not have passed the exam.", "(அவன்/அவள் தேர்வில் தேர்ச்சி பெற்றிருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["Who ______ have finished the work first?", "(முதலில் வேலையை முடித்திருப்பவர் யார்?)", ["will", "does", "did", "has"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["We ______ not have discussed the matter.", "(நாங்கள் அந்த விஷயத்தைப் பற்றி விவாதித்திருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ the children have eaten their lunch?", "(குழந்தைகள் மதிய உணவு சாப்பிட்டிருப்பார்களா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["He ______ not have repaired his bike.", "(அவன் தன் பைக்கைச் சீரமைத்திருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["How ______ she have managed the situation?", "(அவள் நிலைமையை எப்படிச் சமாளித்திருப்பாள்?)", ["will", "does", "did", "has"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["I ______ not have bought the car.", "(நான் கார் வாங்கியிருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ you have attended the meeting?", "(நீ கூட்டத்தில் கலந்துகொண்டிருப்பாயா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["They ______ not have won the match.", "(அவர்கள் போட்டியில் வென்றிருக்க மாட்டார்கள்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["When ______ you have returned home?", "(நீ எப்போது வீடு திரும்பியிருப்பாய்?)", ["will", "do", "did", "have"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["She ______ not have worn the new dress.", "(அவள் புதிய ஆடை அணிந்திருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ it have stopped snowing?", "(பனி பெய்வது நின்றிருக்குமா?)", ["Will", "Does", "Did", "Has"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["We ______ not have played the match.", "(நாங்கள் போட்டியில் விளையாடியிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["Why ______ he have left early?", "(அவன் ஏன் சீக்கிரம் சென்றிருப்பான்?)", ["will", "does", "did", "has"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["You ______ not have made any mistake.", "(நீ எந்தத் தவறும் செய்திருக்க மாட்டாய்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ the sun have set by 7 PM?", "(மாலை 7 மணிக்குள் சூரியன் மறைந்திருக்குமா?)", ["Will", "Does", "Did", "Has"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["I ______ not have spoken to him.", "(நான் அவரிடம் பேசியிருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["What ______ they have discussed?", "(அவர்கள் என்ன விவாதித்திருப்பார்கள்?)", ["will", "do", "did", "have"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["He ______ not have reached on time.", "(அவன் சரியான நேரத்திற்குச் சென்றடைந்திருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ your parents have arrived?", "(உங்கள் பெற்றோர் வந்திருப்பார்களா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["She ______ not have painted the room.", "(அவள் அறைக்கு வர்ணம் பூசியிருக்க மாட்டாள்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["Who ______ have taken the book?", "(புத்தகத்தை எடுத்துச் சென்றவர் யார்?)", ["will", "does", "did", "has"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["We ______ not have created any issue.", "(நாங்கள் எந்தப் பிரச்சினையும் உருவாக்கியிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ you have remembered me?", "(நீ என்னை நினைவில் வைத்திருப்பாயா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["They ______ not have closed the shop.", "(அவர்கள் கடையை மூடியிருக்க மாட்டார்கள்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["Where ______ you have kept the keys?", "(திறவிகளை எங்கே வைத்திருப்பாய்?)", ["will", "do", "did", "have"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["He ______ not have slept by then.", "(அதற்குள் அவன் தூங்கியிருக்க மாட்டான்.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ she have baked a cake?", "(அவள் கேக் தயாரித்திருப்பாளா?)", ["Will", "Does", "Did", "Has"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["I ______ not have troubled you.", "(நான் உங்களைத் தொந்தரவு செய்திருக்க மாட்டேன்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["How ______ they have reached there?", "(அவர்கள் எப்படி அங்கு சென்றடைந்திருப்பார்கள்?)", ["will", "do", "did", "have"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["It ______ not have worked properly.", "(அது சரியாகச் செயல்பட்டிருக்காது.)", ["will", "does", "did", "has"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["______ you have helped him?", "(நீ அவனுக்கு உதவியிருப்பாயா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."],
+                ["We ______ not have missed the train.", "(நாங்கள் ரயிலைத் தவறவிட்டிருக்க மாட்டோம்.)", ["will", "do", "did", "have"], 0, "Future Perfect எதிர்மறையில் 'will' பயன்படும்."],
+                ["When ______ the show have ended?", "(நிகழ்ச்சி எப்போது முடிந்திருக்கும்?)", ["will", "does", "did", "have"], 0, "எதிர்கால நிறைவு வினாவிற்கு 'will' பயன்படும்."],
+                ["______ you have trusted me?", "(நீ என்னை நம்பியிருப்பாயா?)", ["Will", "Do", "Did", "Have"], 0, "வினாத் தொடக்கத்தில் 'Will' பயன்படும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        const setsData = [
+            { id: "set1", title: "1. Basic Future Perfect (Affirmative)", badge: "Future Perfect - Set 1", getQuestions: generateBasicFuturePerfectQuestions },
+            { id: "set2", title: "2. Negatives & Questions (Will have)", badge: "Future Perfect - Set 2", getQuestions: generateMasteryFuturePerfectQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('future_perfect_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('future_perfect_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

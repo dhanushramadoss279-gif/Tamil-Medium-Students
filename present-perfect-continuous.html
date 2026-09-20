@@ -1,19 +1,787 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Present Perfect Continuous Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PRESENT PERFECT CONTINUOUS TENSE – முற்றுப்பெற்ற தொடர் நிகழ்காலம் (50 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #f0f9ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0369a1;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #bae6fd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-dbn:disabled, .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f0f9ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.2rem;
+            }
+
+            .option-btn {
+                font-size: 0.90rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2rem; color: #0f172a;">Present Perfect Continuous</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>PRESENT PERFECT CONTINUOUS TENSE – முற்றுப்பெற்ற தொடர் நிகழ்காலம்</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 50 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (50)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>முற்றுப்பெற்ற தொடர் நிகழ்காலம் (Present Perfect Continuous Tense) என்றால் என்ன?</h2>
+            <p>கடந்த காலத்தில் தொடங்கி, தற்பொழுதும் தொடர்ந்து நடந்து கொண்டிருக்கும் செயல்களைக் குறிக்க <b>Present Perfect Continuous Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure & Rules)</h2>
+            <ul>
+                <li><b>Subject + have / has + been + Verb(V1 + ing) + Object + since / for</b></li>
+                <li><b>I, We, You, They & Plurals:</b> 'have been' உடன் V1+ing பயன்படுத்த வேண்டும்.</li>
+                <li><b>He, She, It & Singulars:</b> 'has been' உடன் V1+ing பயன்படுத்த வேண்டும்.</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. Since மற்றும் For பயன்பாடு</h2>
+            <ul>
+                <li><b>Since:</b> குறிப்பிட்ட தொடக்கக் காலத்தைக் குறிப்பிட (எ.கா: since morning, since 2010, since Monday).</li>
+                <li><b>For:</b> கால அளவைக் குறிப்பிட (எ.கா: for 2 hours, for 5 years, for 3 days).</li>
+            </ul>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. I have been waiting here for two hours.</div>
+                <div class="ta">நான் இங்கு இரண்டு மணிநேரமாகக் காத்துக் கொண்டிருக்கிறேன்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She has been working in this company since 2020.</div>
+                <div class="ta">அவள் 2020 முதல் இக்கம்பெனியில் வேலை செய்து வருகிறாள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. It has been raining since morning.</div>
+                <div class="ta">காலை முதல் மழை பெய்து கொண்டிருக்கிறது.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. They have been playing cricket for three hours.</div>
+                <div class="ta">அவர்கள் மூன்று மணிநேரமாக கிரிக்கெட் விளையாடிக் கொண்டிருக்கிறார்கள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. Have you been learning English?</div>
+                <div class="ta">நீ ஆங்கிலம் கற்றுக் கொண்டிருக்கிறாயா?</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 1 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Present Perfect Continuous Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Fisher-Yates Shuffle utility to randomize options per question
+        function shuffleOptions(optionsArray, correctIndex) {
+            const optionsWithIndex = optionsArray.map((opt, idx) => ({ text: opt, isCorrect: idx === correctIndex }));
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+            const shuffledOptions = optionsWithIndex.map(item => item.text);
+            const newCorrectIndex = optionsWithIndex.findIndex(item => item.isCorrect);
+            return { shuffledOptions, newCorrectIndex };
+        }
+
+        // 50 Questions for Present Perfect Continuous Tense
+        const generatePresentPerfectContinuousQuestions = () => {
+            const raw = [
+                ["I ______ waiting here for two hours.", "(நான் இங்கு இரண்டு மணிநேரமாகக் காத்துக் கொண்டிருக்கிறேன்.)", ["have been", "has been", "had been", "am"], 0, "I வந்ததால் 'have been' மற்றும் V1+ing பயன்படுத்த வேண்டும்."],
+                ["She ______ working in this office since 2020.", "(அவள் 2020 முதல் இ அலுவலகத்தில் வேலை செய்து வருகிறாள்.)", ["have been", "has been", "had been", "is"], 1, "She ஒருமை என்பதால் 'has been' பயன்படுத்த வேண்டும்."],
+                ["It ______ raining since morning.", "(காலை முதல் மழை பெய்து கொண்டிருக்கிறது.)", ["have been", "has been", "had been", "is"], 1, "It ஒருமை என்பதால் 'has been' பயன்படுத்த வேண்டும்."],
+                ["They ______ playing cricket for three hours.", "(அவர்கள் மூன்று மணிநேரமாக கிரிக்கெட் விளையாடிக் கொண்டிருக்கிறார்கள்.)", ["have been", "has been", "had been", "are"], 0, "They பன்மை என்பதால் 'have been' பயன்படுத்த வேண்டும்."],
+                ["We ______ living in Chennai for five years.", "(நாங்கள் ஐந்து ஆண்டுகளாகச் சென்னையில் வசித்து வருகிறோம்.)", ["have been", "has been", "had been", "are"], 0, "We பன்மை என்பதால் 'have been' பயன்படுத்த வேண்டும்."],
+                ["He ______ reading a book for an hour.", "(அவன் ஒரு மணிநேரமாக புத்தகம் படித்துக் கொண்டிருக்கிறான்.)", ["have been", "has been", "had been", "is"], 1, "He ஒருமை என்பதால் 'has been' பயன்படுத்த வேண்டும்."],
+                ["You ______ watching TV all day.", "(நீ நாள் முழுவதும் தொலைக்காட்சி பார்த்துக் கொண்டிருக்கிறாய்.)", ["have been", "has been", "had been", "are"], 0, "You உடன் 'have been' பயன்படுத்த வேண்டும்."],
+                ["My mother ______ cooking since 5 PM.", "(என் அம்மா மாலை 5 மணி முதல் சமைத்துக் கொண்டிருக்கிறார்.)", ["have been", "has been", "had been", "is"], 1, "My mother ஒருமை என்பதால் 'has been' பயன்படுத்த வேண்டும்."],
+                ["The children ______ playing in the park since afternoon.", "(குழந்தைகள் மதியம் முதல் பூங்காவில் விளையாடிக் கொண்டிருக்கிறார்கள்.)", ["have been", "has been", "had been", "are"], 0, "The children பன்மை என்பதால் 'have been' பயன்படுத்த வேண்டும்."],
+                ["Ravi ______ studying hard for the exam.", "(ரவி தேர்வுக்காகக் கடுமையாகப் படித்துக் கொண்டிருக்கிறான்.)", ["has been studying", "have been studying", "had been studying", "is studying"], 0, "Ravi ஒருமை என்பதால் 'has been studying' சரியானது."],
+                ["______ you been waiting long?", "(நீ நீண்ட நேரமாகக் காத்துக் கொண்டிருக்கிறாயா?)", ["Have", "Has", "Had", "Did"], 0, "You வருவதால் வினாத் தொடக்கத்தில் 'Have' பயன்படுத்த வேண்டும்."],
+                ["______ she been sleeping since morning?", "(அவள் காலை முதல் தூங்கிக் கொண்டிருக்கிறாளா?)", ["Have", "Has", "Had", "Does"], 1, "She ஒருமை என்பதால் 'Has' பயன்படுத்த வேண்டும்."],
+                ["What ______ you been doing?", "(நீ என்ன செய்து கொண்டிருக்கிறாய்?)", ["have", "has", "had", "are"], 0, "You வருவதால் 'have been' வடிவம் வரும்."],
+                ["Where ______ he been staying?", "(அவன் எங்கே தங்கியிருக்கிறான்?)", ["have", "has", "had", "is"], 1, "He ஒருமை என்பதால் 'has been' வடிவம் வரும்."],
+                ["We ______ not been sleeping well lately.", "(நாங்கள் சமீபத்தில் நன்றாகத் தூங்கவில்லை.)", ["have", "has", "had", "are"], 0, "We பன்மை என்பதால் 'have not been' பயன்படுத்த வேண்டும்."],
+                ["She ______ not been eating properly.", "(அவள் சரியாகச் சாப்பிடவில்லை.)", ["have", "has", "had", "is"], 1, "She ஒருமை என்பதால் 'has not been' பயன்படுத்த வேண்டும்."],
+                ["The dog ______ barking for a long time.", "(நாய் நீண்ட நேரமாகக் குரைத்துக் கொண்டிருக்கிறது.)", ["have been", "has been", "had been", "is"], 1, "The dog ஒருமை என்பதால் 'has been' பயன்படுத்த வேண்டும்."],
+                ["Birds ______ flying in the sky since morning.", "(பறவைகள் காலை முதல் வானத்தில் பறந்து கொண்டிருக்கின்றன.)", ["have been", "has been", "had been", "are"], 0, "Birds பன்மை என்பதால் 'have been' பயன்படுத்த வேண்டும்."],
+                ["He ______ learning English for two months.", "(அவன் இரண்டு மாதங்களாக ஆங்கிலம் கற்றுக் கொண்டிருக்கிறான்.)", ["has been learning", "have been learning", "had been learning", "is learning"], 0, "He ஒருமை என்பதால் 'has been learning' சரியானது."],
+                ["I ______ thinking about this issue.", "(நான் இதைப் பற்றி யோசித்துக் கொண்டிருக்கிறேன்.)", ["have been thinking", "has been thinking", "had been thinking", "am thinking"], 0, "I வந்ததால் 'have been thinking' சரியானது."],
+                ["______ it been raining here?", "(இங்கே மழை பெய்து கொண்டிருக்கிறதா?)", ["Have", "Has", "Had", "Does"], 1, "It ஒருமை என்பதால் 'Has' பயன்படுத்த வேண்டும்."],
+                ["The baby ______ crying for anuses.", "(குழந்தை நீண்ட நேரமாக அழுது கொண்டிருக்கிறது.)", ["has been crying", "have been crying", "had been crying", "is crying"], 0, "The baby ஒருமை என்பதால் 'has been crying' சரியானது."],
+                ["They ______ building a house since last year.", "(তারা கடந்த ஆண்டு முதல் வீடு கட்டி வருகின்றனர்.)", ["have been building", "has been building", "had been building", "are building"], 0, "They பன்மை என்பதால் 'have been building' சரியானது."],
+                ["My father ______ working here for ten years.", "(என் அப்பா இங்கு பத்து ஆண்டுகளாக வேலை செய்து வருகிறார்.)", ["has been working", "have been working", "had been working", "is working"], 0, "My father ஒருமை என்பதால் 'has been working' சரியானது."],
+                ["You ______ ignoring my calls.", "(நீ என் அழைப்புகளைத் தவிர்த்து வருகிறாய்.)", ["have been", "has been", "had been", "are"], 0, "You உடன் 'have been' பயன்படுத்த வேண்டும்."],
+                ["She ______ practicing dance since 4 PM.", "(அவள் மாலை 4 மணி முதல் நடனம் பயிற்சி செய்து வருகிறாள்.)", ["has been practicing", "have been practicing", "had been practicing", "is practicing"], 0, "She ஒருமை என்பதால் 'has been practicing' சரியானது."],
+                ["We ______ traveling for three days.", "(நாங்கள் மூன்று நாட்களாகப் பயணம் செய்து கொண்டிருக்கிறோம்.)", ["have been traveling", "has been traveling", "had been traveling", "are traveling"], 0, "We பன்மை என்பதால் 'have been traveling' சரியானது."],
+                ["He ______ repairing the car since morning.", "(அவன் காலை முதல் காரைச் சரிசெய்து கொண்டிருக்கிறான்.)", ["has been repairing", "have been repairing", "had been repairing", "is repairing"], 0, "He ஒருமை என்பதால் 'has been repairing' சரியானது."],
+                ["I ______ reading this novel for a week.", "(நான் ஒரு வாரமாக இந்தப் புதினத்தைப் படித்துக் கொண்டிருக்கிறேன்.)", ["have been reading", "has been reading", "had been reading", "am reading"], 0, "I வந்ததால் 'have been reading' சரியானது."],
+                ["______ they been playing football?", "(அவர்கள் கால்பந்து விளையாடிக் கொண்டிருக்கிறார்களா?)", ["Has", "Have", "Had", "Are"], 1, "They பன்மை என்பதால் 'Have' பயன்படுத்த வேண்டும்."],
+                ["The sun ______ shining brightly all day.", "(சூரியன் நாள் முழுவதும் பிரகாசமாக ஒளிர்கிறது.)", ["has been shining", "have been shining", "had been shining", "is shining"], 0, "The sun ஒருமை என்பதால் 'has been shining' சரியானது."],
+                ["Students ______ preparing for the annual day.", "(மாணவர்கள் ஆண்டு விழாவிற்காகத் தயாரிப்புப் பணியில் ஈடுபட்டுள்ளனர்.)", ["have been preparing", "has been preparing", "had been preparing", "are preparing"], 0, "Students பன்மை என்பதால் 'have been preparing' சரியானது."],
+                ["She ______ writing a letter for an hour.", "(அவள் ஒரு மணிநேரமாகக் கடிதம் எழுதி்க் கொண்டிருக்கிறாள்.)", ["has been writing", "have been writing", "had been writing", "is writing"], 0, "She ஒருமை என்பதால் 'has been writing' சரியானது."],
+                ["Farmers ______ working in the field since morning.", "(விவசாயிகள் காலை முதல் வயலில் வேலை செய்து கொண்டிருக்கிறார்கள்.)", ["have been working", "has been working", "had been working", "are working"], 0, "Farmers பன்மை என்பதால் 'have been working' சரியானது."],
+                ["I ______ feeling tired since afternoon.", "(மதியம் முதல் எனக்குச் சோர்வாக இருக்கிறது.)", ["have been feeling", "has been feeling", "had been feeling", "am feeling"], 0, "I வந்ததால் 'have been feeling' சரியானது."],
+                ["He ______ talking on the phone for ages.", "(அவன் நீண்ட நேரமாகப் போனில் பேசிக் கொண்டிருக்கிறான்.)", ["has been talking", "have been talking", "had been talking", "is talking"], 0, "He ஒருமை என்பதால் 'has been talking' சரியானது."],
+                ["We ______ waiting for the bus since 8 AM.", "(நாங்கள் காலை 8 மணி முதல் பேருந்துக்காகக் காத்துக் கொண்டிருக்கிறோம்.)", ["have been waiting", "has been waiting", "had been waiting", "are waiting"], 0, "We பன்மை என்பதால் 'have been waiting' சரியானது."],
+                ["Why ______ she crying since morning?", "(அவள் ஏன் காலை முதல் அழுது கொண்டிருக்கிறாள்?)", ["has", "have", "had", "is"], 0, "She ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["Who ______ been using my computer?", "(என் கணினியைப் பயன்படுத்தி வருபவர் யார்?)", ["has", "have", "had", "is"], 0, "Who என்பது ஒருமை என்பதால் 'has' பயன்படுத்த வேண்டும்."],
+                ["The wind ______ blowing strongly since last night.", "(நேற்று இரவு முதல் காற்று பலமாக வீசிக் கொண்டிருக்கிறது.)", ["has been blowing", "have been blowing", "had been blowing", "is blowing"], 0, "The wind ஒருமை என்பதால் 'has been blowing' சரியானது."],
+                ["They ______ living in this town for years.", "(அவர்கள் பல ஆண்டுகளாக இந்த ஊரில் வசித்து வருகின்றனர்.)", ["have been living", "has been living", "had been living", "are living"], 0, "They பன்மை என்பதால் 'have been living' சரியானது."],
+                ["I ______ teaching English since 2015.", "(நான் 2015 முதல் ஆங்கிலம் கற்பித்து வருகிறேன்.)", ["have been teaching", "has been teaching", "had been teaching", "am teaching"], 0, "I வந்ததால் 'have been teaching' சரியானது."],
+                ["She ______ painting the wall for two days.", "(அவள் இரண்டு நாட்களாகச் சுவரில் சாயம் பூசிக் கொண்டிருக்கிறாள்.)", ["has been painting", "have been painting", "had been painting", "is painting"], 0, "She ஒருமை என்பதால் 'has been painting' சரியானது."],
+                ["You ______ doing a great job.", "(நீ ஒரு சிறந்த வேலையைச் செய்து கொண்டிருக்கிறாய்.)", ["have been", "has been", "had been", "are"], 0, "You உடன் 'have been' பயன்படுத்த வேண்டும்."],
+                ["He ______ practicing music since childhood.", "(அவன் சிறுவயது முதல் இசையைப் பயிற்சி செய்து வருகிறான்.)", ["has been practicing", "have been practicing", "had been practicing", "is practicing"], 0, "He ஒருமை என்பதால் 'has been practicing' சரியானது."],
+                ["The guests ______ staying at the hotel.", "(விருந்தினர்கள் விடுதியில் தங்கியுள்ளனர்.)", ["have been staying", "has been staying", "had been staying", "are staying"], 0, "The guests பன்மை என்பதால் 'have been staying' சரியானது."],
+                ["I ______ not been feeling well today.", "(இன்று எனக்கு உடல்நிலை சரியாக இல்லை.)", ["have", "has", "had", "am"], 0, "I வந்ததால் 'have not been' சரியானது."],
+                ["She ______ not been attending the classes.", "(அவள் வகுப்புகளுக்குத் தொடர்ந்து செல்லவில்லை.)", ["have", "has", "had", "is"], 1, "She ஒருமை என்பதால் 'has not been' சரியானது."],
+                ["We ______ hoping for a positive result.", "(நாங்கள் ஒரு நல்ல பலனுக்காக எதிர்நோக்கிக் காத்திருக்கிறோம்.)", ["have been hoping", "has been hoping", "had been hoping", "are hoping"], 0, "We பன்மை என்பதால் 'have been hoping' சரியானது."],
+                ["How long ______ you been studying here?", "(நீ இங்கு எவ்வளவு காலமாகப் படித்துக் கொண்டிருக்கிறாய்?)", ["have", "has", "had", "do"], 0, "You வருவதால் 'have' பயன்படுத்த வேண்டும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        const setsData = [
+            { id: "set1", title: "Present Perfect Continuous Quiz (50)", badge: "Present Perfect Continuous - Set 1", getQuestions: generatePresentPerfectContinuousQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('present_perfect_continuous_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('present_perfect_continuous_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

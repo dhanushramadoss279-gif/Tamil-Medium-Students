@@ -1,0 +1,524 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pharmacy Conversation - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Pharmacy Conversation</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Excuse me, is this a pharmacy?</div>
+<div class="tamil">மன்னிக்கவும், இது மருந்தகமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Excuse me, is this a pharmacy?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Yes, this is a pharmacy.</div>
+<div class="tamil">ஆம், இது ஒரு மருந்தகம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, this is a pharmacy.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I need some medicine.</div>
+<div class="tamil">எனக்கு சில மருந்துகள் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I need some medicine.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Do you have a prescription?</div>
+<div class="tamil">உங்களிடம் மருத்துவர் பரிந்துரைச் சீட்டு உள்ளதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have a prescription?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Yes, I have a prescription.</div>
+<div class="tamil">ஆம், என்னிடம் மருத்துவர் பரிந்துரைச் சீட்டு உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I have a prescription.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Please show me the prescription.</div>
+<div class="tamil">தயவுசெய்து பரிந்துரைச் சீட்டைக் காட்டுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please show me the prescription.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Here it is.</div>
+<div class="tamil">இதோ இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Here it is.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Let me check it.</div>
+<div class="tamil">நான் இதைப் பார்த்து சரிபார்க்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Let me check it.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Do you have this medicine?</div>
+<div class="tamil">இந்த மருந்து உங்களிடம் இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have this medicine?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Yes, we have it.</div>
+<div class="tamil">ஆம், எங்களிடம் இது இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, we have it.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How much does it cost?</div>
+<div class="tamil">இதன் விலை எவ்வளவு?</div>
+</div>
+<button class="speak-btn" onclick="speak('How much does it cost?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">It costs one hundred rupees.</div>
+<div class="tamil">இதன் விலை நூறு ரூபாய்.</div>
+</div>
+<button class="speak-btn" onclick="speak('It costs one hundred rupees.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How many tablets should I take?</div>
+<div class="tamil">நான் எத்தனை மாத்திரைகள் எடுத்துக்கொள்ள வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How many tablets should I take?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Please follow the doctor's instructions.</div>
+<div class="tamil">தயவுசெய்து மருத்துவரின் அறிவுறுத்தல்களைப் பின்பற்றுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please follow the doctor’s instructions.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Should I take it after food?</div>
+<div class="tamil">சாப்பிட்ட பிறகு இதை எடுத்துக்கொள்ள வேண்டுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Should I take it after food?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Please check the prescription.</div>
+<div class="tamil">தயவுசெய்து பரிந்துரைச் சீட்டைப் பாருங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please check the prescription.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Do you have cough syrup?</div>
+<div class="tamil">உங்களிடம் இருமல் மருந்து இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have cough syrup?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Yes, we have cough syrup.</div>
+<div class="tamil">ஆம், எங்களிடம் இருமல் மருந்து உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, we have cough syrup.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How much is the syrup?</div>
+<div class="tamil">இருமல் மருந்தின் விலை எவ்வளவு?</div>
+</div>
+<button class="speak-btn" onclick="speak('How much is the syrup?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">It is eighty rupees.</div>
+<div class="tamil">அது எண்பது ரூபாய்.</div>
+</div>
+<button class="speak-btn" onclick="speak('It is eighty rupees.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I also need some vitamins.</div>
+<div class="tamil">எனக்கு சில வைட்டமின்களும் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I also need some vitamins.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Which vitamins do you need?</div>
+<div class="tamil">உங்களுக்கு எந்த வைட்டமின்கள் வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Which vitamins do you need?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I need vitamin tablets.</div>
+<div class="tamil">எனக்கு வைட்டமின் மாத்திரைகள் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I need vitamin tablets.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Here are the vitamin tablets.</div>
+<div class="tamil">இதோ வைட்டமின் மாத்திரைகள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Here are the vitamin tablets.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I pay by card?</div>
+<div class="tamil">நான் கார்டு மூலம் பணம் செலுத்தலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I pay by card?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Yes, you can pay by card.</div>
+<div class="tamil">ஆம், நீங்கள் கார்டு மூலம் பணம் செலுத்தலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, you can pay by card.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I get a bill?</div>
+<div class="tamil">எனக்கு ரசீது கிடைக்குமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I get a bill?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Sure, here is your bill.</div>
+<div class="tamil">நிச்சயமாக, இதோ உங்கள் ரசீது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure, here is your bill.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Do you have this medicine in another brand?</div>
+<div class="tamil">இந்த மருந்து வேறு நிறுவனத்தின் தயாரிப்பாக இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have this medicine in another brand?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Yes, we have another brand.</div>
+<div class="tamil">ஆம், எங்களிடம் வேறு நிறுவனத்தின் தயாரிப்பும் உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, we have another brand.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Okay, I will take this one.</div>
+<div class="tamil">சரி, நான் இதை வாங்கிக்கொள்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, I will take this one.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">Here are your medicines.</div>
+<div class="tamil">இதோ உங்கள் மருந்துகள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Here are your medicines.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Thank you for your help.</div>
+<div class="tamil">உங்கள் உதவிக்கு நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you for your help.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Pharmacist:</div>
+<div class="english">You are welcome. Take care.</div>
+<div class="tamil">பரவாயில்லை. உங்களை கவனித்துக்கொள்ளுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You are welcome. Take care.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

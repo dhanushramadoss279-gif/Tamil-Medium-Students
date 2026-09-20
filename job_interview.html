@@ -1,0 +1,513 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Job Interview - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Job Interview</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Good morning. Please have a seat.</div>
+<div class="tamil">காலை வணக்கம். தயவுசெய்து உட்காருங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning. Please have a seat.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Good morning, sir. Thank you.</div>
+<div class="tamil">காலை வணக்கம், ஐயா. நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning, sir. Thank you.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Please introduce yourself.</div>
+<div class="tamil">தயவுசெய்து உங்களை அறிமுகப்படுத்துங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please introduce yourself.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">My name is Dhananjeyan.</div>
+<div class="tamil">என் பெயர் தனஞ்செழியன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('My name is Dhananjeyan.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Where are you from?</div>
+<div class="tamil">நீங்கள் எங்கிருந்து வருகிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where are you from?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">I am from Tamil Nadu.</div>
+<div class="tamil">நான் தமிழ்நாட்டைச் சேர்ந்தவன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am from Tamil Nadu.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">What are you studying?</div>
+<div class="tamil">நீங்கள் என்ன படிக்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are you studying?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">I am studying Electrical and Electronics Engineering.</div>
+<div class="tamil">நான் மின் மற்றும் மின்னணு பொறியியல் படிக்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am studying Electrical and Electronics Engineering.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">What are your strengths?</div>
+<div class="tamil">உங்களுடைய பலம் என்ன?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are your strengths?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">My strengths are hard work and learning quickly.</div>
+<div class="tamil">என்னுடைய பலம் கடின உழைப்பு மற்றும் விரைவாகக் கற்றுக்கொள்வது.</div>
+</div>
+<button class="speak-btn" onclick="speak('My strengths are hard work and learning quickly.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">What is your weakness?</div>
+<div class="tamil">உங்களுடைய பலவீனம் என்ன?</div>
+</div>
+<button class="speak-btn" onclick="speak('What is your weakness?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Sometimes I overthink things.</div>
+<div class="tamil">சில நேரங்களில் நான் விஷயங்களைப் பற்றி அதிகமாக யோசிப்பேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sometimes I overthink things.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">What are your technical skills?</div>
+<div class="tamil">உங்களுடைய தொழில்நுட்ப திறன்கள் என்ன?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are your technical skills?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">I have basic knowledge of electrical systems and PLC.</div>
+<div class="tamil">எனக்கு மின் அமைப்புகள் மற்றும் PLC பற்றிய அடிப்படை அறிவு உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('I have basic knowledge of electrical systems and PLC.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Have you done any projects?</div>
+<div class="tamil">நீங்கள் ஏதேனும் திட்டங்களைச் செய்துள்ளீர்களா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Have you done any projects?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Yes, I have completed academic projects.</div>
+<div class="tamil">ஆம், நான் கல்வி சார்ந்த திட்டங்களை முடித்துள்ளேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I have completed academic projects.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Why do you want this job?</div>
+<div class="tamil">இந்த வேலையை நீங்கள் ஏன் விரும்புகிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Why do you want this job?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">I want to learn new skills and grow in my career.</div>
+<div class="tamil">நான் புதிய திறன்களைக் கற்றுக்கொண்டு என் தொழில் வாழ்க்கையில் வளர விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want to learn new skills and grow in my career.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Why should we hire you?</div>
+<div class="tamil">நாங்கள் ஏன் உங்களை வேலைக்கு எடுக்க வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Why should we hire you?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">I am hardworking and willing to learn.</div>
+<div class="tamil">நான் கடினமாக உழைப்பவன் மற்றும் கற்றுக்கொள்ள விருப்பமுள்ளவன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am hardworking and willing to learn.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Can you work in a team?</div>
+<div class="tamil">நீங்கள் ஒரு குழுவில் வேலை செய்ய முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can you work in a team?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Yes, I can work well in a team.</div>
+<div class="tamil">ஆம், நான் ஒரு குழுவில் நன்றாக வேலை செய்ய முடியும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I can work well in a team.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Are you willing to relocate?</div>
+<div class="tamil">வேலைக்காக வேறு இடத்திற்கு செல்ல நீங்கள் தயாரா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Are you willing to relocate?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Yes, I am willing to relocate.</div>
+<div class="tamil">ஆம், வேலைக்காக வேறு இடத்திற்கு செல்ல நான் தயாராக இருக்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I am willing to relocate.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Can you work under pressure?</div>
+<div class="tamil">நீங்கள் அழுத்தமான சூழ்நிலையில் வேலை செய்ய முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can you work under pressure?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Yes, I can stay calm and complete my work.</div>
+<div class="tamil">ஆம், நான் அமைதியாக இருந்து என் வேலையை முடிக்க முடியும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I can stay calm and complete my work.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">What are your career goals?</div>
+<div class="tamil">உங்களுடைய தொழில் இலக்குகள் என்ன?</div>
+</div>
+<button class="speak-btn" onclick="speak('What are your career goals?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">I want to improve my skills and become a good engineer.</div>
+<div class="tamil">நான் என்னுடைய திறன்களை மேம்படுத்தி ஒரு நல்ல பொறியாளராக விரும்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I want to improve my skills and become a good engineer.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">Do you have any questions for me?</div>
+<div class="tamil">என்னிடம் கேட்க உங்களுக்கு ஏதேனும் கேள்விகள் உள்ளதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have any questions for me?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Yes. Can you tell me about the job role?</div>
+<div class="tamil">ஆம். இந்த வேலைப் பொறுப்பைப் பற்றி சொல்ல முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes. Can you tell me about the job role?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">I will explain the job role to you.</div>
+<div class="tamil">இந்த வேலைப் பொறுப்பை நான் உங்களுக்கு விளக்குகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I will explain the job role to you.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Candidate:</div>
+<div class="english">Thank you for your time.</div>
+<div class="tamil">உங்கள் நேரத்திற்கு நன்றி.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you for your time.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Interviewer:</div>
+<div class="english">You are welcome. We will contact you soon.</div>
+<div class="tamil">பரவாயில்லை. நாங்கள் உங்களை விரைவில் தொடர்புகொள்வோம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('You are welcome. We will contact you soon.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

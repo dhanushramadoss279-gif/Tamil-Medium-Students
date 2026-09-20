@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Use Sentences (301-400)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f7ff;
+            color: #1e3a8a;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-6">
+
+    <!-- Main Content Container -->
+    <div class="w-full max-w-xl bg-white shadow-xl rounded-3xl p-4 sm:p-6 flex flex-col justify-between min-h-[480px]">
+        
+        <div>
+            <!-- Quick Page Jump Bar -->
+            <div class="flex items-center gap-2 mb-4 pb-3 border-b border-gray-100">
+                <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">பகுதிக்குச் செல்:</span>
+                <select id="pageSelect" onchange="jumpToPage(this.value)" class="w-full bg-gray-50 border border-gray-200 text-xs font-semibold rounded-lg p-2 text-blue-900 focus:outline-none focus:border-blue-500">
+                    <!-- Options injected via JS -->
+                </select>
+            </div>
+
+            <!-- Sentences List -->
+            <div id="sentenceContainer" class="flex flex-col gap-2.5">
+                <!-- Dynamic Sentences will load here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="flex justify-between items-center mt-6 pt-4 border-t border-gray-100">
+            <button onclick="changePage(-1)" id="prevBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                ← முந்தையது
+            </button>
+            <span id="pageCountDisplay" class="text-xs font-bold text-gray-400">1 / 10</span>
+            <button onclick="changePage(1)" id="nextBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-xl transition text-xs sm:text-sm disabled:opacity-40">
+                அடுத்தது →
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // File 4: Sentences 301 to 400 (10 Pages x 10 Sentences)
+        const file4Sentences = [
+            // Page 1 (301 - 310)
+            [
+                { en: "Where is the post office?", ta: "அஞ்சல் நிலையம் எங்கே இருக்கிறது?" },
+                { en: "I want to send a letter.", ta: "நான் ஒரு கடிதம் அனுப்ப வேண்டும்." },
+                { en: "How much is the postage stamp?", ta: "அஞ்சல் தலை விலை என்ன?" },
+                { en: "Drop this letter in the box.", ta: "இந்தக் கடிதத்தைப் பெட்டியில் போடு." },
+                { en: "I need to open a bank account.", ta: "நான் ஒரு வங்கி கணக்கு தொடங்க வேண்டும்." },
+                { en: "Fill out this form, please.", ta: "தயவுசெய்து இந்தப் படிவத்தை நிரப்புங்கள்." },
+                { en: "Sign here, please.", ta: "இங்கே கையெழுத்திடுங்கள்." },
+                { en: "Show me your ID proof.", ta: "உங்களுடைய அடையாள அட்டையைக் காட்டுங்கள்." },
+                { en: "Here is my Aadhaar card.", ta: "இதோ என் ஆதார் அட்டை." },
+                { en: "Your work is done.", ta: "உங்கள் வேலை முடிந்துவிட்டது." }
+            ],
+            // Page 2 (311 - 320)
+            [
+                { en: "Can I try this on?", ta: "இதை நான் அணிந்து பார்க்கலாமா?" },
+                { en: "Where is the fitting room?", ta: "உடை மாற்றுமிடம் எங்கே?" },
+                { en: "This shirt doesn't fit me.", ta: "இந்தச் சட்டை எனக்குப் பொருந்தவில்லை." },
+                { en: "Do you have a larger size?", ta: "இதை விடப் பெரிய சைஸ் உள்ளதா?" },
+                { en: "Do you have a smaller size?", ta: "இதை விடச் சிறிய சைஸ் உள்ளதா?" },
+                { en: "I like this color.", ta: "எனக்கு இந்த நிறம் பிடிக்கும்." },
+                { en: "Show me another design.", ta: "வேறு வடிவத்தைக் காட்டுங்கள்." },
+                { en: "This is a fixed price shop.", ta: "இது நிலையான விலை கடை." },
+                { en: "Give me the cash receipt.", ta: "பணத்திற்கான ரசீதைத் தாருங்கள்." },
+                { en: "Come again.", ta: "மீண்டும் வாருங்கள்." }
+            ],
+            // Page 3 (321 - 330)
+            [
+                { en: "How do I use this machine?", ta: "இந்த இயந்திரத்தை எப்படிப் பயன்படுத்துவது?" },
+                { en: "Press this button to start.", ta: "தொடங்க இந்தப் பொத்தானை அழுத்தவும்." },
+                { en: "Do not unplug the wire.", ta: "கம்பியை உருவ வேண்டாம்." },
+                { en: "The battery is low.", ta: "பேட்டரி குறைவாக உள்ளது." },
+                { en: "Charge your phone.", ta: "உங்கள் செல்போனை சார்ஜ் செய்யுங்கள்." },
+                { en: "My phone is out of battery.", ta: "என் செல்போன் சார்ஜ் தீர்ந்துவிட்டது." },
+                { en: "Connect to the Wi-Fi.", ta: "வை-ஃபை இணைக்கவும்." },
+                { en: "What is the password?", ta: "கடவுச்சொல் என்ன?" },
+                { en: "The internet is very slow.", ta: "இணையம் மிகவும் மெதுவாக உள்ளது." },
+                { en: "Restart your computer.", ta: "கணினியை மறுதொடக்கம் செய்." }
+            ],
+            // Page 4 (331 - 340)
+            [
+                { en: "Let us discuss this later.", ta: "இதைப் பற்றிப் பிறகு விவாதிக்கலாம்." },
+                { en: "I agree with your idea.", ta: "உங்கள் யோசனையுடன் நான் உடன்படுகிறேன்." },
+                { en: "I disagree with you.", ta: "நான் உங்களுடன் உடன்படவில்லை." },
+                { en: "Let us find a solution.", ta: "நாம் ஒரு தீர்வைக் கண்டுபிடிப்போம்." },
+                { en: "Everything is under control.", ta: "எல்லாமே கட்டுப்பாட்டில் உள்ளது." },
+                { en: "Do not panic.", ta: "பதற்றமடைய வேண்டாம்." },
+                { en: "Stay calm and listen.", ta: "அமைதியாக இருந்து கேள்." },
+                { en: "Everything will be alright.", ta: "எல்லாமே சரியாகிவிடும்." },
+                { en: "I trust your judgment.", ta: "உங்கள் முடிவை நான் நம்புகிறேன்." },
+                { en: "Let us move forward.", ta: "நாம் முன்னோக்கிச் செல்வோம்." }
+            ],
+            // Page 5 (341 - 350)
+            [
+                { en: "What are your future plans?", ta: "உங்கள் எதிர்காலத் திட்டங்கள் என்ன?" },
+                { en: "I want to start a business.", ta: "நான் ஒரு தொழில் தொடங்க விரும்புகிறேன்." },
+                { en: "I want to travel the world.", ta: "நான் உலகம் முழுவதும் பயணிக்க விரும்புகிறேன்." },
+                { en: "Hard work brings success.", ta: "கடின உழைப்பு வெற்றியைத் தரும்." },
+                { en: "Never lose hope.", ta: "எப்பொழுதும் நம்பிக்கையை விடாதே." },
+                { en: "Opportunity knocks once.", ta: "வாய்ப்பு ஒருமுறைதான் வரும்." },
+                { en: "Make use of this chance.", ta: "இந்த வாய்ப்பைப் பயன்படுத்திக் கொள்." },
+                { en: "Patience is a virtue.", ta: "பொறுமை ஒரு அணிகலன் / பொக்கிஷம்." },
+                { en: "Time and tide wait for none.", ta: "காலமும் நேரமும் யாருக்காகவும் காத்திருக்காது." },
+                { en: "Every second counts.", ta: "ஒவ்வொரு நொடியும் முக்கியமானது." }
+            ],
+            // Page 6 (351 - 360)
+            [
+                { en: "Where is the railway station?", ta: "தொடருந்து நிலையம் எங்கே?" },
+                { en: "When does the train arrive?", ta: "ரெயில் எப்போது வரும்?" },
+                { en: "The train is running late.", ta: "ரெயில் தாமதமாக வருகிறது." },
+                { en: "Which platform is it on?", ta: "இது எந்த மேடையில் (பிளாட்பாரத்தில்) உள்ளது?" },
+                { en: "I need a ticket to Madurai.", ta: "மதுரைக்கு ஒரு டிக்கெட் வேண்டும்." },
+                { en: "Is this seat vacant?", ta: "இந்த இருக்கை காலியாக உள்ளதா?" },
+                { en: "Can I sit here?", ta: "நான் இங்கே உட்காரலாமா?" },
+                { en: "Please keep your luggage safe.", ta: "உங்கள் சாமான்களைப் பாதுகாப்பாக வையுங்கள்." },
+                { en: "The train is about to leave.", ta: "ரெயில் புறப்படப் போகிறது." },
+                { en: "Have a pleasant journey.", ta: "இனிய பயணமாக அமையட்டும்." }
+            ],
+            // Page 7 (361 - 370)
+            [
+                { en: "Where can I book a cab?", ta: "நான் எங்கே ஒரு வண்டி முன்பதிவு செய்வது?" },
+                { en: "Book an auto through the app.", ta: "செயலி மூலம் ஒரு ஆட்டோவை புக் செய்." },
+                { en: "How long will it take to reach?", ta: "சென்று சேர எவ்வளவு நேரம் ஆகும்?" },
+                { en: "It takes about half an hour.", ta: "சுமார் அரை மணி நேரம் ஆகும்." },
+                { en: "Take a left turn here.", ta: "இங்கே இடதுபுறம் திரும்பு." },
+                { en: "Stop the vehicle here.", ta: "வண்டியை இங்கே நிறுத்துங்கள்." },
+                { en: "Here is your fare.", ta: "இதோ உங்களுக்கான வாடகைப் பணம்." },
+                { en: "Keep the change.", ta: "சில்லறையை வைத்துக் கொள்ளுங்கள்." },
+                { en: "Thank you for the ride.", ta: "பயணத்திற்கு நன்றி." },
+                { en: "Drive safely.", ta: "பாதுகாப்பாக ஓட்டுங்கள்." }
+            ],
+            // Page 8 (371 - 380)
+            [
+                { en: "Do you have any pets?", ta: "உங்களுக்கு வீட்டு விலங்குகள் உள்ளதா?" },
+                { en: "I have a pet dog.", ta: "என்னிடம் ஒரு வளர்ப்பு நாய் உள்ளது." },
+                { en: "What is its name?", ta: "அதன் பெயர் என்ன?" },
+                { en: "Its name is Bruno.", ta: "அதன் பெயர் புருனோ." },
+                { en: "Dogs are very loyal.", ta: "நாய்கள் மிகவும் விசுவாசமானவை." },
+                { en: "Do you like cats?", ta: "உங்களுக்குப் பூனைகள் பிடிக்குமா?" },
+                { en: "I love animals.", ta: "எனக்கு விலங்குகளை ரொம்பப் பிடிக்கும்." },
+                { en: "Feed the birds.", ta: "பறவைகளுக்குத் தீனி போடு." },
+                { en: "Protect nature.", ta: "இயற்கையைப் பாதுகாப்போம்." },
+                { en: "Save trees, save lives.", ta: "மரங்களை வளர்ப்போம், உயிரைக் காப்போம்." }
+            ],
+            // Page 9 (381 - 390)
+            [
+                { en: "What are your strengths?", ta: "உன் பலங்கள் என்ன?" },
+                { en: "I am a quick learner.", ta: "நான் சீக்கிரமாகக் கற்றுக்கொள்பவன்." },
+                { en: "I am a team player.", ta: "நான் அணியாக இணைந்து வேலை செய்பவன்." },
+                { en: "What are your weaknesses?", ta: "உன் பலவீனங்கள் என்ன?" },
+                { en: "I trust people easily.", ta: "நான் எளிதில் மக்களை நம்பிவிடுவேன்." },
+                { en: "I am a bit perfectionist.", ta: "நான் எல்லாவற்றையும் சரியாகவும் நேர்த்தியாகவும் செய்ய விரும்புவேன்." },
+                { en: "Do you work well under pressure?", ta: "அழுத்தமான சூழலில் உன்னால் நன்றாக வேலை செய்ய முடியுமா?" },
+                { en: "Yes, I handle pressure well.", ta: "ஆம், அழுத்தங்களை என்னால் நன்றாகக் கையாள முடியும்." },
+                { en: "I am looking forward to it.", ta: "இதற்காக ஆவலுடன் காத்திருக்கிறேன்." },
+                { en: "Thank you for the opportunity.", ta: "வாய்ப்புக்கு நன்றி." }
+            ],
+            // Page 10 (391 - 400)
+            [
+                { en: "Let us celebrate your success.", ta: "உங்கள் வெற்றியை நாம் கொண்டாடுவோம்." },
+                { en: "Congratulations on your graduation.", ta: "பட்டப்படிப்பு முடித்ததற்கு வாழ்த்துகள்." },
+                { en: "Happy birthday to you.", ta: "உங்களுக்கு இனிய பிறந்தநாள் நல்வாழ்த்துகள்." },
+                { en: "Happy wedding anniversary.", ta: "திருமண நாள் நல்வாழ்த்துகள்." },
+                { en: "Wishing you a long and happy life.", ta: "நீண்ட காலம் மகிழ்ச்சியுடன் வாழ வாழ்த்துகிறேன்." },
+                { en: "May all your dreams come true.", ta: "உங்கள் கனவுகள் அனைத்தும் நனவாகட்டும்." },
+                { en: "God bless you.", ta: "கடவுள் உங்களை ஆசீர்வதிப்பாராக." },
+                { en: "Keep smiling always.", ta: "எப்பொழுதும் புன்னகையுடன் இருங்கள்." },
+                { en: "Life is beautiful.", ta: "வாழ்க்கை அழகானது." },
+                { en: "Enjoy every moment of life.", ta: "வாழ்க்கையின் ஒவ்வொரு கணத்தையும் ரசியுங்கள்." }
+            ]
+        ];
+
+        let currentPage = 0;
+
+        // Populate dropdown options
+        const selectEl = document.getElementById('pageSelect');
+        for (let i = 0; i < file4Sentences.length; i++) {
+            let opt = document.createElement('option');
+            opt.value = i;
+            opt.innerText = `பகுதி ${i + 1} (வாக்கியங்கள் ${301 + (i*10)} - ${300 + ((i+1)*10)})`;
+            selectEl.appendChild(opt);
+        }
+
+        function renderPage() {
+            const container = document.getElementById('sentenceContainer');
+            const pageData = file4Sentences[currentPage];
+            
+            let html = '';
+            pageData.forEach((item, index) => {
+                let sentenceNo = 301 + (currentPage * 10) + index;
+                html += `
+                    <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3 flex flex-col gap-0.5 shadow-sm">
+                        <span class="text-[10px] font-bold text-blue-500">#${sentenceNo}</span>
+                        <p class="text-xs sm:text-sm font-bold text-blue-900">${item.en}</p>
+                        <p class="text-[11px] sm:text-xs font-medium text-gray-600">${item.ta}</p>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+
+            document.getElementById('pageCountDisplay').innerText = `${currentPage + 1} / 10`;
+            selectEl.value = currentPage;
+
+            document.getElementById('prevBtn').disabled = currentPage === 0;
+            document.getElementById('nextBtn').disabled = currentPage === file4Sentences.length - 1;
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            if (currentPage < 0) currentPage = 0;
+            if (currentPage >= file4Sentences.length) currentPage = file4Sentences.length - 1;
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function jumpToPage(pageIndex) {
+            currentPage = parseInt(pageIndex);
+            renderPage();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // முதல் பக்கத்தை ஏற்றுதல்
+        renderPage();
+    </script>
+</body>
+</html>

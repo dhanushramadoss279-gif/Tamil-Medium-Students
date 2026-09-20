@@ -1,0 +1,524 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Restaurant Conversation - Tamil Medium Student</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(23px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Restaurant Conversation</h1>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Good evening.</div>
+<div class="tamil">மாலை வணக்கம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good evening.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Good evening. Welcome to our restaurant.</div>
+<div class="tamil">மாலை வணக்கம். எங்கள் உணவகத்திற்கு வரவேற்கிறோம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good evening. Welcome to our restaurant.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Do you have a table for two?</div>
+<div class="tamil">இரண்டு பேருக்கு ஒரு மேசை இருக்கிறதா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Do you have a table for two?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Yes, please come this way.</div>
+<div class="tamil">ஆம், தயவுசெய்து இந்த வழியாக வாருங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, please come this way.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I have the menu, please?</div>
+<div class="tamil">தயவுசெய்து மெனு கொடுக்க முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I have the menu, please?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Sure. Here is the menu.</div>
+<div class="tamil">நிச்சயமாக. இதோ மெனு.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure. Here is the menu.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">What do you recommend?</div>
+<div class="tamil">நீங்கள் எதைப் பரிந்துரைக்கிறீர்கள்?</div>
+</div>
+<button class="speak-btn" onclick="speak('What do you recommend?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Our biryani is very popular.</div>
+<div class="tamil">எங்கள் பிரியாணி மிகவும் பிரபலமானது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Our biryani is very popular.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">I would like one chicken biryani.</div>
+<div class="tamil">எனக்கு ஒரு சிக்கன் பிரியாணி வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I would like one chicken biryani.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Would you like anything to drink?</div>
+<div class="tamil">குடிக்க ஏதாவது வேண்டுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Would you like anything to drink?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Yes, I would like a glass of water.</div>
+<div class="tamil">ஆம், எனக்கு ஒரு கிளாஸ் தண்ணீர் வேண்டும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I would like a glass of water.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Would you like cold water or normal water?</div>
+<div class="tamil">குளிர்ந்த தண்ணீரா அல்லது சாதாரண தண்ணீரா வேண்டும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('Would you like cold water or normal water?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Normal water, please.</div>
+<div class="tamil">சாதாரண தண்ணீர், தயவுசெய்து.</div>
+</div>
+<button class="speak-btn" onclick="speak('Normal water, please.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Would you like some starters?</div>
+<div class="tamil">உங்களுக்கு ஏதாவது ஸ்டார்ட்டர் வேண்டுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Would you like some starters?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Yes, give me one plate of chicken 65.</div>
+<div class="tamil">ஆம், ஒரு பிளேட் சிக்கன் 65 கொடுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, give me one plate of chicken 65.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Anything else?</div>
+<div class="tamil">வேறு ஏதாவது வேண்டுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Anything else?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">No, that's all for now.</div>
+<div class="tamil">இல்லை, இப்போதைக்கு அவ்வளவுதான்.</div>
+</div>
+<button class="speak-btn" onclick="speak('No, that’s all for now.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Your order will be ready soon.</div>
+<div class="tamil">உங்கள் ஆர்டர் விரைவில் தயாராகிவிடும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Your order will be ready soon.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How long will it take?</div>
+<div class="tamil">எவ்வளவு நேரம் ஆகும்?</div>
+</div>
+<button class="speak-btn" onclick="speak('How long will it take?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">It will take about fifteen minutes.</div>
+<div class="tamil">சுமார் பதினைந்து நிமிடங்கள் ஆகும்.</div>
+</div>
+<button class="speak-btn" onclick="speak('It will take about fifteen minutes.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">The food looks delicious.</div>
+<div class="tamil">சாப்பாடு மிகவும் சுவையாகத் தெரிகிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('The food looks delicious.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">I hope you enjoy your meal.</div>
+<div class="tamil">நீங்கள் உணவை ரசித்து சாப்பிடுவீர்கள் என்று நம்புகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I hope you enjoy your meal.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I have some extra sauce?</div>
+<div class="tamil">கொஞ்சம் கூடுதல் சாஸ் கொடுக்க முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I have some extra sauce?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Sure, I will bring it.</div>
+<div class="tamil">நிச்சயமாக, நான் கொண்டு வருகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure, I will bring it.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I have some more water?</div>
+<div class="tamil">இன்னும் கொஞ்சம் தண்ணீர் கொடுக்க முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I have some more water?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Of course. Here you are.</div>
+<div class="tamil">நிச்சயமாக. இதோ எடுத்துக்கொள்ளுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Of course. Here you are.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I have the bill, please?</div>
+<div class="tamil">தயவுசெய்து பில் கொடுக்க முடியுமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I have the bill, please?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Sure. Here is your bill.</div>
+<div class="tamil">நிச்சயமாக. இதோ உங்கள் பில்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure. Here is your bill.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">How much is the total?</div>
+<div class="tamil">மொத்தம் எவ்வளவு?</div>
+</div>
+<button class="speak-btn" onclick="speak('How much is the total?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">The total is six hundred rupees.</div>
+<div class="tamil">மொத்தம் அறுநூறு ரூபாய்.</div>
+</div>
+<button class="speak-btn" onclick="speak('The total is six hundred rupees.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Can I pay by card?</div>
+<div class="tamil">நான் கார்டு மூலம் பணம் செலுத்தலாமா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Can I pay by card?')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Yes, you can pay by card.</div>
+<div class="tamil">ஆம், நீங்கள் கார்டு மூலம் பணம் செலுத்தலாம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, you can pay by card.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Customer:</div>
+<div class="english">Thank you. The food was very good.</div>
+<div class="tamil">நன்றி. உணவு மிகவும் நன்றாக இருந்தது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you. The food was very good.')">🔊</button>
+</div>
+</div>
+
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Waiter:</div>
+<div class="english">Thank you. Please visit us again.</div>
+<div class="tamil">நன்றி. மீண்டும் எங்களை சந்தியுங்கள்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Thank you. Please visit us again.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function speak(text) {
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+</script>
+
+</body>
+</html>
+```

@@ -1,19 +1,837 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Past Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SIMPLE PAST TENSE – எளிய இறந்தகாலம் (100 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0284c7;
+            --primary-dark: #0369a1;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #f0f9ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS (Explanation, Example, Quiz) */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #e0f2fe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0369a1;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #bae6fd;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f0f9ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2.2rem; color: #0f172a;">Simple Past Tense</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>SIMPLE PAST TENSE – எளிய இறந்தகாலம்</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 100 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (100)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>எளிய இறந்தகாலம் (Simple Past Tense) என்றால் என்ன?</h2>
+            <p>கடந்த காலத்தில் ஒரு குறிப்பிட்ட நேரத்தில் நடந்து முடிந்த செயல்களைக் குறிப்பிட <b>Simple Past Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure)</h2>
+            <ul>
+                <li><b>Affirmative (நேர்மறை):</b> Subject + Verb (V2 - Past Form)</li>
+                <li><b>Negative (எதிர்மறை):</b> Subject + did not (didn't) + Verb (V1 - Present Form)</li>
+                <li><b>Question (வினா):</b> Did + Subject + Verb (V1 - Present Form)?</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. முக்கிய அடையாளச் சொற்கள் (Keywords)</h2>
+            <p>கீழ்கண்ட சொற்கள் வாக்கியத்தில் வந்தால் அது Simple Past Tense-ஐச் சேர்ந்தது:</p>
+            <ul>
+                <li><b>Yesterday</b> (நேற்று)</li>
+                <li><b>Last week / Last month / Last year</b> (கடந்த வாரம் / மாதம் / ஆண்டு)</li>
+                <li><b>Ago</b> (முன்பு - e.g., 2 days ago)</li>
+                <li><b>In 2020</b> (கடந்த ஆண்டுகள்)</li>
+            </ul>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. I watched a movie yesterday.</div>
+                <div class="ta">நான் நேற்று ஒரு திரைப்படம் பார்த்தேன். (Affirmative - V2)</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She went to Chennai last week.</div>
+                <div class="ta">அவள் கடந்த வாரம் சென்னைக்குச் சென்றாள். (Affirmative - V2)</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. He did not come to school yesterday.</div>
+                <div class="ta">அவன் நேற்று பள்ளிக்கு வரவில்லை. (Negative - did not + V1)</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. Did you call me last night?</div>
+                <div class="ta">நேற்று இரவு நீ என்னை அழைத்தாயா? (Question - Did + V1)</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. They bought a new car two days ago.</div>
+                <div class="ta">அவர்கள் இரண்டு நாட்களுக்கு முன்பு ஒரு புதிய கார் வாங்கினார்கள்.</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Simple Past Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Set 1: Basic Simple Past Practice (Affirmative - 50 Questions)
+        const generateBasicPastQuestions = () => {
+            const raw = [
+                ["I ______ a letter yesterday.", "(நான் நேற்று ஒரு கடிதம் எழுதினேன்.)", ["wrote", "write", "writing", "written"], 0, "நேற்று (yesterday) நடந்த செயல் என்பதால் Past Tense V2 (wrote) பயன்படும்."],
+                ["She ______ to Madurai last week.", "(அவள் கடந்த வாரம் மதுரைக்குச் சென்றாள்.)", ["went", "go", "going", "gone"], 0, "கடந்த வாரம் (last week) என்பதால் V2 (went) பயன்படும்."],
+                ["They ______ a new car last month.", "(அவர்கள் கடந்த மாதம் ஒரு புதிய கார் வாங்கினார்கள்.)", ["bought", "buy", "buying", "buys"], 0, "கடந்த மாதம் (last month) நடந்த செயல் என்பதால் V2 (bought) பயன்படும்."],
+                ["He ______ his car key in the park.", "(அவன் பூங்காவில் தன் கார் சாவியைத் தொலைத்தான்.)", ["lost", "lose", "losing", "loses"], 0, "கடந்த காலச் செயல் என்பதால் V2 (lost) பயன்படும்."],
+                ["We ______ a movie last night.", "(நாங்கள் நேற்று இரவு ஒரு படம் பார்த்தோம்.)", ["watched", "watch", "watching", "watches"], 0, "நேற்று இரவு (last night) என்பதால் V2 (watched) பயன்படும்."],
+                ["You ______ well in the examination yesterday.", "(நீ நேற்று தேர்வில் நன்றாக எழுதினாய்/செய்தாய்.)", ["did", "do", "doing", "done"], 0, "நேற்று (yesterday) என்பதால் V2 (did) பயன்படும்."],
+                ["The train ______ at 5 PM yesterday.", "(ரயில் நேற்று மாலை 5 மணிக்கு வந்தது.)", ["arrived", "arrive", "arriving", "arrives"], 0, "நேற்று (yesterday) என்பதால் V2 (arrived) பயன்படும்."],
+                ["My father ______ from Chennai last evening.", "(என் தந்தை நேற்று மாலை சென்னையிலிருந்து திரும்பினார்.)", ["returned", "return", "returning", "returns"], 0, "நேற்று மாலை (last evening) என்பதால் V2 (returned) பயன்படும்."],
+                ["It ______ heavily last night.", "(நேற்று இரவு பலத்த மழை பெய்தது.)", ["rained", "rain", "raining", "rains"], 0, "நேற்று இரவு (last night) என்பதால் V2 (rained) பயன்படும்."],
+                ["She ______ delicious biryani for lunch yesterday.", "(அவள் நேற்று மதிய உணவிற்கு சுவையான பிரியாணி சமைத்தாள்.)", ["cooked", "cook", "cooking", "cooks"], 0, "நேற்று (yesterday) என்பதால் V2 (cooked) பயன்படும்."],
+                ["I ______ him two days ago.", "(நான் அவரை இரண்டு நாட்களுக்கு முன்பு சந்தித்தேன்.)", ["met", "meet", "meeting", "meets"], 0, "இரண்டு நாட்களுக்கு முன்பு (ago) என்பதால் V2 (met) பயன்படும்."],
+                ["He ______ a story book last Sunday.", "(அவன் கடந்த ஞாயிற்றுக்கிழமை ஒரு கதைப் புத்தகம் படித்தான்.)", ["read", "reads", "reading", "will read"], 0, "கடந்த காலம் என்பதால் Read-ன் Past Form V2 (read - உச்சரிப்பு 'ரெட்') பயன்படும்."],
+                ["They ______ the work on time yesterday.", "(அவர்கள் நேற்று வேலையைச் சரியான நேரத்தில் முடித்தார்கள்.)", ["completed", "complete", "completing", "completes"], 0, "நேற்று (yesterday) என்பதால் V2 (completed) பயன்படும்."],
+                ["The cat ______ all the milk this morning.", "(பூனை இன்று காலை அனைத்து பாலையும் குடித்தது.)", ["drank", "drink", "drinking", "drinks"], 0, "முடிந்த செயல் என்பதால் V2 (drank) பயன்படும்."],
+                ["We ______ in Salem five years ago.", "(நாங்கள் ஐந்து ஆண்டுகளுக்கு முன்பு சேலத்தில் வசித்தோம்.)", ["lived", "live", "living", "lives"], 0, "ஐந்து ஆண்டுகளுக்கு முன்பு (ago) என்பதால் V2 (lived) பயன்படும்."],
+                ["She ______ her glass by mistake yesterday.", "(அவள் நேற்று தவறுதலாகத் தன் கண்ணாடியை உடைத்தாள்.)", ["broke", "break", "breaking", "breaks"], 0, "நேற்று (yesterday) என்பதால் V2 (broke) பயன்படும்."],
+                ["I ______ breakfast at 8 AM today.", "(நான் இன்று காலை 8 மணிக்கு காலை உணவு சாப்பிட்டேன்.)", ["ate", "eat", "eating", "eats"], 0, "முடிந்துவிட்ட நேரம் என்பதால் V2 (ate) பயன்படும்."],
+                ["Raju ______ first mark in the test last week.", "(ராஜு கடந்த வாரம் தேர்வில் முதல் மதிப்பெண் பெற்றான்.)", ["got", "get", "getting", "gets"], 0, "கடந்த வாரம் (last week) என்பதால் V2 (got) பயன்படும்."],
+                ["The students ______ the classroom yesterday.", "(மாணவர்கள் நேற்று வகுப்பறையைச் சுத்தம் செய்தார்கள்.)", ["cleaned", "clean", "cleaning", "cleans"], 0, "நேற்று (yesterday) என்பதால் V2 (cleaned) பயன்படும்."],
+                ["You ______ me a nice gift on my birthday.", "(என் பிறந்தநாளன்று நீ எனக்கு ஒரு நல்ல பரிசைக் கொடுத்தாய்.)", ["gave", "give", "giving", "gives"], 0, "கடந்த காலச் செயல் என்பதால் V2 (gave) பயன்படும்."],
+                ["He ______ to a new house last year.", "(அவன் கடந்த ஆண்டு ஒரு புதிய வீட்டிற்குச் சென்றான்.)", ["moved", "move", "moving", "moves"], 0, "கடந்த ஆண்டு (last year) என்பதால் V2 (moved) பயன்படும்."],
+                ["My mother ______ a sweater for me last winter.", "(என் அம்மா கடந்த குளிர்காலத்தில் எனக்காக ஒரு ஸ்வெட்டர் பின்னினார்.)", ["knitted", "knit", "knitting", "knits"], 0, "கடந்த காலம் என்பதால் V2 (knitted) பயன்படும்."],
+                ["They ______ Tanjore temple last month.", "(அவர்கள் கடந்த மாதம் தஞ்சைப் பெரிய கோயிலைப் பார்வையிட்டார்கள்.)", ["visited", "visit", "visiting", "visits"], 0, "கடந்த மாதம் (last month) என்பதால் V2 (visited) பயன்படும்."],
+                ["The sun ______ brightly yesterday morning.", "(நேற்று காலை சூரியன் பிரகாசமாக ஒளிர்ந்தது.)", ["shone", "shine", "shining", "shines"], 0, "நேற்று காலை (yesterday morning) என்பதால் V2 (shone) பயன்படும்."],
+                ["I ______ a loud noise last night.", "(நேற்று இரவு நான் ஒரு உரத்த சத்தத்தைக் கேட்டேன்.)", ["heard", "hear", "hearing", "hears"], 0, "நேற்று இரவு (last night) என்பதால் V2 (heard) பயன்படும்."],
+                ["She ______ her handbag in the bus yesterday.", "(அவள் நேற்று பேருந்தில் தன் கைப்பையை மறந்தாள்.)", ["forgot", "forget", "forgetting", "forgets"], 0, "நேற்று (yesterday) என்பதால் V2 (forgot) பயன்படும்."],
+                ["We ______ our tickets two days ago.", "(நாங்கள் இரண்டு நாட்களுக்கு முன்பு எங்கள் நுழைவுச்சீட்டுகளை முன்பதிவு செய்தோம்.)", ["booked", "book", "booking", "books"], 0, "இரண்டு நாட்களுக்கு முன்பு (ago) என்பதால் V2 (booked) பயன்படும்."],
+                ["The doctor ______ the patient yesterday.", "(மருத்துவர் நேற்று நோயாளியைப் பரிசோதித்தார்.)", ["examined", "examine", "examining", "examines"], 0, "நேற்று (yesterday) என்பதால் V2 (examined) பயன்படும்."],
+                ["You ______ the truth to everyone yesterday.", "(நீ நேற்று எல்லோரிடமும் உண்மையைச் சொன்னாய்.)", ["told", "tell", "telling", "tells"], 0, "நேற்று (yesterday) என்பதால் V2 (told) பயன்படும்."],
+                ["He ______ how to ride a bicycle last year.", "(அவன் கடந்த ஆண்டு சைக்கிள் ஓட்டக் கற்றுக்கொண்டான்.)", ["learned", "learn", "learning", "learns"], 0, "கடந்த ஆண்டு (last year) என்பதால் V2 (learned) பயன்படும்."],
+                ["They ______ a new bridge in 2020.", "(அவர்கள் 2020 இல் ஒரு புதிய பாலத்தைக் கட்டினார்கள்.)", ["built", "build", "building", "builds"], 0, "கடந்த ஆண்டு 2020 என்பதால் V2 (built) பயன்படும்."],
+                ["I ______ my wallet in the office yesterday.", "(நான் நேற்று என் பணப்பையை அலுவலகத்தில் வைத்தேன்/விட்டேன்.)", ["left", "leave", "leaving", "leaves"], 0, "நேற்று (yesterday) என்பதால் V2 (left) பயன்படும்."],
+                ["She ______ with the principal yesterday.", "(அவள் நேற்று முதல்வரிடம் பேசினாள்.)", ["spoke", "speak", "speaking", "speaks"], 0, "நேற்று (yesterday) என்பதால் V2 (spoke) பயன்படும்."],
+                ["The shopkeeper ______ the store early last night.", "(கடைக்காரர் நேற்று இரவு கடையை சீக்கிரமாக மூடினார்.)", ["closed", "close", "closing", "closes"], 0, "நேற்று இரவு (last night) என்பதால் V2 (closed) பயன்படும்."],
+                ["We ______ a message to him yesterday.", "(நாங்கள் நேற்று அவருக்கு ஒரு செய்தி அனுப்பினோம்.)", ["sent", "send", "sending", "sends"], 0, "நேற்று (yesterday) என்பதால் V2 (sent) பயன்படும்."],
+                ["My brother ______ a mobile phone last week.", "(என் சகோதரன் கடந்த வாரம் ஒரு மொபைல் போன் ஆர்டர் செய்தான்.)", ["ordered", "order", "ordering", "orders"], 0, "கடந்த வாரம் (last week) என்பதால் V2 (ordered) பயன்படும்."],
+                ["They ______ their old bicycle yesterday.", "(அவர்கள் நேற்று தங்கள் பழைய சைக்கிளை விற்றார்கள்.)", ["sold", "sell", "selling", "sells"], 0, "நேற்று (yesterday) என்பதால் V2 (sold) பயன்படும்."],
+                ["It ______ very hot yesterday afternoon.", "(நேற்று மதியம் மிகவும் சூடாக இருந்தது.)", ["was", "were", "is", "am"], 0, "நேற்று மதியம் ஒருமை (It) என்பதால் Past verb 'was' பயன்படும்."],
+                ["I ______ my bag on the chair an hour ago.", "(ஒரு மணி நேரத்திற்கு முன்பு நான் என் பையை நாற்காலியில் வைத்தேன்.)", ["placed", "place", "placing", "places"], 0, "ஒரு மணி நேரத்திற்கு முன்பு (ago) என்பதால் V2 (placed) பயன்படும்."],
+                ["She ______ the match yesterday.", "(அவள் நேற்று போட்டியில் வென்றாள்.)", ["won", "win", "winning", "wins"], 0, "நேற்று (yesterday) என்பதால் V2 (won) பயன்படும்."],
+                ["The birds ______ away yesterday morning.", "(நேற்று காலை பறவைகள் பறந்து சென்றன.)", ["flew", "fly", "flying", "flies"], 0, "நேற்று காலை (yesterday morning) என்பதால் V2 (flew) பயன்படும்."],
+                ["He ______ his medicine after dinner last night.", "(அவன் நேற்று இரவு உணவிற்குப் பிறகு மருந்து சாப்பிட்டான்.)", ["took", "take", "taking", "takes"], 0, "நேற்று இரவு (last night) என்பதால் V2 (took) பயன்படும்."],
+                ["We ______ trees in our school last year.", "(நாங்கள் கடந்த ஆண்டு எங்கள் பள்ளியில் மரங்களை நட்டோம்.)", ["planted", "plant", "planting", "plants"], 0, "கடந்த ஆண்டு (last year) என்பதால் V2 (planted) பயன்படும்."],
+                ["You ______ a mistake in the exam yesterday.", "(நீ நேற்று தேர்வில் ஒரு தவறு செய்தாய்.)", ["made", "make", "making", "makes"], 0, "நேற்று (yesterday) என்பதால் V2 (made) பயன்படும்."],
+                ["The company ______ new phones last month.", "(நிறுவனம்கடந்த மாதம் புதிய போன்களை அறிமுகப்படுத்தியது.)", ["launched", "launch", "launching", "launches"], 0, "கடந்த மாதம் (last month) என்பதால் V2 (launched) பயன்படும்."],
+                ["I ______ off the lights before sleeping last night.", "(நேற்று இரவு தூங்குவதற்கு முன் விளக்குகளை அணைத்தேன்.)", ["turned", "turn", "turning", "turns"], 0, "நேற்று இரவு (last night) என்பதால் V2 (turned) பயன்படும்."],
+                ["She ______ the driving test last Monday.", "(அவள் கடந்த திங்கட்கிழமை ஓட்டுநர் தேர்வில் தேர்ச்சி பெற்றாள்.)", ["passed", "pass", "passing", "passes"], 0, "கடந்த திங்கட்கிழமை (last Monday) என்பதால் V2 (passed) பயன்படும்."],
+                ["They ______ the annual function last week.", "(அவர்கள் கடந்த வாரம் ஆண்டு விழாவை நடத்தினார்கள்.)", ["conducted", "conduct", "conducting", "conducts"], 0, "கடந்த வாரம் (last week) என்பதால் V2 (conducted) பயன்படும்."],
+                ["The river level ______ during the rain last week.", "(கடந்த வாரம் மழையின் போது ஆற்று நீர்மட்டம் உயர்ந்தது.)", ["rose", "rise", "rising", "rises"], 0, "கடந்த வாரம் (last week) என்பதால் V2 (rose) பயன்படும்."],
+                ["He ______ a present for his friend yesterday.", "(அவன் நேற்று தன் நண்பனுக்கு ஒரு பரிசு வாங்கினான்.)", ["bought", "buy", "buying", "buys"], 0, "நேற்று (yesterday) என்பதால் V2 (bought) பயன்படும்."]
+            ];
+            return raw.map(item => ({ q: item[0], tq: item[1], o: item[2], a: item[3], e: item[4] }));
+        };
+
+        // Set 2: Negatives, Questions & Keywords in Simple Past Practice (50 Questions)
+        const generateMasteryPastQuestions = () => {
+            const raw = [
+                ["I ______ go to school yesterday.", "(நான் நேற்று பள்ளிக்குச் செல்லவில்லை.)", ["did not", "do not", "have not", "was not"], 0, "Simple Past Tense எதிர்மறையில் 'did not' + Base Verb V1 (go) பயன்படும்."],
+                ["______ you see the accident yesterday?", "(நேற்று நீ அந்த விபத்தைப் பார்த்தாயா?)", ["Did", "Do", "Have", "Were"], 0, "Simple Past Tense வினாவில் 'Did' + Subject + V1 பயன்படும்."],
+                ["She ______ call me last night.", "(அவள் நேற்று இரவு எனக்கு போன் செய்யவில்லை.)", ["did not", "does not", "has not", "was not"], 0, "Simple Past எதிர்மறைக்கு 'did not' பயன்படும்."],
+                ["______ he come to office yesterday?", "(அவன் நேற்று அலுவலகத்திற்கு வந்தானா?)", ["Did", "Does", "Has", "Was"], 0, "Simple Past வினாவில் 'Did' + V1 பயன்படும்."],
+                ["They ______ pay the school fee last week.", "(அவர்கள் கடந்த வாரம் பள்ளிக் கட்டணம் செலுத்தவில்லை.)", ["did not", "do not", "have not", "were not"], 0, "கடந்த கால எதிர்மறைக்கு 'did not' பயன்படும்."],
+                ["What ______ you buy yesterday?", "(நேற்று நீ என்ன வாங்கினாய்?)", ["did", "do", "have", "were"], 0, "Wh- கேள்வி + did + Subject + V1 (buy) பயன்படும்."],
+                ["______ she submit her project yesterday?", "(அவள் நேற்று தன் திட்டத்தைச் சமர்ப்பித்தாளா?)", ["Did", "Does", "Has", "Is"], 0, "Simple Past கேள்விகளுக்கு 'Did' பயன்படும்."],
+                ["We ______ not play cricket last Sunday.", "(நாங்கள் கடந்த ஞாயிற்றுக்கிழமை கிரிக்கெட் விளையாடவில்லை.)", ["did", "do", "have", "were"], 0, "கடந்த கால எதிர்மறைக்கு 'did' பயன்படும்."],
+                ["Where ______ they go last vacation?", "(கடந்த விடுமுறைக்கு அவர்கள் எங்கு சென்றார்கள்?)", ["did", "do", "have", "were"], 0, "கடந்த கால வினாவில் 'did' பயன்படும்."],
+                ["He ______ not lock the door last night.", "(அவன் நேற்று இரவு கதவைப் பூட்டவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did not' பயன்படும்."],
+                ["______ you hear that sound an hour ago?", "(ஒரு மணி நேரத்திற்கு முன்பு அந்த சத்தத்தை நீ கேட்டாயா?)", ["Did", "Do", "Have", "Were"], 0, "Past question என்பதால் 'Did' பயன்படும்."],
+                ["She ______ not receive my call yesterday.", "(அவள் நேற்று என் அழைப்பை ஏற்கவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["Why ______ you leave early yesterday?", "(நீ ஏன் நேற்று சீக்கிரமாகப் புறப்பட்டாய்?)", ["did", "do", "have", "were"], 0, "Simple Past வினா அமைப்பில் 'did' பயன்படும்."],
+                ["I ______ not sleep well last night.", "(நான் நேற்று இரவு நன்றாகத் தூங்கவில்லை.)", ["did", "do", "am", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["When ______ you return from Chennai?", "(நீ எப்போது சென்னையிலிருந்து திரும்பினாய்?)", ["did", "do", "have", "were"], 0, "Past Tense கேள்வியில் 'did' பயன்படும்."],
+                ["He ______ not answer my question yesterday.", "(அவன் நேற்று என் கேள்விக்குப் பதிலளிக்கவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ the train leave on time yesterday?", "(நேற்று ரயில் சரியான நேரத்தில் புறப்பட்டதா?)", ["Did", "Does", "Has", "Was"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."],
+                ["We ______ not decide anything last week.", "(நாங்கள் கடந்த வாரம் எதுவும் முடிவு செய்யவில்லை.)", ["did", "do", "have", "were"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["Who ______ you meet at the bus stand yesterday?", "(நேற்று பேருந்து நிலையத்தில் யாரைச் சந்தித்தாய்?)", ["did", "do", "have", "were"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["She ______ not like the movie yesterday.", "(அவளுக்கு நேற்று அந்த படம் பிடிக்கவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ you attend the wedding last Sunday?", "(கடந்த ஞாயிற்றுக்கிழமை நீ திருமணத்தில் கலந்துகொண்டாயா?)", ["Did", "Do", "Have", "Were"], 0, "Past question என்பதால் 'Did' பயன்படும்."],
+                ["I ______ not see him two days ago.", "(இரண்டு நாட்களுக்கு முன்பு நான் அவனைப் பார்க்கவில்லை.)", ["did", "do", "am", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["Why ______ she cry yesterday morning?", "(அவள் ஏன் நேற்று காலை அழுதாள்?)", ["did", "does", "has", "was"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["They ______ not complete the assignment yesterday.", "(அவர்கள் நேற்று பணியை முடிக்கவில்லை.)", ["did", "do", "have", "were"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ your father buy the vegetables yesterday?", "(உன் தந்தை நேற்று காய்கறிகள் வாங்கினாரா?)", ["Did", "Does", "Has", "Was"], 0, "Past Tense வினாவில் 'Did' பயன்படும்."],
+                ["He ______ not wash his bike yesterday.", "(அவன் நேற்று தன் பைக்கைத் துவைக்கவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["What time ______ she wake up this morning?", "(இன்று காலை அவள் எத்தனை மணிக்கு எழுந்தாள்?)", ["did", "does", "has", "was"], 0, "முடிந்த காலத்தின் வினாவிற்கு 'did' பயன்படும்."],
+                ["I ______ not know the answer yesterday.", "(எனக்கு நேற்று பதில் தெரியவில்லை.)", ["did", "do", "am", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ you finish the work last night?", "(நேற்று இரவு நீ வேலையை முடித்துவிட்டாயா?)", ["Did", "Do", "Have", "Were"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."],
+                ["The doctor ______ not arrive on time yesterday.", "(மருத்துவர் நேற்று சரியான நேரத்தில் வரவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["Where ______ you keep the car key yesterday?", "(நேற்று கார் சாவியை எங்கே வைத்தாய்?)", ["did", "do", "have", "were"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["She ______ not bring her notebook yesterday.", "(அவள் நேற்று தன் குறிப்பேட்டைக் கொண்டுவரவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["How ______ you solve this math problem yesterday?", "(நேற்று இந்த கணக்கை எப்படித் தீர்த்தாய்?)", ["did", "do", "have", "were"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["We ______ not watch the match last evening.", "(நாங்கள் நேற்று மாலை போட்டியைப் பார்க்கவில்லை.)", ["did", "do", "have", "were"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ he pay the hotel bill yesterday?", "(அவன் நேற்று ஹோட்டல் கட்டணத்தைச் செலுத்தினானா?)", ["Did", "Does", "Has", "Was"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."],
+                ["Why ______ they cancel the meeting last week?", "(அவர்கள் ஏன் கடந்த வாரம் கூட்டத்தை ரத்து செய்தார்கள்?)", ["did", "do", "have", "were"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["I ______ not get any reply yesterday.", "(எனக்கு நேற்று எந்தப் பதிலும் வரவில்லை.)", ["did", "do", "am", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ she tell you about the test yesterday?", "(அவள் நேற்று தேர்வைப் பற்றி உன்னிடம் சொன்னாளா?)", ["Did", "Does", "Has", "Was"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."],
+                ["They ______ not open the shop yesterday.", "(அவர்கள் நேற்று கடையைத் திறக்கவில்லை.)", ["did", "do", "have", "were"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["What ______ he say to you yesterday?", "(நேற்று அவன் உன்னிடம் என்ன சொன்னான்?)", ["did", "does", "has", "was"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["______ you clean your room yesterday morning?", "(நேற்று காலை நீ உன் அறையைச் சுத்தம் செய்தாயா?)", ["Did", "Do", "Have", "Were"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."],
+                ["He ______ not write the exam yesterday due to fever.", "(காய்ச்சல் காரணமாக அவன் நேற்று தேர்வு எழுதவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["Where ______ she buy this dress last week?", "(கடந்த வாரம் அவள் இந்த ஆடையை எங்கே வாங்கினாள்?)", ["did", "does", "has", "was"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["We ______ not go out yesterday because of rain.", "(மழை காரணமாக நாங்கள் நேற்று வெளியே செல்லவில்லை.)", ["did", "do", "have", "were"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ you eat lunch at 1 PM yesterday?", "(நேற்று மதியம் 1 மணிக்கு நீ மதிய உணவு சாப்பிட்டாயா?)", ["Did", "Do", "Have", "Were"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."],
+                ["Why ______ you not call me yesterday?", "(நீ ஏன் நேற்று எனக்கு போன் செய்யவில்லை?)", ["did", "do", "have", "were"], 0, "Simple Past எதிர்மறை வினாவில் 'did' பயன்படும்."],
+                ["She ______ not attend the class yesterday.", "(அவள் நேற்று வகுப்பில் கலந்துகொள்ளவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["How many apples ______ you buy yesterday?", "(நேற்று நீ எத்தனை ஆப்பிள்கள் வாங்கினாய்?)", ["did", "do", "have", "were"], 0, "Simple Past கேள்வியில் 'did' பயன்படும்."],
+                ["The bus ______ not stop at the bus stand yesterday.", "(நேற்று பேருந்து நிறுத்தத்தில் பேருந்து நிற்கவில்லை.)", ["did", "does", "has", "was"], 0, "Simple Past எதிர்மறையில் 'did' பயன்படும்."],
+                ["______ they win the tournament last year?", "(அவர்கள் கடந்த ஆண்டு தொடரில் வெற்றி பெற்றார்களா?)", ["Did", "Do", "Have", "Were"], 0, "Simple Past கேள்வியில் 'Did' பயன்படும்."]
+            ];
+            return raw.map(item => ({ q: item[0], tq: item[1], o: item[2], a: item[3], e: item[4] }));
+        };
+
+        const setsData = [
+            { id: "set1", title: "1. Basic Past Practice (Affirmative)", badge: "Simple Past - Set 1", getQuestions: generateBasicPastQuestions },
+            { id: "set2", title: "2. Negatives & Questions (Did / Didn't)", badge: "Simple Past - Set 2", getQuestions: generateMasteryPastQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('simple_past_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('simple_past_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

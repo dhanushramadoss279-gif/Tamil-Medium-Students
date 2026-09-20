@@ -1,19 +1,851 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Past Perfect Continuous Tense</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PAST PERFECT CONTINUOUS TENSE – முந்தைய தொடர் இறந்தகாலம் (100 Questions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #6d28d9;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #475569;
+            --success: #16a34a;
+            --success-bg: #f0fdf4;
+            --error: #dc2626;
+            --error-bg: #fef2f2;
+            --border: #e2e8f0;
+            --radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 50px;
+            font-size: 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 12px;
+        }
+
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background-color: #f5f3ff;
+        }
+
+        .brand-title {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #6d28d9 0%, #7c3aed 100%);
+            color: white;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* MAIN SECTION BUTTONS (Explanation, Example, Quiz) */
+        .section-tabs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tab-btn {
+            padding: 12px 8px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            display: none;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .content-section h2 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            border-bottom: 2px solid #ede9fe;
+            padding-bottom: 6px;
+        }
+
+        .content-section p, .content-section ul {
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        .content-section li {
+            margin-bottom: 8px;
+        }
+
+        .example-card {
+            background: #f5f3ff;
+            border-left: 4px solid var(--primary);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .example-card .en {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #6d28d9;
+        }
+
+        .example-card .ta {
+            font-size: 0.9rem;
+            color: #334155;
+            margin-top: 4px;
+        }
+
+        /* PROGRESS TRACKER */
+        .progress-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .progress-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .progress-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px;
+            background: var(--bg);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .progress-item.completed {
+            background-color: var(--success-bg);
+            border-color: #bbf7d0;
+            color: var(--success);
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--border);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .completed .check-icon {
+            background: var(--success);
+        }
+
+        .topic-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .pill-btn {
+            white-space: nowrap;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .pill-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* QUIZ STYLING */
+        .quiz-container {
+            border: 2px solid #ddd6fe;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-title-badge {
+            background: #ede9fe;
+            color: #6d28d9;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .quiz-progress-text {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-sub);
+        }
+
+        .question-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .question-tamil-text {
+            font-size: 0.88rem;
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-btn {
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            text-align: left;
+            background: #ffffff;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+        }
+
+        .option-btn:active {
+            transform: scale(0.99);
+        }
+
+        .option-btn.selected-correct {
+            background-color: var(--success-bg) !important;
+            border-color: var(--success) !important;
+            color: var(--success) !important;
+        }
+
+        .option-btn.selected-wrong {
+            background-color: var(--error-bg) !important;
+            border-color: var(--error) !important;
+            color: var(--error) !important;
+        }
+
+        .feedback-box {
+            margin-top: 14px;
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            font-size: 0.88rem;
+        }
+
+        .feedback-box.correct {
+            display: block;
+            background: var(--success-bg);
+            color: #166534;
+        }
+
+        .feedback-box.wrong {
+            display: block;
+            background: var(--error-bg);
+            color: #991b1b;
+        }
+
+        .quiz-actions {
+            margin-top: 16px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .next-btn {
+            width: 100%;
+            min-height: 48px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .next-btn:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 20px 10px;
+            display: none;
+        }
+
+        .score-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: #f5f3ff;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 4px solid var(--primary);
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.25rem;
+            }
+
+            .progress-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-btn {
+                font-size: 0.90rem;
+            }
+        }
+    </style>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 40px 20px;">
-    <div style="text-align: center; margin-bottom: 30px;">
-        <a href="index.html" style="text-decoration: none; color: #2563eb; font-weight: bold;">← Back to Home</a>
-    </div>
-    <a href="javascript:void(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; max-width: 400px; margin: 0 auto; padding: 30px; background-color: #ffffff; border: 2px dashed #cbd5e1; border-radius: 12px; text-decoration: none; opacity: 0.85; cursor: not-allowed; gap: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
-        <div>
-            <div style="font-weight: bold; font-size: 2rem; color: #0f172a;">Past Perfect Continuous</div>
+
+<body>
+
+    <header>
+        <div class="container nav-header">
+            <a href="index.html" class="back-link">← Home</a>
+            <div>
+                <div class="brand-title">Tamil Medium Student</div>
+            </div>
         </div>
-        <span style="background-color: #f97316; color: #ffffff; font-size: 1.2rem; padding: 6px 16px; border-radius: 12px; font-weight: bold;">Upcoming...</span>
-    </a>
+    </header>
+
+    <main class="container">
+        <div class="hero">
+            <h1>PAST PERFECT CONTINUOUS TENSE – முந்தைய தொடர் இறந்தகாலம்</h1>
+            <p>விளக்கம், உதாரணங்கள் மற்றும் 100 பயிற்சிகள்!</p>
+        </div>
+
+        <!-- 3 MAIN NAV BUTTONS -->
+        <div class="section-tabs">
+            <button class="tab-btn active" id="btn-explanation" onclick="showSection('explanation')">📘 Explanation</button>
+            <button class="tab-btn" id="btn-example" onclick="showSection('example')">💡 Examples</button>
+            <button class="tab-btn" id="btn-quiz" onclick="showSection('quiz')">📝 Quiz (100)</button>
+        </div>
+
+        <!-- 1. EXPLANATION SECTION -->
+        <section id="section-explanation" class="content-section active">
+            <h2>முந்தைய தொடர் இறந்தகாலம் (Past Perfect Continuous Tense) என்றால் என்ன?</h2>
+            <p>கடந்த காலத்தில் ஒரு குறிப்பிட்ட காலம் வரை ஒரு செயல் தொடர்ந்து நடந்துகொண்டே இருந்ததை (သို့မဟုတ်) கடந்த காலத்தில் மற்றொரு செயல் நடப்பதற்கு முன்பு வரை தொடர்ச்சியாக நடைபெற்றுக்கொண்டிருந்ததைக் குறிக்க <b>Past Perfect Continuous Tense</b> பயன்படுகிறது.</p>
+            
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">1. வாக்கிய அமைப்பு (Sentence Structure & Helping Verbs)</h2>
+            <ul>
+                <li><b>جميع Pronouns (I, We, You, He, She, It, They):</b> had been + Verb-ing</li>
+                <li><b>Affirmative:</b> Subject + had been + V1-ing (e.g., *had been playing*)</li>
+                <li><b>Negative:</b> Subject + had + not + been + V1-ing (e.g., *had not been playing*)</li>
+                <li><b>Question:</b> Had + Subject + been + V1-ing? (e.g., *Had you been playing?*)</li>
+            </ul>
+
+            <h2 style="font-size: 1.05rem; margin-top: 15px;">2. Since மற்றும் For பயன்பாடு</h2>
+            <p><b>Since:</b> குறிப்பிட்ட காலப் புள்ளியைக் குறிக்க (உதாரணமாக: *since morning*, *since 2010*).</p>
+            <p><b>For:</b> கால அளவைக் குறிக்க (உதாரணமாக: *for two hours*, *for five years*).</p>
+        </section>
+
+        <!-- 2. EXAMPLE SECTION -->
+        <section id="section-example" class="content-section">
+            <h2>மாதிரி வாக்கியங்கள் (Example Sentences)</h2>
+            
+            <div class="example-card">
+                <div class="en">1. It had been raining for three hours before we left.</div>
+                <div class="ta">நாங்கள் புறப்படுவதற்கு முன்பு மூன்று மணி நேரமாக மழை பெய்து கொண்டிருந்தது.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">2. She had been working in this office since 2018.</div>
+                <div class="ta">அவள் 2018 முதல் இந்த அலுவலகத்தில் வேலை செய்து கொண்டிருந்தாள்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">3. They had been playing cricket before the sun set.</div>
+                <div class="ta">சூரியன் மறைவதற்கு முன்பு அவர்கள் கிரிக்கெட் விளையாடிக்கொண்டிருந்தனர்.</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">4. Had you been waiting long before the bus arrived?</div>
+                <div class="ta">பேருந்து வருவதற்கு முன்பு நீங்கள் நீண்ட நேரம் காத்துக்கொண்டிருந்தீர்களா?</div>
+            </div>
+
+            <div class="example-card">
+                <div class="en">5. He had not been studying properly before the exam.</div>
+                <div class="ta">தேர்வுக்கு முன்பு அவன் சரியாகப் படித்துக்கொண்டிருந்ததில்லை.</div>
+            </div>
+        </section>
+
+        <!-- 3. QUIZ SECTION -->
+        <section id="section-quiz" class="content-section">
+            <div class="progress-card">
+                <div class="progress-title">
+                    <span>கற்றல் நிலை (Progress)</span>
+                    <span id="overall-progress-text" style="color: var(--primary);">0 / 2 Completed</span>
+                </div>
+                <div class="progress-grid" id="progress-tracker-grid"></div>
+            </div>
+
+            <div class="topic-pills" id="topic-pills"></div>
+
+            <div class="quiz-container" id="quiz-box" style="background: var(--card-bg); border-radius: var(--radius); padding: 16px;">
+                <div class="quiz-header">
+                    <span class="quiz-title-badge" id="quiz-topic-badge">Past Perfect Continuous Quiz</span>
+                    <span class="quiz-progress-text" id="quiz-progress-text">Question 1 / 50</span>
+                </div>
+
+                <div id="question-runner">
+                    <div class="question-box">
+                        <div class="question-text" id="question-text">Loading question...</div>
+                        <div class="question-tamil-text" id="question-tamil-text">கேள்வி அர்த்தம்...</div>
+                        <div class="options-grid" id="options-container"></div>
+                    </div>
+                    <div class="feedback-box" id="feedback-box"></div>
+                    <div class="quiz-actions">
+                        <button class="next-btn" id="next-btn" onclick="nextQuestion()" disabled>அடுத்த கேள்வி (Next) →</button>
+                    </div>
+                </div>
+
+                <div class="result-card" id="result-runner">
+                    <div class="score-circle">
+                        <span id="res-score">0</span>
+                    </div>
+                    <div class="performance-msg" id="res-msg" style="font-weight:700; margin-bottom:10px;">வாழ்த்துக்கள்!</div>
+                    <button class="next-btn" onclick="resetCurrentQuiz()">🔄 மீண்டும் பயிற்சி செய் (Try Again)</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // TAB SWITCHING FUNCTIONALITY
+        function showSection(sectionName) {
+            document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`section-${sectionName}`).classList.add('active');
+            document.getElementById(`btn-${sectionName}`).classList.add('active');
+        }
+
+        // Fisher-Yates Shuffle utility to randomize options per question
+        function shuffleOptions(optionsArray, correctIndex) {
+            const optionsWithIndex = optionsArray.map((opt, idx) => ({ text: opt, isCorrect: idx === correctIndex }));
+            for (let i = optionsWithIndex.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [optionsWithIndex[i], optionsWithIndex[j]] = [optionsWithIndex[j], optionsWithIndex[i]];
+            }
+            const shuffledOptions = optionsWithIndex.map(item => item.text);
+            const newCorrectIndex = optionsWithIndex.findIndex(item => item.isCorrect);
+            return { shuffledOptions, newCorrectIndex };
+        }
+
+        // Set 1: Basic Past Perfect Continuous Practice (Affirmative - 50 Questions)
+        const generateBasicPastPerfectContinuousQuestions = () => {
+            const raw = [
+                ["It ______ for three hours before we left.", "(நாங்கள் புறப்படுவதற்கு முன்பு மூன்று மணி நேரமாக மழை பெய்து கொண்டிருந்தது.)", ["had been raining", "has been raining", "was raining", "rained"], 0, "கடந்த காலத்தில் குறிப்பிட்ட நேரம் தொடர்ந்த செயலுக்கு 'had been raining' பயன்படும்."],
+                ["She ______ in this office since 2018.", "(அவள் 2018 முதல் இந்த அலுவலகத்தில் வேலை செய்து கொண்டிருந்தாள்.)", ["had been working", "has been working", "was working", "worked"], 0, "கடந்த காலத்தில் ஒரு புள்ளியிலிருந்து தொடர்ந்த செயலுக்கு 'had been working' பயன்படும்."],
+                ["They ______ cricket before the sun set.", "(சூரியன் மறைவதற்கு முன்பு அவர்கள் கிரிக்கெட் விளையாடிக்கொண்டிருந்தனர்.)", ["had been playing", "have been playing", "were playing", "played"], 0, "முந்தைய தொடர்ச்சியான செயலுக்கு 'had been playing' சரியானது."],
+                ["He ______ English for two years before moving to London.", "(லண்டன் செல்வதற்கு முன்பு அவன் இரண்டு ஆண்டுகளாக ஆங்கிலம் கற்றுக்கொண்டிருந்தான்.)", ["had been learning", "has been learning", "was learning", "learned"], 0, "கால அளவைக் குறிக்க 'had been learning' பயன்படும்."],
+                ["We ______ for the bus for an hour when it finally arrived.", "(பேருந்து இறுதியாக வந்தபோது நாங்கள் ஒரு மணி நேரமாக காத்துக்கொண்டிருந்தோம்.)", ["had been waiting", "have been waiting", "were waiting", "waited"], 0, "தொடர்ச்சியான செயலுக்கு 'had been waiting' சரியானது."],
+                ["I ______ in Chennai before I shifted to Madurai.", "(மதுரைக்கு மாறுவதற்கு முன்பு நான் சென்னையில் வசித்துக்கொண்டிருந்தேன்.)", ["had been living", "have been living", "was living", "lived"], 0, "கடந்த தொடர் செயலுக்கு 'had been living' பயன்படும்."],
+                ["The baby ______ for a long time before mother fed him.", "(அம்மா ஊட்டுவதற்கு முன்பு குழந்தை நீண்ட நேரமாக அழுதுகொண்டிருந்தது.)", ["had been crying", "has been crying", "was crying", "cried"], 0, "நீண்ட நேரத் தொடர் செயலுக்கு 'had been crying' பயன்படும்."],
+                ["She ______ the piano since morning.", "(அவள் காலை முதல் பியானோ வாசித்துக்கொண்டிருந்தாள்.)", ["had been playing", "has been playing", "was playing", "played"], 0, "Since-உடன் வரும் Past Perfect Continuous-க்கு 'had been playing' பயன்படும்."],
+                ["They ______ hard for the exam before it was postponed.", "(தேர்வு ஒத்திவைக்கப்படுவதற்கு முன்பு அவர்கள் கடினமாகப் படித்துக்கொண்டிருந்தனர்.)", ["had been studying", "have been studying", "were studying", "studied"], 0, "தொடர்ச்சியான முயற்சிக்கு 'had been studying' பயன்படும்."],
+                ["He ______ in the sun for hours before he felt dizzy.", "(மயக்கம் வருவதற்கு முன்பு அவன் மணிக்கணக்காக வெயிலில் நின்றுகொண்டிருந்தான்.)", ["had been standing", "has been standing", "was standing", "stood"], 0, "Past Perfect Continuous வடிவம் 'had been standing' ஆகும்."],
+                ["The car ______ strange noises before it broke down.", "(வாகனம் பழுதாகுவதற்கு முன்பு அது விசித்திரமான சத்தங்களை எழுப்பிக்கொண்டிருந்தது.)", ["had been making", "has been making", "was making", "made"], 0, "தொடர் சத்தத்திற்குக் குறிக்க 'had been making' பயன்படும்."],
+                ["We ______ on this project since last month.", "(கடந்த மாதம் முதல் நாங்கள் இந்தத் திட்டத்தில் வேலை செய்துகொண்டிருந்தோம்.)", ["had been working", "have been working", "were working", "worked"], 0, "Since உடன் 'had been working' பயன்படும்."],
+                ["She ______ dinner when guests unexpectedly knocked.", "(விருந்தினர்கள் எதிர்பாராமல் தட்டியபோது அவள் இரவு உணவு சமைத்துக்கொண்டிருந்தாள்.)", ["had been cooking", "has been cooking", "was cooking", "cooked"], 0, "சமைத்துக்கொண்டிருந்த தொடர் செயலுக்கு 'had been cooking' சரியானது."],
+                ["He ______ the lawn before the rain started.", "(மழை தொடங்குவதற்கு முன்பு அவன் புல்வெளியைச் சீரமைத்துக்கொண்டிருந்தான்.)", ["had been mowing", "has been mowing", "was mowing", "mowed"], 0, "தொடர்ச்சியான செயலுக்கு 'had been mowing' பயன்படும்."],
+                ["They ______ to each other for an hour before fighting.", "(சண்டை போடுவதற்கு முன்பு அவர்கள் ஒரு மணி நேரமாகப் பேசிக்கொண்டிருந்தனர்.)", ["had been talking", "have been talking", "were talking", "talked"], 0, "கால அளவைக் குறிக்க 'had been talking' பயன்படும்."],
+                ["I ______ for my keys since morning.", "(காலை முதல் நான் என் சாவிகளைத் தேடிக்கொண்டிருந்தேன்.)", ["had been searching", "have been searching", "was searching", "searched"], 0, "காலை முதல் தொடர்ந்த செயலுக்கு 'had been searching' பயன்படும்."],
+                ["She ______ novel for three hours before she slept.", "(தூங்குவதற்கு முன்பு அவள் மூன்று மணி நேரமாக நாவல் வாசித்துக்கொண்டிருந்தாள்.)", ["had been reading", "has been reading", "was reading", "read"], 0, "தொடர் வாசிப்பைக் குறிக்க 'had been reading' பயன்படும்."],
+                ["The wind ______ heavily before storm struck.", "(புயல் தாக்குவதற்கு முன்பு காற்று பலமாக வீசிக்கொண்டிருந்தது.)", ["had been blowing", "has been blowing", "was blowing", "blew"], 0, "காற்றின் தொடர் வீச்சிற்கு 'had been blowing' பயன்படும்."],
+                ["We ______ in the queue since 8 AM.", "(காலை 8 மணி முதல் நாங்கள் வரிசையில் நின்றுகொண்டிருந்தோம்.)", ["had been standing", "have been standing", "were standing", "stood"], 0, "Since 8 AM-க்கு 'had been standing' பயன்படும்."],
+                ["He ______ paint on the wall before I stopped him.", "(நான் தடுப்பதற்கு முன்பு அவன் சுவரில் சாயம் பூசிக்கொண்டிருந்தான்.)", ["had been painting", "has been painting", "was painting", "painted"], 0, "தொடர் செயலுக்கு 'had been painting' பயன்படும்."],
+                ["The fire ______ in the forest for days before it was controlled.", "(தீ கட்டுக்குள் கொண்டுவரப்படுவதற்கு முன்பு காட்டில் பல நாட்களாக எரிந்துகொண்டிருந்தது.)", ["had been burning", "has been burning", "was burning", "burned"], 0, "பல நாட்களாகத் தொடர்ந்த தீயைக் குறிக்க 'had been burning' பயன்படும்."],
+                ["She ______ dance practice for two hours.", "(அவள் இரண்டு மணி நேரமாக நடனப் பயிற்சி செய்துகொண்டிருந்தாள்.)", ["had been doing", "has been doing", "was doing", "did"], 0, "கால அளவிற்குக் குறிக்க 'had been doing' பயன்படும்."],
+                ["They ______ football since evening.", "(அவர்கள் மாலை முதல் கால்பந்து விளையாடிக்கொண்டிருந்தனர்.)", ["had been playing", "have been playing", "were playing", "played"], 0, "Since evening-க்கு 'had been playing' பயன்படும்."],
+                ["I ______ emails all morning before system crashed.", "(கணினி செயலிழப்பதற்கு முன்பு நான் காலை முழுவதும் மின்னஞ்சல்களை அனுப்பிக்கொண்டிருந்தேன்.)", ["had been sending", "have been sending", "was sending", "sent"], 0, "காலை முழுவதும் தொடர்ந்த செயலுக்கு 'had been sending' பயன்படும்."],
+                ["He ______ the guitar for five years before joining band.", "(இசைக் குழுவில் சேருவதற்கு முன்பு அவன் ஐந்து ஆண்டுகளாக கிட்டார் வாசித்துக்கொண்டிருந்தான்.)", ["had been playing", "has been playing", "was playing", "played"], 0, "ஐந்து ஆண்டுகளாகத் தொடர்ந்த செயலுக்கு 'had been playing' பயன்படும்."],
+                ["She ______ tears before her friend consoled her.", "(தோழி ஆற்றுப்படுத்துவதற்கு முன்பு அவள் அழுதுகொண்டிருந்தாள்.)", ["had been shedding", "has been shedding", "was shedding", "shed"], 0, "தொடர்ச்சியான செயலுக்கு 'had been shedding' பயன்படும்."],
+                ["The dog ______ at the stranger for ten minutes.", "(பத்து நிமிடங்களாக நாய் அந்நியரை நோக்கிக் குரைத்துக்கொண்டிருந்தது.)", ["had been barking", "has been barking", "was barking", "barked"], 0, "பத்து நிமிடத் தொடர் செயலுக்கு 'had been barking' பயன்படும்."],
+                ["We ______ for our results since last week.", "(கடந்த வாரம் முதல் எங்கள் முடிவுகளுக்காக நாங்கள் காத்திருந்தோம்.)", ["had been waiting", "have been waiting", "were waiting", "waited"], 0, "தொடர் காத்திருப்பிற்கு 'had been waiting' பயன்படும்."],
+                ["He ______ medicine for the illness for months.", "(பல மாதங்களாக அவன் அந்த நோய்க்காக மருந்து உட்கொண்டுவந்தான்.)", ["had been taking", "has been taking", "was taking", "took"], 0, "பல மாதத் தொடர் செயலுக்கு 'had been taking' பயன்படும்."],
+                ["She ______ her hair before going out.", "(வெளியே செல்வதற்கு முன்பு அவள் தன் தலைமுடியைச் சீவிக்கொண்டிருந்தாள் - தொடர்ச்சியாக.)", ["had been styling", "has been styling", "was styling", "styled"], 0, "தொடர்ச்சியான செயலைக் குறிக்க 'had been styling' பயன்படும்."],
+                ["The athletes ______ on track before coach arrived.", "(பயிற்சியாளர் வருவதற்கு முன்பு தடகள வீரர்கள் பாதையில் ஓடிக்கொண்டிருந்தனர்.)", ["had been running", "has been running", "were running", "ran"], 0, "தொடர் ஓட்டத்திற்குக் குறிக்க 'had been running' பயன்படும்."],
+                ["I ______ in the garden before sun went down.", "(சூரியன் மறைவதற்கு முன்பு நான் தோட்டத்தில் வேலை செய்துகொண்டிருந்தேன்.)", ["had been working", "has been working", "was working", "worked"], 0, "தோட்டத் தொடர் வேலைக்கு 'had been working' பயன்படும்."],
+                ["They ______ to music before power went off.", "(மின்சாரம் துண்டிக்கப்படுவதற்கு முன்பு அவர்கள் இசை கேட்டுக்கொண்டிருந்தனர்.)", ["had been listening", "have been listening", "were listening", "listened"], 0, "இசை கேட்கும் தொடர் செயலுக்கு 'had been listening' பயன்படும்."],
+                ["She ______ a sweater for winter since October.", "(அவள் அக்டோபர் முதல் குளிர்காலத்திற்காக ஸ்வெட்டர் பின்னிக்கொண்டிருந்தாள்.)", ["had been knitting", "has been knitting", "was knitting", "knitted"], 0, "அக்டோபர் முதல் தொடர்ந்த செயலுக்கு 'had been knitting' பயன்படும்."],
+                ["He ______ the car engine before repairing.", "(பழுது பார்ப்பதற்கு முன்பு அவன் கார் இயந்திரத்தைச் பரிசோதித்துக்கொண்டிருந்தான்.)", ["had been checking", "has been checking", "was checking", "checked"], 0, "தொடர் பரிசோதனைக்கு 'had been checking' பயன்படும்."],
+                ["We ______ on this problem for hours.", "(நாங்கள் பல மணி நேரமாக இந்தப் பிரச்சினையைப் பற்றி விவாதித்துக்கொண்டிருந்தோம்.)", ["had been discussing", "have been discussing", "were discussing", "discussed"], 0, "மணி நேரத் தொடர் விவாதத்திற்கு 'had been discussing' பயன்படும்."],
+                ["The chef ______ soup for the banquet.", "(விருந்துக்காக சமையல்காரர் சூப் தயாரித்துக்கொண்டிருந்தார்.)", ["had been preparing", "has been preparing", "was preparing", "prepared"], 0, "தொடர் தயாரிப்புக்கு 'had been preparing' பயன்படும்."],
+                ["I ______ a letter when lights went out.", "(விளக்குகள் அணைந்தபோது நான் கடிதம் எழுதிக்கொண்டிருந்தேன்.)", ["had been writing", "have been writing", "was writing", "wrote"], 0, "எழுதிக்கொண்டிருந்த தொடர் செயலுக்கு 'had been writing' பயன்படும்."],
+                ["They ______ money to build a school for years.", "(அவர்கள் பல ஆண்டுகளாகப் பள்ளி கட்ட பணம் சேமித்துக்கொண்டிருந்தனர்.)", ["had been saving", "have been saving", "was saving", "saved"], 0, "சேமிக்கும் தொடர் செயலுக்கு 'had been saving' பயன்படும்."],
+                ["She ______ French before shifting to Paris.", "(பாரிஸ் மாறுவதற்கு முன்பு அவள் பிரெஞ்சு மொழி கற்றுக்கொண்டிருந்தாள்.)", ["had been learning", "has been learning", "was learning", "learned"], 0, "கற்றுக்கொண்டிருந்த தொடர் செயலுக்கு 'had been learning' பயன்படும்."],
+                ["He ______ jokes to make us laugh.", "(எங்களைச் சிரிக்கவைக்க அவன் தொடர்ந்து ஜோக்குகளைச் சொல்லிக்கொண்டிருந்தான்.)", ["had been cracking", "has been cracking", "was cracking", "cracked"], 0, "தொடர்ச்சியான செயலுக்கு 'had been cracking' பயன்படும்."],
+                ["The factory ______ chemicals into river for years.", "(ஆலை பல ஆண்டுகளாக ஆற்றில் இரசாயனங்களைக் கலந்துகொண்டிருந்தது.)", ["had been dumping", "has been dumping", "was dumping", "dumped"], 0, "ஆண்டு கணக்கில் தொடர்ந்த செயலுக்கு 'had been dumping' பயன்படும்."],
+                ["We ______ our journey since early morning.", "(அதிகாலை முதல் நாங்கள் எங்கள் பயணத்தைத் தொடர்ந்துகொண்டிருந்தோம்.)", ["had been continuing", "have been continuing", "were continuing", "continued"], 0, "தொடர் பயணத்திற்கு 'had been continuing' பயன்படும்."],
+                ["She ______ clothes all day long.", "(அவள் நாள் முழுவதும் துணிகளைத் துவைத்துக்கொண்டிருந்தாள்.)", ["had been washing", "has been washing", "was washing", "washed"], 0, "நாள் முழுதும் தொடர்ந்த செயலுக்கு 'had been washing' பயன்படும்."],
+                ["He ______ on stage before microphone failed.", "(ஒலிவாங்கி பழுதாகுவதற்கு முன்பு அவன் மேடையில் பேசிக்கொண்டிருந்தான்.)", ["had been speaking", "has been speaking", "was speaking", "spoke"], 0, "மேடைப் பேச்சுத் தொடர்ச்சியைக் குறிக்க 'had been speaking' பயன்படும்."],
+                ["They ______ shelter from storm under a tree.", "(மரத்தின் கீழ் அவர்கள் புயலிலிருந்து தப்பிக்க அடைக்கலம் தேடிக்கொண்டிருந்தனர்.)", ["had been seeking", "have been seeking", "were seeking", "sought"], 0, "தொடர் தேடலுக்கு 'had been seeking' பயன்படும்."],
+                ["I ______ up my room before guests arrived.", "(விருந்தினர்கள் வருவதற்கு முன்பு நான் என் அறையைச் சீரமைத்துக்கொண்டிருந்தேன்.)", ["had been tidying", "have been tidying", "was tidying", "tidied"], 0, "சீரமைக்கும் தொடர் செயலுக்கு 'had been tidying' பயன்படும்."],
+                ["The river ______ due to continuous melting.", "(தொடர்ந்து உருகுவதன் காரணமாக நறுப்பெருக்கோடு ஓடிக்கொண்டிருந்தது.)", ["had been flowing", "has been flowing", "was flowing", "flowed"], 0, "தொடர் ஓட்டத்திற்குக் குறிக்க 'had been flowing' பயன்படும்."],
+                ["She ______ on her computer for hours.", "(அவள் பல மணி நேரமாக தன் கணினியில் வேலை செய்துகொண்டிருந்தாள்.)", ["had been working", "has been working", "was working", "worked"], 0, "மணி நேரத் தொடர் வேலைக்கு 'had been working' பயன்படும்."],
+                ["They ______ happily until misfortune struck.", "(துரதிர்ஷ்டம் தாக்கும் வரை அவர்கள் மகிழ்ச்சியாக வாழ்ந்துகொண்டிருந்தனர்.)", ["had been living", "have been living", "were living", "lived"], 0, "மகிழ்ச்சியாகத் தொடர்ந்த வாழ்வைக் குறிக்க 'had been living' பயன்படும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        // Set 2: Negatives & Questions in Past Perfect Continuous Practice (50 Questions)
+        const generateMasteryPastPerfectContinuousQuestions = () => {
+            const raw = [
+                ["I ______ not been sleeping well before the exam.", "(தேர்வுக்கு முன்பு நான் நன்றாகத் தூங்கிக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had not been' பயன்படும்."],
+                ["______ you been waiting long before the bus arrived?", "(பேருந்து வருவதற்கு முன்பு நீங்கள் நீண்ட நேரம் காத்துக்கொண்டிருந்தீர்களா?)", ["Had", "Have", "Did", "Were"], 0, "வினாவின் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["She ______ not been working here since last year.", "(அவள் கடந்த ஆண்டு முதல் இங்கு வேலை செய்துகொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ they been playing cricket before it rained?", "(மழை பெய்ததற்கு முன்பு அவர்கள் கிரிக்கெட் விளையாடிக்கொண்டிருந்தார்களா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["He ______ not been studying properly for weeks.", "(பல வாரங்களாக அவன் சரியாகப் படித்துக்கொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Why ______ you been crying before I came?", "(நான் வருவதற்கு முன்பு நீங்கள் ஏன் அழுதுகொண்டிருந்தீர்கள்?)", ["had", "have", "did", "were"], 0, "வினாச்சொல்லுக்குப் பிறகு 'had' பயன்படும்."],
+                ["______ she been cooking when you entered?", "(நீ உள்ளே நுழைந்தபோது அவள் சமைத்துக்கொண்டிருந்தாளா?)", ["Had", "Has", "Did", "Was"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["We ______ not been living in that house for long.", "(நாங்கள் அந்த வீட்டில் நீண்ட காலமாக வசித்துக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Where ______ they been going before police stopped them?", "(காவல்துறை தடுப்பதற்கு முன்பு அவர்கள் எங்கே சென்று கொண்டிருந்தார்கள்?)", ["had", "have", "did", "were"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["It ______ not been raining since morning.", "(காலை முதல் மழை பெய்துகொண்டிருக்கவில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ I been troubling you before?", "(இதற்கு முன்பு நான் உன்னைத் தொந்தரவு செய்துகொண்டிருந்தேனா?)", ["Had", "Have", "Did", "Was"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["They ______ not been practicing for the match.", "(அவர்கள் போட்டிக்குப் பயிற்சி செய்துகொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["What ______ he been doing before I arrived?", "(நான் வருவதற்கு முன்பு அவன் என்ன செய்துகொண்டிருந்தான்?)", ["had", "has", "did", "was"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["You ______ not been paying attention to class.", "(நீ வகுப்பில் கவனம் செலுத்திக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ the train been running late before accident?", "(விபத்துக்கு முன்பு ரயில் தாமதமாக ஓடிக்கொண்டிருந்ததா?)", ["Had", "Has", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["She ______ not been reading that book for long.", "(அவள் அந்தப் புத்தகத்தை நீண்ட நேரமாகப் படித்துக்கொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Who ______ been shouting in the room?", "(அறையில் கத்திக்கொண்டிருந்தது யார்?)", ["had", "has", "did", "were"], 0, "Past Perfect Continuous வினாவிற்கு 'had' பயன்படும்."],
+                ["We ______ not been expecting such a delay.", "(நாங்கள் இத்தகைய தாமதத்தை எதிர்பார்த்துக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ the children been sleeping before sound woke them?", "(சத்தம் எழுப்பும் முன்பு குழந்தைகள் தூங்கிக்கொண்டிருந்தார்களா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["He ______ not been talking to anyone.", "(அவன் யாருடனும் பேசிக்கொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["How ______ she been managing without help?", "(உதவி இல்லாமல் அவள் எப்படி சமாளித்துக்கொண்டிருந்தாள்?)", ["had", "has", "did", "was"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["I ______ not been feeling well before doctor visited.", "(மருத்துவர் வருவதற்கு முன்பு நான் நன்றாக உணர்ந்துகொண்டிருக்கவில்லை.)", ["had", "have", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ you been searching for your keys all day?", "(நாள் முழுவதும் உன் சாவிகளைத் தேடிக்கொண்டிருந்தாயா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["They ______ not been getting along well before separation.", "(பிரிவதற்கு முன்பு அவர்கள் நன்றாகப் பழகிக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Where ______ she been hiding all this time?", "(இவ்வளவு காலமாக அவள் எங்கே ஒளிந்துகொண்டிருந்தாள்?)", ["had", "has", "did", "was"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["He ______ not been maintaining his car properly.", "(அவன் தன் காரைச் சரியாகப் பராமரித்துக்கொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ it been snowing heavily before you arrived?", "(நீ வருவதற்கு முன்பு அதிக அளவில் பனி பெய்துகொண்டிருந்ததா?)", ["Had", "Has", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["We ______ not been using this device for years.", "(நாங்கள் பல ஆண்டுகளாக இந்தக் கருவியைப் பயன்படுத்திக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Why ______ they been protesting outside?", "(அவர்கள் ஏன் வெளியே போராடிக்கொண்டிருந்தார்கள்?)", ["had", "have", "did", "were"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["She ______ not been wearing uniform that day.", "(அவள் அன்று சீருடை அணிந்துகொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ the sun been shining before clouds appeared?", "(மேகங்கள் தோன்றுவதற்கு முன்பு சூரியன் ஜொலித்துக்கொண்டிருந்ததா?)", ["Had", "Has", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["I ______ not been watching TV before you came.", "(நீ வருவதற்கு முன்பு நான் தொலைக்காட்சி பார்த்துக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["What ______ you been discussing before meeting?", "(கூட்டத்திற்கு முன்பு நீங்கள் என்ன விவாதித்துக்கொண்டிருந்தீர்கள்?)", ["had", "have", "did", "were"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["You ______ not been keeping secrets from me.", "(நீ என்னிடமிருந்து இரகசியங்களை மறைத்துக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ the students been practicing drama before function?", "(விழாவுக்கு முன்பு மாணவர்கள் நாடகப் பயிற்சி செய்துகொண்டிருந்தார்களா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["The machine ______ not been working since morning.", "(காலை முதல் இயந்திரம் வேலை செய்துகொண்டிருக்கவில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Who ______ been using my computer without permission?", "(அனுமதியின்றி எனது கணினியைப் பயன்படுத்திக்கொண்டிருந்தது யார்?)", ["had", "has", "did", "were"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["We ______ not been investing in that company.", "(நாங்கள் அந்த நிறுவனத்தில் முதலீடு செய்துகொண்டிருந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ your sister been painting for long?", "(உங்கள் சகோதரி நீண்ட நேரமாக ஓவியம் வரைந்துகொண்டிருந்தாரா?)", ["Had", "Has", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["He ______ not been listening to my advice.", "(அவன் என் ஆலோசனையைக் கேட்டுக்கொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Where ______ you been staying during holidays?", "(விடுமுறை நாட்களில் நீங்கள் எங்கே தங்கியிருந்தீர்கள்?)", ["had", "have", "did", "were"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["She ______ not been complaining about food.", "(அவள் உணவைப் பற்றிப் புகார் செய்துகொண்டிருந்ததில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ they been traveling for months before returning?", "(திரும்புவதற்கு முன்பு அவர்கள் பல மாதங்களாகப் பயணம் செய்துகொண்டிருந்தார்களா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["I ______ not been expecting any gifts.", "(நான் எந்தப் பரிசுகளையும் எதிர்பார்த்துக்கொண்டிருந்ததில்லை.)", ["had", "have", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["Why ______ she been whispering in the corner?", "(அவள் ஏன் மூலையில் முணுமுணுத்துக்கொண்டிருந்தாள்?)", ["had", "has", "did", "was"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["It ______ not been giving good results before update.", "(புதுப்பித்தலுக்கு முன்பு அது நல்ல முடிவுகளைத் தந்துகொண்டிருக்கவில்லை.)", ["had", "has", "did", "was"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["______ the birds been flying south before winter?", "(குளிர்காலத்திற்கு முன்பு பறவைகள் தெற்கு நோக்கிப் பறந்துகொண்டிருந்தனவா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."],
+                ["They ______ not been following safety rules.", "(அவர்கள் பாதுகாப்பு விதிகளைப் பின்பற்றி வந்ததில்லை.)", ["had", "have", "did", "were"], 0, "Past Perfect Continuous எதிர்மறையில் 'had' பயன்படும்."],
+                ["How ______ you been passing your time there?", "( அங்கே நீங்கள் எப்படி உங்கள் பொழுதைக் கழித்துக்கொண்டிருந்தீர்கள்?)", ["had", "have", "did", "were"], 0, "வினாவிற்கு 'had' பயன்படும்."],
+                ["______ you been gardening before guests arrived?", "(விருந்தினர்கள் வருவதற்கு முன்பு நீங்கள் தோட்டவேலை செய்துகொண்டிருந்தீர்களா?)", ["Had", "Have", "Did", "Were"], 0, "வினாத் தொடக்கத்தில் 'Had' பயன்படும்."]
+            ];
+            return raw.map(item => {
+                const { shuffledOptions, newCorrectIndex } = shuffleOptions(item[2], item[3]);
+                return { q: item[0], tq: item[1], o: shuffledOptions, a: newCorrectIndex, e: item[4] };
+            });
+        };
+
+        const setsData = [
+            { id: "set1", title: "1. Basic Past Perfect Continuous", badge: "Past Perfect Continuous - Set 1", getQuestions: generateBasicPastPerfectContinuousQuestions },
+            { id: "set2", title: "2. Negatives & Questions (Had been)", badge: "Past Perfect Continuous - Set 2", getQuestions: generateMasteryPastPerfectContinuousQuestions }
+        ];
+
+        let currentSetIndex = 0;
+        let currentQuestions = [];
+        let currentQuestionIdx = 0;
+        let userScore = 0;
+        let isOptionSelected = false;
+
+        const loadProgress = () => JSON.parse(localStorage.getItem('past_perfect_cont_progress') || '{}');
+        const saveProgress = (setIdx) => {
+            const p = loadProgress();
+            p[setIdx] = true;
+            localStorage.setItem('past_perfect_cont_progress', JSON.stringify(p));
+            renderProgressTracker();
+        };
+
+        function renderProgressTracker() {
+            const p = loadProgress();
+            const grid = document.getElementById('progress-tracker-grid');
+            const overallText = document.getElementById('overall-progress-text');
+            grid.innerHTML = '';
+            let compCount = 0;
+
+            setsData.forEach((s, idx) => {
+                const isComp = !!p[idx];
+                if (isComp) compCount++;
+                const item = document.createElement('div');
+                item.className = `progress-item ${isComp ? 'completed' : ''}`;
+                item.onclick = () => switchSet(idx);
+                item.innerHTML = `<div class="check-icon">${isComp ? '✓' : idx + 1}</div><div>${s.title}</div>`;
+                grid.appendChild(item);
+            });
+
+            overallText.innerText = `${compCount} / ${setsData.length} Completed`;
+        }
+
+        function renderPills() {
+            const container = document.getElementById('topic-pills');
+            container.innerHTML = '';
+            setsData.forEach((s, idx) => {
+                const btn = document.createElement('button');
+                btn.className = `pill-btn ${idx === currentSetIndex ? 'active' : ''}`;
+                btn.innerText = s.title;
+                btn.onclick = () => switchSet(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        function switchSet(idx) {
+            currentSetIndex = idx;
+            renderPills();
+            initQuiz();
+        }
+
+        function initQuiz() {
+            const currentSet = setsData[currentSetIndex];
+            document.getElementById('quiz-topic-badge').innerText = currentSet.badge;
+            currentQuestions = currentSet.getQuestions();
+            currentQuestionIdx = 0;
+            userScore = 0;
+
+            document.getElementById('question-runner').style.display = 'block';
+            document.getElementById('result-runner').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            isOptionSelected = false;
+            const qData = currentQuestions[currentQuestionIdx];
+            document.getElementById('quiz-progress-text').innerText = `Question ${currentQuestionIdx + 1} / ${currentQuestions.length}`;
+            document.getElementById('question-text').innerText = qData.q;
+            document.getElementById('question-tamil-text').innerText = qData.tq;
+
+            const optsBox = document.getElementById('options-container');
+            optsBox.innerHTML = '';
+
+            const fb = document.getElementById('feedback-box');
+            fb.style.display = 'none';
+            fb.className = 'feedback-box';
+
+            document.getElementById('next-btn').disabled = true;
+
+            qData.o.forEach((optText, oIdx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = optText;
+                btn.onclick = () => handleAnswer(oIdx, btn);
+                optsBox.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(selectedIdx, btnElement) {
+            if (isOptionSelected) return;
+            isOptionSelected = true;
+
+            const qData = currentQuestions[currentQuestionIdx];
+            const allBtns = document.querySelectorAll('.option-btn');
+            const fb = document.getElementById('feedback-box');
+
+            if (selectedIdx === qData.a) {
+                userScore++;
+                btnElement.classList.add('selected-correct');
+                fb.className = 'feedback-box correct';
+                fb.innerHTML = `<strong>சரியான விடை! 🎉</strong><br>${qData.e}`;
+            } else {
+                btnElement.classList.add('selected-wrong');
+                allBtns[qData.a].classList.add('selected-correct');
+                fb.className = 'feedback-box wrong';
+                fb.innerHTML = `<strong>தவறான விடை! ❌</strong><br>சரியான விடை: <b>${qData.o[qData.a]}</b><br>${qData.e}`;
+            }
+
+            fb.style.display = 'block';
+            document.getElementById('next-btn').disabled = false;
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < currentQuestions.length) {
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('question-runner').style.display = 'none';
+            document.getElementById('result-runner').style.display = 'block';
+
+            const scorePercent = Math.round((userScore / currentQuestions.length) * 100);
+            document.getElementById('res-score').innerText = `${scorePercent}%`;
+
+            let msg = "சிறப்பான முயற்சி!";
+            if (scorePercent >= 80) {
+                msg = "அற்புதம்! மிகச் சிறந்த மதிப்பெண்! 🎉";
+                saveProgress(currentSetIndex);
+            } else if (scorePercent >= 50) {
+                msg = "நன்று! மீண்டும் பயிற்சி செய்து 80% பெற முயலுங்கள்! 👍";
+            } else {
+                msg = "மீண்டும் முயற்சி செய்யுங்கள்! உங்களால் முடியும்! 💪";
+            }
+
+            document.getElementById('res-msg').innerText = msg;
+        }
+
+        function resetCurrentQuiz() {
+            initQuiz();
+        }
+
+        window.onload = () => {
+            renderProgressTracker();
+            renderPills();
+            initQuiz();
+        };
+    </script>
 </body>
+
 </html>

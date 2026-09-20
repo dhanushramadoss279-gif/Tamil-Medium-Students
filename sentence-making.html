@@ -1,0 +1,957 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sentence Formation - TMS Academy</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+        }
+
+        .word-btn {
+            transition: all 0.2s ease;
+        }
+
+        .word-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .word-btn:active {
+            transform: scale(0.96);
+        }
+
+        .selected-word {
+            animation: pop 0.15s ease;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .correct-box {
+            animation: slideUp 0.25s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-900">
+
+
+    <!-- HEADER -->
+
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+
+        <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-3">
+
+                <div class="w-11 h-11 rounded-2xl
+                            bg-gradient-to-br from-blue-600 to-indigo-600
+                            flex items-center justify-center
+                            text-xl shadow-lg">
+
+                    📚
+
+                </div>
+
+                <div>
+
+                    <h1 class="font-extrabold text-lg sm:text-xl
+                               bg-gradient-to-r from-blue-700 to-indigo-700
+                               bg-clip-text text-transparent">
+
+                        TMS Academy
+
+                    </h1>
+
+                    <p class="text-[10px] text-blue-600 font-medium">
+                        Learn English Through Tamil
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <a href="index.html"
+               class="text-sm font-semibold text-blue-600
+                      hover:text-blue-800">
+
+                Home
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="max-w-2xl mx-auto px-4 py-6">
+
+
+        <!-- TITLE -->
+
+        <section class="text-center mb-6">
+
+            <span class="inline-block px-3 py-1
+                         bg-blue-100 text-blue-700
+                         rounded-full text-xs font-bold">
+
+                🧩 STEP 03
+
+            </span>
+
+            <h2 class="text-2xl sm:text-3xl
+                       font-extrabold text-blue-950 mt-3">
+
+                Sentence Formation
+
+            </h2>
+
+            <p class="text-sm text-gray-500 mt-2">
+
+                Words-ஐ சரியான order-ல் வைத்து sentence உருவாக்குங்கள்.
+
+            </p>
+
+        </section>
+
+
+        <!-- LEVEL CARD -->
+
+        <div class="bg-white rounded-2xl border border-blue-100
+                    shadow-sm p-4 mb-5">
+
+            <div class="flex items-center justify-between">
+
+                <div>
+
+                    <p class="text-xs text-gray-500">
+                        Current Level
+                    </p>
+
+                    <p id="levelText"
+                       class="text-lg font-bold text-blue-700">
+
+                        Level 1
+
+                    </p>
+
+                </div>
+
+
+                <div class="text-right">
+
+                    <p class="text-xs text-gray-500">
+                        Question
+                    </p>
+
+                    <p class="text-lg font-bold text-blue-700">
+
+                        <span id="questionNumber">1</span>/10
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="w-full bg-blue-100 rounded-full h-2 mt-4">
+
+                <div id="progressBar"
+                     class="bg-blue-600 h-2 rounded-full transition-all"
+                     style="width:10%">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GAME CARD -->
+
+        <section class="bg-white rounded-3xl
+                        border border-blue-100
+                        shadow-lg p-5 sm:p-7">
+
+
+            <!-- TAMIL QUESTION -->
+
+            <div class="text-center mb-6">
+
+                <p class="text-xs font-bold text-blue-500 uppercase">
+                    Make this sentence
+                </p>
+
+                <p id="tamilQuestion"
+                   class="text-lg sm:text-xl font-bold
+                          text-gray-800 mt-2 leading-8">
+
+                </p>
+
+            </div>
+
+
+            <!-- ANSWER AREA -->
+
+            <div id="answerArea"
+                 class="min-h-[65px]
+                        rounded-2xl
+                        border-2 border-dashed
+                        border-blue-200
+                        bg-blue-50/50
+                        p-3
+                        flex flex-wrap gap-2
+                        items-center justify-center">
+
+                <span id="answerPlaceholder"
+                      class="text-sm text-gray-400">
+
+                    இங்கே words வரும்...
+
+                </span>
+
+            </div>
+
+
+            <!-- WORDS -->
+
+            <div class="mt-6">
+
+                <p class="text-xs font-semibold
+                          text-gray-500 text-center mb-3">
+
+                    👇 Choose the words in correct order
+
+                </p>
+
+
+                <div id="wordButtons"
+                     class="flex flex-wrap justify-center gap-2">
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="flex gap-3 mt-6">
+
+                <button
+                    onclick="checkAnswer()"
+                    class="flex-1 bg-blue-600 hover:bg-blue-700
+                           text-white font-bold
+                           py-3 rounded-xl transition">
+
+                    ✓ Check Answer
+
+                </button>
+
+
+                <button
+                    onclick="resetAnswer()"
+                    class="px-5 bg-gray-100
+                           hover:bg-gray-200
+                           text-gray-700 font-bold
+                           rounded-xl transition">
+
+                    ↻
+
+                </button>
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div id="feedback"
+                 class="hidden mt-5 rounded-2xl p-4 text-center">
+
+            </div>
+
+
+            <!-- NEXT BUTTON -->
+
+            <button id="nextButton"
+                    onclick="nextQuestion()"
+                    class="hidden w-full mt-4
+                           bg-indigo-600 hover:bg-indigo-700
+                           text-white font-bold py-3 rounded-xl">
+
+                Next Question →
+
+            </button>
+
+        </section>
+
+
+        <!-- LEVEL COMPLETE -->
+
+        <section id="levelComplete"
+                 class="hidden bg-white rounded-3xl
+                        border border-blue-100
+                        shadow-lg p-7 text-center mt-5">
+
+            <div class="text-5xl">
+                🎉
+            </div>
+
+            <h2 class="text-2xl font-extrabold
+                       text-blue-900 mt-4">
+
+                Level Complete!
+
+            </h2>
+
+            <p class="text-gray-500 mt-2">
+                இந்த level-ஐ முடித்துவிட்டீர்கள்.
+            </p>
+
+            <div class="mt-5 bg-blue-50 rounded-2xl p-4">
+
+                <p class="text-sm text-gray-500">
+                    Your Score
+                </p>
+
+                <p id="finalScore"
+                   class="text-4xl font-extrabold text-blue-600 mt-1">
+
+                    0/10
+
+                </p>
+
+            </div>
+
+            <button
+                onclick="nextLevel()"
+                class="w-full mt-5
+                       bg-blue-600 hover:bg-blue-700
+                       text-white font-bold py-3
+                       rounded-xl transition">
+
+                🚀 Next Level
+
+            </button>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        /*
+        ==========================================
+        SENTENCE DATA
+        ==========================================
+        */
+
+        const levels = {
+
+            1: [
+
+                {
+                    tamil: "நான் ஒரு மாணவன்.",
+                    words: ["I", "am", "a", "student."]
+                },
+
+                {
+                    tamil: "நீ என் நண்பன்.",
+                    words: ["You", "are", "my", "friend."]
+                },
+
+                {
+                    tamil: "நான் தினமும் படிக்கிறேன்.",
+                    words: ["I", "study", "every", "day."]
+                },
+
+                {
+                    tamil: "அவன் ஒரு ஆசிரியர்.",
+                    words: ["He", "is", "a", "teacher."]
+                },
+
+                {
+                    tamil: "அவள் வீட்டில் இருக்கிறாள்.",
+                    words: ["She", "is", "at", "home."]
+                },
+
+                {
+                    tamil: "நாங்கள் கிரிக்கெட் விளையாடுகிறோம்.",
+                    words: ["We", "play", "cricket."]
+                },
+
+                {
+                    tamil: "அவர்கள் பள்ளிக்கு செல்கிறார்கள்.",
+                    words: ["They", "go", "to", "school."]
+                },
+
+                {
+                    tamil: "எனக்கு ஒரு புத்தகம் உள்ளது.",
+                    words: ["I", "have", "a", "book."]
+                },
+
+                {
+                    tamil: "அவனிடம் ஒரு பேனா உள்ளது.",
+                    words: ["He", "has", "a", "pen."]
+                },
+
+                {
+                    tamil: "நான் English கற்கிறேன்.",
+                    words: ["I", "learn", "English."]
+                }
+
+            ],
+
+
+            2: [
+
+                {
+                    tamil: "நான் காலையில் எழுந்திருக்கிறேன்.",
+                    words: ["I", "wake", "up", "in", "the", "morning."]
+                },
+
+                {
+                    tamil: "நான் காலை உணவு சாப்பிடுகிறேன்.",
+                    words: ["I", "eat", "breakfast."]
+                },
+
+                {
+                    tamil: "நான் கல்லூரிக்கு செல்கிறேன்.",
+                    words: ["I", "go", "to", "college."]
+                },
+
+                {
+                    tamil: "அவள் தினமும் படிக்கிறாள்.",
+                    words: ["She", "studies", "every", "day."]
+                },
+
+                {
+                    tamil: "அவன் கால்பந்து விளையாடுகிறான்.",
+                    words: ["He", "plays", "football."]
+                },
+
+                {
+                    tamil: "நாங்கள் ஒன்றாக வேலை செய்கிறோம்.",
+                    words: ["We", "work", "together."]
+                },
+
+                {
+                    tamil: "அவர்கள் English பேசுகிறார்கள்.",
+                    words: ["They", "speak", "English."]
+                },
+
+                {
+                    tamil: "எனக்கு ஒரு கார் உள்ளது.",
+                    words: ["I", "have", "a", "car."]
+                },
+
+                {
+                    tamil: "அவளிடம் ஒரு மொபைல் உள்ளது.",
+                    words: ["She", "has", "a", "mobile."]
+                },
+
+                {
+                    tamil: "நான் தினமும் English practice செய்கிறேன்.",
+                    words: ["I", "practice", "English", "every", "day."]
+                }
+
+            ]
+
+        };
+
+
+        /*
+        ==========================================
+        VARIABLES
+        ==========================================
+        */
+
+        let currentLevel = 1;
+        let currentQuestion = 0;
+
+        let score = 0;
+
+        let selectedWords = [];
+
+        let availableWords = [];
+
+        let answered = false;
+
+
+        /*
+        ==========================================
+        START
+        ==========================================
+        */
+
+        loadQuestion();
+
+
+        /*
+        ==========================================
+        LOAD QUESTION
+        ==========================================
+        */
+
+        function loadQuestion() {
+
+            answered = false;
+
+            selectedWords = [];
+
+            const questions = levels[currentLevel];
+
+            const question = questions[currentQuestion];
+
+            availableWords = [...question.words];
+
+            document.getElementById("levelText").textContent =
+                "Level " + currentLevel;
+
+            document.getElementById("questionNumber").textContent =
+                currentQuestion + 1;
+
+            document.getElementById("tamilQuestion").textContent =
+                question.tamil;
+
+            document.getElementById("progressBar").style.width =
+                ((currentQuestion + 1) / questions.length * 100) + "%";
+
+
+            document.getElementById("feedback").classList.add("hidden");
+
+            document.getElementById("nextButton").classList.add("hidden");
+
+
+            renderAnswer();
+
+            renderWords();
+
+        }
+
+
+        /*
+        ==========================================
+        RENDER WORD BUTTONS
+        ==========================================
+        */
+
+        function renderWords() {
+
+            const container =
+                document.getElementById("wordButtons");
+
+            container.innerHTML = "";
+
+
+            /*
+            Shuffle words
+            */
+
+            const shuffled = [...availableWords]
+                .sort(() => Math.random() - 0.5);
+
+
+            shuffled.forEach((word, index) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.textContent = word;
+
+                button.className =
+                    "word-btn px-4 py-2.5 rounded-xl " +
+                    "bg-blue-50 border border-blue-200 " +
+                    "text-blue-700 font-semibold text-sm " +
+                    "hover:bg-blue-100";
+
+                button.onclick = function () {
+
+                    selectWord(word);
+
+                };
+
+                container.appendChild(button);
+
+            });
+
+        }
+
+
+        /*
+        ==========================================
+        SELECT WORD
+        ==========================================
+        */
+
+        function selectWord(word) {
+
+            if (answered) return;
+
+            const index =
+                availableWords.indexOf(word);
+
+            if (index === -1) return;
+
+            selectedWords.push(word);
+
+            availableWords.splice(index, 1);
+
+            renderAnswer();
+
+            renderWords();
+
+        }
+
+
+        /*
+        ==========================================
+        ANSWER DISPLAY
+        ==========================================
+        */
+
+        function renderAnswer() {
+
+            const area =
+                document.getElementById("answerArea");
+
+            area.innerHTML = "";
+
+
+            if (selectedWords.length === 0) {
+
+                area.innerHTML =
+                    '<span class="text-sm text-gray-400">' +
+                    'இங்கே words வரும்...' +
+                    '</span>';
+
+                return;
+
+            }
+
+
+            selectedWords.forEach((word, index) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.textContent = word;
+
+                button.className =
+                    "selected-word px-3 py-2 " +
+                    "rounded-lg bg-blue-600 text-white " +
+                    "font-semibold text-sm shadow-sm";
+
+                button.onclick = function () {
+
+                    if (answered) return;
+
+                    selectedWords.splice(index, 1);
+
+                    availableWords.push(word);
+
+                    renderAnswer();
+
+                    renderWords();
+
+                };
+
+                area.appendChild(button);
+
+            });
+
+        }
+
+
+        /*
+        ==========================================
+        CHECK ANSWER
+        ==========================================
+        */
+
+        function checkAnswer() {
+
+            if (answered) return;
+
+            if (selectedWords.length === 0) {
+
+                showFeedback(
+                    "⚠️",
+                    "முதலில் words-ஐ select செய்யுங்கள்.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            const correct =
+                levels[currentLevel][currentQuestion].words;
+
+
+            const isCorrect =
+                selectedWords.join(" ") ===
+                correct.join(" ");
+
+
+            answered = true;
+
+
+            if (isCorrect) {
+
+                score++;
+
+                showFeedback(
+                    "🎉",
+                    "Correct! Great job!",
+                    true
+                );
+
+            } else {
+
+                showFeedback(
+                    "❌",
+                    "Wrong! Try to remember the correct order.",
+                    false
+                );
+
+                showCorrectAnswer();
+
+            }
+
+
+            document
+                .getElementById("nextButton")
+                .classList.remove("hidden");
+
+        }
+
+
+        /*
+        ==========================================
+        FEEDBACK
+        ==========================================
+        */
+
+        function showFeedback(icon, message, correct) {
+
+            const box =
+                document.getElementById("feedback");
+
+            box.classList.remove("hidden");
+
+            box.className =
+                "correct-box mt-5 rounded-2xl p-4 text-center " +
+                (correct
+                    ? "bg-green-50 text-green-700 border border-green-200"
+                    : "bg-red-50 text-red-700 border border-red-200");
+
+            box.innerHTML = `
+                <div class="text-2xl">${icon}</div>
+                <p class="font-bold mt-1">${message}</p>
+            `;
+
+        }
+
+
+        /*
+        ==========================================
+        SHOW CORRECT ANSWER
+        ==========================================
+        */
+
+        function showCorrectAnswer() {
+
+            const correct =
+                levels[currentLevel][currentQuestion].words
+                    .join(" ");
+
+            const box =
+                document.getElementById("feedback");
+
+            box.innerHTML += `
+
+                <div class="mt-3 pt-3 border-t border-red-200">
+
+                    <p class="text-xs font-semibold">
+                        Correct Sentence
+                    </p>
+
+                    <p class="font-bold mt-1">
+                        ${correct}
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /*
+        ==========================================
+        NEXT QUESTION
+        ==========================================
+        */
+
+        function nextQuestion() {
+
+            currentQuestion++;
+
+            if (
+                currentQuestion >=
+                levels[currentLevel].length
+            ) {
+
+                showLevelComplete();
+
+                return;
+
+            }
+
+            loadQuestion();
+
+        }
+
+
+        /*
+        ==========================================
+        LEVEL COMPLETE
+        ==========================================
+        */
+
+        function showLevelComplete() {
+
+            document
+                .querySelector("section.bg-white.rounded-3xl")
+                .classList.add("hidden");
+
+            document
+                .getElementById("levelComplete")
+                .classList.remove("hidden");
+
+            document
+                .getElementById("finalScore")
+                .textContent =
+                score + "/" + levels[currentLevel].length;
+
+        }
+
+
+        /*
+        ==========================================
+        NEXT LEVEL
+        ==========================================
+        */
+
+        function nextLevel() {
+
+            currentLevel++;
+
+            if (!levels[currentLevel]) {
+
+                alert(
+                    "🎉 Congratulations! You completed all available levels!"
+                );
+
+                currentLevel = 1;
+
+            }
+
+            currentQuestion = 0;
+
+            score = 0;
+
+            document
+                .getElementById("levelComplete")
+                .classList.add("hidden");
+
+            document
+                .querySelector("section.bg-white.rounded-3xl")
+                .classList.remove("hidden");
+
+            loadQuestion();
+
+        }
+
+
+        /*
+        ==========================================
+        RESET ANSWER
+        ==========================================
+        */
+
+        function resetAnswer() {
+
+            if (answered) return;
+
+            availableWords = [
+                ...levels[currentLevel][currentQuestion].words
+            ];
+
+            selectedWords = [];
+
+            renderAnswer();
+
+            renderWords();
+
+        }
+
+    </script>
+
+</body>
+</html>
+```

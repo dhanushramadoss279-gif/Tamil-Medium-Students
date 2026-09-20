@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home Conversation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Poppins", "Noto Sans Tamil", sans-serif;
+    background: #f4f8ff;
+    color: #1e293b;
+}
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    padding: 25px 15px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #2563eb;
+    font-size: clamp(24px, 6vw, 32px);
+    margin-bottom: 25px;
+}
+
+.conversation-card {
+    background: white;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 15px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.line {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.speaker {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.english {
+    font-size: clamp(16px, 4vw, 19px);
+    font-weight: 500;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.tamil {
+    font-family: "Noto Sans Tamil", sans-serif;
+    font-size: clamp(14px, 3.8vw, 17px);
+    color: #64748b;
+    line-height: 1.7;
+    margin-top: 3px;
+}
+
+.speak-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #2563eb;
+    color: white;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.speak-btn:hover {
+    background: #1d4ed8;
+}
+
+.speak-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        padding: 20px 10px 30px;
+    }
+
+    .conversation-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
+
+    .line {
+        gap: 9px;
+    }
+
+    .speak-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏠 Home Conversation</h1>
+
+
+<!-- 1 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Good morning.</div>
+<div class="tamil">காலை வணக்கம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 2 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Good morning, Mom.</div>
+<div class="tamil">காலை வணக்கம், அம்மா.</div>
+</div>
+<button class="speak-btn" onclick="speak('Good morning, Mom.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 3 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Wake up. It is morning.</div>
+<div class="tamil">எழுந்திரு. காலை ஆகிவிட்டது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Wake up. It is morning.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 4 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Okay, Mom. I am awake.</div>
+<div class="tamil">சரி, அம்மா. நான் எழுந்துவிட்டேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, Mom. I am awake.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 5 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Brush your teeth.</div>
+<div class="tamil">உன் பற்களைத் துலக்கு.</div>
+</div>
+<button class="speak-btn" onclick="speak('Brush your teeth.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 6 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Okay, I will brush my teeth.</div>
+<div class="tamil">சரி, நான் பல் துலக்குகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, I will brush my teeth.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 7 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Go and take a bath.</div>
+<div class="tamil">சென்று குளித்துவிட்டு வா.</div>
+</div>
+<button class="speak-btn" onclick="speak('Go and take a bath.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 8 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">I am going to take a bath.</div>
+<div class="tamil">நான் குளிக்கச் செல்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am going to take a bath.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 9 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Your breakfast is ready.</div>
+<div class="tamil">உன் காலை உணவு தயாராக உள்ளது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Your breakfast is ready.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 10 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">What is for breakfast?</div>
+<div class="tamil">காலை உணவுக்கு என்ன இருக்கிறது?</div>
+</div>
+<button class="speak-btn" onclick="speak('What is for breakfast?')">🔊</button>
+</div>
+</div>
+
+
+<!-- 11 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">I made dosa and chutney.</div>
+<div class="tamil">நான் தோசை மற்றும் சட்னி செய்திருக்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I made dosa and chutney.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 12 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">It smells good.</div>
+<div class="tamil">நல்ல வாசனையாக இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('It smells good.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 13 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Come and eat.</div>
+<div class="tamil">வந்து சாப்பிடு.</div>
+</div>
+<button class="speak-btn" onclick="speak('Come and eat.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 14 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">I am coming.</div>
+<div class="tamil">நான் வருகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('I am coming.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 15 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Father:</div>
+<div class="english">Where is my phone?</div>
+<div class="tamil">என் கைப்பேசி எங்கே?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where is my phone?')">🔊</button>
+</div>
+</div>
+
+
+<!-- 16 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">It is on the table.</div>
+<div class="tamil">அது மேசையின் மீது இருக்கிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('It is on the table.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 17 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Father:</div>
+<div class="english">Where are my keys?</div>
+<div class="tamil">என்னுடைய சாவிகள் எங்கே?</div>
+</div>
+<button class="speak-btn" onclick="speak('Where are my keys?')">🔊</button>
+</div>
+</div>
+
+
+<!-- 18 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">They are near the door.</div>
+<div class="tamil">அவை கதவுக்கு அருகில் இருக்கின்றன.</div>
+</div>
+<button class="speak-btn" onclick="speak('They are near the door.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 19 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Please clean your room.</div>
+<div class="tamil">தயவுசெய்து உன் அறையை சுத்தம் செய்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please clean your room.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 20 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Okay, I will clean it.</div>
+<div class="tamil">சரி, நான் அதை சுத்தம் செய்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, I will clean it.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 21 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Do not make a mess.</div>
+<div class="tamil">குழப்பமாக வைக்காதே.</div>
+</div>
+<button class="speak-btn" onclick="speak('Do not make a mess.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 22 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Okay, I understand.</div>
+<div class="tamil">சரி, எனக்குப் புரிகிறது.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, I understand.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 23 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Father:</div>
+<div class="english">Please close the door.</div>
+<div class="tamil">தயவுசெய்து கதவை மூடு.</div>
+</div>
+<button class="speak-btn" onclick="speak('Please close the door.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 24 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Sure, Dad.</div>
+<div class="tamil">சரி, அப்பா.</div>
+</div>
+<button class="speak-btn" onclick="speak('Sure, Dad.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 25 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Turn off the light.</div>
+<div class="tamil">விளக்கை அணைத்துவிடு.</div>
+</div>
+<button class="speak-btn" onclick="speak('Turn off the light.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 26 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Okay, I will turn it off.</div>
+<div class="tamil">சரி, நான் அதை அணைத்துவிடுகிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, I will turn it off.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 27 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Father:</div>
+<div class="english">Are you tired?</div>
+<div class="tamil">நீ சோர்வாக இருக்கிறாயா?</div>
+</div>
+<button class="speak-btn" onclick="speak('Are you tired?')">🔊</button>
+</div>
+</div>
+
+
+<!-- 28 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Yes, I am a little tired.</div>
+<div class="tamil">ஆம், நான் கொஞ்சம் சோர்வாக இருக்கிறேன்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Yes, I am a little tired.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 29 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Mother:</div>
+<div class="english">Go and take some rest.</div>
+<div class="tamil">சென்று சிறிது ஓய்வு எடு.</div>
+</div>
+<button class="speak-btn" onclick="speak('Go and take some rest.')">🔊</button>
+</div>
+</div>
+
+
+<!-- 30 -->
+<div class="conversation-card">
+<div class="line">
+<div class="content">
+<div class="speaker">Son:</div>
+<div class="english">Okay, good night. See you tomorrow.</div>
+<div class="tamil">சரி, இரவு வணக்கம். நாளை சந்திப்போம்.</div>
+</div>
+<button class="speak-btn" onclick="speak('Okay, good night. See you tomorrow.')">🔊</button>
+</div>
+</div>
+
+</div>
+
+<script>
+
+function speak(text) {
+
+    window.speechSynthesis.cancel();
+
+    const speech = new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+    speech.rate = 0.8;
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+</script>
+
+</body>
+</html>

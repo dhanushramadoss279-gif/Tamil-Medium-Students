@@ -1,703 +1,576 @@
+```html
 <!DOCTYPE html>
-<html lang="ta">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamil Medium Student - Learn English Easily Through Tamil</title>
 
-    <!-- Google Fonts: Poppins (English) & Noto Sans Tamil (Tamil) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <title>TMS Academy - Learn English Through Tamil</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
-        /* CSS RESET & CORE VARIABLES */
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-blue: #2563eb;
-            --primary-dark: #1e3a8a;
-            --primary-hover: #1d4ed8;
-            --bg-light: #f8fafc;
-            --card-bg: #ffffff;
-            --text-dark: #0f172a;
-            --text-muted: #475569;
-            --border-color: #e2e8f0;
-
-            /* Difficulty Badges */
-            --easy-bg: #dcfce7;
-            --easy-text: #15803d;
-            --medium-bg: #fef3c7;
-            --medium-text: #b45309;
-            --hard-bg: #ffe4e6;
-            --hard-text: #be123c;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
         }
 
-        /* HEADER & NAVIGATION */
-        .header {
-            background-color: #ffffff;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        .step-card {
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            transition: all 0.25s ease;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0.8rem 1.25rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .step-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
         }
 
-        /* LOGO DESIGN */
+        .step-card:active {
+            transform: scale(0.98);
+        }
+
         .logo-box {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
         }
 
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: #ffffff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
-            flex-shrink: 0;
-        }
-
-        .logo-text-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .site-name {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            line-height: 1.2;
-            letter-spacing: -0.3px;
-        }
-
-        .site-tagline {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--primary-blue);
-        }
-
-        .site-tamil-tagline {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        /* NAV LINKS */
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.92rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            background-color: #eff6ff;
-            color: var(--primary-blue);
-        }
-
-        /* HAMBURGER MENU */
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: var(--text-dark);
-            padding: 0.2rem;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
-            padding: 3.5rem 1.25rem 3rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-heading {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin-bottom: 0.8rem;
-            line-height: 1.3;
-        }
-
-        .hero-tamil-text {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            font-weight: 500;
-            margin-bottom: 0.6rem;
-        }
-
-        .hero-steps {
-            display: inline-block;
-            background-color: #ffffff;
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            border: 1px solid #bfdbfe;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
-        }
-
-        .hero-btn {
-            display: inline-block;
-            background-color: var(--primary-blue);
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.85rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
-            transition: all 0.25s ease;
-        }
-
-        .hero-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-        }
-
-        /* MAIN CONTAINER */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 1.25rem 1rem;
-        }
-
-        /* SECTION TITLES */
-        .section-header {
-            margin-bottom: 1.75rem;
-        }
-
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .section-title::before {
-            content: '';
-            width: 6px;
-            height: 1.6rem;
-            background-color: var(--primary-blue);
-            border-radius: 3px;
-            display: inline-block;
-        }
-
-        .section-subtext {
-            font-size: 0.98rem;
-            color: var(--text-muted);
-            margin-top: 0.4rem;
-            font-weight: 500;
-        }
-
-        /* PARTS OF SPEECH GRID */
-        .pos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.25rem;
-            margin-bottom: 3.5rem;
-        }
-
-        .pos-card {
-            background-color: var(--card-bg);
-            border-radius: 14px;
-            padding: 1.25rem;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 120px;
-        }
-
-        .pos-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 12px 20px -5px rgba(37, 99, 235, 0.12);
-        }
-
-        .pos-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .pos-sub {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            margin-top: 0.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .pos-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding-top: 0.75rem;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        .weightage-tag {
-            color: var(--text-muted);
-            background-color: #f1f5f9;
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-        }
-
-        /* BADGES */
-        .badge {
-            padding: 0.2rem 0.55rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-        }
-
-        .badge-easy {
-            background-color: var(--easy-bg);
-            color: var(--easy-text);
-        }
-
-        .badge-medium {
-            background-color: var(--medium-bg);
-            color: var(--medium-text);
-        }
-
-        .badge-hard {
-            background-color: var(--hard-bg);
-            color: var(--hard-text);
-        }
-
-        /* TENSES SECTION */
-        .tenses-section {
-            margin-bottom: 2rem;
-        }
-
-        .tense-group {
-            margin-bottom: 2rem;
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-        }
-
-        .tense-category-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tense-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 1rem;
-        }
-
-        .tense-card {
-            background-color: var(--bg-light);
-            border-radius: 10px;
-            padding: 1rem;
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-align: center;
-            border: 1px solid var(--border-color);
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 52px;
-        }
-
-        .tense-card:hover {
-            background-color: var(--primary-blue);
-            color: #ffffff;
-            border-color: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(37, 99, 235, 0.18);
-        }
-
-        /* FOOTER */
-        footer {
-            background-color: #ffffff;
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            padding: 2rem 1.25rem;
-            margin-top: 2rem;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* MOBILE RESPONSIVE MEDIA QUERIES (320px - 768px) */
-        @media (max-width: 768px) {
-            .site-tamil-tagline {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: #ffffff;
-                padding: 1rem;
-                border-bottom: 1px solid var(--border-color);
-                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
-                gap: 0.25rem;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-
-            .nav-link {
-                width: 100%;
-                text-align: left;
-                padding: 0.75rem 1rem;
-            }
-
-            .hero {
-                padding: 2.5rem 1rem 2rem;
-            }
-
-            .hero-heading {
-                font-size: 1.65rem;
-            }
-
-            .hero-tamil-text {
-                font-size: 0.95rem;
-            }
-
-            .section-title {
-                font-size: 1.4rem;
-            }
-
-            .pos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-            }
-
-            .tense-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tense-group {
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .site-name {
-                font-size: 1.05rem;
-            }
-
-            .logo-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 1.2rem;
-            }
-
-            .hero-btn {
-                width: 100%;
-                text-align: center;
+        @media (max-width: 640px) {
+            .step-card {
+                min-height: 68px;
             }
         }
     </style>
 </head>
 
-<body>
 
-    <!-- HEADER & NAVIGATION -->
-    <header class="header">
-        <div class="nav-container">
-            <!-- LOGO AREA -->
-            <a href="#home" class="logo-box">
-                <div class="logo-icon">📚</div>
-                <div class="logo-text-group">
-                    <span class="site-name">Tamil Medium Student</span>
-                    <span class="site-tagline">Learn English Easily Through Tamil</span>
-                    <span class="site-tamil-tagline">தமிழ் மூலம் ஆங்கிலத்தை எளிதாகக் கற்றுக்கொள்வோம்</span>
+<body class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-900 font-sans">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+
+            <div class="flex items-center justify-between">
+
+
+                <!-- TMS LOGO -->
+
+                <a href="index.html" class="flex items-center gap-3">
+
+                    <div class="logo-box w-12 h-12 sm:w-14 sm:h-14
+                                rounded-2xl flex items-center justify-center
+                                text-white text-2xl sm:text-3xl
+                                relative overflow-hidden">
+
+                        <div class="absolute inset-0 bg-white/10"></div>
+
+                        <div class="relative">
+                            📚
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <h1 class="text-xl sm:text-2xl font-extrabold
+                                   leading-tight
+                                   bg-gradient-to-r from-blue-700 to-indigo-700
+                                   bg-clip-text text-transparent">
+
+                            TMS Academy
+
+                        </h1>
+
+                        <p class="text-[10px] sm:text-xs
+                                  text-blue-600 font-medium">
+
+                            Learn English Easily Through Tamil
+
+                        </p>
+
+                    </div>
+
+                </a>
+
+
+                <!-- PROFILE -->
+
+                <div class="relative group">
+
+                    <button
+                        class="w-10 h-10 sm:w-11 sm:h-11
+                               rounded-full
+                               bg-blue-50
+                               border-2 border-blue-100
+                               hover:border-blue-300
+                               flex items-center justify-center
+                               text-lg sm:text-xl
+                               transition">
+
+                        👤
+
+                    </button>
+
+
+                    <div
+                        class="absolute right-0 top-12
+                               w-48 bg-white
+                               border border-blue-100
+                               rounded-2xl shadow-xl
+                               overflow-hidden
+                               hidden
+                               group-hover:block
+                               group-focus-within:block
+                               z-50">
+
+                        <div class="px-4 py-3 bg-blue-50">
+
+                            <p class="text-xs text-gray-500">
+                                Welcome to
+                            </p>
+
+                            <p class="text-sm font-bold text-blue-800">
+                                TMS Academy
+                            </p>
+
+                        </div>
+
+                        <a href="#login"
+                           class="block px-4 py-3 text-sm
+                                  font-medium text-gray-700
+                                  hover:bg-blue-50
+                                  hover:text-blue-600">
+
+                            🔐 Login / Sign Up
+
+                        </a>
+
+                    </div>
+
                 </div>
-            </a>
 
-            <!-- HAMBURGER MENU BUTTON -->
-            <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+            </div>
 
-            <!-- NAVIGATION LINKS (EXACTLY 3 BUTTONS) -->
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#parts-of-speech" class="nav-link">Parts of Speech</a></li>
-                <li><a href="#tenses" class="nav-link">12 Tenses</a></li>
-            </ul>
         </div>
+
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <h1 class="hero-heading">Improve Your English Step by Step 🚀</h1>
-            <p class="hero-tamil-text">தமிழ் மூலம் English Grammar மற்றும் Communication Skills-ஐ எளிதாக
-                கற்றுக்கொள்ளுங்கள்.</p>
-            <div class="hero-steps">Grammar → Examples → Practice → Quiz</div>
-            <div>
-                <a href="#parts-of-speech" class="hero-btn">Start Learning →</a>
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="max-w-2xl mx-auto px-4 py-6 sm:py-8">
+
+
+        <!-- INTRO -->
+
+        <section class="text-center mb-6 sm:mb-7">
+
+            <div class="inline-flex items-center
+                        px-3 py-1.5 mb-3
+                        bg-blue-100 text-blue-700
+                        rounded-full
+                        text-[10px] sm:text-xs
+                        font-bold uppercase tracking-wide">
+
+                🚀 English Learning Roadmap
+
             </div>
+
+
+            <h2 class="text-2xl sm:text-3xl
+                       font-extrabold text-blue-950">
+
+                Learn English Step by Step
+
+            </h2>
+
+
+            <p class="text-xs sm:text-sm
+                      text-gray-500 mt-2">
+
+                தமிழில் புரிந்து கொண்டு English-ஐ எளிதாக கற்றுக்கொள்ளுங்கள்.
+
+            </p>
+
+        </section>
+
+
+        <!-- ================= 6 BUTTONS ================= -->
+
+        <section class="space-y-2.5 sm:space-y-3">
+
+
+            <!-- 01 FOUNDATION -->
+
+            <a href="foundation.html"
+               class="step-card rounded-xl sm:rounded-2xl
+                      px-3 sm:px-5 py-3
+                      flex items-center gap-3
+                      text-white">
+
+                <div class="w-10 h-10 sm:w-11 sm:h-11
+                            rounded-xl bg-white/15
+                            flex items-center justify-center
+                            text-lg sm:text-xl shrink-0">
+
+                    🌱
+
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-[9px] sm:text-[10px]
+                                     bg-white/20 px-1.5 py-0.5
+                                     rounded font-bold">
+
+                            01
+
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold truncate">
+
+                            Basic English Foundation
+
+                        </h3>
+
+                    </div>
+
+                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+
+                        English basics from zero
+
+                    </p>
+
+                </div>
+
+                <span class="text-lg text-white/80">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- 02 GRAMMAR -->
+
+            <a href="grammar.html"
+               class="step-card rounded-xl sm:rounded-2xl
+                      px-3 sm:px-5 py-3
+                      flex items-center gap-3
+                      text-white">
+
+                <div class="w-10 h-10 sm:w-11 sm:h-11
+                            rounded-xl bg-white/15
+                            flex items-center justify-center
+                            text-lg sm:text-xl shrink-0">
+
+                    📖
+
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-[9px] sm:text-[10px]
+                                     bg-white/20 px-1.5 py-0.5
+                                     rounded font-bold">
+
+                            02
+
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold truncate">
+
+                            Grammar
+
+                        </h3>
+
+                    </div>
+
+                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+
+                        Learn grammar through Tamil
+
+                    </p>
+
+                </div>
+
+                <span class="text-lg text-white/80">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- 03 VOCABULARY -->
+
+            <a href="vocabulary.html"
+               class="step-card rounded-xl sm:rounded-2xl
+                      px-3 sm:px-5 py-3
+                      flex items-center gap-3
+                      text-white">
+
+                <div class="w-10 h-10 sm:w-11 sm:h-11
+                            rounded-xl bg-white/15
+                            flex items-center justify-center
+                            text-lg sm:text-xl shrink-0">
+
+                    🧠
+
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-[9px] sm:text-[10px]
+                                     bg-white/20 px-1.5 py-0.5
+                                     rounded font-bold">
+
+                            03
+
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold truncate">
+
+                            Vocabulary + Sentence Making
+
+                        </h3>
+
+                    </div>
+
+                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+
+                        Learn words and make sentences
+
+                    </p>
+
+                </div>
+
+                <span class="text-lg text-white/80">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- 04 DAILY SENTENCES -->
+
+            <a href="daily-sentences.html"
+               class="step-card rounded-xl sm:rounded-2xl
+                      px-3 sm:px-5 py-3
+                      flex items-center gap-3
+                      text-white">
+
+                <div class="w-10 h-10 sm:w-11 sm:h-11
+                            rounded-xl bg-white/15
+                            flex items-center justify-center
+                            text-lg sm:text-xl shrink-0">
+
+                    💬
+
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-[9px] sm:text-[10px]
+                                     bg-white/20 px-1.5 py-0.5
+                                     rounded font-bold">
+
+                            04
+
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold truncate">
+
+                            1000+ Daily-use Sentences
+
+                        </h3>
+
+                    </div>
+
+                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+
+                        Everyday English practice
+
+                    </p>
+
+                </div>
+
+                <span class="text-lg text-white/80">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- 05 CONVERSATION -->
+
+            <a href="conversation.html"
+               class="step-card rounded-xl sm:rounded-2xl
+                      px-3 sm:px-5 py-3
+                      flex items-center gap-3
+                      text-white">
+
+                <div class="w-10 h-10 sm:w-11 sm:h-11
+                            rounded-xl bg-white/15
+                            flex items-center justify-center
+                            text-lg sm:text-xl shrink-0">
+
+                    🗣️
+
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-[9px] sm:text-[10px]
+                                     bg-white/20 px-1.5 py-0.5
+                                     rounded font-bold">
+
+                            05
+
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold truncate">
+
+                            English Conversation
+
+                        </h3>
+
+                    </div>
+
+                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+
+                        Practice real conversations
+
+                    </p>
+
+                </div>
+
+                <span class="text-lg text-white/80">
+                    →
+                </span>
+
+            </a>
+
+
+            <!-- 06 SPEAKING -->
+
+            <a href="speaking.html"
+               class="step-card rounded-xl sm:rounded-2xl
+                      px-3 sm:px-5 py-3
+                      flex items-center gap-3
+                      text-white">
+
+                <div class="w-10 h-10 sm:w-11 sm:h-11
+                            rounded-xl bg-white/15
+                            flex items-center justify-center
+                            text-lg sm:text-xl shrink-0">
+
+                    🎤
+
+                </div>
+
+                <div class="flex-1 min-w-0">
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-[9px] sm:text-[10px]
+                                     bg-white/20 px-1.5 py-0.5
+                                     rounded font-bold">
+
+                            06
+
+                        </span>
+
+                        <h3 class="text-sm sm:text-base font-bold truncate">
+
+                            Speaking Practice
+
+                        </h3>
+
+                    </div>
+
+                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+
+                        Improve speaking confidence
+
+                    </p>
+
+                </div>
+
+                <span class="text-lg text-white/80">
+                    →
+                </span>
+
+            </a>
+
+
+        </section>
+
+
+        <!-- BOTTOM -->
+
+        <div class="mt-5 text-center">
+
+            <p class="text-xs text-gray-400">
+                🌟 Learn → Practice → Speak
+            </p>
+
         </div>
-    </section>
-
-    <!-- MAIN CONTENT -->
-    <main class="container">
-
-        <!-- SECTION 1: PARTS OF SPEECH -->
-        <section id="parts-of-speech" style="scroll-margin-top: 80px;">
-            <div class="section-header">
-                <h2 class="section-title">Parts of Speech</h2>
-                <p class="section-subtext">ஆங்கிலத்தில் ஒரு sentence-ல் ஒவ்வொரு வார்த்தையும் செய்யும் வேலையைப்
-                    புரிந்துகொள்ள Parts of Speech உதவுகிறது.</p>
-            </div>
-
-            <div class="pos-grid">
-                
-                <!-- 1. NOUN -->
-                <a href="noun.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">NOUN</div>
-                        <div class="pos-sub">(Names)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 15%</span>
-                        <span class="badge badge-easy">EASY ✅</span>
-                    </div>
-                </a>
-
-                <!-- 2. PRONOUN -->
-                <a href="pronoun.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">PRONOUN</div>
-                        <div class="pos-sub">(I, He, Me, Him)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 10%</span>
-                        <span class="badge badge-easy">EASY ✅</span>
-                    </div>
-                </a>
-
-                <!-- 3. VERB -->
-                <a href="verb_buttons.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">VERB</div>
-                        <div class="pos-sub">(Helping & Modals)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 30%</span>
-                        <span class="badge badge-hard">HARD 🔥</span>
-                    </div>
-                </a>
-
-                <!-- 4. ADJECTIVE -->
-                <a href="adjective.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">ADJECTIVE</div>
-                        <div class="pos-sub">(Good, Big, Beautiful)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 10%</span>
-                        <span class="badge badge-medium">MEDIUM ⚡</span>
-                    </div>
-                </a>
-
-                <!-- 5. ADVERB -->
-                <a href="adverb.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">ADVERB</div>
-                        <div class="pos-sub">(Quickly, Slowly)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 10%</span>
-                        <span class="badge badge-medium">MEDIUM ⚡</span>
-                    </div>
-                </a>
-
-                <!-- 6. PREPOSITION -->
-                <a href="preposition.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">PREPOSITION</div>
-                        <div class="pos-sub">(In, On, At)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 10%</span>
-                        <span class="badge badge-medium">MEDIUM ⚡</span>
-                    </div>
-                </a>
-
-                <!-- 7. CONJUNCTION -->
-                <a href="conjunction.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">CONJUNCTION</div>
-                        <div class="pos-sub">(And, But, Because)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 10%</span>
-                        <span class="badge badge-easy">EASY ✅</span>
-                    </div>
-                </a>
-
-                <!-- 8. INTERJECTION -->
-                <a href="interjection.html" class="pos-card">
-                    <div>
-                        <div class="pos-title">INTERJECTION</div>
-                        <div class="pos-sub">(Wow!, Oh!, Hurrah!)</div>
-                    </div>
-                    <div class="pos-meta">
-                        <span class="weightage-tag">Weightage: 5%</span>
-                        <span class="badge badge-easy">EASY ✅</span>
-                    </div>
-                </a>
-                ```
-
-            </div>
-        </section>
-
-
-        <!-- SECTION 2: 12 TENSES -->
-        <section id="tenses" class="tenses-section" style="scroll-margin-top: 80px;">
-            <div class="section-header">
-                <h2 class="section-title">12 Tenses</h2>
-                <p class="section-subtext">ஒரு செயல் எப்போது நடக்கிறது என்பதை Tense மூலம் தெரிந்துகொள்ளலாம்.</p>
-            </div>
-
-            <!-- PRESENT TENSE GROUP -->
-            <div class="tense-group">
-                <h3 class="tense-category-title">📍 PRESENT TENSE</h3>
-                <div class="tense-grid">
-                    <a href="simple-present.html" class="tense-card">Simple Present</a>
-                    <a href="present-continuous.html" class="tense-card">Present Continuous</a>
-                    <a href="present-perfect.html" class="tense-card">Present Perfect</a>
-                    <a href="present-perfect-continuous.html" class="tense-card">Present Perfect Continuous</a>
-                </div>
-            </div>
-
-            <!-- PAST TENSE GROUP -->
-            <div class="tense-group">
-                <h3 class="tense-category-title">⏱️ PAST TENSE</h3>
-                <div class="tense-grid">
-                    <a href="simple-past.html" class="tense-card">Simple Past</a>
-                    <a href="past-continuous.html" class="tense-card">Past Continuous</a>
-                    <a href="past-perfect.html" class="tense-card">Past Perfect</a>
-                    <a href="past-perfect-continuous.html" class="tense-card">Past Perfect Continuous</a>
-                </div>
-            </div>
-
-            <!-- FUTURE TENSE GROUP -->
-            <div class="tense-group">
-                <h3 class="tense-category-title">🔮 FUTURE TENSE</h3>
-                <div class="tense-grid">
-                    <a href="simple-future.html" class="tense-card">Simple Future</a>
-                    <a href="future-continuous.html" class="tense-card">Future Continuous</a>
-                    <a href="future-perfect.html" class="tense-card">Future Perfect</a>
-                    <a href="future-perfect-continuous.html" class="tense-card">Future Perfect Continuous</a>
-                </div>
-            </div>
-        </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; Dhanangsezhiyan R- Learn English Easily Through Tamil</p>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="border-t border-blue-100 bg-white/70">
+
+        <div class="text-center py-4 px-4">
+
+            <p class="text-xs text-gray-500">
+
+                © 2026
+                <span class="font-bold text-blue-600">
+                    TMS Academy
+                </span>
+
+                • Learn English Easily Through Tamil
+
+            </p>
+
+        </div>
+
     </footer>
 
-    <!-- JAVASCRIPT FOR MOBILE MENU -->
-    <script>
-        function toggleMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
-        }
 
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function (event) {
-            const navMenu = document.getElementById('navMenu');
-            const hamburger = document.querySelector('.hamburger');
-            if (!navMenu.contains(event.target) && !hamburger.contains(event.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
-
 </html>
+```
