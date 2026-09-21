@@ -1,23 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30 Levels Navigation - Tamil Medium Student</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <title>Vocabulary Levels - TMS Academy</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #eff6ff;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --radius: 16px;
-            --shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
-        }
 
         * {
             box-sizing: border-box;
@@ -27,140 +19,566 @@
 
         body {
             font-family: 'Poppins', 'Noto Sans Tamil', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background: linear-gradient(135deg, #eff8ff, #ffffff, #eef6ff);
+            color: #1e293b;
+            min-height: 100vh;
             padding: 20px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            box-shadow: var(--shadow);
+            max-width: 850px;
+            margin: auto;
         }
 
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
+        /* HEADER */
+
+        .header {
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 28px;
         }
 
-        p.subtitle {
-            text-align: center;
-            color: var(--text-muted);
+        .header-badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #1d4ed8;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+
+        /* STAGE */
+
+        .stage {
+            background: rgba(255,255,255,0.95);
+            border: 1px solid #dbeafe;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 5px 18px rgba(37,99,235,0.07);
+        }
+
+
+        /* STAGE HEADER */
+
+        .stage-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stage-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: #dbeafe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .stage-title {
+            flex: 1;
+        }
+
+        .stage-title h2 {
+            font-size: 18px;
+            color: #1d4ed8;
+            font-weight: 800;
+        }
+
+        .stage-title p {
             font-family: 'Noto Sans Tamil', sans-serif;
-            margin-bottom: 25px;
-            font-size: 0.95rem;
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 2px;
         }
 
-        /* 30 Levels Grid Buttons */
+        .level-count {
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+
+        /* LEVEL GRID */
+
         .levels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
         }
 
+
+        /* LEVEL BUTTON */
+
         .level-btn {
-            background: var(--primary-light);
-            border: 2px solid #bfdbfe;
-            padding: 14px 10px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
             border-radius: 12px;
+            padding: 12px 6px;
             text-align: center;
             text-decoration: none;
-            color: var(--primary-dark);
+            color: #1d4ed8;
             font-weight: 700;
-            font-size: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
             transition: all 0.2s ease;
         }
 
+        .level-btn strong {
+            display: block;
+            font-size: 14px;
+        }
+
         .level-btn span {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: var(--text-muted);
+            display: block;
             font-family: 'Noto Sans Tamil', sans-serif;
+            color: #64748b;
+            font-size: 10px;
+            margin-top: 2px;
+            font-weight: 500;
         }
 
         .level-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+            background: #dbeafe;
+            border-color: #60a5fa;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 5px 12px rgba(37,99,235,0.12);
         }
 
-        .level-btn:hover span {
-            color: rgba(255, 255, 255, 0.9);
+
+        /* DIFFERENT STAGE COLORS */
+
+        .beginner .stage-icon {
+            background: #dcfce7;
+        }
+
+        .beginner .stage-title h2 {
+            color: #15803d;
+        }
+
+        .beginner .level-btn {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+            color: #15803d;
+        }
+
+
+        .intermediate .stage-icon {
+            background: #dbeafe;
+        }
+
+        .advanced .stage-icon {
+            background: #ede9fe;
+        }
+
+        .advanced .stage-title h2 {
+            color: #7c3aed;
+        }
+
+        .advanced .level-btn {
+            background: #f5f3ff;
+            border-color: #ddd6fe;
+            color: #7c3aed;
+        }
+
+
+        /* BACK */
+
+        .back-area {
+            text-align: center;
+            margin-top: 25px;
         }
 
         .back-link {
             display: inline-block;
-            margin-top: 25px;
             text-decoration: none;
-            color: var(--primary);
+            background: white;
+            border: 1px solid #bfdbfe;
+            color: #2563eb;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 13px;
             font-weight: 600;
-            font-size: 0.9rem;
+            transition: 0.2s;
         }
 
         .back-link:hover {
-            text-decoration: underline;
+            background: #eff6ff;
         }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .subtitle {
+                font-size: 12px;
+            }
+
+            .stage {
+                padding: 15px;
+                border-radius: 17px;
+            }
+
+            .stage-header {
+                gap: 9px;
+            }
+
+            .stage-icon {
+                width: 42px;
+                height: 42px;
+                font-size: 21px;
+            }
+
+            .stage-title h2 {
+                font-size: 15px;
+            }
+
+            .stage-title p {
+                font-size: 10px;
+            }
+
+            .levels-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 9px;
+            }
+
+            .level-btn {
+                padding: 12px 5px;
+            }
+
+        }
+
     </style>
 </head>
+
+
 <body>
 
-    <div class="container">
-        <h2>Vocabulary Levels (1 - 30)</h2>
+<div class="container">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="header-badge">
+            📚 Vocabulary Learning
+        </div>
+
+        <h1>
+            Vocabulary Levels
+        </h1>
+
+        <p class="subtitle">
+            எளிமையாக ஆரம்பித்து படிப்படியாக English Vocabulary கற்றுக்கொள்ளுங்கள்.
+        </p>
+
+    </div>
+
+
+
+    <!-- ================= BEGINNER ================= -->
+
+    <section class="stage beginner">
+
+        <div class="stage-header">
+
+            <div class="stage-icon">
+                🌱
+            </div>
+
+            <div class="stage-title">
+
+                <h2>
+                    Beginner
+                </h2>
+
+                <p>
+                    ஆரம்ப நிலை • அடிப்படையிலிருந்து தொடங்கலாம்
+                </p>
+
+            </div>
+
+            <div class="level-count">
+                10 Levels
+            </div>
+
+        </div>
+
 
         <div class="levels-grid">
-            <!-- Level 1 to 10 -->
-            <a href="level-1.html" class="level-btn">Level 1 <span>நிலை 1</span></a>
-            <a href="level-2.html" class="level-btn">Level 2 <span>நிலை 2</span></a>
-            <a href="level-3.html" class="level-btn">Level 3 <span>நிலை 3</span></a>
-            <a href="level-4.html" class="level-btn">Level 4 <span>நிலை 4</span></a>
-            <a href="level-5.html" class="level-btn">Level 5 <span>நிலை 5</span></a>
-            <a href="level-6.html" class="level-btn">Level 6 <span>நிலை 6</span></a>
-            <a href="level-7.html" class="level-btn">Level 7 <span>நிலை 7</span></a>
-            <a href="level-8.html" class="level-btn">Level 8 <span>நிலை 8</span></a>
-            <a href="level-9.html" class="level-btn">Level 9 <span>நிலை 9</span></a>
-            <a href="level-10.html" class="level-btn">Level 10 <span>நிலை 10</span></a>
 
-            <!-- Level 11 to 20 -->
-            <a href="level-11.html" class="level-btn">Level 11 <span>நிலை 11</span></a>
-            <a href="level-12.html" class="level-btn">Level 12 <span>நிலை 12</span></a>
-            <a href="level-13.html" class="level-btn">Level 13 <span>நிலை 13</span></a>
-            <a href="level-14.html" class="level-btn">Level 14 <span>நிலை 14</span></a>
-            <a href="level-15.html" class="level-btn">Level 15 <span>நிலை 15</span></a>
-            <a href="level-16.html" class="level-btn">Level 16 <span>நிலை 16</span></a>
-            <a href="level-17.html" class="level-btn">Level 17 <span>நிலை 17</span></a>
-            <a href="level-18.html" class="level-btn">Level 18 <span>நிலை 18</span></a>
-            <a href="level-19.html" class="level-btn">Level 19 <span>நிலை 19</span></a>
-            <a href="level-20.html" class="level-btn">Level 20 <span>நிலை 20</span></a>
+            <a href="level-1.html" class="level-btn">
+                <strong>Level 1</strong>
+                <span>நிலை 1</span>
+            </a>
 
-            <!-- Level 21 to 30 -->
-            <a href="level-21.html" class="level-btn">Level 21 <span>நிலை 21</span></a>
-            <a href="level-22.html" class="level-btn">Level 22 <span>நிலை 22</span></a>
-            <a href="level-23.html" class="level-btn">Level 23 <span>நிலை 23</span></a>
-            <a href="level-24.html" class="level-btn">Level 24 <span>நிலை 24</span></a>
-            <a href="level-25.html" class="level-btn">Level 25 <span>நிலை 25</span></a>
-            <a href="level-26.html" class="level-btn">Level 26 <span>நிலை 26</span></a>
-            <a href="level-27.html" class="level-btn">Level 27 <span>நிலை 27</span></a>
-            <a href="level-28.html" class="level-btn">Level 28 <span>நிலை 28</span></a>
-            <a href="level-29.html" class="level-btn">Level 29 <span>நிலை 29</span></a>
-            <a href="level-30.html" class="level-btn">Level 30 <span>நிலை 30</span></a>
+            <a href="level-2.html" class="level-btn">
+                <strong>Level 2</strong>
+                <span>நிலை 2</span>
+            </a>
+
+            <a href="level-3.html" class="level-btn">
+                <strong>Level 3</strong>
+                <span>நிலை 3</span>
+            </a>
+
+            <a href="level-4.html" class="level-btn">
+                <strong>Level 4</strong>
+                <span>நிலை 4</span>
+            </a>
+
+            <a href="level-5.html" class="level-btn">
+                <strong>Level 5</strong>
+                <span>நிலை 5</span>
+            </a>
+
+            <a href="level-6.html" class="level-btn">
+                <strong>Level 6</strong>
+                <span>நிலை 6</span>
+            </a>
+
+            <a href="level-7.html" class="level-btn">
+                <strong>Level 7</strong>
+                <span>நிலை 7</span>
+            </a>
+
+            <a href="level-8.html" class="level-btn">
+                <strong>Level 8</strong>
+                <span>நிலை 8</span>
+            </a>
+
+            <a href="level-9.html" class="level-btn">
+                <strong>Level 9</strong>
+                <span>நிலை 9</span>
+            </a>
+
+            <a href="level-10.html" class="level-btn">
+                <strong>Level 10</strong>
+                <span>நிலை 10</span>
+            </a>
+
         </div>
 
-        <div style="text-align: center;">
-            <a href="vocabulary.html" class="back-link">← Back to Home / Vocabulary Page</a>
+    </section>
+
+
+
+    <!-- ================= INTERMEDIATE ================= -->
+
+    <section class="stage intermediate">
+
+        <div class="stage-header">
+
+            <div class="stage-icon">
+                📘
+            </div>
+
+            <div class="stage-title">
+
+                <h2>
+                    Intermediate
+                </h2>
+
+                <p>
+                    நடுத்தர நிலை • மேலும் Vocabulary கற்றுக்கொள்ளலாம்
+                </p>
+
+            </div>
+
+            <div class="level-count">
+                10 Levels
+            </div>
+
         </div>
+
+
+        <div class="levels-grid">
+
+            <a href="level-11.html" class="level-btn">
+                <strong>Level 11</strong>
+                <span>நிலை 11</span>
+            </a>
+
+            <a href="level-12.html" class="level-btn">
+                <strong>Level 12</strong>
+                <span>நிலை 12</span>
+            </a>
+
+            <a href="level-13.html" class="level-btn">
+                <strong>Level 13</strong>
+                <span>நிலை 13</span>
+            </a>
+
+            <a href="level-14.html" class="level-btn">
+                <strong>Level 14</strong>
+                <span>நிலை 14</span>
+            </a>
+
+            <a href="level-15.html" class="level-btn">
+                <strong>Level 15</strong>
+                <span>நிலை 15</span>
+            </a>
+
+            <a href="level-16.html" class="level-btn">
+                <strong>Level 16</strong>
+                <span>நிலை 16</span>
+            </a>
+
+            <a href="level-17.html" class="level-btn">
+                <strong>Level 17</strong>
+                <span>நிலை 17</span>
+            </a>
+
+            <a href="level-18.html" class="level-btn">
+                <strong>Level 18</strong>
+                <span>நிலை 18</span>
+            </a>
+
+            <a href="level-19.html" class="level-btn">
+                <strong>Level 19</strong>
+                <span>நிலை 19</span>
+            </a>
+
+            <a href="level-20.html" class="level-btn">
+                <strong>Level 20</strong>
+                <span>நிலை 20</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ADVANCED ================= -->
+
+    <section class="stage advanced">
+
+        <div class="stage-header">
+
+            <div class="stage-icon">
+                🚀
+            </div>
+
+            <div class="stage-title">
+
+                <h2>
+                    Advanced
+                </h2>
+
+                <p>
+                    மேம்பட்ட நிலை • Strong Vocabulary & Sentence Making
+                </p>
+
+            </div>
+
+            <div class="level-count">
+                10 Levels
+            </div>
+
+        </div>
+
+
+        <div class="levels-grid">
+
+            <a href="level-21.html" class="level-btn">
+                <strong>Level 21</strong>
+                <span>நிலை 21</span>
+            </a>
+
+            <a href="level-22.html" class="level-btn">
+                <strong>Level 22</strong>
+                <span>நிலை 22</span>
+            </a>
+
+            <a href="level-23.html" class="level-btn">
+                <strong>Level 23</strong>
+                <span>நிலை 23</span>
+            </a>
+
+            <a href="level-24.html" class="level-btn">
+                <strong>Level 24</strong>
+                <span>நிலை 24</span>
+            </a>
+
+            <a href="level-25.html" class="level-btn">
+                <strong>Level 25</strong>
+                <span>நிலை 25</span>
+            </a>
+
+            <a href="level-26.html" class="level-btn">
+                <strong>Level 26</strong>
+                <span>நிலை 26</span>
+            </a>
+
+            <a href="level-27.html" class="level-btn">
+                <strong>Level 27</strong>
+                <span>நிலை 27</span>
+            </a>
+
+            <a href="level-28.html" class="level-btn">
+                <strong>Level 28</strong>
+                <span>நிலை 28</span>
+            </a>
+
+            <a href="level-29.html" class="level-btn">
+                <strong>Level 29</strong>
+                <span>நிலை 29</span>
+            </a>
+
+            <a href="level-30.html" class="level-btn">
+                <strong>Level 30</strong>
+                <span>நிலை 30</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BACK -->
+
+    <div class="back-area">
+
+        <a href="vocabulary.html" class="back-link">
+            ← Back to Vocabulary
+        </a>
+
     </div>
+
+
+</div>
 
 </body>
 </html>
