@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -32,54 +31,76 @@
             min-height: 100vh;
         }
 
-        .step-card {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
+        /* Main learning cards */
+        .learning-card {
+            background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+            border: 1px solid #bfdbfe;
             transition: all 0.25s ease;
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+            box-shadow: 0 3px 10px rgba(59, 130, 246, 0.08);
         }
 
-        .step-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
+        .learning-card:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #dbeafe, #c7d2fe);
+            border-color: #93c5fd;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.14);
         }
 
-        .step-card:active {
+        .learning-card:active {
             transform: scale(0.98);
         }
 
-        .logo-box {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+        /* Icon */
+        .icon-box {
+            background: linear-gradient(135deg, #bfdbfe, #dbeafe);
+            border: 1px solid #93c5fd;
         }
 
+        /* Logo */
+        .logo-box {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.20);
+        }
+
+        /* Number badge */
+        .number-badge {
+            background: #bfdbfe;
+            color: #1d4ed8;
+        }
+
+        /* Mobile */
         @media (max-width: 640px) {
-            .step-card {
-                min-height: 68px;
+
+            .learning-card {
+                min-height: 72px;
             }
+
         }
     </style>
 </head>
 
 
-<body class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 text-gray-900 font-sans">
+<body class="bg-gradient-to-br from-sky-50 via-white to-blue-50 text-gray-800 font-sans">
 
 
     <!-- ================= HEADER ================= -->
 
-    <header class="bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3">
 
             <div class="flex items-center justify-between">
 
 
-                <!-- TMS LOGO -->
+                <!-- LOGO -->
 
-                <a href="index.html" class="flex items-center gap-3">
+                <a href="index.html"
+                   class="flex items-center gap-3">
 
-                    <div class="logo-box w-12 h-12 sm:w-14 sm:h-14
-                                rounded-2xl flex items-center justify-center
-                                text-white text-2xl sm:text-3xl
+                    <div class="logo-box w-11 h-11 sm:w-13 sm:h-13
+                                rounded-2xl
+                                flex items-center justify-center
+                                text-white text-xl sm:text-2xl
                                 relative overflow-hidden">
 
                         <div class="absolute inset-0 bg-white/10"></div>
@@ -93,19 +114,18 @@
 
                     <div>
 
-                        <h1 class="text-xl sm:text-2xl font-extrabold
+                        <h1 class="text-lg sm:text-xl font-extrabold
                                    leading-tight
-                                   bg-gradient-to-r from-blue-700 to-indigo-700
-                                   bg-clip-text text-transparent">
+                                   text-blue-600">
 
                             TMS Academy
 
                         </h1>
 
-                        <p class="text-[10px] sm:text-xs
-                                  text-blue-600 font-medium">
+                        <p class="text-[9px] sm:text-[11px]
+                                  text-blue-400 font-medium">
 
-                            Learn English Easily Through Tamil
+                            Learn English Through Tamil
 
                         </p>
 
@@ -119,13 +139,14 @@
                 <div class="relative group">
 
                     <button
-                        class="w-10 h-10 sm:w-11 sm:h-11
+                        class="w-10 h-10
                                rounded-full
                                bg-blue-50
-                               border-2 border-blue-100
+                               border border-blue-200
+                               hover:bg-blue-100
                                hover:border-blue-300
                                flex items-center justify-center
-                               text-lg sm:text-xl
+                               text-lg
                                transition">
 
                         👤
@@ -133,34 +154,41 @@
                     </button>
 
 
+                    <!-- PROFILE MENU -->
+
                     <div
                         class="absolute right-0 top-12
-                               w-48 bg-white
+                               w-52
+                               bg-white
                                border border-blue-100
-                               rounded-2xl shadow-xl
+                               rounded-2xl
+                               shadow-xl
                                overflow-hidden
                                hidden
                                group-hover:block
                                group-focus-within:block
                                z-50">
 
-                        <div class="px-4 py-3 bg-blue-50">
+                        <div class="px-4 py-4 bg-blue-50">
 
                             <p class="text-xs text-gray-500">
-                                Welcome to
+                                Welcome 👋
                             </p>
 
-                            <p class="text-sm font-bold text-blue-800">
+                            <p class="text-sm font-bold text-blue-600 mt-1">
                                 TMS Academy
                             </p>
 
                         </div>
 
+
                         <a href="#login"
-                           class="block px-4 py-3 text-sm
-                                  font-medium text-gray-700
+                           class="block px-4 py-3
+                                  text-sm font-medium
+                                  text-gray-700
                                   hover:bg-blue-50
-                                  hover:text-blue-600">
+                                  hover:text-blue-600
+                                  transition">
 
                             🔐 Login / Sign Up
 
@@ -177,80 +205,107 @@
     </header>
 
 
+
     <!-- ================= MAIN ================= -->
 
-    <main class="max-w-2xl mx-auto px-4 py-6 sm:py-8">
+    <main class="max-w-2xl mx-auto px-4 py-7 sm:py-10">
 
 
         <!-- INTRO -->
 
-        <section class="text-center mb-6 sm:mb-7">
+        <section class="text-center mb-7">
+
+
+            <!-- Small badge -->
 
             <div class="inline-flex items-center
-                        px-3 py-1.5 mb-3
-                        bg-blue-100 text-blue-700
+                        px-3 py-1.5 mb-4
+                        bg-blue-100
+                        text-blue-600
                         rounded-full
                         text-[10px] sm:text-xs
-                        font-bold uppercase tracking-wide">
+                        font-bold">
 
-                🚀 English Learning Roadmap
+                ✨ English Learning Journey
 
             </div>
 
 
+            <!-- Heading -->
+
             <h2 class="text-2xl sm:text-3xl
-                       font-extrabold text-blue-950">
+                       font-extrabold
+                       text-blue-700
+                       leading-tight">
 
                 Learn English Step by Step
 
             </h2>
 
 
-            <p class="text-xs sm:text-sm
-                      text-gray-500 mt-2">
+            <!-- Tamil -->
 
-                தமிழில் புரிந்து கொண்டு English-ஐ எளிதாக கற்றுக்கொள்ளுங்கள்.
+            <p class="text-xs sm:text-sm
+                      text-gray-500
+                      mt-2
+                      leading-6">
+
+                தமிழில் புரிந்து கொண்டு
+                <span class="font-semibold text-blue-500">
+                    English
+                </span>
+                -ஐ எளிதாக கற்றுக்கொள்ளுங்கள்.
 
             </p>
+
 
         </section>
 
 
-        <!-- ================= 6 BUTTONS ================= -->
 
-        <section class="space-y-2.5 sm:space-y-3">
+        <!-- ================= LEARNING STEPS ================= -->
+
+        <section class="space-y-3">
 
 
             <!-- 01 FOUNDATION -->
 
             <a href="foundation.html"
-               class="step-card rounded-xl sm:rounded-2xl
+               class="learning-card
+                      rounded-2xl
                       px-3 sm:px-5 py-3
                       flex items-center gap-3
-                      text-white">
+                      group">
 
-                <div class="w-10 h-10 sm:w-11 sm:h-11
-                            rounded-xl bg-white/15
+                <div class="icon-box
+                            w-11 h-11
+                            rounded-xl
                             flex items-center justify-center
-                            text-lg sm:text-xl shrink-0">
+                            text-xl
+                            shrink-0">
 
                     🌱
 
                 </div>
 
+
                 <div class="flex-1 min-w-0">
 
                     <div class="flex items-center gap-2">
 
-                        <span class="text-[9px] sm:text-[10px]
-                                     bg-white/20 px-1.5 py-0.5
-                                     rounded font-bold">
+                        <span class="number-badge
+                                     text-[9px]
+                                     px-2 py-0.5
+                                     rounded-full
+                                     font-bold">
 
                             01
 
                         </span>
 
-                        <h3 class="text-sm sm:text-base font-bold truncate">
+                        <h3 class="text-sm sm:text-base
+                                   font-bold
+                                   text-blue-800">
 
                             Basic English Foundation
 
@@ -258,7 +313,9 @@
 
                     </div>
 
-                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+                    <p class="text-[10px] sm:text-xs
+                              text-gray-500
+                              mt-1">
 
                         English basics from zero
 
@@ -266,43 +323,58 @@
 
                 </div>
 
-                <span class="text-lg text-white/80">
+
+                <span class="text-blue-400
+                             group-hover:text-blue-600
+                             group-hover:translate-x-1
+                             transition">
+
                     →
+
                 </span>
 
             </a>
 
 
+
             <!-- 02 GRAMMAR -->
 
             <a href="grammar.html"
-               class="step-card rounded-xl sm:rounded-2xl
+               class="learning-card
+                      rounded-2xl
                       px-3 sm:px-5 py-3
                       flex items-center gap-3
-                      text-white">
+                      group">
 
-                <div class="w-10 h-10 sm:w-11 sm:h-11
-                            rounded-xl bg-white/15
+                <div class="icon-box
+                            w-11 h-11
+                            rounded-xl
                             flex items-center justify-center
-                            text-lg sm:text-xl shrink-0">
+                            text-xl
+                            shrink-0">
 
                     📖
 
                 </div>
 
+
                 <div class="flex-1 min-w-0">
 
                     <div class="flex items-center gap-2">
 
-                        <span class="text-[9px] sm:text-[10px]
-                                     bg-white/20 px-1.5 py-0.5
-                                     rounded font-bold">
+                        <span class="number-badge
+                                     text-[9px]
+                                     px-2 py-0.5
+                                     rounded-full
+                                     font-bold">
 
                             02
 
                         </span>
 
-                        <h3 class="text-sm sm:text-base font-bold truncate">
+                        <h3 class="text-sm sm:text-base
+                                   font-bold
+                                   text-blue-800">
 
                             Grammar
 
@@ -310,7 +382,9 @@
 
                     </div>
 
-                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+                    <p class="text-[10px] sm:text-xs
+                              text-gray-500
+                              mt-1">
 
                         Learn grammar through Tamil
 
@@ -318,43 +392,58 @@
 
                 </div>
 
-                <span class="text-lg text-white/80">
+
+                <span class="text-blue-400
+                             group-hover:text-blue-600
+                             group-hover:translate-x-1
+                             transition">
+
                     →
+
                 </span>
 
             </a>
 
 
+
             <!-- 03 VOCABULARY -->
 
             <a href="vocabulary.html"
-               class="step-card rounded-xl sm:rounded-2xl
+               class="learning-card
+                      rounded-2xl
                       px-3 sm:px-5 py-3
                       flex items-center gap-3
-                      text-white">
+                      group">
 
-                <div class="w-10 h-10 sm:w-11 sm:h-11
-                            rounded-xl bg-white/15
+                <div class="icon-box
+                            w-11 h-11
+                            rounded-xl
                             flex items-center justify-center
-                            text-lg sm:text-xl shrink-0">
+                            text-xl
+                            shrink-0">
 
                     🧠
 
                 </div>
 
+
                 <div class="flex-1 min-w-0">
 
                     <div class="flex items-center gap-2">
 
-                        <span class="text-[9px] sm:text-[10px]
-                                     bg-white/20 px-1.5 py-0.5
-                                     rounded font-bold">
+                        <span class="number-badge
+                                     text-[9px]
+                                     px-2 py-0.5
+                                     rounded-full
+                                     font-bold">
 
                             03
 
                         </span>
 
-                        <h3 class="text-sm sm:text-base font-bold truncate">
+                        <h3 class="text-sm sm:text-base
+                                   font-bold
+                                   text-blue-800">
 
                             Vocabulary + Sentence Making
 
@@ -362,7 +451,9 @@
 
                     </div>
 
-                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+                    <p class="text-[10px] sm:text-xs
+                              text-gray-500
+                              mt-1">
 
                         Learn words and make sentences
 
@@ -370,43 +461,58 @@
 
                 </div>
 
-                <span class="text-lg text-white/80">
+
+                <span class="text-blue-400
+                             group-hover:text-blue-600
+                             group-hover:translate-x-1
+                             transition">
+
                     →
+
                 </span>
 
             </a>
 
 
+
             <!-- 04 DAILY SENTENCES -->
 
             <a href="daily-sentences.html"
-               class="step-card rounded-xl sm:rounded-2xl
+               class="learning-card
+                      rounded-2xl
                       px-3 sm:px-5 py-3
                       flex items-center gap-3
-                      text-white">
+                      group">
 
-                <div class="w-10 h-10 sm:w-11 sm:h-11
-                            rounded-xl bg-white/15
+                <div class="icon-box
+                            w-11 h-11
+                            rounded-xl
                             flex items-center justify-center
-                            text-lg sm:text-xl shrink-0">
+                            text-xl
+                            shrink-0">
 
                     💬
 
                 </div>
 
+
                 <div class="flex-1 min-w-0">
 
                     <div class="flex items-center gap-2">
 
-                        <span class="text-[9px] sm:text-[10px]
-                                     bg-white/20 px-1.5 py-0.5
-                                     rounded font-bold">
+                        <span class="number-badge
+                                     text-[9px]
+                                     px-2 py-0.5
+                                     rounded-full
+                                     font-bold">
 
                             04
 
                         </span>
 
-                        <h3 class="text-sm sm:text-base font-bold truncate">
+                        <h3 class="text-sm sm:text-base
+                                   font-bold
+                                   text-blue-800">
 
                             1000+ Daily-use Sentences
 
@@ -414,7 +520,9 @@
 
                     </div>
 
-                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+                    <p class="text-[10px] sm:text-xs
+                              text-gray-500
+                              mt-1">
 
                         Everyday English practice
 
@@ -422,43 +530,58 @@
 
                 </div>
 
-                <span class="text-lg text-white/80">
+
+                <span class="text-blue-400
+                             group-hover:text-blue-600
+                             group-hover:translate-x-1
+                             transition">
+
                     →
+
                 </span>
 
             </a>
 
 
+
             <!-- 05 CONVERSATION -->
 
             <a href="conversation.html"
-               class="step-card rounded-xl sm:rounded-2xl
+               class="learning-card
+                      rounded-2xl
                       px-3 sm:px-5 py-3
                       flex items-center gap-3
-                      text-white">
+                      group">
 
-                <div class="w-10 h-10 sm:w-11 sm:h-11
-                            rounded-xl bg-white/15
+                <div class="icon-box
+                            w-11 h-11
+                            rounded-xl
                             flex items-center justify-center
-                            text-lg sm:text-xl shrink-0">
+                            text-xl
+                            shrink-0">
 
                     🗣️
 
                 </div>
 
+
                 <div class="flex-1 min-w-0">
 
                     <div class="flex items-center gap-2">
 
-                        <span class="text-[9px] sm:text-[10px]
-                                     bg-white/20 px-1.5 py-0.5
-                                     rounded font-bold">
+                        <span class="number-badge
+                                     text-[9px]
+                                     px-2 py-0.5
+                                     rounded-full
+                                     font-bold">
 
                             05
 
                         </span>
 
-                        <h3 class="text-sm sm:text-base font-bold truncate">
+                        <h3 class="text-sm sm:text-base
+                                   font-bold
+                                   text-blue-800">
 
                             English Conversation
 
@@ -466,7 +589,9 @@
 
                     </div>
 
-                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+                    <p class="text-[10px] sm:text-xs
+                              text-gray-500
+                              mt-1">
 
                         Practice real conversations
 
@@ -474,43 +599,58 @@
 
                 </div>
 
-                <span class="text-lg text-white/80">
+
+                <span class="text-blue-400
+                             group-hover:text-blue-600
+                             group-hover:translate-x-1
+                             transition">
+
                     →
+
                 </span>
 
             </a>
 
 
+
             <!-- 06 SPEAKING -->
 
             <a href="speaking.html"
-               class="step-card rounded-xl sm:rounded-2xl
+               class="learning-card
+                      rounded-2xl
                       px-3 sm:px-5 py-3
                       flex items-center gap-3
-                      text-white">
+                      group">
 
-                <div class="w-10 h-10 sm:w-11 sm:h-11
-                            rounded-xl bg-white/15
+                <div class="icon-box
+                            w-11 h-11
+                            rounded-xl
                             flex items-center justify-center
-                            text-lg sm:text-xl shrink-0">
+                            text-xl
+                            shrink-0">
 
                     🎤
 
                 </div>
 
+
                 <div class="flex-1 min-w-0">
 
                     <div class="flex items-center gap-2">
 
-                        <span class="text-[9px] sm:text-[10px]
-                                     bg-white/20 px-1.5 py-0.5
-                                     rounded font-bold">
+                        <span class="number-badge
+                                     text-[9px]
+                                     px-2 py-0.5
+                                     rounded-full
+                                     font-bold">
 
                             06
 
                         </span>
 
-                        <h3 class="text-sm sm:text-base font-bold truncate">
+                        <h3 class="text-sm sm:text-base
+                                   font-bold
+                                   text-blue-800">
 
                             Speaking Practice
 
@@ -518,7 +658,9 @@
 
                     </div>
 
-                    <p class="text-[10px] sm:text-xs text-white/70 mt-0.5">
+                    <p class="text-[10px] sm:text-xs
+                              text-gray-500
+                              mt-1">
 
                         Improve speaking confidence
 
@@ -526,8 +668,14 @@
 
                 </div>
 
-                <span class="text-lg text-white/80">
+
+                <span class="text-blue-400
+                             group-hover:text-blue-600
+                             group-hover:translate-x-1
+                             transition">
+
                     →
+
                 </span>
 
             </a>
@@ -536,33 +684,59 @@
         </section>
 
 
-        <!-- BOTTOM -->
 
-        <div class="mt-5 text-center">
+        <!-- ================= BOTTOM MESSAGE ================= -->
 
-            <p class="text-xs text-gray-400">
-                🌟 Learn → Practice → Speak
-            </p>
+        <div class="mt-7 text-center">
+
+            <div class="inline-flex items-center
+                        gap-2
+                        px-4 py-2
+                        bg-white
+                        border border-blue-100
+                        rounded-full
+                        shadow-sm">
+
+                <span class="text-sm">
+                    🌱
+                </span>
+
+                <p class="text-xs text-gray-500">
+
+                    Learn
+                    <span class="text-blue-500 font-semibold">→</span>
+                    Practice
+                    <span class="text-blue-500 font-semibold">→</span>
+                    Speak
+
+                </p>
+
+            </div>
 
         </div>
+
 
     </main>
 
 
+
     <!-- ================= FOOTER ================= -->
 
-    <footer class="border-t border-blue-100 bg-white/70">
+    <footer class="border-t border-blue-100
+                   bg-white/80">
 
-        <div class="text-center py-4 px-4">
+        <div class="text-center py-5 px-4">
 
-            <p class="text-xs text-gray-500">
+            <p class="text-[10px] sm:text-xs
+                      text-gray-400">
 
                 © 2026
-                <span class="font-bold text-blue-600">
+
+                <span class="font-bold text-blue-500">
                     TMS Academy
                 </span>
 
-                • Learn English Easily Through Tamil
+                • Learn English Through Tamil
 
             </p>
 
@@ -573,4 +747,3 @@
 
 </body>
 </html>
-```

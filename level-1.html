@@ -1,15 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Level 1 - TMS Academy</title>
+<title>Level 1 - Basic English</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -21,359 +18,358 @@
 
 body{
     font-family:"Poppins","Noto Sans Tamil",sans-serif;
-    background:#f0f7ff;
+    background:linear-gradient(135deg,#eaf7ff,#d9f0ff);
     min-height:100vh;
-    color:#172554;
+    padding:20px 12px;
+    color:#123;
 }
 
-/* HEADER */
+.container{
+    max-width:850px;
+    margin:auto;
+}
 
-.header{
-    background:linear-gradient(135deg,#2563eb,#4f46e5);
-    color:white;
-    padding:18px 15px;
+/* SECTION */
+
+.section{
+    background:white;
+    border-radius:24px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,100,180,0.10);
+}
+
+.title{
     text-align:center;
-    box-shadow:0 4px 15px rgba(37,99,235,.20);
-}
-
-.logo{
-    font-size:22px;
-    font-weight:700;
+    color:#087dcc;
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:8px;
 }
 
 .subtitle{
-    font-size:12px;
-    opacity:.9;
-    margin-top:3px;
-}
-
-/* MAIN */
-
-.container{
-    width:100%;
-    max-width:680px;
-    margin:auto;
-    padding:18px 12px 40px;
-}
-
-/* PROGRESS */
-
-.top-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:12px;
-}
-
-.level{
-    font-size:14px;
-    font-weight:700;
-    color:#2563eb;
-}
-
-.count{
-    font-size:13px;
-    font-weight:600;
-    color:#64748b;
-}
-
-.progress{
-    height:8px;
-    background:#dbeafe;
-    border-radius:20px;
-    overflow:hidden;
-    margin-bottom:18px;
-}
-
-.progress-fill{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,#2563eb,#4f46e5);
-    border-radius:20px;
-    transition:.3s;
-}
-
-/* GAME CARD */
-
-.game{
-    background:white;
-    border-radius:22px;
-    padding:25px 18px;
-    box-shadow:0 8px 25px rgba(15,23,42,.07);
-}
-
-/* QUESTION */
-
-.question{
     text-align:center;
+    color:#64748b;
+    font-size:14px;
     margin-bottom:25px;
 }
 
-.question-label{
-    font-size:12px;
-    font-weight:600;
-    color:#64748b;
-    margin-bottom:8px;
+/* XP */
+
+.xp-area{
+    margin-bottom:25px;
 }
 
-.tamil{
-    font-family:"Noto Sans Tamil",sans-serif;
-    font-size:24px;
-    font-weight:700;
-    line-height:1.8;
-    color:#172554;
-}
-
-/* ANSWER */
-
-.answer-title{
-    font-size:13px;
-    color:#64748b;
-    font-weight:600;
-    margin-bottom:8px;
-}
-
-.answer{
-    min-height:65px;
-    border:2px dashed #bfdbfe;
-    background:#f8fbff;
-    border-radius:14px;
-    padding:10px;
+.xp-top{
     display:flex;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-bottom:22px;
+    margin-bottom:8px;
+    font-weight:700;
 }
 
-.answer-empty{
-    color:#94a3b8;
-    font-size:13px;
+.xp{
+    color:#087dcc;
 }
 
-/* WORDS */
-
-.words-title{
-    font-size:13px;
-    color:#64748b;
-    text-align:center;
-    margin-bottom:12px;
+.progress{
+    height:10px;
+    background:#e5f3fb;
+    border-radius:20px;
+    overflow:hidden;
 }
 
-.words{
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#1597e5;
+    border-radius:20px;
+    transition:0.4s;
+}
+
+/* WORD CARD */
+
+.word-card{
+    border:2px solid #e4f2fa;
+    border-radius:18px;
+    padding:18px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.word-card.correct{
+    border-color:#22c55e;
+    background:#f0fdf4;
+}
+
+.word-row{
     display:flex;
-    justify-content:center;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.english-word{
+    font-size:20px;
+    font-weight:700;
+    color:#123;
+    min-width:110px;
+}
+
+.meanings{
+    display:flex;
+    gap:8px;
     flex-wrap:wrap;
-    gap:10px;
-    margin-bottom:22px;
+    justify-content:flex-end;
 }
 
-.word{
-    border:2px solid #bfdbfe;
-    background:#eff6ff;
-    color:#1d4ed8;
-    border-radius:12px;
-    padding:11px 16px;
-    min-height:46px;
-    font-family:"Poppins",sans-serif;
-    font-size:15px;
-    font-weight:600;
-    cursor:pointer;
-    box-shadow:0 2px 5px rgba(37,99,235,.08);
-    transition:.15s;
-}
-
-.word:hover{
-    background:#dbeafe;
-    transform:translateY(-1px);
-}
-
-.word:active{
-    transform:scale(.95);
-}
-
-.word.selected{
-    opacity:.30;
-    pointer-events:none;
-}
-
-/* SELECTED WORD */
-
-.answer-word{
-    border:none;
-    background:#2563eb;
-    color:white;
-    border-radius:10px;
+.meaning-btn{
+    border:2px solid #cceafa;
+    background:#f5fbff;
+    color:#087dcc;
     padding:9px 13px;
+    border-radius:12px;
+    font-family:"Noto Sans Tamil","Poppins",sans-serif;
     font-size:14px;
     font-weight:600;
     cursor:pointer;
-    animation:pop .15s ease;
+    transition:0.2s;
 }
 
-.answer-word:hover{
-    background:#1d4ed8;
+.meaning-btn:hover{
+    background:#e3f5ff;
+    transform:translateY(-2px);
 }
 
-@keyframes pop{
-    from{
-        transform:scale(.8);
-    }
-    to{
-        transform:scale(1);
-    }
-}
-
-/* CHECK BUTTON */
-
-.check{
-    width:100%;
-    border:none;
-    background:linear-gradient(135deg,#2563eb,#4f46e5);
-    color:white;
-    padding:15px;
-    border-radius:13px;
-    font-family:"Poppins",sans-serif;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-    box-shadow:0 5px 12px rgba(37,99,235,.20);
-    transition:.15s;
-}
-
-.check:hover{
-    transform:translateY(-1px);
-}
-
-.check:active{
-    transform:scale(.98);
-}
-
-/* RESULT */
-
-.result{
-    min-height:30px;
-    text-align:center;
-    margin-top:14px;
-    font-size:15px;
-    font-weight:700;
-}
-
-.correct{
-    color:#16a34a;
-}
-
-.wrong{
+.meaning-btn.wrong{
+    background:#fee2e2;
+    border-color:#ef4444;
     color:#dc2626;
 }
 
-.show-answer{
-    color:#f59e0b;
+.meaning-btn.correct-btn{
+    background:#dcfce7;
+    border-color:#22c55e;
+    color:#15803d;
 }
 
-/* NEXT */
+/* GAME */
 
-.next{
+#gameSection{
     display:none;
+}
+
+.question-number{
+    text-align:center;
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.sentence{
+    text-align:center;
+    font-size:24px;
+    font-weight:800;
+    color:#087dcc;
+    margin:10px 0 5px;
+}
+
+.tamil-meaning{
+    text-align:center;
+    font-family:"Noto Sans Tamil";
+    color:#64748b;
+    margin-bottom:25px;
+}
+
+/* ANSWER BOX */
+
+.answer-box{
+    min-height:65px;
+    border:2px dashed #8dd0f4;
+    border-radius:16px;
+    padding:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+    margin-bottom:20px;
+    background:#f8fdff;
+}
+
+.answer-placeholder{
+    color:#94a3b8;
+    width:100%;
+    text-align:center;
+    font-size:14px;
+}
+
+.word-chip{
+    background:#087dcc;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:12px;
+    font-family:"Poppins",sans-serif;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* WORD BANK */
+
+.word-bank{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.bank-word{
+    border:2px solid #cceafa;
+    background:white;
+    color:#087dcc;
+    padding:10px 15px;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.bank-word:hover{
+    background:#e8f7ff;
+    transform:translateY(-2px);
+}
+
+.bank-word.used{
+    opacity:0.35;
+    pointer-events:none;
+}
+
+/* BUTTON */
+
+.check-btn,
+.next-btn,
+.start-btn{
     width:100%;
     border:none;
-    background:#16a34a;
+    padding:14px;
+    border-radius:14px;
+    background:#087dcc;
     color:white;
-    padding:15px;
-    border-radius:13px;
     font-family:"Poppins",sans-serif;
     font-size:16px;
     font-weight:700;
     cursor:pointer;
-    margin-top:8px;
+    transition:0.2s;
+}
+
+.check-btn:hover,
+.next-btn:hover,
+.start-btn:hover{
+    background:#0569ad;
+    transform:translateY(-1px);
+}
+
+.next-btn{
+    display:none;
+    margin-top:10px;
+}
+
+.feedback{
+    text-align:center;
+    min-height:28px;
+    font-weight:700;
+    margin:10px 0;
+}
+
+.success{
+    color:#16a34a;
+}
+
+.error{
+    color:#dc2626;
 }
 
 /* COMPLETE */
 
-.complete{
+#completeSection{
     display:none;
     text-align:center;
 }
 
 .complete-icon{
-    font-size:65px;
+    font-size:70px;
     margin-bottom:10px;
 }
 
-.complete h2{
-    color:#2563eb;
-    font-size:25px;
-    margin-bottom:8px;
+.complete-title{
+    font-size:30px;
+    font-weight:800;
+    color:#087dcc;
+    margin-bottom:10px;
 }
 
-.complete p{
+.complete-text{
     color:#64748b;
-    font-size:14px;
-    line-height:1.7;
     margin-bottom:20px;
 }
 
-.complete a{
-    display:block;
-    text-decoration:none;
-    background:linear-gradient(135deg,#2563eb,#4f46e5);
-    color:white;
-    padding:14px;
-    border-radius:13px;
-    font-weight:700;
+.final-xp{
+    display:inline-block;
+    background:#e5f6ff;
+    color:#087dcc;
+    padding:12px 25px;
+    border-radius:15px;
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:20px;
 }
 
-/* SHAKE */
+/* RESPONSIVE */
 
-.shake{
-    animation:shake .35s;
-}
+@media(max-width:600px){
 
-@keyframes shake{
-
-    0%,100%{
-        transform:translateX(0);
+    body{
+        padding:12px 8px;
     }
 
-    25%{
-        transform:translateX(-6px);
+    .section{
+        padding:18px;
+        border-radius:20px;
     }
 
-    50%{
-        transform:translateX(6px);
+    .title{
+        font-size:23px;
     }
 
-    75%{
-        transform:translateX(-4px);
-    }
-}
-
-/* MOBILE */
-
-@media(max-width:500px){
-
-    .container{
-        padding:14px 9px 30px;
+    .word-row{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
-    .game{
-        padding:22px 13px;
-        border-radius:18px;
+    .english-word{
+        font-size:19px;
     }
 
-    .tamil{
-        font-size:20px;
+    .meanings{
+        width:100%;
+        justify-content:flex-start;
     }
 
-    .word{
+    .meaning-btn{
+        flex:1;
+        min-width:90px;
+    }
+
+    .sentence{
+        font-size:21px;
+    }
+
+    .bank-word{
+        padding:9px 12px;
         font-size:14px;
-        padding:10px 13px;
-    }
-
-    .answer-word{
-        font-size:13px;
-        padding:8px 11px;
     }
 
 }
@@ -383,134 +379,105 @@ body{
 
 <body>
 
-<header class="header">
-
-    <div class="logo">
-        📚 TMS Academy
-    </div>
-
-    <div class="subtitle">
-        Learn English Easily Through Tamil
-    </div>
-
-</header>
-
-
 <div class="container">
 
-    <!-- GAME -->
+    <!-- LEARN SECTION -->
 
-    <div id="game">
+    <div class="section" id="learnSection">
 
-        <div class="top-bar">
+        <div class="title">
+            Level 1 🚀
+        </div>
 
-            <div class="level">
-                Level 1
+        <div class="subtitle">
+            Learn 10 Basic English Words
+        </div>
+
+        <div class="xp-area">
+
+            <div class="xp-top">
+                <span>Progress</span>
+                <span class="xp" id="xpText">0 XP</span>
             </div>
 
-            <div class="count" id="count">
-                1 / 150
+            <div class="progress">
+                <div class="progress-bar" id="progressBar"></div>
             </div>
 
         </div>
 
-        <div class="progress">
+        <div id="wordsContainer"></div>
 
-            <div
-                class="progress-fill"
-                id="progressFill">
-            </div>
+        <button class="start-btn" id="startGameBtn" style="display:none;">
+            Start Sentence Game →
+        </button>
 
+    </div>
+
+
+    <!-- SENTENCE GAME -->
+
+    <div class="section" id="gameSection">
+
+        <div class="title">
+            Sentence Making 🧩
         </div>
 
-
-        <div class="game">
-
-            <div class="question">
-
-                <div class="question-label">
-                    Make the English sentence
-                </div>
-
-                <div
-                    class="tamil"
-                    id="tamil">
-                </div>
-
-            </div>
-
-
-            <div class="answer-title">
-                Your sentence
-            </div>
-
-            <div
-                class="answer"
-                id="answer">
-            </div>
-
-
-            <div class="words-title">
-                கீழே உள்ள words-ஐ click செய்யுங்கள்
-            </div>
-
-            <div
-                class="words"
-                id="words">
-            </div>
-
-
-            <button
-                class="check"
-                id="check"
-                onclick="checkAnswer()">
-
-                Check Answer ✓
-
-            </button>
-
-
-            <div
-                class="result"
-                id="result">
-            </div>
-
-
-            <button
-                class="next"
-                id="next"
-                onclick="nextSentence()">
-
-                Next →
-
-            </button>
-
+        <div class="question-number" id="questionNumber">
+            Question 1 / 10
         </div>
+
+        <div class="sentence">
+            Make this sentence 👇
+        </div>
+
+        <div class="tamil-meaning" id="tamilMeaning">
+        </div>
+
+        <div class="answer-box" id="answerBox">
+            <div class="answer-placeholder">
+                Click the words below to make the sentence
+            </div>
+        </div>
+
+        <div class="word-bank" id="wordBank"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <button class="check-btn" id="checkBtn">
+            Check Answer ✓
+        </button>
+
+        <button class="next-btn" id="nextBtn">
+            Next Question →
+        </button>
 
     </div>
 
 
     <!-- COMPLETE -->
 
-    <div
-        class="game complete"
-        id="complete">
+    <div class="section" id="completeSection">
 
         <div class="complete-icon">
             🎉
         </div>
 
-        <h2>
+        <div class="complete-title">
             Level 1 Complete!
-        </h2>
+        </div>
 
-        <p>
-            Excellent! You completed all 150 sentences.
-        </p>
+        <div class="complete-text">
+            Great job! You completed all 10 words and sentences.
+        </div>
 
-        <a href="level-2.html">
-            Continue to Level 2 →
-        </a>
+        <div class="final-xp" id="finalXP">
+            100 XP
+        </div>
+
+        <button class="start-btn" onclick="location.reload()">
+            Play Again 🔄
+        </button>
 
     </div>
 
@@ -519,681 +486,758 @@ body{
 
 <script>
 
-/* =========================================================
-   150 SENTENCES
-   ========================================================= */
+/* =========================
+   WORDS
+========================= */
 
-const sentences = [
+const learningWords = [
 
-/* 1–25 */
+    {
+        word:"I",
+        meaning:"நான்"
+    },
 
-{tamil:"நான் ஒரு மாணவன்.",answer:["I","am","a","student"]},
-{tamil:"நான் மகிழ்ச்சியாக இருக்கிறேன்.",answer:["I","am","happy"]},
-{tamil:"நீ ஒரு நல்ல நண்பன்.",answer:["You","are","a","good","friend"]},
-{tamil:"நீ வீட்டில் இருக்கிறாய்.",answer:["You","are","at","home"]},
-{tamil:"நாங்கள் மகிழ்ச்சியாக இருக்கிறோம்.",answer:["We","are","happy"]},
-{tamil:"நாங்கள் நண்பர்கள்.",answer:["We","are","friends"]},
-{tamil:"அவர்கள் பள்ளியில் இருக்கிறார்கள்.",answer:["They","are","at","school"]},
-{tamil:"அவர்கள் நல்ல நண்பர்கள்.",answer:["They","are","good","friends"]},
-{tamil:"அவன் ஒரு மாணவன்.",answer:["He","is","a","student"]},
-{tamil:"அவன் மகிழ்ச்சியாக இருக்கிறான்.",answer:["He","is","happy"]},
-{tamil:"அவள் ஒரு மாணவி.",answer:["She","is","a","student"]},
-{tamil:"அவள் வீட்டில் இருக்கிறாள்.",answer:["She","is","at","home"]},
-{tamil:"அது நல்லது.",answer:["It","is","good"]},
-{tamil:"அது என் புத்தகம்.",answer:["It","is","my","book"]},
-{tamil:"நான் வீட்டில் இருக்கிறேன்.",answer:["I","am","at","home"]},
-{tamil:"நீ பள்ளியில் இருக்கிறாய்.",answer:["You","are","at","school"]},
-{tamil:"நாங்கள் வீட்டில் இருக்கிறோம்.",answer:["We","are","at","home"]},
-{tamil:"அவன் என் நண்பன்.",answer:["He","is","my","friend"]},
-{tamil:"அவள் என் நண்பி.",answer:["She","is","my","friend"]},
-{tamil:"அது என் பேனா.",answer:["It","is","my","pen"]},
-{tamil:"இது நல்லது.",answer:["This","is","good"]},
-{tamil:"அது நல்ல புத்தகம்.",answer:["That","is","a","good","book"]},
-{tamil:"இது என் பேனா.",answer:["This","is","my","pen"]},
-{tamil:"அது உங்கள் வீடு.",answer:["That","is","your","home"]},
-{tamil:"நான் மகிழ்ச்சியாக இருக்கிறேன்.",answer:["I","am","happy"]},
+    {
+        word:"You",
+        meaning:"நீ / நீங்கள்"
+    },
 
-/* 26–50 */
+    {
+        word:"Eat",
+        meaning:"சாப்பிடு"
+    },
 
-{tamil:"என்னிடம் ஒரு புத்தகம் உள்ளது.",answer:["I","have","a","book"]},
-{tamil:"என்னிடம் ஒரு பேனா உள்ளது.",answer:["I","have","a","pen"]},
-{tamil:"உன்னிடம் ஒரு புத்தகம் உள்ளது.",answer:["You","have","a","book"]},
-{tamil:"உன்னிடம் உணவு உள்ளது.",answer:["You","have","food"]},
-{tamil:"எங்களிடம் ஒரு வீடு உள்ளது.",answer:["We","have","a","home"]},
-{tamil:"எங்களிடம் உணவு உள்ளது.",answer:["We","have","food"]},
-{tamil:"அவர்களிடம் ஒரு புத்தகம் உள்ளது.",answer:["They","have","a","book"]},
-{tamil:"அவர்களிடம் தண்ணீர் உள்ளது.",answer:["They","have","water"]},
-{tamil:"அவனிடம் ஒரு பேனா உள்ளது.",answer:["He","has","a","pen"]},
-{tamil:"அவனிடம் ஒரு புத்தகம் உள்ளது.",answer:["He","has","a","book"]},
-{tamil:"அவளிடம் ஒரு பேனா உள்ளது.",answer:["She","has","a","pen"]},
-{tamil:"அவளிடம் உணவு உள்ளது.",answer:["She","has","food"]},
-{tamil:"என்னிடம் தண்ணீர் உள்ளது.",answer:["I","have","water"]},
-{tamil:"உன்னிடம் ஒரு நல்ல நண்பன் இருக்கிறான்.",answer:["You","have","a","good","friend"]},
-{tamil:"எங்களிடம் ஒரு நல்ல வீடு உள்ளது.",answer:["We","have","a","good","home"]},
-{tamil:"அவர்களிடம் ஒரு நல்ல ஆசிரியர் உள்ளார்.",answer:["They","have","a","good","teacher"]},
-{tamil:"அவனிடம் ஒரு நல்ல புத்தகம் உள்ளது.",answer:["He","has","a","good","book"]},
-{tamil:"அவளிடம் ஒரு நல்ல பேனா உள்ளது.",answer:["She","has","a","good","pen"]},
-{tamil:"என்னிடம் என் புத்தகம் உள்ளது.",answer:["I","have","my","book"]},
-{tamil:"உன்னிடம் உங்கள் பேனா உள்ளது.",answer:["You","have","your","pen"]},
-{tamil:"அவனிடம் அவனுடைய புத்தகம் உள்ளது.",answer:["He","has","his","book"]},
-{tamil:"அவளிடம் அவளுடைய பேனா உள்ளது.",answer:["She","has","her","pen"]},
-{tamil:"எங்களிடம் எங்கள் உணவு உள்ளது.",answer:["We","have","our","food"]},
-{tamil:"அவர்களிடம் அவர்களின் புத்தகம் உள்ளது.",answer:["They","have","their","book"]},
-{tamil:"என்னிடம் ஒரு நல்ல நண்பன் உள்ளான்.",answer:["I","have","a","good","friend"]},
+    {
+        word:"Drink",
+        meaning:"குடி"
+    },
 
-/* 51–75 */
+    {
+        word:"Go",
+        meaning:"போ"
+    },
 
-{tamil:"நான் படிக்கிறேன்.",answer:["I","do","read"]},
-{tamil:"நீ படிக்கிறாயா?",answer:["Do","you","read"]},
-{tamil:"நீ எழுதுகிறாயா?",answer:["Do","you","write"]},
-{tamil:"நீ தண்ணீர் குடிக்கிறாயா?",answer:["Do","you","drink","water"]},
-{tamil:"நீ உணவு சாப்பிடுகிறாயா?",answer:["Do","you","eat","food"]},
-{tamil:"நாங்கள் படிக்கிறோம்.",answer:["We","do","read"]},
-{tamil:"அவர்கள் படிக்கிறார்களா?",answer:["Do","they","read"]},
-{tamil:"அவர்கள் பள்ளிக்கு செல்கிறார்களா?",answer:["Do","they","go","to","school"]},
-{tamil:"அவன் படிக்கிறானா?",answer:["Does","he","read"]},
-{tamil:"அவன் எழுதுகிறானா?",answer:["Does","he","write"]},
-{tamil:"அவன் தண்ணீர் குடிக்கிறானா?",answer:["Does","he","drink","water"]},
-{tamil:"அவள் உணவு சாப்பிடுகிறாளா?",answer:["Does","she","eat","food"]},
-{tamil:"அவள் புத்தகம் படிக்கிறாளா?",answer:["Does","she","read","a","book"]},
-{tamil:"நான் ஒரு புத்தகம் படிக்கிறேன்.",answer:["I","read","a","book"]},
-{tamil:"நான் ஒரு கடிதம் எழுதுகிறேன்.",answer:["I","write","a","letter"]},
-{tamil:"நான் தண்ணீர் குடிக்கிறேன்.",answer:["I","drink","water"]},
-{tamil:"நான் உணவு சாப்பிடுகிறேன்.",answer:["I","eat","food"]},
-{tamil:"நான் ஒரு பேனாவை பயன்படுத்துகிறேன்.",answer:["I","use","a","pen"]},
-{tamil:"நீ என்ன செய்கிறாய்?",answer:["What","do","you","do"]},
-{tamil:"அவன் என்ன செய்கிறான்?",answer:["What","does","he","do"]},
-{tamil:"அவள் என்ன செய்கிறாள்?",answer:["What","does","she","do"]},
-{tamil:"நீ எங்கே செல்கிறாய்?",answer:["Where","do","you","go"]},
-{tamil:"அவன் எங்கே செல்கிறான்?",answer:["Where","does","he","go"]},
-{tamil:"அவள் எங்கே செல்கிறாள்?",answer:["Where","does","she","go"]},
-{tamil:"நீ ஏன் சிரிக்கிறாய்?",answer:["Why","do","you","smile"]},
+    {
+        word:"Come",
+        meaning:"வா"
+    },
 
-/* 76–100 */
+    {
+        word:"Sit",
+        meaning:"உட்கார்"
+    },
 
-{tamil:"என்னால் படிக்க முடியும்.",answer:["I","can","read"]},
-{tamil:"என்னால் எழுத முடியும்.",answer:["I","can","write"]},
-{tamil:"என்னால் தண்ணீர் குடிக்க முடியும்.",answer:["I","can","drink","water"]},
-{tamil:"என்னால் உணவு சாப்பிட முடியும்.",answer:["I","can","eat","food"]},
-{tamil:"நீ படிக்க முடியும்.",answer:["You","can","read"]},
-{tamil:"நீ எழுத முடியும்.",answer:["You","can","write"]},
-{tamil:"நீ கதவை திறக்க முடியும்.",answer:["You","can","open","the","door"]},
-{tamil:"நீ கதவை மூட முடியும்.",answer:["You","can","close","the","door"]},
-{tamil:"நாங்கள் படிக்க முடியும்.",answer:["We","can","read"]},
-{tamil:"நாங்கள் பள்ளிக்கு செல்ல முடியும்.",answer:["We","can","go","to","school"]},
-{tamil:"அவர்கள் வீட்டிற்கு வர முடியும்.",answer:["They","can","come","home"]},
-{tamil:"அவன் புத்தகம் படிக்க முடியும்.",answer:["He","can","read","a","book"]},
-{tamil:"அவள் கடிதம் எழுத முடியும்.",answer:["She","can","write","a","letter"]},
-{tamil:"அவனால் கதவை திறக்க முடியும்.",answer:["He","can","open","the","door"]},
-{tamil:"அவளால் கதவை மூட முடியும்.",answer:["She","can","close","the","door"]},
-{tamil:"நான் நாளை வருவேன்.",answer:["I","will","come","tomorrow"]},
-{tamil:"நான் பள்ளிக்கு செல்வேன்.",answer:["I","will","go","to","school"]},
-{tamil:"நான் படிப்பேன்.",answer:["I","will","read"]},
-{tamil:"நான் எழுதுவேன்.",answer:["I","will","write"]},
-{tamil:"நீ நாளை வருவாய்.",answer:["You","will","come","tomorrow"]},
-{tamil:"நாங்கள் வீட்டிற்கு வருவோம்.",answer:["We","will","come","home"]},
-{tamil:"அவர்கள் பள்ளிக்கு செல்வார்கள்.",answer:["They","will","go","to","school"]},
-{tamil:"அவன் நாளை வருவான்.",answer:["He","will","come","tomorrow"]},
-{tamil:"அவள் நாளை வருவாள்.",answer:["She","will","come","tomorrow"]},
-{tamil:"நான் உங்களுக்கு உதவுவேன்.",answer:["I","will","help","you"]},
+    {
+        word:"Stand",
+        meaning:"நில்"
+    },
 
-/* 101–125 */
+    {
+        word:"Read",
+        meaning:"படி"
+    },
 
-{tamil:"நான் வீட்டிற்கு செல்கிறேன்.",answer:["I","go","home"]},
-{tamil:"நான் பள்ளிக்கு செல்கிறேன்.",answer:["I","go","to","school"]},
-{tamil:"நான் வீட்டிற்கு வருகிறேன்.",answer:["I","come","home"]},
-{tamil:"நான் கதவை திறக்கிறேன்.",answer:["I","open","the","door"]},
-{tamil:"நான் கதவை மூடுகிறேன்.",answer:["I","close","the","door"]},
-{tamil:"நான் ஒரு புத்தகம் பார்க்கிறேன்.",answer:["I","see","a","book"]},
-{tamil:"நான் என் நண்பனை பார்க்கிறேன்.",answer:["I","see","my","friend"]},
-{tamil:"எனக்கு புத்தகம் பிடிக்கும்.",answer:["I","like","the","book"]},
-{tamil:"எனக்கு உணவு பிடிக்கும்.",answer:["I","like","food"]},
-{tamil:"எனக்கு தண்ணீர் வேண்டும்.",answer:["I","want","water"]},
-{tamil:"எனக்கு ஒரு பேனா வேண்டும்.",answer:["I","want","a","pen"]},
-{tamil:"எனக்கு ஒரு புத்தகம் வேண்டும்.",answer:["I","want","a","book"]},
-{tamil:"எனக்கு தண்ணீர் தேவை.",answer:["I","need","water"]},
-{tamil:"எனக்கு ஒரு பேனா தேவை.",answer:["I","need","a","pen"]},
-{tamil:"நீ என் நண்பன்.",answer:["You","are","my","friend"]},
-{tamil:"நீ உன் நண்பனை விரும்புகிறாய்.",answer:["You","like","your","friend"]},
-{tamil:"நீ பள்ளிக்கு செல்கிறாய்.",answer:["You","go","to","school"]},
-{tamil:"நீ வீட்டிற்கு வருகிறாய்.",answer:["You","come","home"]},
-{tamil:"நீ தண்ணீர் குடிக்கிறாய்.",answer:["You","drink","water"]},
-{tamil:"நீ உணவு சாப்பிடுகிறாய்.",answer:["You","eat","food"]},
-{tamil:"அவன் பள்ளிக்கு செல்கிறான்.",answer:["He","goes","to","school"]},
-{tamil:"அவன் வீட்டிற்கு வருகிறான்.",answer:["He","comes","home"]},
-{tamil:"அவன் புத்தகம் படிக்கிறான்.",answer:["He","reads","a","book"]},
-{tamil:"அவள் பள்ளிக்கு செல்கிறாள்.",answer:["She","goes","to","school"]},
-{tamil:"அவள் வீட்டிற்கு வருகிறாள்.",answer:["She","comes","home"]},
-
-/* 126–150 */
-
-{tamil:"அவள் ஒரு புத்தகம் படிக்கிறாள்.",answer:["She","reads","a","book"]},
-{tamil:"அவன் ஒரு கடிதம் எழுதுகிறான்.",answer:["He","writes","a","letter"]},
-{tamil:"நாங்கள் உணவு சாப்பிடுகிறோம்.",answer:["We","eat","food"]},
-{tamil:"நாங்கள் தண்ணீர் குடிக்கிறோம்.",answer:["We","drink","water"]},
-{tamil:"அவர்கள் ஒரு புத்தகம் படிக்கிறார்கள்.",answer:["They","read","a","book"]},
-{tamil:"அவர்கள் ஒரு கடிதம் எழுதுகிறார்கள்.",answer:["They","write","a","letter"]},
-{tamil:"நான் என் நண்பனை விரும்புகிறேன்.",answer:["I","like","my","friend"]},
-{tamil:"நீ உன் நண்பனை விரும்புகிறாய்.",answer:["You","like","your","friend"]},
-{tamil:"அவன் அவனுடைய புத்தகத்தை விரும்புகிறான்.",answer:["He","likes","his","book"]},
-{tamil:"அவள் அவளுடைய பேனாவை விரும்புகிறாள்.",answer:["She","likes","her","pen"]},
-{tamil:"இது என் புத்தகம்.",answer:["This","is","my","book"]},
-{tamil:"இது உங்கள் பேனா.",answer:["This","is","your","pen"]},
-{tamil:"அது அவனுடைய புத்தகம்.",answer:["That","is","his","book"]},
-{tamil:"அது அவளுடைய பேனா.",answer:["That","is","her","pen"]},
-{tamil:"என்னால் பள்ளிக்கு செல்ல முடியும்.",answer:["I","can","go","to","school"]},
-{tamil:"உன்னால் வீட்டிற்கு வர முடியும்.",answer:["You","can","come","home"]},
-{tamil:"அவனால் புத்தகம் படிக்க முடியும்.",answer:["He","can","read","a","book"]},
-{tamil:"அவளால் கடிதம் எழுத முடியும்.",answer:["She","can","write","a","letter"]},
-{tamil:"நாங்கள் கதவை திறக்க முடியும்.",answer:["We","can","open","the","door"]},
-{tamil:"அவர்கள் கதவை மூட முடியும்.",answer:["They","can","close","the","door"]},
-{tamil:"நான் நாளை பள்ளிக்கு செல்வேன்.",answer:["I","will","go","to","school"]},
-{tamil:"நீ நாளை வீட்டிற்கு வருவாய்.",answer:["You","will","come","home","tomorrow"]},
-{tamil:"அவன் நாளை படிப்பான்.",answer:["He","will","read","tomorrow"]},
-{tamil:"அவள் நாளை எழுதுவாள்.",answer:["She","will","write","tomorrow"]},
-{tamil:"நாங்கள் நாளை பள்ளிக்கு செல்வோம்.",answer:["We","will","go","to","school","tomorrow"]}
+    {
+        word:"Write",
+        meaning:"எழுது"
+    }
 
 ];
 
 
-/* =========================================================
-   GAME VARIABLES
-   ========================================================= */
+/* =========================
+   SENTENCES
+========================= */
 
-let current = 0;
-let selected = [];
+const questions = [
+
+    {
+        answer:["I","eat"],
+        tamil:"நான் சாப்பிடுகிறேன்"
+    },
+
+    {
+        answer:["I","drink"],
+        tamil:"நான் குடிக்கிறேன்"
+    },
+
+    {
+        answer:["I","go"],
+        tamil:"நான் போகிறேன்"
+    },
+
+    {
+        answer:["I","come"],
+        tamil:"நான் வருகிறேன்"
+    },
+
+    {
+        answer:["You","sit"],
+        tamil:"நீ உட்காருகிறாய்"
+    },
+
+    {
+        answer:["You","stand"],
+        tamil:"நீ நிற்கிறாய்"
+    },
+
+    {
+        answer:["I","read"],
+        tamil:"நான் படிக்கிறேன்"
+    },
+
+    {
+        answer:["You","write"],
+        tamil:"நீ எழுதுகிறாய்"
+    },
+
+    {
+        answer:["I","sit"],
+        tamil:"நான் உட்காருகிறேன்"
+    },
+
+    {
+        answer:["You","eat"],
+        tamil:"நீ சாப்பிடுகிறாய்"
+    }
+
+];
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let learnedWords = 0;
+
+let xp = 0;
+
+let currentQuestion = 0;
+
+let selectedWords = [];
+
 let mistakes = 0;
-let locked = false;
 
 
-/* =========================================================
-   SOUND
-   No external audio file required.
-   Browser creates the sounds automatically.
-   ========================================================= */
+/* =========================
+   BEEP SOUND
+========================= */
 
-let audioContext;
+function beep(type){
 
-function getAudio(){
+    const audioContext =
+        new (window.AudioContext || window.webkitAudioContext)();
 
-    if(!audioContext){
+    const oscillator =
+        audioContext.createOscillator();
 
-        audioContext =
-            new (window.AudioContext ||
-            window.webkitAudioContext)();
+    const gain =
+        audioContext.createGain();
+
+    oscillator.connect(gain);
+
+    gain.connect(audioContext.destination);
+
+    if(type === "good"){
+
+        oscillator.frequency.value = 800;
+
+    }else{
+
+        oscillator.frequency.value = 250;
 
     }
 
-    if(audioContext.state === "suspended"){
-        audioContext.resume();
-    }
+    gain.gain.setValueAtTime(
+        0.15,
+        audioContext.currentTime
+    );
 
-    return audioContext;
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audioContext.currentTime + 0.2
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime + 0.2
+    );
+
 }
 
 
-/* CORRECT SOUND */
+/* =========================
+   SHUFFLE
+========================= */
 
-function correctSound(){
+function shuffle(array){
 
-    const ctx = getAudio();
+    return array
+        .sort(() => Math.random() - 0.5);
 
-    const now = ctx.currentTime;
-
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-
-    osc.type = "sine";
-
-    osc.frequency.setValueAtTime(523.25,now);
-    osc.frequency.setValueAtTime(659.25,now + .10);
-    osc.frequency.setValueAtTime(783.99,now + .20);
-
-    gain.gain.setValueAtTime(.0001,now);
-    gain.gain.exponentialRampToValueAtTime(.25,now + .02);
-    gain.gain.exponentialRampToValueAtTime(.0001,now + .40);
-
-    osc.connect(gain);
-    gain.connect(ctx.destination);
-
-    osc.start(now);
-    osc.stop(now + .42);
 }
 
 
-/* WRONG SOUND */
+/* =========================
+   CREATE WORDS
+========================= */
 
-function wrongSound(){
+function createLearningWords(){
 
-    const ctx = getAudio();
+    const container =
+        document.getElementById("wordsContainer");
 
-    const now = ctx.currentTime;
+    learningWords.forEach((item,index)=>{
 
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
+        const card =
+            document.createElement("div");
 
-    osc.type = "sawtooth";
+        card.className = "word-card";
 
-    osc.frequency.setValueAtTime(220,now);
-    osc.frequency.setValueAtTime(150,now + .18);
+        card.id = "wordCard" + index;
 
-    gain.gain.setValueAtTime(.0001,now);
-    gain.gain.exponentialRampToValueAtTime(.18,now + .02);
-    gain.gain.exponentialRampToValueAtTime(.0001,now + .28);
+        let wrongMeanings =
+            learningWords
+            .filter(x => x.meaning !== item.meaning)
+            .map(x => x.meaning);
 
-    osc.connect(gain);
-    gain.connect(ctx.destination);
+        shuffle(wrongMeanings);
 
-    osc.start(now);
-    osc.stop(now + .3);
-}
+        let options = [
 
+            item.meaning,
 
-/* COMPLETE SOUND */
+            wrongMeanings[0],
 
-function completeSound(){
+            wrongMeanings[1]
 
-    const ctx = getAudio();
+        ];
 
-    const notes = [
-        523.25,
-        659.25,
-        783.99,
-        1046.50
-    ];
+        shuffle(options);
 
-    notes.forEach((frequency,index)=>{
+        card.innerHTML = `
 
-        const now =
-            ctx.currentTime + index * .12;
+            <div class="word-row">
 
-        const osc =
-            ctx.createOscillator();
+                <div class="english-word">
+                    ${item.word}
+                </div>
 
-        const gain =
-            ctx.createGain();
+                <div class="meanings">
 
-        osc.type = "sine";
+                    ${options.map(option => `
 
-        osc.frequency.value = frequency;
+                        <button
+                            class="meaning-btn"
+                            onclick="checkMeaning(
+                                this,
+                                '${item.meaning.replace(/'/g,"\\'")}',
+                                ${index}
+                            )">
 
-        gain.gain.setValueAtTime(.0001,now);
-        gain.gain.exponentialRampToValueAtTime(
-            .25,
-            now + .02
-        );
+                            ${option}
 
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            now + .25
-        );
+                        </button>
 
-        osc.connect(gain);
-        gain.connect(ctx.destination);
+                    `).join("")}
 
-        osc.start(now);
-        osc.stop(now + .27);
+                </div>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
 
     });
 
 }
 
 
-/* =========================================================
-   SHUFFLE
-   ========================================================= */
+/* =========================
+   CHECK MEANING
+========================= */
 
-function shuffle(array){
+function checkMeaning(button,correct,index){
 
-    const arr = [...array];
+    const card =
+        document.getElementById("wordCard"+index);
 
-    for(let i = arr.length - 1; i > 0; i--){
+    if(card.classList.contains("correct")){
 
-        const j =
-            Math.floor(Math.random() * (i + 1));
-
-        [arr[i],arr[j]] =
-            [arr[j],arr[i]];
+        return;
 
     }
 
-    return arr;
+    if(button.innerText.trim() === correct){
+
+        button.classList.add("correct-btn");
+
+        card.classList.add("correct");
+
+        const buttons =
+            card.querySelectorAll(".meaning-btn");
+
+        buttons.forEach(btn=>{
+            btn.disabled = true;
+        });
+
+        learnedWords++;
+
+        beep("good");
+
+        updateProgress();
+
+        if(learnedWords === learningWords.length){
+
+            document.getElementById("startGameBtn").style.display="block";
+
+        }
+
+    }else{
+
+        button.classList.add("wrong");
+
+        beep("bad");
+
+        setTimeout(()=>{
+
+            button.classList.remove("wrong");
+
+        },500);
+
+    }
+
 }
 
 
-/* =========================================================
-   LOAD SENTENCE
-   ========================================================= */
+/* =========================
+   PROGRESS
+========================= */
 
-function loadSentence(){
+function updateProgress(){
+
+    const percentage =
+        (learnedWords / learningWords.length) * 100;
+
+    document.getElementById("progressBar").style.width =
+        percentage + "%";
+
+    document.getElementById("xpText").innerText =
+        xp + " XP";
+
+}
+
+
+/* =========================
+   START GAME
+========================= */
+
+document
+.getElementById("startGameBtn")
+.addEventListener("click",function(){
+
+    document.getElementById("learnSection").style.display="none";
+
+    document.getElementById("gameSection").style.display="block";
+
+    loadQuestion();
+
+});
+
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+function loadQuestion(){
+
+    selectedWords = [];
+
+    mistakes = 0;
 
     const question =
-        sentences[current];
+        questions[currentQuestion];
 
-    selected = [];
-    mistakes = 0;
-    locked = false;
+    document.getElementById("questionNumber")
+        .innerText =
+        "Question " +
+        (currentQuestion + 1) +
+        " / " +
+        questions.length;
 
-    document.getElementById("tamil")
-        .textContent = question.tamil;
+    document.getElementById("tamilMeaning")
+        .innerText =
+        question.tamil;
 
-    document.getElementById("count")
-        .textContent =
-        `${current + 1} / ${sentences.length}`;
+    document.getElementById("feedback")
+        .innerText = "";
 
-    document.getElementById("progressFill")
-        .style.width =
-        `${((current + 1) / sentences.length) * 100}%`;
-
-    document.getElementById("result")
-        .textContent = "";
-
-    document.getElementById("check")
+    document.getElementById("checkBtn")
         .style.display = "block";
 
-    document.getElementById("next")
+    document.getElementById("nextBtn")
         .style.display = "none";
 
-    showWords();
+    renderAnswerBox();
 
-    showAnswer();
+    createWordBank();
 
 }
 
 
-/* =========================================================
-   WORD BUTTONS
-   ========================================================= */
+/* =========================
+   CREATE WORD BANK
+========================= */
 
-function showWords(){
+function createWordBank(){
 
-    const box =
-        document.getElementById("words");
+    const bank =
+        document.getElementById("wordBank");
 
-    box.innerHTML = "";
+    bank.innerHTML = "";
 
-    shuffle(
-        sentences[current].answer
-    ).forEach((word,index)=>{
+    const question =
+        questions[currentQuestion];
+
+    let words = [...question.answer];
+
+    /* ADD DISTRACTOR */
+
+    const distractors = [
+
+        "drink",
+        "go",
+        "come",
+        "sit",
+        "stand",
+        "read",
+        "write",
+        "eat",
+        "You",
+        "I"
+    ];
+
+    const available =
+        distractors.filter(
+            word => !words.includes(word)
+        );
+
+    words.push(
+        available[
+            Math.floor(
+                Math.random() *
+                available.length
+            )
+        ]
+    );
+
+    shuffle(words);
+
+    words.forEach((word,index)=>{
 
         const button =
             document.createElement("button");
 
-        button.className = "word";
+        button.className = "bank-word";
 
-        button.textContent = word;
+        button.innerText = word;
 
         button.dataset.index = index;
 
         button.onclick = function(){
 
-            if(locked) return;
-
-            if(
-                button.classList.contains("selected")
-            ){
-                return;
-            }
-
-            selected.push({
-                word:word,
-                id:index
-            });
-
-            button.classList.add("selected");
-
-            showAnswer();
+            selectWord(word,button);
 
         };
 
-        box.appendChild(button);
+        bank.appendChild(button);
 
     });
 
 }
 
 
-/* =========================================================
-   SHOW ANSWER
-   ========================================================= */
+/* =========================
+   SELECT WORD
+========================= */
 
-function showAnswer(){
+function selectWord(word,button){
+
+    if(button.classList.contains("used")){
+
+        return;
+
+    }
+
+    selectedWords.push(word);
+
+    button.classList.add("used");
+
+    renderAnswerBox();
+
+}
+
+
+/* =========================
+   ANSWER BOX
+========================= */
+
+function renderAnswerBox(){
 
     const box =
-        document.getElementById("answer");
+        document.getElementById("answerBox");
+
+    if(selectedWords.length === 0){
+
+        box.innerHTML = `
+
+            <div class="answer-placeholder">
+                Click the words below to make the sentence
+            </div>
+
+        `;
+
+        return;
+
+    }
 
     box.innerHTML = "";
 
-    if(selected.length === 0){
+    selectedWords.forEach((word,index)=>{
 
-        const empty =
-            document.createElement("div");
-
-        empty.className = "answer-empty";
-
-        empty.textContent =
-            "Select the words to make a sentence";
-
-        box.appendChild(empty);
-
-        return;
-
-    }
-
-    selected.forEach((item,index)=>{
-
-        const word =
+        const chip =
             document.createElement("button");
 
-        word.className = "answer-word";
+        chip.className = "word-chip";
 
-        word.textContent = item.word;
+        chip.innerText = word;
 
-        word.onclick = function(){
+        chip.onclick = function(){
 
-            if(locked) return;
-
-            selected.splice(index,1);
-
-            const buttons =
-                document.querySelectorAll(".word");
-
-            buttons.forEach(button=>{
-
-                if(
-                    button.textContent === item.word &&
-                    button.classList.contains("selected")
-                ){
-
-                    button.classList.remove("selected");
-
-                    return;
-                }
-
-            });
-
-            showAnswer();
+            removeWord(index);
 
         };
 
-        box.appendChild(word);
+        box.appendChild(chip);
 
     });
 
 }
 
 
-/* =========================================================
+/* =========================
+   REMOVE WORD
+========================= */
+
+function removeWord(index){
+
+    selectedWords.splice(index,1);
+
+    renderAnswerBox();
+
+    const bankWords =
+        document.querySelectorAll(".bank-word");
+
+    bankWords.forEach(button=>{
+
+        if(button.innerText ===
+           selectedWords[
+               selectedWords.length - 1
+           ]){
+
+            button.classList.remove("used");
+
+        }
+
+    });
+
+    /*
+       Better reset bank based on
+       current selected words
+    */
+
+    const usedCount = {};
+
+    selectedWords.forEach(word=>{
+
+        usedCount[word] =
+            (usedCount[word] || 0) + 1;
+
+    });
+
+    bankWords.forEach(button=>{
+
+        const word =
+            button.innerText;
+
+        const totalUsed =
+            [...selectedWords]
+            .filter(x => x === word)
+            .length;
+
+        if(totalUsed === 0){
+
+            button.classList.remove("used");
+
+        }
+
+    });
+
+}
+
+
+/* =========================
    CHECK ANSWER
-   ========================================================= */
+========================= */
+
+document
+.getElementById("checkBtn")
+.addEventListener("click",checkAnswer);
+
 
 function checkAnswer(){
 
-    if(locked) return;
+    const correct =
+        questions[currentQuestion].answer;
 
-    const result =
-        document.getElementById("result");
+    const isCorrect =
+        selectedWords.length === correct.length &&
+        selectedWords.every(
+            (word,index) =>
+                word === correct[index]
+        );
 
-    if(selected.length === 0){
+    const feedback =
+        document.getElementById("feedback");
 
-        result.textContent =
-            "Select the words first.";
+    if(isCorrect){
 
-        result.className =
-            "result wrong";
+        beep("good");
 
-        wrongSound();
+        xp += 10;
 
-        return;
+        feedback.innerText =
+            "Correct! 🎉 +10 XP";
+
+        feedback.className =
+            "feedback success";
+
+        document.getElementById("checkBtn")
+            .style.display="none";
+
+        document.getElementById("nextBtn")
+            .style.display="block";
+
+        document.getElementById("xpText")
+            .innerText =
+            xp + " XP";
+
+    }else{
+
+        mistakes++;
+
+        beep("bad");
+
+        feedback.innerText =
+            "Try again ❌";
+
+        feedback.className =
+            "feedback error";
+
+        if(mistakes >= 3){
+
+            showCorrectAnswer();
+
+        }
+
     }
-
-
-    const userAnswer =
-        selected
-            .map(item=>item.word)
-            .join(" ");
-
-    const correctAnswer =
-        sentences[current]
-            .answer
-            .join(" ");
-
-
-    /* CORRECT */
-
-    if(
-        userAnswer.toLowerCase() ===
-        correctAnswer.toLowerCase()
-    ){
-
-        locked = true;
-
-        correctSound();
-
-        result.textContent =
-            "Correct! 🎉";
-
-        result.className =
-            "result correct";
-
-        document.getElementById("check")
-            .style.display = "none";
-
-        document.getElementById("next")
-            .style.display = "block";
-
-        return;
-    }
-
-
-    /* WRONG */
-
-    mistakes++;
-
-    wrongSound();
-
-    document.querySelector(".game")
-        .classList.remove("shake");
-
-    void document.querySelector(".game").offsetWidth;
-
-    document.querySelector(".game")
-        .classList.add("shake");
-
-
-    if(mistakes === 1){
-
-        result.textContent =
-            "Wrong! Try again ❌";
-
-        result.className =
-            "result wrong";
-
-        setTimeout(()=>{
-
-            selected = [];
-
-            document
-                .querySelectorAll(".word")
-                .forEach(button=>{
-
-                    button.classList.remove(
-                        "selected"
-                    );
-
-                });
-
-            showAnswer();
-
-        },500);
-
-        return;
-    }
-
-
-    /* SECOND MISTAKE */
-
-    locked = true;
-
-    selected =
-        sentences[current]
-            .answer
-            .map(word=>({
-                word:word,
-                id:-1
-            }));
-
-    showAnswer();
-
-    result.textContent =
-        "Correct answer is shown above.";
-
-    result.className =
-        "result show-answer";
-
-    document.getElementById("check")
-        .style.display = "none";
-
-    document.getElementById("next")
-        .style.display = "block";
 
 }
 
 
-/* =========================================================
-   NEXT
-   ========================================================= */
+/* =========================
+   SHOW CORRECT ANSWER
+========================= */
 
-function nextSentence(){
+function showCorrectAnswer(){
 
-    current++;
+    const correct =
+        questions[currentQuestion].answer;
 
-    if(current >= sentences.length){
+    selectedWords = [...correct];
 
-        completeSound();
+    renderAnswerBox();
 
-        document.getElementById("game")
-            .style.display = "none";
+    document.getElementById("feedback")
+        .innerText =
+        "Correct answer 👇";
 
-        document.getElementById("complete")
-            .style.display = "block";
+    document.getElementById("feedback")
+        .className =
+        "feedback success";
 
-        return;
-    }
+    document.getElementById("checkBtn")
+        .style.display="none";
 
-    loadSentence();
+    document.getElementById("nextBtn")
+        .style.display="block";
 
 }
 
 
-/* =========================================================
+/* =========================
+   NEXT QUESTION
+========================= */
+
+document
+.getElementById("nextBtn")
+.addEventListener("click",function(){
+
+    currentQuestion++;
+
+    if(currentQuestion >= questions.length){
+
+        finishLevel();
+
+    }else{
+
+        loadQuestion();
+
+    }
+
+});
+
+
+/* =========================
+   FINISH LEVEL
+========================= */
+
+function finishLevel(){
+
+    document.getElementById("gameSection")
+        .style.display="none";
+
+    document.getElementById("completeSection")
+        .style.display="block";
+
+    document.getElementById("finalXP")
+        .innerText =
+        xp + " XP";
+
+}
+
+
+/* =========================
    START
-   ========================================================= */
+========================= */
 
-loadSentence();
+createLearningWords();
+
+updateProgress();
 
 </script>
 
 </body>
 </html>
-

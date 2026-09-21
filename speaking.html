@@ -1,668 +1,252 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Conversation - TMS Academy</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>TMS Academy - AI Conversation</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        body {
-            font-family: "Poppins", "Noto Sans Tamil", sans-serif;
-            background: #f4f8ff;
-            color: #172033;
-            min-height: 100vh;
-        }
+body{
+    font-family:Arial,sans-serif;
+    background:#eef7ff;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+}
 
-        .header {
-            background: linear-gradient(135deg, #2563eb, #4f46e5);
-            color: white;
-            padding: 18px 20px;
-            text-align: center;
-        }
+/* CHAT */
 
-        .logo {
-            font-size: 24px;
-            font-weight: 800;
-        }
+.chat-container{
+    flex:1;
+    overflow-y:auto;
+    padding:30px 15%;
+}
 
-        .subtitle {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-top: 3px;
-        }
+.welcome{
+    text-align:center;
+    margin-top:18vh;
+}
 
-        .container {
-            width: min(900px, 94%);
-            margin: 25px auto;
-        }
+.welcome h1{
+    color:#2563eb;
+    font-size:30px;
+    margin-bottom:10px;
+}
 
-        .title {
-            text-align: center;
-            margin-bottom: 18px;
-        }
+.welcome p{
+    color:#64748b;
+    font-size:15px;
+}
 
-        .title h1 {
-            color: #1d4ed8;
-            font-size: 28px;
-        }
 
-        .title p {
-            margin-top: 5px;
-            color: #64748b;
-            font-size: 14px;
-        }
+/* MESSAGE */
 
-        .chat-box {
-            background: white;
-            border-radius: 20px;
-            padding: 18px;
-            box-shadow: 0 10px 35px rgba(37, 99, 235, 0.10);
-            min-height: 430px;
-            max-height: 520px;
-            overflow-y: auto;
-        }
+.message{
+    display:flex;
+    margin-bottom:20px;
+}
 
-        .message {
-            display: flex;
-            margin: 12px 0;
-        }
+.user{
+    justify-content:flex-end;
+}
 
-        .message.user {
-            justify-content: flex-end;
-        }
+.ai{
+    justify-content:flex-start;
+}
 
-        .bubble {
-            max-width: 78%;
-            padding: 12px 15px;
-            border-radius: 17px;
-            line-height: 1.55;
-            font-size: 14px;
-        }
+.bubble{
+    max-width:70%;
+    padding:13px 17px;
+    border-radius:18px;
+    font-size:15px;
+    line-height:1.6;
+    white-space:pre-wrap;
+}
 
-        .user .bubble {
-            background: #2563eb;
-            color: white;
-            border-bottom-right-radius: 5px;
-        }
 
-        .ai .bubble {
-            background: #eef4ff;
-            color: #172033;
-            border-bottom-left-radius: 5px;
-        }
+/* USER */
 
-        .ai-label {
-            font-size: 11px;
-            color: #2563eb;
-            font-weight: 700;
-            margin-bottom: 3px;
-        }
+.user .bubble{
+    background:#2563eb;
+    color:white;
+    border-bottom-right-radius:5px;
+}
 
-        .tamil {
-            margin-top: 7px;
-            padding-top: 7px;
-            border-top: 1px solid #dbeafe;
-            color: #475569;
-            font-family: "Noto Sans Tamil", sans-serif;
-            font-size: 13px;
-        }
 
-        .correction {
-            margin-top: 8px;
-            background: #fff7ed;
-            border-left: 3px solid #f97316;
-            padding: 7px 9px;
-            border-radius: 7px;
-            font-size: 12px;
-        }
+/* AI */
 
-        .input-area {
-            margin-top: 15px;
-            background: white;
-            padding: 15px;
-            border-radius: 18px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-        }
+.ai .bubble{
+    background:white;
+    color:#1e293b;
+    border:1px solid #dbeafe;
+    border-bottom-left-radius:5px;
+}
 
-        textarea {
-            width: 100%;
-            resize: none;
-            min-height: 60px;
-            border: 2px solid #dbeafe;
-            border-radius: 13px;
-            padding: 12px;
-            outline: none;
-            font-family: inherit;
-            font-size: 14px;
-        }
 
-        textarea:focus {
-            border-color: #2563eb;
-        }
+/* START CONVERSATION AREA */
 
-        .buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
+.input-area{
+    padding:15px 15% 20px;
 
-        button {
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-        }
+    display:flex;
+    justify-content:center;
+}
 
-        .mic-btn {
-            flex: 1;
-            background: #2563eb;
-            color: white;
-            padding: 13px;
-            border-radius: 12px;
-            font-weight: 700;
-        }
 
-        .send-btn {
-            flex: 1;
-            background: #4f46e5;
-            color: white;
-            padding: 13px;
-            border-radius: 12px;
-            font-weight: 700;
-        }
+/* START BUTTON */
 
-        .clear-btn {
-            background: #e2e8f0;
-            color: #334155;
-            padding: 13px 16px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
+.start-conversation-btn{
 
-        .mic-btn.listening {
-            background: #dc2626;
-            animation: pulse 1s infinite;
-        }
+    border:none;
 
-        @keyframes pulse {
-            50% {
-                transform: scale(1.03);
-            }
-        }
+    background:#2563eb;
 
-        .status {
-            text-align: center;
-            margin-top: 10px;
-            color: #64748b;
-            font-size: 12px;
-        }
+    color:white;
 
-        .typing {
-            color: #64748b;
-            font-size: 13px;
-            font-style: italic;
-        }
+    padding:14px 28px;
 
-        @media(max-width:600px) {
-            .title h1 {
-                font-size: 23px;
-            }
+    border-radius:28px;
 
-            .bubble {
-                max-width: 88%;
-            }
+    font-size:16px;
 
-            .buttons {
-                flex-wrap: wrap;
-            }
+    font-weight:600;
 
-            .mic-btn,
-            .send-btn {
-                min-width: 42%;
-            }
+    cursor:pointer;
 
-            .clear-btn {
-                width: 100%;
-            }
-        }
-    </style>
+    box-shadow:
+        0 5px 15px rgba(37,99,235,0.20);
+
+    transition:all 0.2s ease;
+}
+
+.start-conversation-btn:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(37,99,235,0.25);
+}
+
+.start-conversation-btn:active{
+
+    transform:scale(0.97);
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .chat-container{
+        padding:20px 12px;
+    }
+
+    .input-area{
+        padding:10px 10px 15px;
+    }
+
+    .welcome h1{
+        font-size:25px;
+    }
+
+    .start-conversation-btn{
+        padding:13px 24px;
+        font-size:15px;
+    }
+
+    .bubble{
+        max-width:85%;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<header class="header">
-    <div class="logo">📚 TMS Academy</div>
-    <div class="subtitle">Learn English Easily Through Tamil</div>
-</header>
 
-<div class="container">
+<!-- CHAT -->
 
-    <div class="title">
-        <h1>🤖 AI English Conversation</h1>
-        <p>AI-யுடன் இயற்கையாக English பேசிப் பழகுங்கள்</p>
-    </div>
+<div
+    class="chat-container"
+    id="chatContainer"
+>
 
-    <div class="chat-box" id="chatBox">
+    <div
+        class="welcome"
+        id="welcome"
+    >
 
-        <div class="message ai">
-            <div class="bubble">
-                <div class="ai-label">🤖 AI Teacher</div>
+        <h1>
+            Let's Practice English 🩵
+        </h1>
 
-                <div>
-                    Hello! 👋 I'm your English conversation partner.
-                    Let's talk naturally.
-                </div>
-
-                <div class="tamil">
-                    வணக்கம்! 👋 நான் உங்களுடைய English conversation partner.
-                    இயற்கையாக பேசிப் பழகலாம்.
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="input-area">
-
-        <textarea
-            id="userInput"
-            placeholder="Type your English sentence here..."
-        ></textarea>
-
-        <div class="buttons">
-
-            <button class="mic-btn" id="micBtn">
-                🎤 Speak
-            </button>
-
-            <button class="send-btn" id="sendBtn">
-                ➤ Send
-            </button>
-
-            <button class="clear-btn" id="clearBtn">
-                🗑 Clear
-            </button>
-
-        </div>
-
-        <div class="status" id="status">
-            AI conversation ready
-        </div>
+        <p>
+            Talk with AI and improve your English conversation.
+        </p>
 
     </div>
 
 </div>
 
+
+
+<!-- START CONVERSATION BUTTON -->
+
+<div class="input-area">
+
+    <button
+        class="start-conversation-btn"
+        id="startConversation"
+        onclick="startConversation()"
+    >
+
+        🗣️ Start Conversation
+
+    </button>
+
+</div>
+
+
+
 <script>
 
-const chatBox = document.getElementById("chatBox");
-const userInput = document.getElementById("userInput");
-const sendBtn = document.getElementById("sendBtn");
-const micBtn = document.getElementById("micBtn");
-const clearBtn = document.getElementById("clearBtn");
-const statusText = document.getElementById("status");
+function startConversation(){
 
-let conversation = [];
+    /*
+       இங்கே AI conversation start செய்யலாம்.
+       அடுத்த step-ல்:
 
+       1. Microphone permission
+       2. User English பேசுவது
+       3. Speech → Text
+       4. Gemini AI
+       5. AI reply
+       6. AI Voice reply
 
-// -----------------------------
-// ADD USER MESSAGE
-// -----------------------------
+       எல்லாம் connect செய்யலாம்.
+    */
 
-function addUserMessage(text) {
+    console.log("AI Conversation Started");
 
-    const message = document.createElement("div");
-
-    message.className = "message user";
-
-    message.innerHTML = `
-        <div class="bubble">
-            ${escapeHTML(text)}
-        </div>
-    `;
-
-    chatBox.appendChild(message);
-
-    scrollBottom();
-}
-
-
-// -----------------------------
-// ADD AI MESSAGE
-// -----------------------------
-
-function addAIMessage(data) {
-
-    const message = document.createElement("div");
-
-    message.className = "message ai";
-
-    let correctionHTML = "";
-
-    if (
-        data.corrected &&
-        data.corrected.trim() !== ""
-    ) {
-
-        correctionHTML = `
-            <div class="correction">
-                ✏️ <b>Correction:</b><br>
-                ${escapeHTML(data.corrected)}
-            </div>
-        `;
-    }
-
-    message.innerHTML = `
-        <div class="bubble">
-
-            <div class="ai-label">
-                🤖 AI Teacher
-            </div>
-
-            <div>
-                ${escapeHTML(data.reply)}
-            </div>
-
-            ${correctionHTML}
-
-            <div class="tamil">
-                🇮🇳 ${escapeHTML(data.tamil)}
-            </div>
-
-        </div>
-    `;
-
-    chatBox.appendChild(message);
-
-    scrollBottom();
-
-    speakAI(data.reply);
-}
-
-
-// -----------------------------
-// SEND MESSAGE TO AI
-// -----------------------------
-
-async function sendMessage() {
-
-    const text = userInput.value.trim();
-
-    if (!text) return;
-
-    addUserMessage(text);
-
-    userInput.value = "";
-
-    statusText.textContent = "🤖 AI is thinking...";
-
-    sendBtn.disabled = true;
-    micBtn.disabled = true;
-
-    conversation.push({
-        role: "user",
-        content: text
-    });
-
-    try {
-
-        const response = await fetch("/api/speak", {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                message: text,
-                conversation: conversation
-            })
-
-        });
-
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error(data.error || "AI request failed");
-        }
-
-        addAIMessage(data);
-
-        conversation.push({
-            role: "assistant",
-            content: data.reply
-        });
-
-        statusText.textContent =
-            "🎤 Your turn — continue the conversation";
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        addAIMessage({
-            reply: "Sorry, I couldn't connect to the AI right now.",
-            tamil: "மன்னிக்கவும், இப்போது AI-யுடன் connection கிடைக்கவில்லை.",
-            corrected: ""
-        });
-
-        statusText.textContent =
-            "Connection error";
-
-    }
-
-    finally {
-
-        sendBtn.disabled = false;
-        micBtn.disabled = false;
-
-        userInput.focus();
-    }
-}
-
-
-// -----------------------------
-// ENTER TO SEND
-// -----------------------------
-
-userInput.addEventListener("keydown", function(e) {
-
-    if (e.key === "Enter" && !e.shiftKey) {
-
-        e.preventDefault();
-
-        sendMessage();
-    }
-
-});
-
-
-// -----------------------------
-// SPEECH RECOGNITION
-// -----------------------------
-
-const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
-
-let recognition = null;
-
-if (SpeechRecognition) {
-
-    recognition = new SpeechRecognition();
-
-    recognition.lang = "en-US";
-
-    recognition.continuous = false;
-
-    recognition.interimResults = false;
-
-    recognition.onstart = function() {
-
-        micBtn.classList.add("listening");
-
-        micBtn.textContent = "🔴 Listening...";
-
-        statusText.textContent =
-            "Speak in English...";
-
-    };
-
-    recognition.onresult = function(event) {
-
-        const text =
-            event.results[0][0].transcript;
-
-        userInput.value = text;
-
-        statusText.textContent =
-            "Speech detected. Press Send.";
-
-    };
-
-    recognition.onerror = function() {
-
-        statusText.textContent =
-            "Microphone error. Try again.";
-
-    };
-
-    recognition.onend = function() {
-
-        micBtn.classList.remove("listening");
-
-        micBtn.textContent = "🎤 Speak";
-    };
-
-} else {
-
-    micBtn.disabled = true;
-
-    micBtn.textContent =
-        "🎤 Not supported";
-
-}
-
-
-// -----------------------------
-// MICROPHONE BUTTON
-// -----------------------------
-
-micBtn.addEventListener("click", function() {
-
-    if (!recognition) return;
-
-    try {
-        recognition.start();
-    }
-    catch(error) {
-        console.log(error);
-    }
-
-});
-
-
-// -----------------------------
-// AI VOICE
-// -----------------------------
-
-function speakAI(text) {
-
-    if (!("speechSynthesis" in window)) {
-        return;
-    }
-
-    window.speechSynthesis.cancel();
-
-    const speech =
-        new SpeechSynthesisUtterance(text);
-
-    speech.lang = "en-US";
-
-    speech.rate = 0.92;
-
-    speech.pitch = 1;
-
-    window.speechSynthesis.speak(speech);
-}
-
-
-// -----------------------------
-// CLEAR CHAT
-// -----------------------------
-
-clearBtn.addEventListener("click", function() {
-
-    conversation = [];
-
-    chatBox.innerHTML = `
-        <div class="message ai">
-            <div class="bubble">
-
-                <div class="ai-label">
-                    🤖 AI Teacher
-                </div>
-
-                <div>
-                    Hello! 👋 Let's start a new English conversation.
-                </div>
-
-                <div class="tamil">
-                    புதிய English conversation ஆரம்பிக்கலாம்.
-                </div>
-
-            </div>
-        </div>
-    `;
-
-    statusText.textContent =
-        "New conversation started";
-
-});
-
-
-// -----------------------------
-// ESCAPE HTML
-// -----------------------------
-
-function escapeHTML(text) {
-
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-
-// -----------------------------
-// SCROLL
-// -----------------------------
-
-function scrollBottom() {
-
-    chatBox.scrollTop =
-        chatBox.scrollHeight;
 }
 
 </script>
 
+
 </body>
 </html>
-```

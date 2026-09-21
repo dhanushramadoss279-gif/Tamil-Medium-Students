@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Advanced Level 1</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #dff6ff, #eef9ff);
+        min-height: 100vh;
+    }
+
+    .word-card {
+        transition: 0.25s;
+    }
+
+    .word-card:hover {
+        transform: translateY(-2px);
+    }
+
+    .option {
+        transition: 0.2s;
+    }
+
+    .option:hover {
+        transform: scale(1.02);
+    }
+
+    .selected-word {
+        animation: pop 0.15s ease;
+    }
+
+    @keyframes pop {
+        50% {
+            transform: scale(1.05);
+        }
+    }
+
+    .hidden {
+        display: none !important;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- MAIN CONTAINER -->
+<div class="max-w-3xl mx-auto px-4 py-6">
+
+    <!-- TOP -->
+    <div class="text-center mb-6">
+        <div class="inline-block bg-blue-600 text-white px-5 py-2 rounded-full font-bold">
+            ADVANCED • LEVEL 1
+        </div>
+
+        <h1 class="text-3xl font-bold text-blue-900 mt-4">
+            Communication & Workplace
+        </h1>
+
+        <p class="text-gray-600 mt-2">
+            Learn the words → Build sentences → Earn XP
+        </p>
+
+        <div class="mt-4 bg-white rounded-full h-4 shadow overflow-hidden">
+            <div id="progressBar"
+                 class="bg-blue-600 h-full transition-all duration-500"
+                 style="width:0%">
+            </div>
+        </div>
+
+        <div class="flex justify-between mt-2 text-sm font-bold">
+            <span id="progressText">0 / 10</span>
+            <span id="xpText">XP: 0</span>
+        </div>
+    </div>
+
+
+    <!-- VOCABULARY SECTION -->
+    <div id="vocabSection">
+
+        <div class="bg-white rounded-3xl shadow-lg p-5">
+
+            <h2 class="text-2xl font-bold text-blue-900 text-center mb-2">
+                Learn the Words
+            </h2>
+
+            <p class="text-center text-gray-500 mb-5">
+                Choose the correct Tamil meaning
+            </p>
+
+            <div id="vocabContainer"></div>
+
+        </div>
+
+        <button
+            id="startSentenceBtn"
+            onclick="startSentenceGame()"
+            class="hidden w-full mt-5 bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold text-lg shadow-lg">
+            Start Sentence Game →
+        </button>
+
+    </div>
+
+
+    <!-- SENTENCE GAME -->
+    <div id="sentenceSection" class="hidden">
+
+        <div class="bg-white rounded-3xl shadow-lg p-5">
+
+            <div class="flex justify-between items-center mb-5">
+
+                <div>
+                    <p class="text-sm text-gray-500">
+                        Sentence
+                    </p>
+
+                    <p id="sentenceNumber"
+                       class="text-xl font-bold text-blue-800">
+                        1 / 10
+                    </p>
+                </div>
+
+                <div class="bg-yellow-100 px-4 py-2 rounded-full">
+                    <span class="font-bold text-yellow-700">
+                        +10 XP
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- TAMIL QUESTION -->
+            <div class="bg-blue-50 rounded-2xl p-5 text-center mb-5">
+
+                <p class="text-sm text-blue-600 font-bold mb-2">
+                    தமிழ் அர்த்தம்
+                </p>
+
+                <p id="tamilQuestion"
+                   class="text-xl font-bold text-gray-800">
+                </p>
+
+            </div>
+
+
+            <!-- ANSWER AREA -->
+            <div class="border-2 border-dashed border-blue-300 rounded-2xl p-4 min-h-[80px]">
+
+                <p class="text-sm text-gray-500 mb-2">
+                    Your Sentence
+                </p>
+
+                <div id="answerArea"
+                     class="flex flex-wrap gap-2">
+                </div>
+
+            </div>
+
+
+            <!-- WORD BANK -->
+            <div class="mt-5">
+
+                <p class="font-bold text-gray-700 mb-3">
+                    Choose the words
+                </p>
+
+                <div id="wordBank"
+                     class="flex flex-wrap gap-2">
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+            <div class="grid grid-cols-2 gap-3 mt-6">
+
+                <button
+                    onclick="checkSentence()"
+                    class="bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-bold">
+                    Check Answer
+                </button>
+
+                <button
+                    onclick="clearAnswer()"
+                    class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 rounded-xl font-bold">
+                    Clear
+                </button>
+
+            </div>
+
+
+            <!-- MESSAGE -->
+            <div id="sentenceMessage"
+                 class="text-center font-bold mt-4 min-h-[28px]">
+            </div>
+
+
+            <!-- NEXT -->
+            <button
+                id="nextSentenceBtn"
+                onclick="nextSentence()"
+                class="hidden w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-bold">
+                Next Question →
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMPLETE -->
+    <div id="completeSection"
+         class="hidden">
+
+        <div class="bg-white rounded-3xl shadow-xl p-8 text-center">
+
+            <div class="text-6xl mb-4">
+                🎉
+            </div>
+
+            <h2 class="text-3xl font-bold text-blue-900">
+                Level Complete!
+            </h2>
+
+            <p class="text-gray-600 mt-3">
+                You completed Advanced Level 1
+            </p>
+
+            <div class="bg-blue-50 rounded-2xl p-5 mt-6">
+
+                <p class="text-gray-600">
+                    Your XP
+                </p>
+
+                <p id="finalXP"
+                   class="text-4xl font-bold text-blue-700">
+                    0 XP
+                </p>
+
+            </div>
+
+            <div class="mt-6 bg-green-50 rounded-2xl p-5">
+
+                <p class="font-bold text-green-700">
+                    🏆 Communication & Workplace
+                </p>
+
+                <p class="text-sm text-gray-600 mt-2">
+                    You learned 10 advanced words and
+                    practiced 10 sentences.
+                </p>
+
+            </div>
+
+            <button
+                onclick="location.reload()"
+                class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-bold">
+                Practice Again
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ================================
+   VOCABULARY DATA
+================================ */
+
+const vocabulary = [
+
+    {
+        word: "Opportunity",
+        tamil: "வாய்ப்பு"
+    },
+
+    {
+        word: "Experience",
+        tamil: "அனுபவம்"
+    },
+
+    {
+        word: "Responsibility",
+        tamil: "பொறுப்பு"
+    },
+
+    {
+        word: "Decision",
+        tamil: "முடிவு"
+    },
+
+    {
+        word: "Challenge",
+        tamil: "சவால்"
+    },
+
+    {
+        word: "Solution",
+        tamil: "தீர்வு"
+    },
+
+    {
+        word: "Requirement",
+        tamil: "தேவையான தகுதி / தேவை"
+    },
+
+    {
+        word: "Professional",
+        tamil: "தொழில்முறை"
+    },
+
+    {
+        word: "Communicate",
+        tamil: "தொடர்புகொள் / பேசித் தெரிவி"
+    },
+
+    {
+        word: "Achieve",
+        tamil: "சாதி / அடை"
+    }
+
+];
+
+
+/* ================================
+   SENTENCE DATA
+================================ */
+
+const sentences = [
+
+    {
+        tamil: "எனக்கு ஒரு சிறந்த வாய்ப்பைத் தேடிக்கொண்டிருக்கிறேன்.",
+        english: "I am looking for a better opportunity."
+    },
+
+    {
+        tamil: "இந்த வேலைக்கு அவளுக்கு போதுமான அனுபவம் உள்ளது.",
+        english: "She has enough experience for this job."
+    },
+
+    {
+        tamil: "அவன் இந்த திட்டத்திற்குப் பொறுப்பானவன்.",
+        english: "He is responsible for the project."
+    },
+
+    {
+        tamil: "நாம் ஒரு முக்கியமான முடிவை எடுக்க வேண்டும்.",
+        english: "We need to make an important decision."
+    },
+
+    {
+        tamil: "ஒவ்வொரு வேலைக்கும் அதற்கே உரிய சவால்கள் உள்ளன.",
+        english: "Every job has its own challenges."
+    },
+
+    {
+        tamil: "இந்த பிரச்சினைக்கு நாம் ஒரு தீர்வைக் கண்டுபிடிக்க வேண்டும்.",
+        english: "We should find a solution to this problem."
+    },
+
+    {
+        tamil: "அந்த நிறுவனத்திற்கு சில குறிப்பிட்ட தேவைகள் உள்ளன.",
+        english: "The company has some specific requirements."
+    },
+
+    {
+        tamil: "நீ உன் குழுவினருடன் தொழில்முறையாக தொடர்புகொள்ள வேண்டும்.",
+        english: "You should communicate professionally with your team."
+    },
+
+    {
+        tamil: "நான் எனது முதல் இலக்கை அடைந்துவிட்டேன்.",
+        english: "I have achieved my first goal."
+    },
+
+    {
+        tamil: "எனது தொடர்பு கொள்ளும் திறனை நான் எவ்வாறு மேம்படுத்த முடியும்?",
+        english: "How can I improve my communication skills?"
+    }
+
+];
+
+
+/* ================================
+   VARIABLES
+================================ */
+
+let vocabCompleted = 0;
+let xp = 0;
+
+let currentSentence = 0;
+let selectedWords = [];
+let wrongAttempts = 0;
+let sentenceLocked = false;
+
+
+/* ================================
+   SOUND
+================================ */
+
+function playSound(type) {
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    const audioContext = new AudioContext();
+
+    const oscillator =
+        audioContext.createOscillator();
+
+    const gain =
+        audioContext.createGain();
+
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+
+    if (type === "correct") {
+        oscillator.frequency.value = 700;
+    } else {
+        oscillator.frequency.value = 180;
+    }
+
+    oscillator.type = "sine";
+
+    gain.gain.setValueAtTime(
+        0.25,
+        audioContext.currentTime
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.01,
+        audioContext.currentTime + 0.25
+    );
+
+    oscillator.start();
+
+    oscillator.stop(
+        audioContext.currentTime + 0.25
+    );
+}
+
+
+/* ================================
+   SHUFFLE
+================================ */
+
+function shuffle(array) {
+
+    return [...array].sort(
+        () => Math.random() - 0.5
+    );
+
+}
+
+
+/* ================================
+   VOCABULARY GAME
+================================ */
+
+function loadVocabulary() {
+
+    const container =
+        document.getElementById("vocabContainer");
+
+    container.innerHTML = "";
+
+    vocabulary.forEach((item, index) => {
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "word-card bg-gray-50 rounded-2xl p-4 mb-4 border";
+
+        const wrongOptions =
+            vocabulary
+                .filter((_, i) => i !== index)
+                .map(x => x.tamil);
+
+        const options =
+            shuffle([
+                item.tamil,
+                ...shuffle(wrongOptions).slice(0, 2)
+            ]);
+
+        card.innerHTML = `
+
+            <div class="flex items-center justify-between gap-3">
+
+                <div class="w-1/3">
+
+                    <p class="text-lg font-bold text-blue-900">
+                        ${item.word}
+                    </p>
+
+                    <p class="text-xs text-gray-400 mt-1">
+                        Word ${index + 1}
+                    </p>
+
+                </div>
+
+                <div class="w-2/3 grid grid-cols-1 gap-2">
+
+                    ${options.map(option => `
+
+                        <button
+                            class="option bg-white border rounded-xl p-3 text-left font-semibold"
+                            onclick="checkMeaning(
+                                this,
+                                '${option.replace(/'/g, "\\'")}',
+                                '${item.tamil.replace(/'/g, "\\'")}',
+                                ${index}
+                            )">
+
+                            ${option}
+
+                        </button>
+
+                    `).join("")}
+
+                </div>
+
+            </div>
+
+        `;
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* ================================
+   CHECK VOCAB
+================================ */
+
+function checkMeaning(
+    button,
+    selected,
+    correct,
+    index
+) {
+
+    const card =
+        button.closest(".word-card");
+
+    if (card.dataset.completed === "true") {
+        return;
+    }
+
+    if (selected === correct) {
+
+        button.classList.remove("bg-white");
+
+        button.classList.add(
+            "bg-green-500",
+            "text-white",
+            "border-green-500"
+        );
+
+        card.dataset.completed = "true";
+
+        const buttons =
+            card.querySelectorAll("button");
+
+        buttons.forEach(btn => {
+            btn.disabled = true;
+        });
+
+        vocabCompleted++;
+
+        playSound("correct");
+
+        updateProgress();
+
+        if (vocabCompleted === vocabulary.length) {
+
+            document
+                .getElementById("startSentenceBtn")
+                .classList.remove("hidden");
+
+        }
+
+    } else {
+
+        button.classList.remove("bg-white");
+
+        button.classList.add(
+            "bg-red-500",
+            "text-white",
+            "border-red-500"
+        );
+
+        playSound("wrong");
+
+        setTimeout(() => {
+
+            button.classList.remove(
+                "bg-red-500",
+                "text-white",
+                "border-red-500"
+            );
+
+            button.classList.add("bg-white");
+
+        }, 500);
+
+    }
+
+}
+
+
+/* ================================
+   PROGRESS
+================================ */
+
+function updateProgress() {
+
+    const percent =
+        (vocabCompleted / vocabulary.length) * 100;
+
+    document
+        .getElementById("progressBar")
+        .style.width = percent + "%";
+
+    document
+        .getElementById("progressText")
+        .textContent =
+        vocabCompleted + " / 10";
+
+    document
+        .getElementById("xpText")
+        .textContent =
+        "XP: " + xp;
+
+}
+
+
+/* ================================
+   START SENTENCE GAME
+================================ */
+
+function startSentenceGame() {
+
+    document
+        .getElementById("vocabSection")
+        .classList.add("hidden");
+
+    document
+        .getElementById("sentenceSection")
+        .classList.remove("hidden");
+
+    loadSentence();
+
+}
+
+
+/* ================================
+   LOAD SENTENCE
+================================ */
+
+function loadSentence() {
+
+    selectedWords = [];
+
+    wrongAttempts = 0;
+
+    sentenceLocked = false;
+
+    const question =
+        sentences[currentSentence];
+
+    document
+        .getElementById("sentenceNumber")
+        .textContent =
+        `${currentSentence + 1} / ${sentences.length}`;
+
+    document
+        .getElementById("tamilQuestion")
+        .textContent =
+        question.tamil;
+
+    document
+        .getElementById("answerArea")
+        .innerHTML = "";
+
+    document
+        .getElementById("sentenceMessage")
+        .textContent = "";
+
+    document
+        .getElementById("nextSentenceBtn")
+        .classList.add("hidden");
+
+    const words =
+        question.english.split(" ");
+
+    const shuffled =
+        shuffle(words);
+
+    const wordBank =
+        document.getElementById("wordBank");
+
+    wordBank.innerHTML = "";
+
+    shuffled.forEach((word, index) => {
+
+        const button =
+            document.createElement("button");
+
+        button.textContent = word;
+
+        button.className =
+            "bg-blue-100 text-blue-800 px-4 py-2 rounded-xl font-bold hover:bg-blue-200 transition";
+
+        button.dataset.word = word;
+
+        button.onclick = function () {
+
+            if (sentenceLocked) return;
+
+            selectWord(button, word);
+
+        };
+
+        wordBank.appendChild(button);
+
+    });
+
+}
+
+
+/* ================================
+   SELECT WORD
+================================ */
+
+function selectWord(button, word) {
+
+    selectedWords.push(word);
+
+    button.disabled = true;
+
+    button.classList.add(
+        "opacity-40",
+        "cursor-not-allowed"
+    );
+
+    const chip =
+        document.createElement("button");
+
+    chip.textContent = word;
+
+    chip.className =
+        "selected-word bg-blue-600 text-white px-3 py-2 rounded-xl font-bold";
+
+    chip.onclick = function () {
+
+        if (sentenceLocked) return;
+
+        const position =
+            selectedWords.indexOf(word);
+
+        if (position !== -1) {
+            selectedWords.splice(position, 1);
+        }
+
+        button.disabled = false;
+
+        button.classList.remove(
+            "opacity-40",
+            "cursor-not-allowed"
+        );
+
+        chip.remove();
+
+    };
+
+    document
+        .getElementById("answerArea")
+        .appendChild(chip);
+
+}
+
+
+/* ================================
+   CLEAR
+================================ */
+
+function clearAnswer() {
+
+    if (sentenceLocked) return;
+
+    selectedWords = [];
+
+    document
+        .getElementById("answerArea")
+        .innerHTML = "";
+
+    const buttons =
+        document
+            .getElementById("wordBank")
+            .querySelectorAll("button");
+
+    buttons.forEach(button => {
+
+        button.disabled = false;
+
+        button.classList.remove(
+            "opacity-40",
+            "cursor-not-allowed"
+        );
+
+    });
+
+}
+
+
+/* ================================
+   CHECK SENTENCE
+================================ */
+
+function checkSentence() {
+
+    if (sentenceLocked) return;
+
+    const correct =
+        sentences[currentSentence]
+            .english
+            .split(" ");
+
+    const userAnswer =
+        selectedWords.join(" ");
+
+    const correctAnswer =
+        correct.join(" ");
+
+    const message =
+        document.getElementById(
+            "sentenceMessage"
+        );
+
+
+    /* EMPTY */
+    if (selectedWords.length === 0) {
+
+        message.textContent =
+            "Choose the words first.";
+
+        message.className =
+            "text-center font-bold mt-4 text-orange-600";
+
+        return;
+    }
+
+
+    /* CORRECT */
+    if (userAnswer === correctAnswer) {
+
+        sentenceLocked = true;
+
+        xp += 10;
+
+        message.textContent =
+            "✓ Correct! +10 XP";
+
+        message.className =
+            "text-center font-bold mt-4 text-green-600";
+
+        playSound("correct");
+
+        updateProgress();
+
+        document
+            .getElementById("nextSentenceBtn")
+            .classList.remove("hidden");
+
+    }
+
+    /* WRONG */
+    else {
+
+        wrongAttempts++;
+
+        playSound("wrong");
+
+        if (wrongAttempts >= 3) {
+
+            sentenceLocked = true;
+
+            message.innerHTML =
+                `❌ Correct Answer:<br>
+                <span class="text-blue-700">
+                ${correctAnswer}
+                </span>`;
+
+            message.className =
+                "text-center font-bold mt-4 text-red-600";
+
+            document
+                .getElementById("nextSentenceBtn")
+                .classList.remove("hidden");
+
+        } else {
+
+            message.textContent =
+                `❌ Wrong answer. Try again (${wrongAttempts}/3)`;
+
+            message.className =
+                "text-center font-bold mt-4 text-red-600";
+
+        }
+
+    }
+
+}
+
+
+/* ================================
+   NEXT SENTENCE
+================================ */
+
+function nextSentence() {
+
+    currentSentence++;
+
+    if (currentSentence >= sentences.length) {
+
+        showComplete();
+
+        return;
+    }
+
+    loadSentence();
+
+}
+
+
+/* ================================
+   COMPLETE
+================================ */
+
+function showComplete() {
+
+    document
+        .getElementById("sentenceSection")
+        .classList.add("hidden");
+
+    document
+        .getElementById("completeSection")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("finalXP")
+        .textContent =
+        xp + " XP";
+
+    document
+        .getElementById("progressBar")
+        .style.width = "100%";
+
+    document
+        .getElementById("progressText")
+        .textContent = "10 / 10";
+
+}
+
+
+/* ================================
+   START
+================================ */
+
+loadVocabulary();
+
+</script>
+
+</body>
+</html>

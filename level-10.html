@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Level 4 - Basic English</title>
+<title>Level 10 - Basic English</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -114,7 +114,7 @@ body{
 .english-word{
     font-size:20px;
     font-weight:800;
-    min-width:100px;
+    min-width:150px;
 }
 
 .meanings{
@@ -227,8 +227,9 @@ body{
     color:#475569;
     background:#f4fbff;
     border-radius:12px;
-    padding:10px;
+    padding:12px;
     margin-bottom:18px;
+    line-height:1.7;
 }
 
 /* ANSWER */
@@ -297,6 +298,7 @@ body{
     min-height:27px;
     font-size:15px;
     font-weight:700;
+    margin-bottom:5px;
 }
 
 .success{
@@ -328,7 +330,7 @@ body{
 .complete-text{
     color:#64748b;
     font-size:14px;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 .final-xp{
@@ -375,6 +377,7 @@ body{
 
     .english-word{
         font-size:19px;
+        min-width:0;
     }
 
     .meanings{
@@ -433,28 +436,32 @@ body{
 <div class="section" id="learnSection">
 
     <div class="title">
-        Level 4 🚀
+        Level 10 🚀
     </div>
 
     <div class="subtitle">
-        Vocabulary + Present Simple Grammar
+        MUST / MUSTN'T • கட்டாயம்
     </div>
 
     <div class="xp-area">
 
         <div class="xp-top">
+
             <span>Words Progress</span>
 
             <span class="xp" id="xpText">
                 0 XP
             </span>
+
         </div>
 
         <div class="progress">
+
             <div
                 class="progress-bar"
                 id="progressBar">
             </div>
+
         </div>
 
     </div>
@@ -495,7 +502,7 @@ body{
         class="grammar-tag"
         id="grammarTag">
 
-        Present Simple
+        MUST • Necessity
 
     </div>
 
@@ -538,7 +545,8 @@ body{
 
     <button
         class="next-btn"
-        id="nextBtn">
+        id="nextBtn"
+        style="display:none;">
 
         Next Question →
 
@@ -560,12 +568,13 @@ body{
     </div>
 
     <div class="complete-title">
-        Level 4 Complete!
+        Level 10 Complete!
     </div>
 
     <div class="complete-text">
         Excellent! You practiced
-        Positive, Negative and Question forms.
+        MUST, MUSTN'T and
+        MUST questions.
     </div>
 
     <div
@@ -591,137 +600,239 @@ body{
 
 <script>
 
-/* =========================
-   LEVEL 4 WORDS
-========================= */
+/* =====================================================
+   LEVEL 10 VOCABULARY
+===================================================== */
 
 const learningWords = [
 
     {
-        word:"Morning",
-        meaning:"காலை"
+        word:"Follow",
+        meaning:"பின்பற்று"
     },
 
     {
-        word:"Night",
-        meaning:"இரவு"
+        word:"Rule",
+        meaning:"விதி"
     },
 
     {
-        word:"School",
-        meaning:"பள்ளி"
+        word:"Wear",
+        meaning:"அணி"
     },
 
     {
-        word:"Home",
-        meaning:"வீடு"
+        word:"Carry",
+        meaning:"எடுத்துச் செல்"
     },
 
     {
-        word:"Food",
-        meaning:"உணவு"
+        word:"Bring",
+        meaning:"கொண்டு வா"
     },
 
     {
-        word:"Water",
-        meaning:"தண்ணீர்"
+        word:"Keep",
+        meaning:"வைத்திரு"
     },
 
     {
-        word:"Every",
-        meaning:"ஒவ்வொரு"
+        word:"Stop",
+        meaning:"நிறுத்து"
     },
 
     {
-        word:"Usually",
-        meaning:"பொதுவாக"
+        word:"Obey",
+        meaning:"கீழ்ப்படி"
     },
 
     {
-        word:"Always",
-        meaning:"எப்போதும்"
+        word:"Safety",
+        meaning:"பாதுகாப்பு"
     },
 
     {
-        word:"Today",
-        meaning:"இன்று"
+        word:"Important",
+        meaning:"முக்கியமான"
     }
 
 ];
 
 
-/* =========================
-   GRAMMAR QUESTIONS
-========================= */
+/* =====================================================
+   QUESTIONS
+===================================================== */
 
 const questions = [
 
     {
-        answer:["I","go","to","school","every","day"],
-        tamil:"நான் தினமும் பள்ளிக்குச் செல்கிறேன்",
-        grammar:"Present Simple • Positive"
+        answer:[
+            "You",
+            "must",
+            "follow",
+            "the",
+            "rules"
+        ],
+
+        tamil:
+            "நீ விதிகளை கண்டிப்பாக பின்பற்ற வேண்டும்",
+
+        grammar:
+            "MUST • Necessity"
     },
 
     {
-        answer:["She","goes","to","school","every","day"],
-        tamil:"அவள் தினமும் பள்ளிக்குச் செல்கிறாள்",
-        grammar:"Present Simple • He / She"
+        answer:[
+            "You",
+            "must",
+            "wear",
+            "a",
+            "helmet"
+        ],
+
+        tamil:
+            "நீ கட்டாயம் தலைக்கவசம் அணிய வேண்டும்",
+
+        grammar:
+            "MUST • Safety"
     },
 
     {
-        answer:["I","do","not","go","to","school","at","night"],
-        tamil:"நான் இரவில் பள்ளிக்குச் செல்லவில்லை",
-        grammar:"Present Simple • Negative"
+        answer:[
+            "We",
+            "must",
+            "keep",
+            "the",
+            "room",
+            "clean"
+        ],
+
+        tamil:
+            "நாம் அறையை சுத்தமாக வைத்திருக்க வேண்டும்",
+
+        grammar:
+            "MUST • Necessity"
     },
 
     {
-        answer:["He","does","not","drink","water"],
-        tamil:"அவன் தண்ணீர் குடிப்பதில்லை",
-        grammar:"DOES • Negative"
+        answer:[
+            "You",
+            "must",
+            "bring",
+            "your",
+            "book"
+        ],
+
+        tamil:
+            "நீ உன் புத்தகத்தை கட்டாயம் கொண்டு வர வேண்டும்",
+
+        grammar:
+            "MUST • Requirement"
     },
 
     {
-        answer:["Do","you","drink","water"],
-        tamil:"நீ தண்ணீர் குடிப்பாயா?",
-        grammar:"DO • Question"
+        answer:[
+            "You",
+            "must",
+            "stop",
+            "here"
+        ],
+
+        tamil:
+            "நீ இங்கே கட்டாயம் நிறுத்த வேண்டும்",
+
+        grammar:
+            "MUST • Rule"
     },
 
     {
-        answer:["Does","she","go","to","school"],
-        tamil:"அவள் பள்ளிக்குச் செல்கிறாளா?",
-        grammar:"DOES • Question"
+        answer:[
+            "You",
+            "must",
+            "not",
+            "break",
+            "the",
+            "rules"
+        ],
+
+        tamil:
+            "நீ விதிகளை மீறக்கூடாது",
+
+        grammar:
+            "MUSTN'T • Prohibition"
     },
 
     {
-        answer:["I","usually","eat","food","at","home"],
-        tamil:"நான் பொதுவாக வீட்டில் உணவு சாப்பிடுகிறேன்",
-        grammar:"Present Simple • Adverb"
+        answer:[
+            "You",
+            "must",
+            "not",
+            "run",
+            "here"
+        ],
+
+        tamil:
+            "நீ இங்கே ஓடக்கூடாது",
+
+        grammar:
+            "MUSTN'T • Prohibition"
     },
 
     {
-        answer:["He","always","drinks","water"],
-        tamil:"அவன் எப்போதும் தண்ணீர் குடிக்கிறான்",
-        grammar:"Present Simple • Adverb"
+        answer:[
+            "Must",
+            "I",
+            "bring",
+            "my",
+            "book"
+        ],
+
+        tamil:
+            "நான் என் புத்தகத்தை கொண்டு வர வேண்டுமா?",
+
+        grammar:
+            "MUST • Question"
     },
 
     {
-        answer:["I","am","at","home","today"],
-        tamil:"நான் இன்று வீட்டில் இருக்கிறேன்",
-        grammar:"BE • Present"
+        answer:[
+            "Must",
+            "we",
+            "wear",
+            "a",
+            "helmet"
+        ],
+
+        tamil:
+            "நாம் தலைக்கவசம் அணிய வேண்டுமா?",
+
+        grammar:
+            "MUST • Question"
     },
 
     {
-        answer:["Are","you","at","home","today"],
-        tamil:"நீ இன்று வீட்டில் இருக்கிறாயா?",
-        grammar:"BE • Question"
+        answer:[
+            "Why",
+            "must",
+            "I",
+            "follow",
+            "this",
+            "rule"
+        ],
+
+        tamil:
+            "நான் ஏன் இந்த விதியை பின்பற்ற வேண்டும்?",
+
+        grammar:
+            "WH Question • MUST"
     }
 
 ];
 
 
-/* =========================
+/* =====================================================
    VARIABLES
-========================= */
+===================================================== */
 
 let learnedWords = 0;
 
@@ -734,28 +845,31 @@ let selectedWords = [];
 let mistakes = 0;
 
 
-/* =========================
+/* =====================================================
    BEEP
-========================= */
+===================================================== */
 
 function beep(type){
 
-    const audioContext =
-        new (
-            window.AudioContext ||
-            window.webkitAudioContext
-        )();
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
+
+    if(!AudioContext) return;
+
+    const audio =
+        new AudioContext();
 
     const oscillator =
-        audioContext.createOscillator();
+        audio.createOscillator();
 
     const gain =
-        audioContext.createGain();
+        audio.createGain();
 
     oscillator.connect(gain);
 
     gain.connect(
-        audioContext.destination
+        audio.destination
     );
 
     oscillator.frequency.value =
@@ -765,26 +879,26 @@ function beep(type){
 
     gain.gain.setValueAtTime(
         0.15,
-        audioContext.currentTime
+        audio.currentTime
     );
 
     gain.gain.exponentialRampToValueAtTime(
         0.001,
-        audioContext.currentTime + 0.2
+        audio.currentTime + 0.2
     );
 
     oscillator.start();
 
     oscillator.stop(
-        audioContext.currentTime + 0.2
+        audio.currentTime + 0.2
     );
 
 }
 
 
-/* =========================
+/* =====================================================
    SHUFFLE
-========================= */
+===================================================== */
 
 function shuffle(array){
 
@@ -795,9 +909,9 @@ function shuffle(array){
 }
 
 
-/* =========================
-   CREATE WORDS
-========================= */
+/* =====================================================
+   CREATE VOCABULARY
+===================================================== */
 
 function createLearningWords(){
 
@@ -822,7 +936,8 @@ function createLearningWords(){
             learningWords
             .filter(
                 x =>
-                x.meaning !== item.meaning
+                x.meaning !==
+                item.meaning
             )
             .map(
                 x => x.meaning
@@ -857,7 +972,7 @@ function createLearningWords(){
                             class="meaning-btn"
                             onclick="checkMeaning(
                                 this,
-                                '${item.meaning.replace(/'/g,"\\'")}',
+                                '${option.replace(/'/g,"\\'")}',
                                 ${index}
                             )">
 
@@ -880,9 +995,9 @@ function createLearningWords(){
 }
 
 
-/* =========================
-   CHECK MEANING
-========================= */
+/* =====================================================
+   CHECK VOCABULARY
+===================================================== */
 
 function checkMeaning(
     button,
@@ -919,7 +1034,7 @@ function checkMeaning(
             ".meaning-btn"
         )
         .forEach(btn=>{
-            btn.disabled=true;
+            btn.disabled = true;
         });
 
         learnedWords++;
@@ -940,7 +1055,8 @@ function checkMeaning(
 
         }
 
-    }else{
+    }
+    else{
 
         button.classList.add(
             "wrong"
@@ -959,9 +1075,9 @@ function checkMeaning(
 }
 
 
-/* =========================
+/* =====================================================
    PROGRESS
-========================= */
+===================================================== */
 
 function updateProgress(){
 
@@ -984,9 +1100,9 @@ function updateProgress(){
 }
 
 
-/* =========================
+/* =====================================================
    START GAME
-========================= */
+===================================================== */
 
 document
 .getElementById("startGameBtn")
@@ -1010,15 +1126,15 @@ document
 );
 
 
-/* =========================
+/* =====================================================
    LOAD QUESTION
-========================= */
+===================================================== */
 
 function loadQuestion(){
 
-    selectedWords=[];
+    selectedWords = [];
 
-    mistakes=0;
+    mistakes = 0;
 
     const question =
         questions[currentQuestion];
@@ -1026,9 +1142,9 @@ function loadQuestion(){
     document.getElementById(
         "questionNumber"
     ).innerText =
-        "Question "+
-        (currentQuestion+1)+
-        " / "+
+        "Question " +
+        (currentQuestion + 1) +
+        " / " +
         questions.length;
 
     document.getElementById(
@@ -1043,19 +1159,23 @@ function loadQuestion(){
 
     document.getElementById(
         "feedback"
-    ).innerText="";
+    ).innerText =
+        "";
 
     document.getElementById(
         "feedback"
-    ).className="feedback";
+    ).className =
+        "feedback";
 
     document.getElementById(
         "checkBtn"
-    ).style.display="block";
+    ).style.display =
+        "block";
 
     document.getElementById(
         "nextBtn"
-    ).style.display="none";
+    ).style.display =
+        "none";
 
     renderAnswerBox();
 
@@ -1064,9 +1184,9 @@ function loadQuestion(){
 }
 
 
-/* =========================
-   WORD BANK
-========================= */
+/* =====================================================
+   CREATE WORD BANK
+===================================================== */
 
 function createWordBank(){
 
@@ -1075,16 +1195,18 @@ function createWordBank(){
             "wordBank"
         );
 
-    bank.innerHTML="";
+    bank.innerHTML = "";
 
     const correctWords =
-        questions[currentQuestion].answer;
+        questions[
+            currentQuestion
+        ].answer;
 
-    let words=[
+    let words = [
         ...correctWords
     ];
 
-    const distractors=[
+    const distractors = [
 
         "I",
         "You",
@@ -1093,40 +1215,39 @@ function createWordBank(){
         "We",
         "They",
 
-        "am",
-        "is",
-        "are",
-
-        "do",
-        "does",
-
+        "must",
         "not",
 
-        "go",
-        "goes",
+        "follow",
+        "wear",
+        "carry",
+        "bring",
+        "keep",
+        "stop",
+        "obey",
 
-        "drink",
-        "drinks",
+        "the",
+        "rules",
+        "rule",
+        "book",
+        "helmet",
+        "room",
+        "clean",
 
-        "eat",
+        "here",
+        "now",
+        "this",
+        "my",
+        "your",
 
-        "to",
-        "at",
+        "should",
+        "can",
+        "will",
 
-        "school",
-        "home",
-
-        "water",
-        "food",
-
-        "every",
-        "day",
-
-        "usually",
-        "always",
-
-        "today",
-        "night"
+        "Why",
+        "What",
+        "When",
+        "Where"
 
     ];
 
@@ -1153,7 +1274,7 @@ function createWordBank(){
     shuffle(words);
 
     words.forEach(
-        (word,index)=>{
+        word=>{
 
         const button =
             document.createElement(
@@ -1165,9 +1286,6 @@ function createWordBank(){
 
         button.innerText =
             word;
-
-        button.dataset.index =
-            index;
 
         button.onclick =
             function(){
@@ -1186,9 +1304,9 @@ function createWordBank(){
 }
 
 
-/* =========================
+/* =====================================================
    SELECT WORD
-========================= */
+===================================================== */
 
 function selectWord(
     word,
@@ -1196,9 +1314,7 @@ function selectWord(
 ){
 
     if(
-        button.classList.contains(
-            "used"
-        )
+        button.classList.contains("used")
     ){
         return;
     }
@@ -1214,9 +1330,9 @@ function selectWord(
 }
 
 
-/* =========================
+/* =====================================================
    ANSWER BOX
-========================= */
+===================================================== */
 
 function renderAnswerBox(){
 
@@ -1226,10 +1342,10 @@ function renderAnswerBox(){
         );
 
     if(
-        selectedWords.length===0
+        selectedWords.length === 0
     ){
 
-        box.innerHTML=`
+        box.innerHTML = `
 
             <div class="answer-placeholder">
                 Click the words below 👇
@@ -1240,7 +1356,7 @@ function renderAnswerBox(){
         return;
     }
 
-    box.innerHTML="";
+    box.innerHTML = "";
 
     selectedWords.forEach(
         (word,index)=>{
@@ -1270,9 +1386,9 @@ function renderAnswerBox(){
 }
 
 
-/* =========================
+/* =====================================================
    REMOVE WORD
-========================= */
+===================================================== */
 
 function removeWord(index){
 
@@ -1288,9 +1404,9 @@ function removeWord(index){
 }
 
 
-/* =========================
+/* =====================================================
    UPDATE BANK
-========================= */
+===================================================== */
 
 function updateBankButtons(){
 
@@ -1307,13 +1423,13 @@ function updateBankButtons(){
         }
     );
 
-    const used={};
+    const used = {};
 
     selectedWords.forEach(
         word=>{
 
-        used[word]=
-            (used[word] || 0)+1;
+        used[word] =
+            (used[word] || 0) + 1;
 
     });
 
@@ -1323,7 +1439,9 @@ function updateBankButtons(){
         const word =
             button.innerText;
 
-        if(used[word]>0){
+        if(
+            used[word] > 0
+        ){
 
             button.classList.add(
                 "used"
@@ -1338,9 +1456,9 @@ function updateBankButtons(){
 }
 
 
-/* =========================
+/* =====================================================
    CHECK ANSWER
-========================= */
+===================================================== */
 
 document
 .getElementById("checkBtn")
@@ -1362,7 +1480,8 @@ function checkAnswer(){
         correct.length &&
         selectedWords.every(
             (word,index)=>
-                word === correct[index]
+                word ===
+                correct[index]
         );
 
     const feedback =
@@ -1395,9 +1514,10 @@ function checkAnswer(){
         document.getElementById(
             "xpText"
         ).innerText =
-            xp+" XP";
+            xp + " XP";
 
-    }else{
+    }
+    else{
 
         mistakes++;
 
@@ -1409,7 +1529,9 @@ function checkAnswer(){
         feedback.className =
             "feedback error";
 
-        if(mistakes>=3){
+        if(
+            mistakes >= 3
+        ){
 
             showCorrectAnswer();
 
@@ -1420,13 +1542,13 @@ function checkAnswer(){
 }
 
 
-/* =========================
-   SHOW ANSWER
-========================= */
+/* =====================================================
+   SHOW CORRECT ANSWER
+===================================================== */
 
 function showCorrectAnswer(){
 
-    selectedWords=[
+    selectedWords = [
         ...questions[
             currentQuestion
         ].answer
@@ -1457,9 +1579,9 @@ function showCorrectAnswer(){
 }
 
 
-/* =========================
-   NEXT
-========================= */
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
 
 document
 .getElementById("nextBtn")
@@ -1476,7 +1598,8 @@ document
 
             finishLevel();
 
-        }else{
+        }
+        else{
 
             loadQuestion();
 
@@ -1486,9 +1609,9 @@ document
 );
 
 
-/* =========================
-   FINISH
-========================= */
+/* =====================================================
+   FINISH LEVEL
+===================================================== */
 
 function finishLevel(){
 
@@ -1505,14 +1628,14 @@ function finishLevel(){
     document.getElementById(
         "finalXP"
     ).innerText =
-        xp+" XP";
+        xp + " XP";
 
 }
 
 
-/* =========================
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 createLearningWords();
 
