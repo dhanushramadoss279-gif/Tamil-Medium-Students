@@ -1,112 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>TMS Academy - Learn English Through Tamil</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Poppins', 'Noto Sans Tamil', 'sans-serif']
+    <meta name="description" content="Learn English through Tamil with friendly grammar lessons, vocabulary, tenses, sentence practice, conversation and speaking activities at TMS Academy.">
+    <link rel="canonical" href="https://tamilmediumstudentsacademy.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TMS Academy - Learn English Through Tamil">
+    <meta property="og:description" content="Grammar, vocabulary, sentence practice, conversation and speaking practice — all in one place.">
+    <meta property="og:url" content="https://tamilmediumstudentsacademy.com/">
+    <meta name="twitter:card" content="summary">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "TMS Academy",
+            "url": "https://tamilmediumstudentsacademy.com/",
+            "description": "Learn English through Tamil with grammar, vocabulary, conversation and practice lessons."
+        }
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is TMS Academy?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "TMS Academy offers English grammar, vocabulary, sentence and conversation learning activities with Tamil support."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is TMS Academy suitable for beginners?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. The foundation learning path is a good place to start if you are learning English step by step."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How much does premium access cost?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Premium access costs ₹49 for one month. Sign in to see your membership status and subscribe or renew securely."
                     }
                 }
-            }
+            ]
         }
     </script>
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script>
+
+        tailwind.config = {
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+
+                        sans: [
+                            'Poppins',
+                            'Noto Sans Tamil',
+                            'sans-serif'
+                        ]
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    </script>
+
+
     <style>
+
         * {
             box-sizing: border-box;
         }
+
 
         body {
             min-height: 100vh;
         }
 
-        /* Main learning cards */
+
+        /* =========================
+           LEARNING CARD
+        ========================= */
+
         .learning-card {
-            background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e0f2fe,
+                    #dbeafe
+                );
+
             border: 1px solid #bfdbfe;
+
             transition: all 0.25s ease;
-            box-shadow: 0 3px 10px rgba(59, 130, 246, 0.08);
+
+            box-shadow:
+                0 3px 10px
+                rgba(59, 130, 246, 0.08);
+
         }
+
 
         .learning-card:hover {
+
             transform: translateY(-2px);
-            background: linear-gradient(135deg, #dbeafe, #c7d2fe);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #dbeafe,
+                    #c7d2fe
+                );
+
             border-color: #93c5fd;
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.14);
+
+            box-shadow:
+                0 8px 20px
+                rgba(59, 130, 246, 0.14);
+
         }
+
 
         .learning-card:active {
+
             transform: scale(0.98);
+
         }
 
-        /* Icon */
+
+        /* =========================
+           ICON
+        ========================= */
+
         .icon-box {
-            background: linear-gradient(135deg, #bfdbfe, #dbeafe);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #bfdbfe,
+                    #dbeafe
+                );
+
             border: 1px solid #93c5fd;
+
         }
 
-        /* Logo */
+
+        /* =========================
+           LOGO
+        ========================= */
+
         .logo-box {
-            background: linear-gradient(135deg, #60a5fa, #3b82f6);
-            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.20);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #60a5fa,
+                    #3b82f6
+                );
+
+            box-shadow:
+                0 6px 15px
+                rgba(59, 130, 246, 0.20);
+
         }
 
-        /* Number badge */
+
+        /* =========================
+           NUMBER BADGE
+        ========================= */
+
         .number-badge {
+
             background: #bfdbfe;
+
             color: #1d4ed8;
+
         }
 
-        /* Mobile */
+
+        /* =========================
+           SUBSCRIBE BUTTON
+        ========================= */
+
+        .subscribe-button {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #3b82f6
+                );
+
+            box-shadow:
+                0 5px 15px
+                rgba(37, 99, 235, 0.20);
+
+            transition: all 0.2s ease;
+
+        }
+
+
+        .subscribe-button:hover {
+
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 8px 20px
+                rgba(37, 99, 235, 0.28);
+
+        }
+
+
+        .subscribe-button:active {
+
+            transform: scale(0.97);
+
+        }
+
+
+        .subscribe-button:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+
+            transform: none;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 640px) {
 
             .learning-card {
+
                 min-height: 72px;
+
             }
 
         }
+
     </style>
+
 </head>
 
 
 <body class="bg-gradient-to-br from-sky-50 via-white to-blue-50 text-gray-800 font-sans">
 
 
-    <!-- ================= HEADER ================= -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-blue-100 shadow-sm">
+    <header class="sticky top-0 z-50
+                   bg-white/95
+                   backdrop-blur-md
+                   border-b border-blue-100
+                   shadow-sm">
 
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3">
+        <div class="max-w-5xl mx-auto
+                    px-4 sm:px-6
+                    py-3">
 
             <div class="flex items-center justify-between">
 
 
-                <!-- LOGO -->
+                <!-- ================= LOGO ================= -->
 
                 <a href="index.html"
                    class="flex items-center gap-3">
 
-                    <div class="logo-box w-11 h-11 sm:w-13 sm:h-13
+                    <div class="logo-box
+                                w-11 h-11
+                                sm:w-13 sm:h-13
                                 rounded-2xl
-                                flex items-center justify-center
-                                text-white text-xl sm:text-2xl
-                                relative overflow-hidden">
+                                flex items-center
+                                justify-center
+                                text-white
+                                text-xl sm:text-2xl
+                                relative
+                                overflow-hidden">
 
                         <div class="absolute inset-0 bg-white/10"></div>
 
                         <div class="relative">
+
                             📚
+
                         </div>
 
                     </div>
@@ -114,7 +326,8 @@
 
                     <div>
 
-                        <h1 class="text-lg sm:text-xl font-extrabold
+                        <h1 class="text-lg sm:text-xl
+                                   font-extrabold
                                    leading-tight
                                    text-blue-600">
 
@@ -122,8 +335,10 @@
 
                         </h1>
 
+
                         <p class="text-[9px] sm:text-[11px]
-                                  text-blue-400 font-medium">
+                                  text-blue-400
+                                  font-medium">
 
                             Learn English Through Tamil
 
@@ -134,69 +349,8 @@
                 </a>
 
 
-                <!-- PROFILE -->
-
-                <div class="relative group">
-
-                    <button
-                        class="w-10 h-10
-                               rounded-full
-                               bg-blue-50
-                               border border-blue-200
-                               hover:bg-blue-100
-                               hover:border-blue-300
-                               flex items-center justify-center
-                               text-lg
-                               transition">
-
-                        👤
-
-                    </button>
 
 
-                    <!-- PROFILE MENU -->
-
-                    <div
-                        class="absolute right-0 top-12
-                               w-52
-                               bg-white
-                               border border-blue-100
-                               rounded-2xl
-                               shadow-xl
-                               overflow-hidden
-                               hidden
-                               group-hover:block
-                               group-focus-within:block
-                               z-50">
-
-                        <div class="px-4 py-4 bg-blue-50">
-
-                            <p class="text-xs text-gray-500">
-                                Welcome 👋
-                            </p>
-
-                            <p class="text-sm font-bold text-blue-600 mt-1">
-                                TMS Academy
-                            </p>
-
-                        </div>
-
-
-                        <a href="#login"
-                           class="block px-4 py-3
-                                  text-sm font-medium
-                                  text-gray-700
-                                  hover:bg-blue-50
-                                  hover:text-blue-600
-                                  transition">
-
-                            🔐 Login / Sign Up
-
-                        </a>
-
-                    </div>
-
-                </div>
 
             </div>
 
@@ -206,20 +360,26 @@
 
 
 
-    <!-- ================= MAIN ================= -->
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-    <main class="max-w-2xl mx-auto px-4 py-7 sm:py-10">
+    <main class="max-w-2xl mx-auto
+                 px-4
+                 py-7 sm:py-10">
 
 
-        <!-- INTRO -->
+        <!-- ================= INTRO ================= -->
 
         <section class="text-center mb-7">
 
 
-            <!-- Small badge -->
+            <!-- BADGE -->
 
-            <div class="inline-flex items-center
-                        px-3 py-1.5 mb-4
+            <div class="inline-flex
+                        items-center
+                        px-3 py-1.5
+                        mb-4
                         bg-blue-100
                         text-blue-600
                         rounded-full
@@ -231,7 +391,8 @@
             </div>
 
 
-            <!-- Heading -->
+
+            <!-- HEADING -->
 
             <h2 class="text-2xl sm:text-3xl
                        font-extrabold
@@ -243,7 +404,8 @@
             </h2>
 
 
-            <!-- Tamil -->
+
+            <!-- TAMIL -->
 
             <p class="text-xs sm:text-sm
                       text-gray-500
@@ -251,42 +413,52 @@
                       leading-6">
 
                 தமிழில் புரிந்து கொண்டு
+
                 <span class="font-semibold text-blue-500">
+
                     English
+
                 </span>
+
                 -ஐ எளிதாக கற்றுக்கொள்ளுங்கள்.
 
             </p>
-
 
         </section>
 
 
 
-        <!-- ================= LEARNING STEPS ================= -->
+        <!-- =================================================
+             LEARNING STEPS
+        ================================================== -->
 
         <section class="space-y-3">
 
 
-            <!-- 01 FOUNDATION -->
+            <!-- ================= 01 FOUNDATION ================= -->
 
             <a href="foundation.html"
                class="learning-card
                       rounded-2xl
-                      px-3 sm:px-5 py-3
-                      flex items-center gap-3
+                      px-3 sm:px-5
+                      py-3
+                      flex items-center
+                      gap-3
                       group">
+
 
                 <div class="icon-box
                             w-11 h-11
                             rounded-xl
-                            flex items-center justify-center
+                            flex items-center
+                            justify-center
                             text-xl
                             shrink-0">
 
                     🌱
 
                 </div>
+
 
 
                 <div class="flex-1 min-w-0">
@@ -303,6 +475,7 @@
 
                         </span>
 
+
                         <h3 class="text-sm sm:text-base
                                    font-bold
                                    text-blue-800">
@@ -312,6 +485,7 @@
                         </h3>
 
                     </div>
+
 
                     <p class="text-[10px] sm:text-xs
                               text-gray-500
@@ -337,19 +511,23 @@
 
 
 
-            <!-- 02 GRAMMAR -->
+            <!-- ================= 02 GRAMMAR ================= -->
 
             <a href="grammar.html"
                class="learning-card
                       rounded-2xl
-                      px-3 sm:px-5 py-3
-                      flex items-center gap-3
+                      px-3 sm:px-5
+                      py-3
+                      flex items-center
+                      gap-3
                       group">
+
 
                 <div class="icon-box
                             w-11 h-11
                             rounded-xl
-                            flex items-center justify-center
+                            flex items-center
+                            justify-center
                             text-xl
                             shrink-0">
 
@@ -372,6 +550,7 @@
 
                         </span>
 
+
                         <h3 class="text-sm sm:text-base
                                    font-bold
                                    text-blue-800">
@@ -381,6 +560,7 @@
                         </h3>
 
                     </div>
+
 
                     <p class="text-[10px] sm:text-xs
                               text-gray-500
@@ -406,19 +586,23 @@
 
 
 
-            <!-- 03 VOCABULARY -->
+            <!-- ================= 03 VOCABULARY ================= -->
 
             <a href="vocabulary.html"
                class="learning-card
                       rounded-2xl
-                      px-3 sm:px-5 py-3
-                      flex items-center gap-3
+                      px-3 sm:px-5
+                      py-3
+                      flex items-center
+                      gap-3
                       group">
+
 
                 <div class="icon-box
                             w-11 h-11
                             rounded-xl
-                            flex items-center justify-center
+                            flex items-center
+                            justify-center
                             text-xl
                             shrink-0">
 
@@ -441,6 +625,7 @@
 
                         </span>
 
+
                         <h3 class="text-sm sm:text-base
                                    font-bold
                                    text-blue-800">
@@ -450,6 +635,7 @@
                         </h3>
 
                     </div>
+
 
                     <p class="text-[10px] sm:text-xs
                               text-gray-500
@@ -475,19 +661,23 @@
 
 
 
-            <!-- 04 DAILY SENTENCES -->
+            <!-- ================= 04 DAILY SENTENCES ================= -->
 
             <a href="daily-sentences.html"
                class="learning-card
                       rounded-2xl
-                      px-3 sm:px-5 py-3
-                      flex items-center gap-3
+                      px-3 sm:px-5
+                      py-3
+                      flex items-center
+                      gap-3
                       group">
+
 
                 <div class="icon-box
                             w-11 h-11
                             rounded-xl
-                            flex items-center justify-center
+                            flex items-center
+                            justify-center
                             text-xl
                             shrink-0">
 
@@ -510,6 +700,7 @@
 
                         </span>
 
+
                         <h3 class="text-sm sm:text-base
                                    font-bold
                                    text-blue-800">
@@ -519,6 +710,7 @@
                         </h3>
 
                     </div>
+
 
                     <p class="text-[10px] sm:text-xs
                               text-gray-500
@@ -544,19 +736,23 @@
 
 
 
-            <!-- 05 CONVERSATION -->
+            <!-- ================= 05 CONVERSATION ================= -->
 
             <a href="conversation.html"
                class="learning-card
                       rounded-2xl
-                      px-3 sm:px-5 py-3
-                      flex items-center gap-3
+                      px-3 sm:px-5
+                      py-3
+                      flex items-center
+                      gap-3
                       group">
+
 
                 <div class="icon-box
                             w-11 h-11
                             rounded-xl
-                            flex items-center justify-center
+                            flex items-center
+                            justify-center
                             text-xl
                             shrink-0">
 
@@ -579,6 +775,7 @@
 
                         </span>
 
+
                         <h3 class="text-sm sm:text-base
                                    font-bold
                                    text-blue-800">
@@ -588,6 +785,7 @@
                         </h3>
 
                     </div>
+
 
                     <p class="text-[10px] sm:text-xs
                               text-gray-500
@@ -613,19 +811,23 @@
 
 
 
-            <!-- 06 SPEAKING -->
+            <!-- ================= 06 SPEAKING ================= -->
 
             <a href="speaking.html"
                class="learning-card
                       rounded-2xl
-                      px-3 sm:px-5 py-3
-                      flex items-center gap-3
+                      px-3 sm:px-5
+                      py-3
+                      flex items-center
+                      gap-3
                       group">
+
 
                 <div class="icon-box
                             w-11 h-11
                             rounded-xl
-                            flex items-center justify-center
+                            flex items-center
+                            justify-center
                             text-xl
                             shrink-0">
 
@@ -648,6 +850,7 @@
 
                         </span>
 
+
                         <h3 class="text-sm sm:text-base
                                    font-bold
                                    text-blue-800">
@@ -657,6 +860,7 @@
                         </h3>
 
                     </div>
+
 
                     <p class="text-[10px] sm:text-xs
                               text-gray-500
@@ -689,7 +893,8 @@
 
         <div class="mt-7 text-center">
 
-            <div class="inline-flex items-center
+            <div class="inline-flex
+                        items-center
                         gap-2
                         px-4 py-2
                         bg-white
@@ -697,16 +902,28 @@
                         rounded-full
                         shadow-sm">
 
+
                 <span class="text-sm">
+
                     🌱
+
                 </span>
+
 
                 <p class="text-xs text-gray-500">
 
                     Learn
-                    <span class="text-blue-500 font-semibold">→</span>
+
+                    <span class="text-blue-500 font-semibold">
+                        →
+                    </span>
+
                     Practice
-                    <span class="text-blue-500 font-semibold">→</span>
+
+                    <span class="text-blue-500 font-semibold">
+                        →
+                    </span>
+
                     Speak
 
                 </p>
@@ -715,17 +932,37 @@
 
         </div>
 
+        <section class="tms-home-faq" aria-labelledby="tms-faq-title">
+            <h2 id="tms-faq-title">Frequently asked questions</h2>
+            <details>
+                <summary>What is TMS Academy?</summary>
+                <p>TMS Academy offers English grammar, vocabulary, sentence and conversation learning activities with Tamil support.</p>
+            </details>
+            <details>
+                <summary>Is it suitable for beginners?</summary>
+                <p>Yes. The foundation learning path is a good place to start if you are learning English step by step.</p>
+            </details>
+            <details>
+                <summary>How much does premium access cost?</summary>
+                <p>Premium access costs ₹49 for one month. Sign in to see your membership status and subscribe or renew securely.</p>
+            </details>
+        </section>
 
     </main>
 
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
-    <footer class="border-t border-blue-100
+    <footer class="border-t
+                   border-blue-100
                    bg-white/80">
 
-        <div class="text-center py-5 px-4">
+        <div class="text-center
+                    py-5
+                    px-4">
 
             <p class="text-[10px] sm:text-xs
                       text-gray-400">
@@ -733,7 +970,9 @@
                 © 2026
 
                 <span class="font-bold text-blue-500">
+
                     TMS Academy
+
                 </span>
 
                 • Learn English Through Tamil
@@ -745,5 +984,7 @@
     </footer>
 
 
+
 </body>
+
 </html>
