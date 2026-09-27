@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{*.html,public/**,views/**,data/**,templates/**,prisma/**}"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index?__originalPath=/$1"
+    }
+  ]
+}

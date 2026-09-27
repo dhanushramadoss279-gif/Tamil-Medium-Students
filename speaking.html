@@ -8,7 +8,6 @@
 <title>TMS Academy - AI Conversation</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -24,7 +23,6 @@ body{
 }
 
 /* CHAT */
-
 .chat-container{
     flex:1;
     overflow-y:auto;
@@ -47,9 +45,7 @@ body{
     font-size:15px;
 }
 
-
 /* MESSAGE */
-
 .message{
     display:flex;
     margin-bottom:20px;
@@ -72,18 +68,14 @@ body{
     white-space:pre-wrap;
 }
 
-
 /* USER */
-
 .user .bubble{
     background:#2563eb;
     color:white;
     border-bottom-right-radius:5px;
 }
 
-
 /* AI */
-
 .ai .bubble{
     background:white;
     color:#1e293b;
@@ -91,162 +83,97 @@ body{
     border-bottom-left-radius:5px;
 }
 
-
 /* START CONVERSATION AREA */
-
 .input-area{
     padding:15px 15% 20px;
-
     display:flex;
     justify-content:center;
 }
 
-
 /* START BUTTON */
-
 .start-conversation-btn{
-
     border:none;
-
     background:#2563eb;
-
     color:white;
-
     padding:14px 28px;
-
     border-radius:28px;
-
     font-size:16px;
-
     font-weight:600;
-
     cursor:pointer;
-
-    box-shadow:
-        0 5px 15px rgba(37,99,235,0.20);
-
+    box-shadow: 0 5px 15px rgba(37,99,235,0.20);
     transition:all 0.2s ease;
 }
 
 .start-conversation-btn:hover{
-
     background:#1d4ed8;
-
     transform:translateY(-2px);
-
-    box-shadow:
-        0 8px 20px rgba(37,99,235,0.25);
+    box-shadow: 0 8px 20px rgba(37,99,235,0.25);
 }
 
 .start-conversation-btn:active{
-
     transform:scale(0.97);
 }
 
-
 /* MOBILE */
-
 @media(max-width:700px){
-
     .chat-container{
         padding:20px 12px;
     }
-
     .input-area{
         padding:10px 10px 15px;
     }
-
     .welcome h1{
         font-size:25px;
     }
-
     .start-conversation-btn{
         padding:13px 24px;
         font-size:15px;
     }
-
     .bubble{
         max-width:85%;
     }
-
 }
-
 </style>
 
 </head>
 
-
 <body>
 
-
 <!-- CHAT -->
-
-<div
-    class="chat-container"
-    id="chatContainer"
->
-
-    <div
-        class="welcome"
-        id="welcome"
-    >
-
+<div class="chat-container" id="chatContainer">
+    <div class="welcome" id="welcome">
         <h1>
             Let's Practice English 🩵
         </h1>
-
         <p>
             Talk with AI and improve your English conversation.
         </p>
-
     </div>
-
 </div>
 
-
-
 <!-- START CONVERSATION BUTTON -->
-
 <div class="input-area">
-
     <button
         class="start-conversation-btn"
         id="startConversation"
         onclick="startConversation()"
     >
-
-        🗣️ Start Conversation
-
+        🎙️ Start Voice Conversation
     </button>
-
 </div>
-
-
 
 <script>
 
 function startConversation(){
-
-    /*
-       இங்கே AI conversation start செய்யலாம்.
-       அடுத்த step-ல்:
-
-       1. Microphone permission
-       2. User English பேசுவது
-       3. Speech → Text
-       4. Gemini AI
-       5. AI reply
-       6. AI Voice reply
-
-       எல்லாம் connect செய்யலாம்.
-    */
-
-    console.log("AI Conversation Started");
-
+    // Ungaloda ChatGPT conversation link-ai inge paste pannungal
+    // Example: "https://chatgpt.com/c/651234abcd..."
+    const chatGPTUrl = "https://chatgpt.com/c/UNGAL_CONVERSATION_ID_INGE_PODUNGA";
+    
+    // Puthu tab-la antha conversation open aagum
+    window.open(chatGPTUrl, '_blank');
 }
 
 </script>
-
 
 </body>
 </html>
